@@ -6,6 +6,8 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace DivineMonad.Areas.Admin.Controllers
 {
+    [Area("Admin")]
+    [Route("admin/[controller]")]
     public class ItemListController : Controller
     {
         public IActionResult Index()
