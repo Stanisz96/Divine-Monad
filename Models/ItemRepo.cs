@@ -7,11 +7,11 @@ using System.Threading.Tasks;
 
 namespace DivineMonad.Models
 {
-    public class ItemRepository : IItemRepository
+    public class ItemRepo : IItemRepo
     {
         private readonly ApplicationDbContext _appDbContext;
 
-        public ItemRepository(ApplicationDbContext appDbContext)
+        public ItemRepo(ApplicationDbContext appDbContext)
         {
             _appDbContext = appDbContext;
         }

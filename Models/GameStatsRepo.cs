@@ -6,15 +6,15 @@ using System.Threading.Tasks;
 
 namespace DivineMonad.Models
 {
-    public class ItemCategoryRepo : IItemCategoryRepo
+    public class GameStatsRepo : IGameStatsRepo
     {
         private readonly ApplicationDbContext _appDbContext;
 
-        public ItemCategoryRepo(ApplicationDbContext appDbContext)
+        public GameStatsRepo(ApplicationDbContext appDbContext)
         {
             _appDbContext = appDbContext;
         }
 
-        public IEnumerable<ItemCategory> AllCategories => _appDbContext.ItemCategories;
+        public IEnumerable<GameStats> AllCharactersGameStats => _appDbContext.CharactersGameStats;
     }
 }

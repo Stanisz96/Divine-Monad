@@ -5,9 +5,8 @@ using System.Threading.Tasks;
 
 namespace DivineMonad.Models
 {
-    public interface IItemRepository
+    public interface ICharacterBaseStatsRepo
     {
-        IEnumerable<Item> AllItems { get; }
-        Item GetItemById(int itemId);
+        IEnumerable<CharacterBaseStats> AllChatactersBaseStats { get; }
     }
 }

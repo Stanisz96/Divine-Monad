@@ -15,6 +15,11 @@ namespace DivineMonad.Data
         }
 
         public DbSet<Item> Items { get; set; }
-        public DbSet<ItemCategory> Categories { get; set; }
+        public DbSet<ItemCategory> ItemCategories { get; set; }
+        public DbSet<ItemStats> ItemsStats { get; set; }
+        public DbSet<CharacterItems> CharactersItems { get; set; }
+        public DbSet<Character> Characters { get; set; }
+        public DbSet<CharacterBaseStats> CharactersBaseStats { get; set; }
+        public DbSet<GameStats> CharactersGameStats { get; set; }
     }
 }
