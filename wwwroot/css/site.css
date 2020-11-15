@@ -76,3 +76,11 @@ body {
     line-height: 60px; /* Vertically center the text there */
     background-color: #e8f7f4;
 }
+
+
+/*Style for button*/
+.btn-custom {
+    color: black !important;
+    background-color: #8cd9c8 !important;
+    border-color: #2b8b76 !important;
+}

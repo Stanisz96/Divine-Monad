@@ -1,0 +1,86 @@
+﻿@model IEnumerable<DivineMonad.Models.ItemStats>
+
+@{
+    ViewData["Title"] = "Items Stats";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1>Items Statistics</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.HP)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AttackMin)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AttackMax)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Armor)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Critic)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Strength)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Stamina)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Agility)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AllAtributes)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.HP)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AttackMin)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AttackMax)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Armor)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Critic)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Strength)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Stamina)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Agility)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AllAtributes)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.ID">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.ID">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.ID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+
+<a asp-controller="Home" asp-action="Index">Back to Admin home page</a>

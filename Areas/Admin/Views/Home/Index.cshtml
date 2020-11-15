@@ -1,1 +1,44 @@
-﻿<h1>Admin home page</h1>
+﻿@{ 
+    ViewData["Title"] = "Admin home page";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1>@ViewData["Title"]</h1>
+<hr />
+<div class="row">
+    <div class="col-sm-2 m-2">
+        <a asp-controller="Characters" class=" btn btn-block btn-custom">
+            <h6 class="m-2 p-2">All Characters </h6>
+        </a>
+    </div>
+    <div class="col-sm-2 m-2">
+        <a asp-controller="CharactersItems" class=" btn btn-block btn-custom">
+            <h6 class="m-2">Characters Items List</h6>
+        </a>
+    </div>
+    <div class="col-sm-2 m-2">
+        <a asp-controller="CharactersBaseStats" class=" btn btn-block btn-custom">
+            <h6 class="m-2">Characters Base Stats</h6>
+        </a>
+    </div>
+    <div class="col-sm-2 m-2">
+        <a asp-controller="GameStats" class=" btn btn-block btn-custom">
+            <h6 class="m-2">Characters Game Stats</h6>
+        </a>
+    </div>
+    <div class="col-sm-2 m-2">
+        <a asp-controller="ItemCategories" class=" btn btn-block btn-custom">
+            <h6 class="m-2">All Item Categories</h6>
+        </a>
+    </div>
+    <div class="col-sm-2 m-2">
+        <a asp-controller="Items" class=" btn btn-block btn-custom">
+            <h6 class="m-2 p-2">All Items List</h6>
+        </a>
+    </div>
+    <div class="col-sm-2 m-2">
+        <a asp-controller="ItemsStats" class=" btn btn-block btn-custom">
+            <h6 class="m-2 p-2">All Item Stats</h6>
+        </a>
+    </div>
+</div>
