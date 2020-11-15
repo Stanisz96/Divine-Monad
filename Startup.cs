@@ -12,6 +12,7 @@ using DivineMonad.Data;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using DivineMonad.Models;
 
 namespace DivineMonad
 {
@@ -32,6 +33,10 @@ namespace DivineMonad
                     Configuration.GetConnectionString("MainConnection")));
             services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddEntityFrameworkStores<ApplicationDbContext>();
+
+            services.AddScoped<IItemRepo, ItemRepo>();
+            //services.AddSingleton<IItemRepo, ItemRepo>();
+
             services.AddControllersWithViews();
             services.AddRazorPages();
         }

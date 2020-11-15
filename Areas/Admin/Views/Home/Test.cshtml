@@ -1,0 +1,20 @@
+﻿@model DivineMonad.Models.Item
+
+<h2>@Model.Name</h2>
+
+<div class="card mb-3" style="max-width: 540px;">
+    <div class="row no-gutters">
+        <div class="col-6">
+            <img src='@Url.Content(@Model.ImageUrl)' class="card-img" alt="@Model.Name">
+        </div>
+        <div class="col-6">
+            <div class="card-body">
+                <h5 class="card-title">@Model.Name</h5>
+                <p class="card-subtitle text-warning">@Model.Price.ToString() G</p>
+                <p class="card-text"><small class="text-muted">@Model.Description</small></p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<a asp-controller="Home" asp-action="Index">Back to Admin home page</a>

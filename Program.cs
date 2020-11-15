@@ -17,6 +17,9 @@ namespace DivineMonad
         {
             var host = CreateHostBuilder(args).Build();
 
+            //var host = CreateHostBuilder(args).UseDefaultServiceProvider(options =>
+            //            options.ValidateScopes = false).Build();
+
             using (var scope = host.Services.CreateScope())
             {
                 var services = scope.ServiceProvider;
