@@ -35,7 +35,6 @@ namespace DivineMonad
                 .AddEntityFrameworkStores<ApplicationDbContext>();
 
             services.AddScoped<IItemRepo, ItemRepo>();
-            //services.AddSingleton<IItemRepo, ItemRepo>();
 
             services.AddControllersWithViews();
             services.AddRazorPages();

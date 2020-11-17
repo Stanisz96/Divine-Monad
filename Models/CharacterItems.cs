@@ -12,5 +12,9 @@ namespace DivineMonad.Models
         public int ItemId { get; set; }
         public bool IsEquipped { get; set; }
 
+        public CharacterItems()
+        {
+            IsEquipped = false;
+        }
     }
 }
