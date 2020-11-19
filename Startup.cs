@@ -29,15 +29,27 @@ namespace DivineMonad
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<ApplicationDbContext>(options =>
-                options.UseSqlServer(
-                    Configuration.GetConnectionString("MainConnection")));
-            services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
-                .AddEntityFrameworkStores<ApplicationDbContext>();
+                    options.UseSqlServer(Configuration.GetConnectionString("MainConnection")));
+            services.AddIdentity<IdentityUser, IdentityRole>(options =>
+                    options.SignIn.RequireConfirmedAccount = true)
+                    .AddDefaultUI()
+                    .AddEntityFrameworkStores<ApplicationDbContext>()
+                    .AddDefaultTokenProviders();
+            //services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
+            //    .AddEntityFrameworkStores<ApplicationDbContext>();
 
             services.AddScoped<IItemRepo, ItemRepo>();
 
             services.AddControllersWithViews();
             services.AddRazorPages();
+
+            services.AddAuthorization(options =>
+            {
+                options.AddPolicy("readpolicy",
+                    builder => builder.RequireRole("Admin", "User"));
+                options.AddPolicy("writepolicy",
+                    builder => builder.RequireRole("Admin"));
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
