@@ -31,7 +31,10 @@ namespace DivineMonad
             services.AddDbContext<ApplicationDbContext>(options =>
                     options.UseSqlServer(Configuration.GetConnectionString("MainConnection")));
             services.AddIdentity<IdentityUser, IdentityRole>(options =>
-                    options.SignIn.RequireConfirmedAccount = true)
+                    {
+                        options.SignIn.RequireConfirmedAccount = true;
+                        options.User.RequireUniqueEmail = true;
+                    })
                     .AddDefaultUI()
                     .AddEntityFrameworkStores<ApplicationDbContext>()
                     .AddDefaultTokenProviders();
