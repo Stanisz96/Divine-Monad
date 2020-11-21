@@ -52,6 +52,8 @@ namespace DivineMonad.Areas.Admin.Controllers
         {
             ViewData["CBStatsId"] = new SelectList(_context.CharactersBaseStats, "ID", "ID");
             ViewData["GStatsId"] = new SelectList(_context.CharactersGameStats, "ID", "ID");
+            ViewData["UserId"] = new SelectList(_context.Users, "Id", "UserName");
+
             return View();
         }
 
