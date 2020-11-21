@@ -1,0 +1,80 @@
+﻿@model DivineMonad.Models.GameStats
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1>Edit</h1>
+
+<h4>GameStats</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="ID" />
+            <div class="form-group">
+                <label asp-for="MonsterKills" class="control-label"></label>
+                <input asp-for="MonsterKills" class="form-control" />
+                <span asp-validation-for="MonsterKills" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CollectedGold" class="control-label"></label>
+                <input asp-for="CollectedGold" class="form-control" />
+                <span asp-validation-for="CollectedGold" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DeathsNumber" class="control-label"></label>
+                <input asp-for="DeathsNumber" class="form-control" />
+                <span asp-validation-for="DeathsNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="LostFights" class="control-label"></label>
+                <input asp-for="LostFights" class="form-control" />
+                <span asp-validation-for="LostFights" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="WinFights" class="control-label"></label>
+                <input asp-for="WinFights" class="form-control" />
+                <span asp-validation-for="WinFights" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DrawFights" class="control-label"></label>
+                <input asp-for="DrawFights" class="form-control" />
+                <span asp-validation-for="DrawFights" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="LootedNormal" class="control-label"></label>
+                <input asp-for="LootedNormal" class="form-control" />
+                <span asp-validation-for="LootedNormal" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="LootedUnique" class="control-label"></label>
+                <input asp-for="LootedUnique" class="form-control" />
+                <span asp-validation-for="LootedUnique" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="LootedHeroic" class="control-label"></label>
+                <input asp-for="LootedHeroic" class="form-control" />
+                <span asp-validation-for="LootedHeroic" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="LootedLegendary" class="control-label"></label>
+                <input asp-for="LootedLegendary" class="form-control" />
+                <span asp-validation-for="LootedLegendary" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
