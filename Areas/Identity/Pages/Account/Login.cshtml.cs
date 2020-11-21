@@ -83,6 +83,14 @@ namespace DivineMonad.Areas.Identity.Pages.Account
                 if (result.Succeeded)
                 {
                     _logger.LogInformation("User logged in.");
+
+                    // Resolve the user via their email
+                    var user = await _userManager.FindByNameAsync(Input.Email);
+                    // Get the roles for the user
+                    var roles = await _userManager.GetRolesAsync(user);
+                    
+                    returnUrl = roles.Contains("Admin") ? Url.Content("~/Admin/") : Url.Content("~/");
+
                     return LocalRedirect(returnUrl);
                 }
                 if (result.RequiresTwoFactor)
