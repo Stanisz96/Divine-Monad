@@ -7,10 +7,12 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using DivineMonad.Data;
 using DivineMonad.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace DivineMonad.Areas.Admin.Controllers
 {
     [Area("Admin")]
+    [Authorize(Roles = "Admin")]
     public class RaritiesController : Controller
     {
         private readonly ApplicationDbContext _context;
