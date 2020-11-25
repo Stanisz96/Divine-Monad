@@ -23,7 +23,7 @@ namespace DivineMonad.Areas.Admin.Controllers
         // GET: Admin/Items
         public async Task<IActionResult> Index()
         {
-            var applicationDbContext = _context.Items.Include(i => i.Category).Include(i => i.Statistics);
+            var applicationDbContext = _context.Items.Include(i => i.Category).Include(i => i.Rarity).Include(i => i.Statistics);
             return View(await applicationDbContext.ToListAsync());
         }
 
@@ -37,6 +37,7 @@ namespace DivineMonad.Areas.Admin.Controllers
 
             var item = await _context.Items
                 .Include(i => i.Category)
+                .Include(i => i.Rarity)
                 .Include(i => i.Statistics)
                 .FirstOrDefaultAsync(m => m.ID == id);
             if (item == null)
@@ -51,6 +52,7 @@ namespace DivineMonad.Areas.Admin.Controllers
         public IActionResult Create()
         {
             ViewData["CategoryId"] = new SelectList(_context.ItemCategories, "ID", "ID");
+            ViewData["RarityId"] = new SelectList(_context.Rarity, "ID", "ID");
             ViewData["StatisticsId"] = new SelectList(_context.ItemsStats, "ID", "ID");
             return View();
         }
@@ -60,7 +62,7 @@ namespace DivineMonad.Areas.Admin.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ID,Name,Description,ImageUrl,Price,Level,CategoryId,StatisticsId")] Item item)
+        public async Task<IActionResult> Create([Bind("ID,Name,Description,ImageUrl,Price,Level,CategoryId,StatisticsId,RarityId")] Item item)
         {
             if (ModelState.IsValid)
             {
@@ -69,6 +71,7 @@ namespace DivineMonad.Areas.Admin.Controllers
                 return RedirectToAction(nameof(Index));
             }
             ViewData["CategoryId"] = new SelectList(_context.ItemCategories, "ID", "ID", item.CategoryId);
+            ViewData["RarityId"] = new SelectList(_context.Rarity, "ID", "ID", item.RarityId);
             ViewData["StatisticsId"] = new SelectList(_context.ItemsStats, "ID", "ID", item.StatisticsId);
             return View(item);
         }
@@ -87,6 +90,7 @@ namespace DivineMonad.Areas.Admin.Controllers
                 return NotFound();
             }
             ViewData["CategoryId"] = new SelectList(_context.ItemCategories, "ID", "ID", item.CategoryId);
+            ViewData["RarityId"] = new SelectList(_context.Rarity, "ID", "ID", item.RarityId);
             ViewData["StatisticsId"] = new SelectList(_context.ItemsStats, "ID", "ID", item.StatisticsId);
             return View(item);
         }
@@ -96,7 +100,7 @@ namespace DivineMonad.Areas.Admin.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("ID,Name,Description,ImageUrl,Price,Level,CategoryId,StatisticsId")] Item item)
+        public async Task<IActionResult> Edit(int id, [Bind("ID,Name,Description,ImageUrl,Price,Level,CategoryId,StatisticsId,RarityId")] Item item)
         {
             if (id != item.ID)
             {
@@ -124,6 +128,7 @@ namespace DivineMonad.Areas.Admin.Controllers
                 return RedirectToAction(nameof(Index));
             }
             ViewData["CategoryId"] = new SelectList(_context.ItemCategories, "ID", "ID", item.CategoryId);
+            ViewData["RarityId"] = new SelectList(_context.Rarity, "ID", "ID", item.RarityId);
             ViewData["StatisticsId"] = new SelectList(_context.ItemsStats, "ID", "ID", item.StatisticsId);
             return View(item);
         }
@@ -138,6 +143,7 @@ namespace DivineMonad.Areas.Admin.Controllers
 
             var item = await _context.Items
                 .Include(i => i.Category)
+                .Include(i => i.Rarity)
                 .Include(i => i.Statistics)
                 .FirstOrDefaultAsync(m => m.ID == id);
             if (item == null)

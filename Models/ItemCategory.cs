@@ -19,8 +19,6 @@ namespace DivineMonad.Models
         public bool Weapon1H { get; set; }
         public bool Weapon2H { get; set; }
         public bool Shield { get; set; }
-        public int RarityId { get; set; }
-        public Rarity Rarity { get; set; }
 
         public ItemCategory()
         {

@@ -46,9 +46,6 @@
             <th>
                 @Html.DisplayNameFor(model => model.Shield)
             </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Rarity)
-            </th>
             <th></th>
         </tr>
     </thead>
@@ -87,9 +84,6 @@
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Shield)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Rarity.ID)
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.ID">Edit</a> |

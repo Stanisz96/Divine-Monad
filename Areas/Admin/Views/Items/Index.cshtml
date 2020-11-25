@@ -34,6 +34,9 @@
             <th>
                 @Html.DisplayNameFor(model => model.Statistics)
             </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Rarity)
+            </th>
             <th></th>
         </tr>
     </thead>
@@ -60,6 +63,9 @@
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Statistics.ID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Rarity.ID)
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.ID">Edit</a> |

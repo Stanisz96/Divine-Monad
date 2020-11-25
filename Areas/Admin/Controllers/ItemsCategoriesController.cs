@@ -23,8 +23,7 @@ namespace DivineMonad.Areas.Admin.Controllers
         // GET: Admin/ItemsCategories
         public async Task<IActionResult> Index()
         {
-            var applicationDbContext = _context.ItemCategories.Include(i => i.Rarity);
-            return View(await applicationDbContext.ToListAsync());
+            return View(await _context.ItemCategories.ToListAsync());
         }
 
         // GET: Admin/ItemsCategories/Details/5
@@ -36,7 +35,6 @@ namespace DivineMonad.Areas.Admin.Controllers
             }
 
             var itemCategory = await _context.ItemCategories
-                .Include(i => i.Rarity)
                 .FirstOrDefaultAsync(m => m.ID == id);
             if (itemCategory == null)
             {
@@ -49,7 +47,6 @@ namespace DivineMonad.Areas.Admin.Controllers
         // GET: Admin/ItemsCategories/Create
         public IActionResult Create()
         {
-            ViewData["RarityId"] = new SelectList(_context.Set<Rarity>(), "ID", "ID");
             return View();
         }
 
@@ -58,7 +55,7 @@ namespace DivineMonad.Areas.Admin.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ID,Name,Description,Armor,Arrow,Boots,Bow,Gloves,Helmet,Weapon1H,Weapon2H,Shield,RarityId")] ItemCategory itemCategory)
+        public async Task<IActionResult> Create([Bind("ID,Name,Description,Armor,Arrow,Boots,Bow,Gloves,Helmet,Weapon1H,Weapon2H,Shield")] ItemCategory itemCategory)
         {
             if (ModelState.IsValid)
             {
@@ -66,7 +63,6 @@ namespace DivineMonad.Areas.Admin.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["RarityId"] = new SelectList(_context.Set<Rarity>(), "ID", "ID", itemCategory.RarityId);
             return View(itemCategory);
         }
 
@@ -83,7 +79,6 @@ namespace DivineMonad.Areas.Admin.Controllers
             {
                 return NotFound();
             }
-            ViewData["RarityId"] = new SelectList(_context.Set<Rarity>(), "ID", "ID", itemCategory.RarityId);
             return View(itemCategory);
         }
 
@@ -92,7 +87,7 @@ namespace DivineMonad.Areas.Admin.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("ID,Name,Description,Armor,Arrow,Boots,Bow,Gloves,Helmet,Weapon1H,Weapon2H,Shield,RarityId")] ItemCategory itemCategory)
+        public async Task<IActionResult> Edit(int id, [Bind("ID,Name,Description,Armor,Arrow,Boots,Bow,Gloves,Helmet,Weapon1H,Weapon2H,Shield")] ItemCategory itemCategory)
         {
             if (id != itemCategory.ID)
             {
@@ -119,7 +114,6 @@ namespace DivineMonad.Areas.Admin.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["RarityId"] = new SelectList(_context.Set<Rarity>(), "ID", "ID", itemCategory.RarityId);
             return View(itemCategory);
         }
 
@@ -132,7 +126,6 @@ namespace DivineMonad.Areas.Admin.Controllers
             }
 
             var itemCategory = await _context.ItemCategories
-                .Include(i => i.Rarity)
                 .FirstOrDefaultAsync(m => m.ID == id);
             if (itemCategory == null)
             {

@@ -18,6 +18,8 @@ namespace DivineMonad.Models
         public ItemCategory Category { get; set; }
         public int StatisticsId { get; set; }
         public ItemStats Statistics { get; set; }
+        public int RarityId { get; set; }
+        public Rarity Rarity { get; set; }
 
         public Item()
         {
