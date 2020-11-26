@@ -25,8 +25,11 @@ namespace DivineMonad.Areas.Admin.Controllers
         // GET: Admin/Characters
         public async Task<IActionResult> Index()
         {
-            var applicationDbContext = _context.Characters.Include(c => c.CBStats).Include(c => c.GStats);
-            return View(await applicationDbContext.ToListAsync());
+            var charactersDbContext = _context.Characters.Include(c => c.CBStats).Include(c => c.GStats);
+
+            ViewData["Users"] = new SelectList(_context.Users, "Id", "UserName");
+
+            return View(await charactersDbContext.ToListAsync());
         }
 
         // GET: Admin/Characters/Details/5
@@ -64,7 +67,7 @@ namespace DivineMonad.Areas.Admin.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ID,Name,UserId,CBStatsId,GStatsId")] Character character)
+        public async Task<IActionResult> Create([Bind("ID,Name,UserId")] Character character)
         {
             if (ModelState.IsValid)
             {

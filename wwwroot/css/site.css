@@ -84,3 +84,9 @@ body {
     background-color: #8cd9c8 !important;
     border-color: #2b8b76 !important;
 }
+
+/*Horizontal scroll*/
+.horizontal-scroll {
+    overflow-x: scroll;
+    white-space: nowrap;
+}
