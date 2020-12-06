@@ -1,114 +1,118 @@
 ﻿@model IEnumerable<DivineMonad.Models.ItemStats>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Items Statistics";
     Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
 }
 
-<h1>Index</h1>
+<h1>Items Statistics</h1>
 
 <p>
     <a asp-action="Create">Create New</a>
 </p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Stamina)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Strength)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Agility)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Dexterity)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Luck)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.HitPoints)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.AttackMin)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.AttackMax)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Armor)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Block)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Dodge)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Speed)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.CritChance)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Accuracy)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Stamina)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Strength)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Agility)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Dexterity)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Luck)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.HitPoints)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.AttackMin)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.AttackMax)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Armor)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Block)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Dodge)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Speed)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CritChance)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Accuracy)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.ID">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.ID">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.ID">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+<div class="horizontal-scroll">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Stamina)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Strength)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Agility)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Dexterity)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Luck)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.HitPoints)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.AttackMin)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.AttackMax)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Armor)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Block)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Dodge)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Speed)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CritChance)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Accuracy)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Stamina)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Strength)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Agility)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Dexterity)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Luck)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.HitPoints)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.AttackMin)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.AttackMax)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Armor)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Block)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Dodge)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Speed)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CritChance)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Accuracy)
+                    </td>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@item.ID">Edit</a> |
+                        <a asp-action="Details" asp-route-id="@item.ID">Details</a> |
+                        <a asp-action="Delete" asp-route-id="@item.ID">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+<a asp-area="Admin" asp-controller="Home" asp-action="Index">Back to Admin home page</a>

@@ -25,7 +25,11 @@ namespace DivineMonad.Areas.Admin.Controllers
         // GET: Admin/CharactersItems
         public async Task<IActionResult> Index()
         {
-            return View(await _context.CharactersItems.ToListAsync());
+            var charactersItemsDbContext = await _context.CharactersItems.ToListAsync();
+
+            ViewData["Characters"] = new SelectList(_context.Characters, "ID", "Name");
+
+            return View(charactersItemsDbContext);
         }
 
         // GET: Admin/CharactersItems/Details/5

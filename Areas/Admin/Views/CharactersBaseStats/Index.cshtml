@@ -1,72 +1,76 @@
 ﻿@model IEnumerable<DivineMonad.Models.CharacterBaseStats>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Characters Base Statistics";
     Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
 }
 
-<h1>Index</h1>
+<h1>Characters Base Statistics</h1>
 
 <p>
     <a asp-action="Create">Create New</a>
 </p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Level)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Experience)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Stamina)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Strength)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Agility)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Dexterity)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Luck)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Level)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Experience)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Stamina)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Strength)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Agility)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Dexterity)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Luck)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.ID">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.ID">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.ID">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+<div class="horizontal-scroll">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Level)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Experience)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Stamina)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Strength)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Agility)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Dexterity)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Luck)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Level)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Experience)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Stamina)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Strength)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Agility)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Dexterity)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Luck)
+                    </td>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@item.ID">Edit</a> |
+                        <a asp-action="Details" asp-route-id="@item.ID">Details</a> |
+                        <a asp-action="Delete" asp-route-id="@item.ID">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+<a asp-area="Admin" asp-controller="Home" asp-action="Index">Back to Admin home page</a>
