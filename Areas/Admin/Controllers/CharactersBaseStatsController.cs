@@ -25,6 +25,8 @@ namespace DivineMonad.Areas.Admin.Controllers
         // GET: Admin/CharactersBaseStats
         public async Task<IActionResult> Index()
         {
+            ViewData["Characters"] = new SelectList(_context.Characters, "CBStatsId", "Name");
+
             return View(await _context.CharactersBaseStats.ToListAsync());
         }
 
@@ -42,6 +44,8 @@ namespace DivineMonad.Areas.Admin.Controllers
             {
                 return NotFound();
             }
+
+            ViewData["CharacterName"] = _context.Characters.FirstOrDefault(c => c.CBStatsId == id).Name;
 
             return View(characterBaseStats);
         }
@@ -81,6 +85,7 @@ namespace DivineMonad.Areas.Admin.Controllers
             {
                 return NotFound();
             }
+
             return View(characterBaseStats);
         }
 

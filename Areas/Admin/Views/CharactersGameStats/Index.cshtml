@@ -5,6 +5,15 @@
     Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
 }
 
+@functions {
+    public string FindCharacter(string id)
+    {
+        return (from character in ViewData["Characters"] as SelectList
+                where character.Value == id
+                select character.Text).FirstOrDefault();
+    }
+}
+
 <h1>Characters Game Statistics</h1>
 
 <p>
@@ -14,6 +23,9 @@
     <table class="table">
         <thead>
             <tr>
+                <th>
+                    Character Name
+                </th>
                 <th>
                     @Html.DisplayNameFor(model => model.MonsterKills)
                 </th>
@@ -51,6 +63,9 @@
             @foreach (var item in Model)
             {
                 <tr>
+                    <td>
+                        @FindCharacter(item.ID.ToString())
+                    </td>
                     <td>
                         @Html.DisplayFor(modelItem => item.MonsterKills)
                     </td>
