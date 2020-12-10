@@ -8,25 +8,29 @@
 <h1>Details</h1>
 
 <div>
-    <h4>CharacterItems</h4>
+    <h4>Character Items</h4>
     <hr />
     <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.CharacterId)
+        <dt class="col-sm-2">
+            Character ID:
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.CharacterId)
+        <dd class="col-sm-10">
+            <a asp-controller="Characters" asp-action="Details" asp-route-id="@Model.CharacterId">
+                @Html.DisplayFor(model => model.CharacterId)
+            </a>
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.ItemId)
+        <dt class="col-sm-2">
+            Item ID:
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.ItemId)
+        <dd class="col-sm-10">
+            <a asp-controller="Items" asp-action="Details" asp-route-id="@Model.ItemId">
+                @Html.DisplayFor(model => model.ItemId)
+            </a>
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.IsEquipped)
+        <dt class="col-sm-2">
+            IsEquipped:
         </dt>
-        <dd class = "col-sm-10">
+        <dd class="col-sm-10">
             @Html.DisplayFor(model => model.IsEquipped)
         </dd>
     </dl>

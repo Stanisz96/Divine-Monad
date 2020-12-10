@@ -28,6 +28,7 @@ namespace DivineMonad.Areas.Admin.Controllers
             var charactersItemsDbContext = await _context.CharactersItems.ToListAsync();
 
             ViewData["Characters"] = new SelectList(_context.Characters, "ID", "Name");
+            ViewData["Items"] = new SelectList(_context.Items, "ID", "Name");
 
             return View(charactersItemsDbContext);
         }

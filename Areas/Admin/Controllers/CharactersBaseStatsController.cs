@@ -26,6 +26,7 @@ namespace DivineMonad.Areas.Admin.Controllers
         public async Task<IActionResult> Index()
         {
             ViewData["Characters"] = new SelectList(_context.Characters, "CBStatsId", "Name");
+            ViewData["CharactersId"] = new SelectList(_context.Characters, "CBStatsId", "ID");
 
             return View(await _context.CharactersBaseStats.ToListAsync());
         }
@@ -46,6 +47,7 @@ namespace DivineMonad.Areas.Admin.Controllers
             }
 
             ViewData["CharacterName"] = _context.Characters.FirstOrDefault(c => c.CBStatsId == id).Name;
+            ViewData["CharacterId"] = _context.Characters.FirstOrDefault(c => c.CBStatsId == id).ID;
 
             return View(characterBaseStats);
         }

@@ -17,7 +17,7 @@
                 <th>
                     @Html.DisplayNameFor(model => model.Name)
                 </th>
-                <th cl>
+                <th>
                     @Html.DisplayNameFor(model => model.Description)
                 </th>
                 <th>
@@ -57,7 +57,7 @@
                     <td>
                         @Html.DisplayFor(modelItem => item.Name)
                     </td>
-                    <td>
+                    <td class="text-truncate" style="max-width: 200px;">
                         @Html.DisplayFor(modelItem => item.Description)
                     </td>
                     <td>

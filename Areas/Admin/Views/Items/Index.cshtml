@@ -21,7 +21,7 @@
                     @Html.DisplayNameFor(model => model.Description)
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.ImageUrl)
+                    Image
                 </th>
                 <th>
                     @Html.DisplayNameFor(model => model.Price)
@@ -48,26 +48,30 @@
                     <td>
                         @Html.DisplayFor(modelItem => item.Name)
                     </td>
-                    <td>
+                    <td class="text-truncate" style="max-width: 200px;">
                         @Html.DisplayFor(modelItem => item.Description)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.ImageUrl)
+                        <img src="@Url.Content(item.ImageUrl)" class="img-item" alt="@item.Name" style="max-width: 60px!important;">
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.Price)
+                        @Html.DisplayFor(modelItem => item.Price) G
                     </td>
                     <td>
                         @Html.DisplayFor(modelItem => item.Level)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.Category.ID)
+                        <a asp-controller="ItemsCategories" asp-action="Details" asp-route-id="@item.CategoryId">
+                            @Html.DisplayFor(modelItem => item.Category.Name)
+                        </a>
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.Statistics.ID)
+                        <a asp-controller="ItemsStats" asp-action="Details" asp-route-id="@item.StatisticsId">
+                            Details
+                        </a>
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.Rarity.ID)
+                        @Html.DisplayFor(modelItem => item.Rarity.Name)
                     </td>
                     <td>
                         <a asp-action="Edit" asp-route-id="@item.ID">Edit</a> |

@@ -12,67 +12,70 @@
     <hr />
     <dl class="row">
         <dt class="col-sm-2">
-            Character Name
+            Character Name:
         </dt>
         <dd class="col-sm-10">
-            @ViewData["CharacterName"]
+            <a asp-controller="Characters" asp-action="Details"
+               asp-route-id="@ViewData["CharacterId"]">
+                @ViewData["CharacterName"]
+            </a>
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.MonsterKills)
+            @Html.DisplayNameFor(model => model.MonsterKills):
         </dt>
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.MonsterKills)
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.CollectedGold)
+            @Html.DisplayNameFor(model => model.CollectedGold):
         </dt>
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.CollectedGold)
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.DeathsNumber)
+            @Html.DisplayNameFor(model => model.DeathsNumber):
         </dt>
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.DeathsNumber)
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.LostFights)
+            @Html.DisplayNameFor(model => model.LostFights):
         </dt>
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.LostFights)
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.WinFights)
+            @Html.DisplayNameFor(model => model.WinFights):
         </dt>
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.WinFights)
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.DrawFights)
+            @Html.DisplayNameFor(model => model.DrawFights):
         </dt>
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.DrawFights)
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.LootedNormal)
+            @Html.DisplayNameFor(model => model.LootedNormal):
         </dt>
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.LootedNormal)
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.LootedUnique)
+            @Html.DisplayNameFor(model => model.LootedUnique):
         </dt>
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.LootedUnique)
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.LootedHeroic)
+            @Html.DisplayNameFor(model => model.LootedHeroic):
         </dt>
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.LootedHeroic)
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.LootedLegendary)
+            @Html.DisplayNameFor(model => model.LootedLegendary):
         </dt>
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.LootedLegendary)

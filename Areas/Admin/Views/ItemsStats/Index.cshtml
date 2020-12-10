@@ -5,6 +5,21 @@
     Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
 }
 
+@functions {
+    public string FindItem(string id)
+    {
+        return (from item in ViewData["Items"] as SelectList
+                where item.Value == id
+                select item.Text).FirstOrDefault();
+    }
+    public string FindItemId(string id)
+    {
+        return (from item in ViewData["ItemsId"] as SelectList
+                where item.Value == id
+                select item.Text).FirstOrDefault();
+    }
+}
+
 <h1>Items Statistics</h1>
 
 <p>
@@ -14,6 +29,9 @@
     <table class="table">
         <thead>
             <tr>
+                <th>
+                    Item Name
+                </th>
                 <th>
                     @Html.DisplayNameFor(model => model.Stamina)
                 </th>
@@ -63,6 +81,11 @@
             @foreach (var item in Model)
             {
                 <tr>
+                    <td>
+                        <a asp-controller="Items" asp-action="Details" asp-route-id="@FindItemId(item.ID.ToString())">
+                            @FindItem(item.ID.ToString())
+                        </a>
+                    </td>
                     <td>
                         @Html.DisplayFor(modelItem => item.Stamina)
                     </td>

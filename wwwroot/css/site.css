@@ -77,6 +77,13 @@ body {
     background-color: #e8f7f4;
 }
 
+/*EDIT STYLES*/
+.table td, tr {
+    vertical-align: unset!important;
+}
+
+
+/* NEW STYLES*/
 
 /*Style for button*/
 .btn-custom {
@@ -89,4 +96,15 @@ body {
 .horizontal-scroll {
     overflow-x: scroll;
     white-space: nowrap;
+}
+
+
+/*Style for item image*/
+.img-item {
+    padding: 2px;
+    background-color: #ffffff;
+    border: 1px solid #dee2e6;
+    border-radius: .25rem;
+    max-width: 60px;
+    height: auto;
 }

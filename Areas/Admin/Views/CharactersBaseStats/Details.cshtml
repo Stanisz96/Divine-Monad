@@ -12,49 +12,52 @@
     <hr />
     <dl class="row">
         <dt class="col-sm-2">
-            Character Name
+            Character Name:
         </dt>
         <dd class="col-sm-10">
-            @ViewData["CharacterName"]
+            <a asp-controller="Characters" asp-action="Details"
+               asp-route-id="@ViewData["CharacterId"]">
+                @ViewData["CharacterName"]
+            </a>
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Level)
+            @Html.DisplayNameFor(model => model.Level):
         </dt>
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Level)
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Experience)
+            @Html.DisplayNameFor(model => model.Experience):
         </dt>
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Experience)
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Stamina)
+            @Html.DisplayNameFor(model => model.Stamina):
         </dt>
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Stamina)
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Strength)
+            @Html.DisplayNameFor(model => model.Strength):
         </dt>
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Strength)
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Agility)
+            @Html.DisplayNameFor(model => model.Agility):
         </dt>
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Agility)
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Dexterity)
+            @Html.DisplayNameFor(model => model.Dexterity):
         </dt>
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Dexterity)
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Luck)
+            @Html.DisplayNameFor(model => model.Luck):
         </dt>
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Luck)

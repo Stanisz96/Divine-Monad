@@ -12,6 +12,13 @@
                 where character.Value == id
                 select character.Text).FirstOrDefault();
     }
+
+    public string FindCharacterId(string id)
+    {
+        return (from character in ViewData["CharactersId"] as SelectList
+                where character.Value == id
+                select character.Text).FirstOrDefault();
+    }
 }
 
 <h1>Characters Game Statistics</h1>
@@ -64,7 +71,10 @@
             {
                 <tr>
                     <td>
-                        @FindCharacter(item.ID.ToString())
+                        <a asp-controller="Characters" asp-action="Details"
+                           asp-route-id="@FindCharacterId(item.ID.ToString())">
+                            @FindCharacter(item.ID.ToString())
+                        </a>
                     </td>
                     <td>
                         @Html.DisplayFor(modelItem => item.MonsterKills)

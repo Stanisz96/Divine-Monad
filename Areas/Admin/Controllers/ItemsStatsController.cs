@@ -25,6 +25,9 @@ namespace DivineMonad.Areas.Admin.Controllers
         // GET: Admin/ItemsStats
         public async Task<IActionResult> Index()
         {
+            ViewData["Items"] = new SelectList(_context.Items, "StatisticsId", "Name");
+            ViewData["ItemsId"] = new SelectList(_context.Items, "StatisticsId", "ID");
+
             return View(await _context.ItemsStats.ToListAsync());
         }
 
@@ -42,6 +45,9 @@ namespace DivineMonad.Areas.Admin.Controllers
             {
                 return NotFound();
             }
+
+            ViewData["ItemName"] = _context.Items.FirstOrDefault(c => c.StatisticsId == id).Name;
+            ViewData["ItemId"] = _context.Items.FirstOrDefault(c => c.StatisticsId == id).ID;
 
             return View(itemStats);
         }

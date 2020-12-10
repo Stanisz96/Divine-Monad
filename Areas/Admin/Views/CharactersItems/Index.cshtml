@@ -12,6 +12,13 @@
                 where character.Value == id
                 select character.Text).FirstOrDefault();
     }
+
+    public string FindItem(string id)
+    {
+        return (from item in ViewData["Items"] as SelectList
+                where item.Value == id
+                select item.Text).FirstOrDefault();
+    }
 }
 
 <h1>Characters items</h1>
@@ -27,10 +34,10 @@
                     Character Name
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.ItemId)
+                    Item Name
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.IsEquipped)
+                    Equipped
                 </th>
                 <th></th>
             </tr>
@@ -40,10 +47,14 @@
             {
                 <tr>
                     <td>
-                        @FindCharacter(item.CharacterId.ToString())
+                        <a asp-controller="Characters" asp-action="Details" asp-route-id="@item.CharacterId">
+                            @FindCharacter(item.CharacterId.ToString())
+                        </a>
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.ItemId)
+                        <a asp-controller="Items" asp-action="Details" asp-route-id="@item.ItemId">
+                            @FindItem(item.ItemId.ToString())
+                        </a>
                     </td>
                     <td>
                         @Html.DisplayFor(modelItem => item.IsEquipped)
