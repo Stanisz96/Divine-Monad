@@ -23,8 +23,6 @@ namespace DivineMonad.Models
 
         public Character()
         {
-            CBStats = new CharacterBaseStats();
-            GStats = new GameStats();
         }
     }
 }
