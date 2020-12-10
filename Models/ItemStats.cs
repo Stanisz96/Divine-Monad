@@ -25,20 +25,6 @@ namespace DivineMonad.Models
 
         public ItemStats()
         {
-            Stamina = 0;
-            Strength = 0;
-            Agility = 0;
-            Dexterity = 0;
-            Luck = 0;
-            HitPoints = 0;
-            AttackMin = 0;
-            AttackMax = 0;
-            Armor = 0;
-            Block = 0;
-            Dodge = 0;
-            Speed = 0;
-            CritChance = 0;
-            Accuracy = 0;
         }
     }
 }

@@ -23,7 +23,6 @@ namespace DivineMonad.Models
 
         public Item()
         {
-            Statistics = new ItemStats();
         }
     }
 }

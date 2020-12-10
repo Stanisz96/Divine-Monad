@@ -25,7 +25,9 @@ namespace DivineMonad.Areas.Admin.Controllers
         // GET: Admin/Items
         public async Task<IActionResult> Index()
         {
-            var applicationDbContext = _context.Items.Include(i => i.Category).Include(i => i.Rarity).Include(i => i.Statistics);
+            var applicationDbContext = _context.Items.Include(i => i.Category)
+                .Include(i => i.Rarity).Include(i => i.Statistics);
+
             return View(await applicationDbContext.ToListAsync());
         }
 
@@ -42,6 +44,7 @@ namespace DivineMonad.Areas.Admin.Controllers
                 .Include(i => i.Rarity)
                 .Include(i => i.Statistics)
                 .FirstOrDefaultAsync(m => m.ID == id);
+
             if (item == null)
             {
                 return NotFound();
