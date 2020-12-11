@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Mvc;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -11,6 +12,7 @@ namespace DivineMonad.Models
         public int ID { get; set; }
 
         [RegularExpression(@"[a-zA-Z0-9\s]*$"), Required, StringLength(20)]
+        [Remote(action: "IsNameUnique", controller: "Characters", AdditionalFields = nameof(ID))]
         public string Name { get; set; }
 
         public string UserId { get; set; }

@@ -21,6 +21,15 @@ namespace DivineMonad.Data
         public DbSet<Character> Characters { get; set; }
         public DbSet<CharacterBaseStats> CharactersBaseStats { get; set; }
         public DbSet<GameStats> CharactersGameStats { get; set; }
-        public DbSet<DivineMonad.Models.Rarity> Rarity { get; set; }
+        public DbSet<Rarity> Rarity { get; set; }
+
+
+        protected override void OnModelCreating(ModelBuilder builder)
+        {
+            base.OnModelCreating(builder);
+            builder.Entity<Character>()
+                   .HasIndex(u => u.Name)
+                   .IsUnique();
+        }
     }
 }

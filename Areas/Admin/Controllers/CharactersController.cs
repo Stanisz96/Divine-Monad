@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using DivineMonad.Data;
 using DivineMonad.Models;
 using Microsoft.AspNetCore.Authorization;
+using DivineMonad.Areas.Admin.Tools;
 
 namespace DivineMonad.Areas.Admin.Controllers
 {
@@ -49,6 +50,8 @@ namespace DivineMonad.Areas.Admin.Controllers
                 return NotFound();
             }
 
+            ViewData["UserName"] = new SelectList(_context.Users, "Id", "UserName");
+
             return View(character);
         }
 
@@ -71,7 +74,11 @@ namespace DivineMonad.Areas.Admin.Controllers
         {
             if (ModelState.IsValid)
             {
+                character.CBStats = new CharacterBaseStats("new");
+                character.GStats = new GameStats("new");
+
                 _context.Add(character);
+
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
@@ -93,8 +100,11 @@ namespace DivineMonad.Areas.Admin.Controllers
             {
                 return NotFound();
             }
+
+            ViewData["Users"] = new SelectList(_context.Users, "Id", "UserName", character.UserId);
             ViewData["CBStatsId"] = new SelectList(_context.CharactersBaseStats, "ID", "ID", character.CBStatsId);
             ViewData["GStatsId"] = new SelectList(_context.CharactersGameStats, "ID", "ID", character.GStatsId);
+
             return View(character);
         }
 
@@ -130,8 +140,11 @@ namespace DivineMonad.Areas.Admin.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
+
+            ViewData["Users"] = new SelectList(_context.Users, "Id", "UserName", character.UserId);
             ViewData["CBStatsId"] = new SelectList(_context.CharactersBaseStats, "ID", "ID", character.CBStatsId);
             ViewData["GStatsId"] = new SelectList(_context.CharactersGameStats, "ID", "ID", character.GStatsId);
+
             return View(character);
         }
 
@@ -166,6 +179,28 @@ namespace DivineMonad.Areas.Admin.Controllers
             return RedirectToAction(nameof(Index));
         }
 
+        [AcceptVerbs("GET", "POST")]
+        public IActionResult IsNameUnique(string name, int id)
+        {
+            var isEditMode = Request.Headers["Referer"].ToString().Contains("Characters/Edit");
+
+            if (isEditMode)
+            {
+                if (_context.Characters.FirstOrDefault(c => c.ID == id).Name.Equals(name))
+                    return Json(true);
+                if (_context.Characters.Any(c => c.Name == name))
+                    return Json($"Character name already exists.");
+            }
+            else
+            { 
+                if (_context.Characters.Any(c => c.Name == name))
+                    return Json($"Character name already exists."); 
+            }
+
+            return Json(true);
+        }
+
+        
         private bool CharacterExists(int id)
         {
             return _context.Characters.Any(e => e.ID == id);

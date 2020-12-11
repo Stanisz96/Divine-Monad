@@ -17,5 +17,22 @@
         public GameStats()
         {
         }
+
+        public GameStats(string option)
+        {
+            if (option.Equals("new"))
+            {
+                MonsterKills = 0;
+                CollectedGold = 0;
+                DeathsNumber = 0;
+                LostFights = 0;
+                WinFights = 0;
+                DrawFights = 0;
+                LootedHeroic = 0;
+                LootedLegendary = 0;
+                LootedNormal = 0;
+                LootedUnique = 0;
+            }
+        }
     }
 }

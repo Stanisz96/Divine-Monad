@@ -14,5 +14,20 @@
         public CharacterBaseStats()
         {
         }
+
+        public CharacterBaseStats(string option)
+        {
+            if(option.Equals("new"))
+            {
+                Level = 1;
+                Experience = 0;
+                Stamina = 10;
+                Strength = 10;
+                Agility = 10;
+                Dexterity = 10;
+                Luck = 10;
+            }
+
+        }
     }
 }
