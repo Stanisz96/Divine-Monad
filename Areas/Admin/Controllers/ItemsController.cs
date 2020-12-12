@@ -56,7 +56,7 @@ namespace DivineMonad.Areas.Admin.Controllers
         // GET: Admin/Items/Create
         public IActionResult Create()
         {
-            ViewData["CategoryId"] = new SelectList(_context.ItemCategories, "ID", "ID");
+            ViewData["Category"] = new SelectList(_context.ItemCategories, "ID", "Name");
             ViewData["RarityId"] = new SelectList(_context.Rarity, "ID", "ID");
             ViewData["StatisticsId"] = new SelectList(_context.ItemsStats, "ID", "ID");
             return View();
@@ -169,6 +169,13 @@ namespace DivineMonad.Areas.Admin.Controllers
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
+
+        public IActionResult ReloadViewComponent(int newId)
+        {
+            return ViewComponent("ShowExternalProps", new { id = newId });
+        }
+
+
 
         private bool ItemExists(int id)
         {
