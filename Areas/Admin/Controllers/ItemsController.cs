@@ -57,8 +57,11 @@ namespace DivineMonad.Areas.Admin.Controllers
         public IActionResult Create()
         {
             ViewData["Category"] = new SelectList(_context.ItemCategories, "ID", "Name");
-            ViewData["RarityId"] = new SelectList(_context.Rarity, "ID", "ID");
-            ViewData["StatisticsId"] = new SelectList(_context.ItemsStats, "ID", "ID");
+            ViewData["RarityId"] = new SelectList(_context.Rarity, "ID", "Name");
+            var statisticsId = new SelectList(_context.ItemsStats, "ID", "ID");
+            ViewData["StatisticsId"] = statisticsId;
+            ViewData["DefaultStatsId"] = statisticsId.FirstOrDefault().Value;
+
             return View();
         }
 
@@ -94,8 +97,8 @@ namespace DivineMonad.Areas.Admin.Controllers
             {
                 return NotFound();
             }
-            ViewData["CategoryId"] = new SelectList(_context.ItemCategories, "ID", "ID", item.CategoryId);
-            ViewData["RarityId"] = new SelectList(_context.Rarity, "ID", "ID", item.RarityId);
+            ViewData["CategoryId"] = new SelectList(_context.ItemCategories, "ID", "Name", item.CategoryId);
+            ViewData["RarityId"] = new SelectList(_context.Rarity, "ID", "Name", item.RarityId);
             ViewData["StatisticsId"] = new SelectList(_context.ItemsStats, "ID", "ID", item.StatisticsId);
             return View(item);
         }
@@ -132,8 +135,8 @@ namespace DivineMonad.Areas.Admin.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["CategoryId"] = new SelectList(_context.ItemCategories, "ID", "ID", item.CategoryId);
-            ViewData["RarityId"] = new SelectList(_context.Rarity, "ID", "ID", item.RarityId);
+            ViewData["CategoryId"] = new SelectList(_context.ItemCategories, "ID", "Name", item.CategoryId);
+            ViewData["RarityId"] = new SelectList(_context.Rarity, "ID", "Name", item.RarityId);
             ViewData["StatisticsId"] = new SelectList(_context.ItemsStats, "ID", "ID", item.StatisticsId);
             return View(item);
         }
@@ -172,7 +175,7 @@ namespace DivineMonad.Areas.Admin.Controllers
 
         public IActionResult ReloadViewComponent(int newId)
         {
-            return ViewComponent("ShowExternalProps", new { id = newId });
+            return ViewComponent("ShowExternalProps", new { id = newId, type = "ItemStatistics" });
         }
 
 

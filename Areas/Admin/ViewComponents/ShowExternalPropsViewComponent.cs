@@ -15,13 +15,17 @@ namespace DivineMonad.Areas.Admin.ViewComponents
             _context = context;
         }
 
-        public async Task<IViewComponentResult> InvokeAsync(int? id)
+        public async Task<IViewComponentResult> InvokeAsync(int? id, string type)
         {
-            var itemStats = await _context.ItemsStats.FirstOrDefaultAsync(s => s.ID == id);
-            if(id != null)
-                ViewData["id"] = itemStats.ID;
 
-            return View(itemStats);
+            if (type.Equals("ItemStatistics"))
+            {
+                var item = await _context.ItemsStats.FirstOrDefaultAsync(s => s.ID == id);
+                if (id != null) ViewData["id"] = item.ID;
+                return View(type, item);
+            }
+
+            return View("Default");
         }
     }
 }

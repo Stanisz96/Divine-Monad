@@ -40,14 +40,14 @@
             </div>
             <div class="form-group">
                 <label asp-for="CategoryId" class="control-label">Category</label>
-                <select asp-for="CategoryId" class="form-control" asp-items="ViewBag.Category" onchange="Reload()"></select>
+                <select asp-for="CategoryId" class="form-control" asp-items="ViewBag.Category"></select>
             </div>
             <div class="form-group">
                 <label asp-for="StatisticsId" class="control-label"></label>
-                <select asp-for="StatisticsId" class="form-control" asp-items="ViewBag.StatisticsId"></select>
+                <select asp-for="StatisticsId" class="form-control" asp-items="ViewBag.StatisticsId" onchange="Reload()"></select>
             </div>
             <div class="form-group">
-                <label asp-for="RarityId" class="control-label"></label>
+                <label asp-for="RarityId" class="control-label">Rarity</label>
                 <select asp-for="RarityId" class="form-control" asp-items="ViewBag.RarityId"></select>
             </div>
             <div class="form-group">
@@ -55,8 +55,8 @@
             </div>
         </form>
     </div>
-    <div id="reloadComponent" class="col-md-8">
-        @await Component.InvokeAsync("ShowExternalProps")
+    <div id="reloadComponent" class="col-md-6 offset-md-2">
+        @await Component.InvokeAsync("ShowExternalProps", new { id = Int32.Parse(ViewBag.DefaultStatsId), type = "ItemStatistics" })
     </div>
 </div>
 
@@ -71,10 +71,9 @@
     function Reload() {
         $.ajax({
             url: '@Url.Action("ReloadViewComponent", "Items")',
-            data: { newId: $('#CategoryId option:selected').val() },
+            data: { newId: $('#StatisticsId option:selected').val() },
             success: function (data) { $("#reloadComponent").html(data); }
         });
-        console.log($('#CategoryId option:selected').val());
     }
 </script>
 }
