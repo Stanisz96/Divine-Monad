@@ -54,6 +54,9 @@ namespace DivineMonad.Areas.Admin.Controllers
         // GET: Admin/CharactersItems/Create
         public IActionResult Create()
         {
+            ViewData["Characters"] = new SelectList(_context.Characters, "ID", "Name");
+            ViewData["Items"] = new SelectList(_context.Items, "ID", "Name");
+
             return View();
         }
 
@@ -86,6 +89,10 @@ namespace DivineMonad.Areas.Admin.Controllers
             {
                 return NotFound();
             }
+
+            ViewData["Characters"] = new SelectList(_context.Characters, "ID", "Name", characterItems.CharacterId);
+            ViewData["Items"] = new SelectList(_context.Items, "ID", "Name", characterItems.ItemId);
+
             return View(characterItems);
         }
 

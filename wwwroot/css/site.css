@@ -9,7 +9,8 @@ a.navbar-brand {
 
 /* Provide sufficient contrast against white background */
 a, a:hover, a:link {
-    color: #2b8b76;
+    color: #00a17e;
+    font-weight: 500;
 }
 
 .nav-pills .nav-link.active, .nav-pills .show > .nav-link {
