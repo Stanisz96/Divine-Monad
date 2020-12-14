@@ -33,8 +33,6 @@ namespace DivineMonad.Areas.Identity.Pages.Account
         [BindProperty]
         public InputModel Input { get; set; }
 
-        public IList<AuthenticationScheme> ExternalLogins { get; set; }
-
         public string ReturnUrl { get; set; }
 
         [TempData]
@@ -66,8 +64,6 @@ namespace DivineMonad.Areas.Identity.Pages.Account
             // Clear the existing external cookie to ensure a clean login process
             await HttpContext.SignOutAsync(IdentityConstants.ExternalScheme);
 
-            ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
-
             ReturnUrl = returnUrl;
         }
 
@@ -84,7 +80,7 @@ namespace DivineMonad.Areas.Identity.Pages.Account
                 {
                     _logger.LogInformation("User logged in.");
 
-                    // Resolve the user via their email
+                    // Resolve the user via their username
                     var user = await _userManager.FindByNameAsync(Input.UserName);
                     // Get the roles for the user
                     var roles = await _userManager.GetRolesAsync(user);
@@ -92,10 +88,6 @@ namespace DivineMonad.Areas.Identity.Pages.Account
                     returnUrl = roles.Contains("Admin") ? Url.Content("~/Admin/") : Url.Content("~/");
 
                     return LocalRedirect(returnUrl);
-                }
-                if (result.RequiresTwoFactor)
-                {
-                    return RedirectToPage("./LoginWith2fa", new { ReturnUrl = returnUrl, RememberMe = Input.RememberMe });
                 }
                 if (result.IsLockedOut)
                 {
