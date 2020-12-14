@@ -8,21 +8,14 @@ a.navbar-brand {
 }
 
 /* Provide sufficient contrast against white background */
-a {
-  color: #0366d6;
-}
-
-.btn-primary {
-  color: #fff;
-  background-color: #1b6ec2;
-  border-color: #1861ac;
+a, a:hover, a:link {
+    color: #2b8b76;
 }
 
 .nav-pills .nav-link.active, .nav-pills .show > .nav-link {
-  color: #fff;
-  background-color: #1b6ec2;
-  border-color: #1861ac;
-
+    color: black ;
+    background-color: #72c3b1;
+    border-color: #2b8b76;
 }
 
 /* Sticky footer styles
@@ -82,15 +75,44 @@ body {
     vertical-align: unset!important;
 }
 
+.btn-primary {
+    color: black;
+    background-color: #8cd9c8;
+    border-color: #2b8b76;
+}
+
+.btn-primary:hover {
+    color: #083c31;
+    background-color: #7fd0be;
+    border-color: #25836f;
+}
+
+.btn-primary:focus, .btn-primary.focus {
+    box-shadow: 0 0 0.2rem 0.1rem rgba(19, 151, 131, 0.50);
+}
+
+.btn-primary.disabled, .btn-primary:disabled {
+    color: black;
+    background-color: #2b8b76;
+    border-color: #2b8b76;
+}
+
+.btn-primary:not(:disabled):not(.disabled):active, .btn-primary:not(:disabled):not(.disabled).active,
+.show > .btn-primary.dropdown-toggle {
+    color: black;
+    background-color: #7fd0be;
+    border-color: #25836f;
+}
+
+.btn-primary:not(:disabled):not(.disabled):active:focus, .btn-primary:not(:disabled):not(.disabled).active:focus,
+.show > .btn-primary.dropdown-toggle:focus {
+    box-shadow: 0 0 0.2rem 0.1rem rgba(19, 151, 131, 0.50);
+}
+
+
 
 /* NEW STYLES*/
-
 /*Style for button*/
-.btn-custom {
-    color: black !important;
-    background-color: #8cd9c8 !important;
-    border-color: #2b8b76 !important;
-}
 
 /*Horizontal scroll*/
 .horizontal-scroll {
