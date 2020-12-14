@@ -48,9 +48,9 @@ namespace DivineMonad
 
             services.AddAuthorization(options =>
             {
-                options.AddPolicy("readpolicy",
+                options.AddPolicy("user",
                     builder => builder.RequireRole("Admin", "User"));
-                options.AddPolicy("writepolicy",
+                options.AddPolicy("admin",
                     builder => builder.RequireRole("Admin"));
             });
         }

@@ -110,6 +110,13 @@ body {
     box-shadow: 0 0 0.2rem 0.1rem rgba(19, 151, 131, 0.50);
 }
 
+.list-group-item.active {
+    z-index: 2;
+    color: black;
+    background-color: #7fd0be;
+    border-color: #25836f;
+}
+
 
 
 /* NEW STYLES*/
@@ -130,4 +137,36 @@ body {
     border-radius: .25rem;
     max-width: 60px;
     height: auto;
+}
+
+.character-info {
+    max-width: 100%;
+    min-width: 100px;
+    min-height: 60px;
+}
+.character-info p {
+    margin-bottom: 0;
+    margin-left: 0.5rem;
+    margin-top: 0.5rem;
+    white-space: nowrap
+}
+.character-btns {
+    max-height: 100px;
+    min-width: 95px;
+    min-height: 60px;
+    display: inline-grid;
+}
+.character-btns button {
+    max-height: 40px;
+    max-width: 120px;
+}
+.character-avatar {
+    padding: 2px;
+    background-color: #ffffff;
+    border: 1px solid #dee2e6;
+    border-radius: .25rem;
+    max-height: 100px;
+    max-width: 100%;
+    min-width: 60px;
+    min-height: 60px;
 }
