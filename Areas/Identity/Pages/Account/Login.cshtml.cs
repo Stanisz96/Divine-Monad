@@ -85,7 +85,7 @@ namespace DivineMonad.Areas.Identity.Pages.Account
                     // Get the roles for the user
                     var roles = await _userManager.GetRolesAsync(user);
                     
-                    returnUrl = roles.Contains("Admin") ? Url.Content("~/Admin/") : Url.Content("~/Characters");
+                    returnUrl = roles.Contains("Admin") ? Url.Content("~/Admin/") : Url.Content("~/Characters/");
 
                     return LocalRedirect(returnUrl);
                 }
