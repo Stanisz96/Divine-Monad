@@ -9,7 +9,7 @@ namespace DivineMonad.Controllers
 {
     public class CharactersController : Controller
     {
-
+        
         [Authorize(Policy = "user")]
         public IActionResult Index()
         {
