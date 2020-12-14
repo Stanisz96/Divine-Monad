@@ -1,15 +1,8 @@
 {
   "dependencies": {
     "mssql1": {
-      "resourceId": "/subscriptions/[parameters('subscriptionId')]/resourcegroups/[parameters('resourceGroupName')]/providers/Microsoft.Sql/servers/divinemonaddbserver/databases/DivineMonad_db2",
-      "type": "mssql.azure",
-      "connectionId": "MainConnection",
-      "secretStore": "AzureAppSettings"
-    },
-    "mssql2": {
-      "resourceId": "/subscriptions/[parameters('subscriptionId')]/resourcegroups/[parameters('resourceGroupName')]/providers/Microsoft.Sql/servers/divinemonaddbserver/databases/DivineMonad_db3",
-      "type": "mssql.azure",
-      "connectionId": "DefaultConnection",
+      "type": "mssql.onprem",
+      "connectionId": "LocalConnection",
       "secretStore": "AzureAppSettings"
     }
   }
