@@ -23,8 +23,8 @@
                             <p>Level: @item.CBStats.Level</p>
                         </div >
                         <div class="col-4 character-btns">
-                            <button  type="button" class="btn btn-primary">Play</button>
-                            <button  type="button" class="btn btn-primary">Manage</button>
+                            <input type="button" value="Play" class="btn btn-primary" onclick="location.href='@Url.Action("Index", "Game")'" />
+                            <input type="button" value="Manage" class="btn btn-primary" onclick="location.href='@Url.Action("Index", "Manage")'" />
                         </div>
                     </div>
                 </li>

@@ -156,7 +156,7 @@ body {
     min-height: 60px;
     display: inline-grid;
 }
-.character-btns button {
+.character-btns input {
     max-height: 40px;
     max-width: 120px;
 }
