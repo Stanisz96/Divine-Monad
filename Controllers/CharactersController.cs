@@ -34,5 +34,12 @@ namespace DivineMonad.Controllers
 
             return View(await characters.ToListAsync());
         }
+
+
+        public IActionResult Create()
+        {
+
+            return View();
+        }
     }
 }

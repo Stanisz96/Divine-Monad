@@ -21,10 +21,10 @@
                         <div class="col-5 character-info">
                             <p>Name: @item.Name</p>
                             <p>Level: @item.CBStats.Level</p>
-                        </div >
+                        </div>
                         <div class="col-4 character-btns">
-                            <input type="button" value="Play" class="btn btn-primary" onclick="location.href='@Url.Action("Index", "Game")'" />
-                            <input type="button" value="Manage" class="btn btn-primary" onclick="location.href='@Url.Action("Index", "Manage")'" />
+                            <input type="button" value="Play" class="btn btn-primary" onclick="location.href='@Url.Action("Index", "Game", new { id = item.ID })'"  />
+                            <input type="button" value="Manage" class="btn btn-primary"/>
                         </div>
                     </div>
                 </li>
@@ -35,10 +35,15 @@
                         <p>Create new character...</p>
                     </div>
                     <div class="col-4 character-btns">
-                        <button type="button" class="btn btn-primary">Create</button>
+                        <input type="button" value="Manage" class="btn btn-primary" onclick="location.href='@Url.Action("Create", "Characters")'" />
                     </div>
                 </div>
             </li>
         </ul>
     </div>
 </div>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
