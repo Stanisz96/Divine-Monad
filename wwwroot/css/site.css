@@ -198,7 +198,8 @@ body {
 
 .notNice-image {
     cursor: pointer;
-    width: 100%;
+    width: 80%;
+    margin: auto;
     height: 720px;
 }
 
