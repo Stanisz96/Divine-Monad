@@ -1,0 +1,21 @@
+﻿
+<audio src="@Url.Content("~/music/notNice.mp3")"></audio>
+<div class="notNice-image">
+    <img src="@Url.Content("~/images/notNice.gif")" alt="Ah, Ah, Ah. You nasty hacker!"  class="btn btn-danger"
+         style="cursor: pointer;"/>
+</div>
+
+
+@section Scripts {
+
+    <script>
+        window.addEventListener('click', function () {
+            var audio = document.querySelector('audio');
+            audio.volume = 0.2;
+            audio.loop = true;
+            audio.play().then(() => {
+                console.log('Not Nice!');
+            });
+        });
+    </script>
+}

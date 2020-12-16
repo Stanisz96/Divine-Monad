@@ -33,7 +33,7 @@ namespace DivineMonad.Controllers
                 ViewData["id"] = id;
 
                 if (userId.Equals(character.UserId)) return View();
-                else return NotFound();
+                else return View("NotNice");
             }
             catch (Exception)
             {
