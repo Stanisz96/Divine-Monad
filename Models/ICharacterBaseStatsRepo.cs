@@ -8,5 +8,7 @@ namespace DivineMonad.Models
     public interface ICharacterBaseStatsRepo
     {
         IEnumerable<CharacterBaseStats> AllChatactersBaseStats { get; }
+
+        CharacterBaseStats GetStatsById(int id);
     }
 }

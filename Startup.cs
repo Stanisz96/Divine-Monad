@@ -41,7 +41,7 @@ namespace DivineMonad
             //services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
             //    .AddEntityFrameworkStores<ApplicationDbContext>();
 
-            services.AddScoped<IItemRepo, ItemRepo>();
+            services.AddScoped<ICharacterBaseStatsRepo, CharacterBaseStatsRepo>();
 
             services.AddControllersWithViews();
             services.AddRazorPages();

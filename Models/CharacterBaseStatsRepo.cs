@@ -8,13 +8,18 @@ namespace DivineMonad.Models
 {
     public class CharacterBaseStatsRepo : ICharacterBaseStatsRepo
     {
-        private readonly ApplicationDbContext _appDbContext;
+        private readonly ApplicationDbContext _context;
 
-        public CharacterBaseStatsRepo(ApplicationDbContext appDbContext)
+        public CharacterBaseStatsRepo(ApplicationDbContext context)
         {
-            _appDbContext = appDbContext;
+            _context = context;
         }
 
-        public IEnumerable<CharacterBaseStats> AllChatactersBaseStats => _appDbContext.CharactersBaseStats;
+        public IEnumerable<CharacterBaseStats> AllChatactersBaseStats => _context.CharactersBaseStats;
+
+        public CharacterBaseStats GetStatsById(int id)
+        {
+            return _context.CharactersBaseStats.FirstOrDefault(i => i.ID == id);
+        }
     }
 }

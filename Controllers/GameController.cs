@@ -41,5 +41,10 @@ namespace DivineMonad.Controllers
             }
            
         }
+
+        public IActionResult ReloadViewComponent(int newId, bool newShow)
+        {
+            return ViewComponent("GameCharacter", new { id = newId, show = newShow });
+        }
     }
 }

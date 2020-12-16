@@ -11,16 +11,16 @@
             <div class="game-character-info">
                 <p class="text-truncate">
                     Name: @Model.Name <br />
-                    HP: 16 567 / 20 000 <br />
                     Level: @Model.CBStats.Level <br />
-                    Exp.: 2314 / 12 000 
+                    HP: 16 567 / 20 000 <br />
+                    Exp.: @Model.CBStats.Experience
                 </p>
             </div>
         </div>
         <div class="game-sidebar-menu border">
             <div class="list-group">
-                <button type="button" class="list-group-item list-group-item-action active disabled">Menu</button>
-                <button type="button" class="list-group-item list-group-item-action">Character</button>
+                <button type="button" class="list-group-item list-group-item-action disabled">Menu</button>
+                <button type="button" id="character" class="list-group-item list-group-item-action">Character</button>
                 <button type="button" class="list-group-item list-group-item-action">Backpack</button>
                 <button type="button" class="list-group-item list-group-item-action">Battle</button>
                 <button type="button" class="list-group-item list-group-item-action">Market</button>
@@ -28,6 +28,32 @@
         </div>
         <div class="game-plane border">
             <input type="button" value="Attack" class="btn btn-primary" style="margin: 50px;" />
+            <div id="reloadComponent" style="padding: 100px;">
+                @await Component.InvokeAsync("GameCharacter", new { id = Model.CBStatsId, show = false })
+            </div>
         </div>
     </div>
 </div>
+
+@section Scripts {
+    <script>
+        function Reload(show) {
+            $.ajax({
+                url: '@Url.Action("ReloadViewComponent", "Game")',
+                data: { newId: @Model.CBStatsId, newShow: show },
+                success: function (data) { $("#reloadComponent").html(data); }
+            });
+        }
+
+        $("#character").click(function () {
+            if (!$("#character").hasClass('active')) {
+                Reload(true);
+                $("#character").addClass('active');
+            } else {
+                Reload(false);
+                $("#character").removeClass('active');
+            }
+
+        });
+    </script>
+}
