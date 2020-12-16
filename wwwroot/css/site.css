@@ -208,3 +208,40 @@ body {
     height: 800px;
     margin: auto;
 }
+
+.game-container {
+    display: grid;
+    grid-template-columns: 200px 600px;
+    grid-template-rows: 280px 520px;
+    gap: 0px 0px;
+    grid-template-areas: "game-sidebar-character game-plane" "game-sidebar-menu game-plane";
+}
+
+.game-sidebar-character {
+    grid-area: game-sidebar-character;
+    background-color: #00a17e;
+}
+
+.game-sidebar-menu {
+    grid-area: game-sidebar-menu;
+    background-color: #41a58f;
+}
+
+.game-plane {
+    grid-area: game-plane;
+    background-color: #72c3b1;
+}
+
+.game-avatar {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.game-character-info {
+    margin: 20px 10px 20px 10px;
+    height: 120px;
+}
+
+.game-character-info p {
+    margin: 5px;
+}
