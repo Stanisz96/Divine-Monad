@@ -172,8 +172,15 @@ body {
 }
 
 .notNice-image {
-    display: flex;
-    margin-left: auto;
-    margin-right: auto;
-    width: 50%;
+    cursor: pointer;
+    width: 100%;
+    height: 720px;
+}
+
+
+audio, embed {
+    margin-left: 100px;
+    margin-top: 100px;
+    position: absolute;
+    z-index: -9999;
 }
