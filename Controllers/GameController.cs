@@ -32,7 +32,7 @@ namespace DivineMonad.Controllers
                                         .FirstOrDefaultAsync(m => m.ID == id);
                 ViewData["id"] = id;
 
-                if (userId.Equals(character.UserId)) return View();
+                if (userId.Equals(character.UserId)) return View(character);
                 else return View("NotNice");
             }
             catch (Exception)

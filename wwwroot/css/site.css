@@ -60,6 +60,8 @@ html {
 body {
     /* Margin bottom by footer height */
     margin-bottom: 60px;
+    min-width: 1000px;
+    overflow-x: visible;
     background-color: #f2fcfa;
 }
 .footer {
@@ -117,6 +119,29 @@ body {
     border-color: #25836f;
 }
 
+@media (min-width: 576px) {
+    .container {
+        max-width: 800px;
+    }
+}
+
+@media (min-width: 768px) {
+    .container {
+        max-width: 800px;
+    }
+}
+
+@media (min-width: 992px) {
+    .container {
+        max-width: 800px;
+    }
+}
+
+@media (min-width: 1200px) {
+    header .container {
+        max-width: 800px;
+    }
+}
 
 
 /* NEW STYLES*/
@@ -177,10 +202,9 @@ body {
     height: 720px;
 }
 
-
-audio, embed {
-    margin-left: 100px;
-    margin-top: 100px;
-    position: absolute;
-    z-index: -9999;
+.game-page {
+    background-color: rgba(19, 151, 131, 0.50);
+    width: 800px;
+    height: 800px;
+    margin: auto;
 }
