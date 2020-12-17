@@ -53,8 +53,8 @@ button.accept-policy {
 /* Sticky footer styles
 -------------------------------------------------- */
 html {
-  position: relative;
-  min-height: 100%;
+    position: relative;
+    min-height: 100%;
 }
 
 body {
@@ -63,7 +63,9 @@ body {
     min-width: 1000px;
     overflow-x: visible;
     overflow-y: overlay;
-    background-color: #f2fcfa;
+    background: url("../patterns/pattern4.png") top left repeat;
+    background-position: top left;
+    /*background-color: #f2fcfa;*/
 }
 .footer {
     position: absolute;
