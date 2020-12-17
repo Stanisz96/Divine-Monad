@@ -222,17 +222,24 @@ body {
 
 .game-sidebar-character {
     grid-area: game-sidebar-character;
-    background-color: #00a17e;
+    background-color: rgba(75, 191, 159, 0.75);
+    border: 1px solid #389072;
+    border-radius: 5px;
+    margin: 0 1px 1px 0;
 }
 
 .game-sidebar-menu {
     grid-area: game-sidebar-menu;
-    background-color: #41a58f;
+    border: 1px solid #389072;
+    border-radius: 5px;
+    margin-right: 1px;
 }
 
 .game-plane {
     grid-area: game-plane;
-    background-color: #72c3b1;
+    background-color: rgba(75, 191, 159, 0.75);
+    border: 1px solid #389072;
+    border-radius: 5px;
 }
 
 .game-avatar {
