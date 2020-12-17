@@ -42,21 +42,51 @@ namespace DivineMonad.Engine
             Agility = baseStats.Agility;
             Luck = baseStats.Luck;
 
-            HitPoints = (int)(Math.Pow(baseStats.Stamina, 1.2) * 10);
-            AttackMin = 0;
-            AttackMax = 0;
-            Attack = (int)Math.Pow(baseStats.Strength, 1.2);
-            Armor = (int)Math.Pow(baseStats.Stamina / 2, 1.2);
-            Block = (int)Math.Pow(baseStats.Strength / 2, 1.2);
-            Dodge = (int)(Math.Pow(baseStats.Agility, 1.2) / 5);
-            Speed = (int)(Math.Pow(baseStats.Agility, 1.2) / 5) + (int)(Math.Pow(baseStats.Dexterity, 1.2) / 5);
-            CritChance = (int)Math.Pow(baseStats.Luck, 1.2);
-            Accuracy = (int)Math.Pow(baseStats.Dexterity, 1.2);
+            Recalculate();
         }
 
         public void CalculateWithEq()
         {
+            foreach (var item in itemStatsList)
+            {
+                Stamina += item.Stamina;
+                Strength += item.Strength;
+                Dexterity += item.Dexterity;
+                Agility += item.Agility;
+                Luck += item.Luck;
+            }
 
+            Recalculate();
+
+            foreach (var item in itemStatsList)
+            {
+                HitPoints += item.HitPoints;
+                AttackMin += item.AttackMin;
+                AttackMax += item.AttackMax;
+                Armor += item.Armor;
+                Block += item.Block;
+                Dodge += item.Dodge;
+                Speed += item.Speed;
+                CritChance += item.CritChance;
+                Accuracy += item.Accuracy;
+            }
+
+            AttackMin = (int)((0.8 + (Math.Sqrt(Accuracy) / 100)) * Attack);
+        }
+
+
+        private void Recalculate()
+        {
+            HitPoints = (int)(Math.Pow(Stamina, 1.2) * 10);
+            Armor = (int)Math.Pow(Stamina / 2, 1.2);
+            Block = (int)Math.Pow(Strength / 2, 1.2);
+            Dodge = (int)(Math.Pow(Agility, 1.2) / 5);
+            Speed = (int)(Math.Pow(Agility, 1.2) / 5) + (int)(Math.Pow(Dexterity, 1.2) / 5);
+            CritChance = (int)Math.Pow(Luck, 1.2);
+            Accuracy = (int)Math.Pow(Dexterity, 1.2);
+            Attack = (int)Math.Pow(Strength, 1.2);
+            AttackMin = (int)((0.8 + Math.Sqrt(Accuracy) / 100) * Attack);
+            AttackMax = (int)(1.1 * Attack);
         }
     }
 }
