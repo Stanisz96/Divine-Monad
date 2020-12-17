@@ -36,16 +36,16 @@
                     @await Component.InvokeAsync("GameCharacter", new { id = Model.CBStatsId })
                 </div>
                 <div class="tab-pane" id="game-backpack" role="tabpanel" aria-labelledby="game-backpack-btn">
-                    Backpack! Coming soon...
+                    @await Component.InvokeAsync("GameBackpack")
                 </div>
                 <div class="tab-pane" id="game-battle" role="tabpanel" aria-labelledby="game-battle-btn">
-                    <input type="button" value="Attack" class="btn btn-primary" style="margin: 50px;" />
+                    @await Component.InvokeAsync("GameBattle")
                 </div>
                 <div class="tab-pane" id="game-market" role="tabpanel" aria-labelledby="game-market-btn">
-                    Market! Coming soon...
+                    @await Component.InvokeAsync("GameMarket")
                 </div>
                 <div class="tab-pane" id="game-news" role="tabpanel" aria-labelledby="game-news-btn">
-                    News! Coming soon...
+                    @await Component.InvokeAsync("GameNews")
                 </div>
             </div>
         </div>
@@ -57,7 +57,7 @@
         function ReloadComponent(componentId, action, controller) {
             $.ajax({
                 url: `/${controller}/${action}`,
-                data: { newId: @Model.CBStatsId},
+                data: { newId: @Model.CBStatsId, type: componentId },
                 success: function (data) { $("#" + componentId).html(data); }
             });
         };
