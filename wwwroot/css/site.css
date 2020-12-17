@@ -222,7 +222,7 @@ body {
 
 .game-sidebar-character {
     grid-area: game-sidebar-character;
-    background-color: rgba(75, 191, 159, 0.75);
+    background-color: rgba(93, 199, 170, 0.6);
     border: 1px solid #389072;
     border-radius: 5px;
     margin: 0 1px 1px 0;
@@ -237,7 +237,7 @@ body {
 
 .game-plane {
     grid-area: game-plane;
-    background-color: rgba(75, 191, 159, 0.75);
+    background-color: rgba(129, 212, 189, 0.5);
     border: 1px solid #389072;
     border-radius: 5px;
 }

@@ -29,6 +29,7 @@ namespace DivineMonad.ViewComponents
 
             var advanceStats = new CharacterAdvanceStats(_baseStatsRepo, bsId, _itemsStatsRepo, isIds);
             advanceStats.CalculateWithoutEq();
+            advanceStats.CalculateWithEq();
 
             return View("Stats",advanceStats);
         }
