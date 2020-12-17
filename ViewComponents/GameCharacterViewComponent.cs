@@ -17,10 +17,8 @@ namespace DivineMonad.ViewComponents
             _baseStats = baseStatsRepo;
         }
 
-        public IViewComponentResult Invoke(int id, bool show)
+        public IViewComponentResult Invoke(int id)
         {
-            if (!show) return View("Empty");
-
             var advanceStats = new CharacterAdvanceStats(_baseStats, id);
             advanceStats.Calculate();
 

@@ -18,18 +18,35 @@
             </div>
         </div>
         <div class="game-sidebar-menu border">
-            <div class="list-group">
-                <button type="button" class="list-group-item list-group-item-action disabled">Menu</button>
-                <button type="button" id="character" class="list-group-item list-group-item-action">Character</button>
-                <button type="button" class="list-group-item list-group-item-action">Backpack</button>
-                <button type="button" class="list-group-item list-group-item-action">Battle</button>
-                <button type="button" class="list-group-item list-group-item-action">Market</button>
+            <div class="list-group" id="list-tab" role="tablist">
+                <a class="list-group-item list-group-item-action active" id="game-character-btn" data-toggle="list" href="#game-character" role="tab" aria-controls="game-character">Character</a>
+                <a class="list-group-item list-group-item-action" id="game-backpack-btn" data-toggle="list" href="#game-backpack" role="tab" aria-controls="game-backpack">Backpack</a>
+                <a class="list-group-item list-group-item-action" id="game-battle-btn" data-toggle="list" href="#game-battle" role="tab" aria-controls="game-battle">Battle</a>
+                <a class="list-group-item list-group-item-action" id="game-market-btn" data-toggle="list" href="#game-market" role="tab" aria-controls="game-market">Market</a>
+                <a class="list-group-item list-group-item-action" id="game-news-btn" data-toggle="list" href="#game-news" role="tab" aria-controls="game-news">News</a>
+                <button type="button" class="list-group-item list-group-item-action disabled">&nbsp;</button>
+                <button type="button" class="list-group-item list-group-item-action disabled">&nbsp;</button>
+                <button type="button" class="list-group-item list-group-item-action disabled">&nbsp;</button>
+                <button type="button" class="list-group-item list-group-item-action disabled">&nbsp;</button>
             </div>
         </div>
         <div class="game-plane border">
-            <input type="button" value="Attack" class="btn btn-primary" style="margin: 50px;" />
-            <div id="reloadComponent" style="padding: 100px;">
-                @await Component.InvokeAsync("GameCharacter", new { id = Model.CBStatsId, show = false })
+            <div class="tab-content" id="nav-tabContent">
+                <div class="tab-pane show active" id="game-character" role="tabpanel" aria-labelledby="game-character-btn">
+                    @await Component.InvokeAsync("GameCharacter", new { id = Model.CBStatsId })
+                </div>
+                <div class="tab-pane" id="game-backpack" role="tabpanel" aria-labelledby="game-backpack-btn">
+                    Backpack! Coming soon...
+                </div>
+                <div class="tab-pane" id="game-battle" role="tabpanel" aria-labelledby="game-battle-btn">
+                    <input type="button" value="Attack" class="btn btn-primary" style="margin: 50px;" />
+                </div>
+                <div class="tab-pane" id="game-market" role="tabpanel" aria-labelledby="game-market-btn">
+                    Market! Coming soon...
+                </div>
+                <div class="tab-pane" id="game-news" role="tabpanel" aria-labelledby="game-news-btn">
+                    News! Coming soon...
+                </div>
             </div>
         </div>
     </div>
@@ -37,23 +54,19 @@
 
 @section Scripts {
     <script>
-        function Reload(show) {
+        function ReloadComponent(componentId, action, controller) {
             $.ajax({
-                url: '@Url.Action("ReloadViewComponent", "Game")',
-                data: { newId: @Model.CBStatsId, newShow: show },
-                success: function (data) { $("#reloadComponent").html(data); }
+                url: `/${controller}/${action}`,
+                data: { newId: @Model.CBStatsId},
+                success: function (data) { $("#" + componentId).html(data); }
             });
-        }
+        };
 
-        $("#character").click(function () {
-            if (!$("#character").hasClass('active')) {
-                Reload(true);
-                $("#character").addClass('active');
-            } else {
-                Reload(false);
-                $("#character").removeClass('active');
-            }
-
+        $(".list-group-item").click(function () {
+            let componentId = this.attributes.getNamedItem("aria-controls").value;
+            let action = "ReloadViewComponent";
+            let controller = "Game";
+            ReloadComponent(componentId, action, controller);
         });
     </script>
 }
