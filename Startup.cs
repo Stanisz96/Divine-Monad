@@ -38,12 +38,11 @@ namespace DivineMonad
                     .AddDefaultUI()
                     .AddEntityFrameworkStores<ApplicationDbContext>()
                     .AddDefaultTokenProviders();
-            //services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
-            //    .AddEntityFrameworkStores<ApplicationDbContext>();
 
-            //services.AddScoped<ICharacterBaseStatsRepo, CharacterBaseStatsRepo>();
             services.AddScoped<IItemRepo, ItemRepo>();
-            services.AddTransient<ICharacterBaseStatsRepo, CharacterBaseStatsRepo>();
+            services.AddScoped<IItemStatsRepo, ItemStatsRepo>();
+            services.AddScoped<ICharacterItemsRepo, CharacterItemsRepo>();
+            services.AddScoped<ICharacterBaseStatsRepo, CharacterBaseStatsRepo>();
 
             services.AddControllersWithViews();
             services.AddRazorPages();

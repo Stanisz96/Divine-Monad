@@ -33,7 +33,7 @@
         <div class="game-plane">
             <div class="tab-content" id="nav-tabContent">
                 <div class="tab-pane show active" id="game-character" role="tabpanel" aria-labelledby="game-character-btn">
-                    @await Component.InvokeAsync("GameCharacter", new { id = Model.CBStatsId })
+                    @await Component.InvokeAsync("GameCharacter", new { cId = Model.CBStatsId, bsId = Model.ID })
                 </div>
                 <div class="tab-pane" id="game-backpack" role="tabpanel" aria-labelledby="game-backpack-btn">
                     @await Component.InvokeAsync("GameBackpack")
@@ -58,7 +58,7 @@
             let componentId = this.attributes.getNamedItem("aria-controls").value;
             let action = "ReloadViewComponent";
             let controller = "Game";
-            let data = { newId: @Model.CBStatsId, type: componentId };
+            let data = { _cId: @Model.ID, _bsId: @Model.CBStatsId, type: componentId };
             ReloadComponent(componentId, action, controller, data);
         });
     </script>

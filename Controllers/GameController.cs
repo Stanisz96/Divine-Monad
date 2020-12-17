@@ -42,9 +42,9 @@ namespace DivineMonad.Controllers
            
         }
 
-        public IActionResult ReloadViewComponent(int newId, string type)
+        public IActionResult ReloadViewComponent(int _cId, int _bsId, string type)
         {
-            if (type.Equals("game-character")) return ViewComponent("GameCharacter", new { id = newId });
+            if (type.Equals("game-character")) return ViewComponent("GameCharacter", new { cId = _cId, bsId = _bsId });
             else if (type.Equals("game-backpack")) return ViewComponent("GameBackpack");
             else if (type.Equals("game-battle")) return ViewComponent("GameBattle");
             else if (type.Equals("game-market")) return ViewComponent("GameMarket");

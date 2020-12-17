@@ -10,17 +10,25 @@ namespace DivineMonad.ViewComponents
 {
     public class GameCharacterViewComponent : ViewComponent
     {
-        private readonly ICharacterBaseStatsRepo _baseStats;
+        private readonly ICharacterBaseStatsRepo _baseStatsRepo;
+        private readonly ICharacterItemsRepo _charactersItemsRepo;
+        private readonly IItemStatsRepo _itemsStatsRepo;
 
-        public GameCharacterViewComponent(ICharacterBaseStatsRepo baseStatsRepo)
+        public GameCharacterViewComponent(ICharacterBaseStatsRepo baseStatsRepo, ICharacterItemsRepo characterItemsRepo,
+            IItemStatsRepo itemsStatsRepo)
         {
-            _baseStats = baseStatsRepo;
+            _baseStatsRepo = baseStatsRepo;
+            _charactersItemsRepo = characterItemsRepo;
+            _itemsStatsRepo = itemsStatsRepo;
         }
 
-        public IViewComponentResult Invoke(int id)
+        public IViewComponentResult Invoke(int cId, int bsId)
         {
-            var advanceStats = new CharacterAdvanceStats(_baseStats, id);
-            advanceStats.Calculate();
+            var characterItems = _charactersItemsRepo.GetCharactersItemsList(cId, true);
+            List<int> isIds = characterItems.Select(i => i.ItemId).ToList();
+
+            var advanceStats = new CharacterAdvanceStats(_baseStatsRepo, bsId, _itemsStatsRepo, isIds);
+            advanceStats.CalculateWithoutEq();
 
             return View("Stats",advanceStats);
         }

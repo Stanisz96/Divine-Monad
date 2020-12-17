@@ -8,5 +8,6 @@ namespace DivineMonad.Models
     public interface ICharacterItemsRepo
     {
         IEnumerable<CharacterItems> AllCharacterItems { get; }
+        IEnumerable<CharacterItems> GetCharactersItemsList(int cId, bool onlyEquipped);
     }
 }

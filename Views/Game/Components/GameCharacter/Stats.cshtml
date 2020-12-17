@@ -1,6 +1,16 @@
 ﻿@model DivineMonad.Engine.CharacterAdvanceStats
 
-<p>
-    HP: @Model.HP <br />
-    Attack: @Model.Attack
-</p>
+
+<div style="margin-top: 50px;">
+    @foreach (var prop in typeof(DivineMonad.Engine.CharacterAdvanceStats).GetProperties())
+    {
+        <div class="row justify-content-center">
+            <div class="col-3 font-weight-bold">
+                @prop.Name:
+            </div>
+            <div class="col-2">
+                @prop.GetValue(Model)
+            </div>
+        </div>
+    }
+</div>

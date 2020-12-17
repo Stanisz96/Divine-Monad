@@ -17,5 +17,14 @@ namespace DivineMonad.Models
 
         public IEnumerable<ItemStats> AllItemsStats => _appDbContext.ItemsStats;
 
+        public ItemStats GetStatsById(int statsId)
+        {
+            return _appDbContext.ItemsStats.FirstOrDefault(i => i.ID == statsId);
+        }
+
+        public IEnumerable<ItemStats> GetListStatsByIds(List<int> ids)
+        {
+            return _appDbContext.ItemsStats.Where(s => ids.Contains(s.ID)).ToList();
+        }
     }
 }
