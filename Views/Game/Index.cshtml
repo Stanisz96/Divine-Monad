@@ -54,19 +54,12 @@
 
 @section Scripts {
     <script>
-        function ReloadComponent(componentId, action, controller) {
-            $.ajax({
-                url: `/${controller}/${action}`,
-                data: { newId: @Model.CBStatsId, type: componentId },
-                success: function (data) { $("#" + componentId).html(data); }
-            });
-        };
-
         $(".list-group-item").click(function () {
             let componentId = this.attributes.getNamedItem("aria-controls").value;
             let action = "ReloadViewComponent";
             let controller = "Game";
-            ReloadComponent(componentId, action, controller);
+            let data = { newId: @Model.CBStatsId, type: componentId };
+            ReloadComponent(componentId, action, controller, data);
         });
     </script>
 }
