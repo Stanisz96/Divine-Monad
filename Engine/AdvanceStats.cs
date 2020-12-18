@@ -6,18 +6,8 @@ using System.Threading.Tasks;
 
 namespace DivineMonad.Engine
 {
-    public class CharacterAdvanceStats
+    public class AdvanceStats
     {
-        private readonly CharacterBaseStats baseStats;
-        private readonly IEnumerable<ItemStats> itemStatsList;
-
-        public CharacterAdvanceStats(ICharacterBaseStatsRepo characterBaseStatsRepo,
-            int bsId, IItemStatsRepo itemStatsRepo, List<int> isIds)
-        {
-            baseStats = characterBaseStatsRepo.GetStatsById(bsId);
-            itemStatsList = itemStatsRepo.GetListStatsByIds(isIds);
-        }
-
         public int Stamina { get; set; }
         public int Strength { get; set; }
         public int Agility { get; set; }
@@ -34,7 +24,7 @@ namespace DivineMonad.Engine
         public int CritChance { get; set; }
         public int Accuracy { get; set; }
 
-        public void CalculateWithoutEq()
+        public void CalculateWithoutEq(CharacterBaseStats baseStats)
         {
             Stamina = baseStats.Stamina;
             Strength = baseStats.Strength;
@@ -45,7 +35,7 @@ namespace DivineMonad.Engine
             Recalculate();
         }
 
-        public void CalculateWithEq()
+        public void CalculateWithEq(IEnumerable<ItemStats> itemStatsList)
         {
             foreach (var item in itemStatsList)
             {
@@ -72,6 +62,26 @@ namespace DivineMonad.Engine
             }
 
             AttackMin = (int)((0.8 + (Math.Sqrt(Accuracy) / 100)) * Attack);
+        }
+
+
+        public void CalculateMonster(MonsterStats monsterStats)
+        {
+            Stamina = monsterStats.Stamina;
+            Strength = monsterStats.Strength;
+            Dexterity = monsterStats.Dexterity;
+            Agility = monsterStats.Agility;
+            Luck = monsterStats.Luck;
+            HitPoints = monsterStats.HitPoints;
+            AttackMin = monsterStats.AttackMin;
+            Attack = monsterStats.Attack;
+            AttackMax = monsterStats.AttackMax;
+            Armor = monsterStats.Armor;
+            Block = monsterStats.Block;
+            Dodge = monsterStats.Dodge;
+            Speed = monsterStats.Speed;
+            CritChance = monsterStats.CritChance;
+            Accuracy = monsterStats.Accuracy;
         }
 
 

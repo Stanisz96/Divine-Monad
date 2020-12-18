@@ -27,11 +27,14 @@ namespace DivineMonad.ViewComponents
             var characterItems = _charactersItemsRepo.GetCharactersItemsList(cId, true);
             List<int> isIds = characterItems.Select(i => i.ItemId).ToList();
 
-            var advanceStats = new CharacterAdvanceStats(_baseStatsRepo, bsId, _itemsStatsRepo, isIds);
-            advanceStats.CalculateWithoutEq();
-            advanceStats.CalculateWithEq();
+            CharacterBaseStats baseStats = _baseStatsRepo.GetStatsById(bsId);
+            IEnumerable<ItemStats> itemStatsList = _itemsStatsRepo.GetListStatsByIds(isIds);
 
-            return View("Stats",advanceStats);
+            var characterAdvanceStats = new AdvanceStats();
+            characterAdvanceStats.CalculateWithoutEq(baseStats);
+            characterAdvanceStats.CalculateWithEq(itemStatsList);
+
+            return View("Stats", characterAdvanceStats);
         }
     }
 }
