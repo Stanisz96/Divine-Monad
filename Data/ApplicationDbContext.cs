@@ -22,7 +22,9 @@ namespace DivineMonad.Data
         public DbSet<CharacterBaseStats> CharactersBaseStats { get; set; }
         public DbSet<GameStats> CharactersGameStats { get; set; }
         public DbSet<Rarity> Rarity { get; set; }
-
+        public DbSet<Monster> Monsters { get; set; }
+        public DbSet<MonsterLoot> MonstersLoot { get; set; }
+        public DbSet<MonsterStats> MonstersStats { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {

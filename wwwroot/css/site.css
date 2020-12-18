@@ -154,6 +154,7 @@ body {
 .horizontal-scroll {
     overflow-x: scroll;
     white-space: nowrap;
+    background-color: rgba(242, 255, 251, 0.30);
 }
 
 
