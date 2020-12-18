@@ -23,6 +23,9 @@ namespace DivineMonad.Areas.Admin.Controllers
         // GET: Admin/MonstersStats
         public async Task<IActionResult> Index()
         {
+            ViewData["Monsters"] = new SelectList(_context.Monsters, "MonsterStatsId", "Name");
+            ViewData["MonstersId"] = new SelectList(_context.Monsters, "MonsterStatsId", "ID");
+
             return View(await _context.MonstersStats.ToListAsync());
         }
 
@@ -40,6 +43,9 @@ namespace DivineMonad.Areas.Admin.Controllers
             {
                 return NotFound();
             }
+
+            ViewData["MonsterName"] = _context.Monsters.FirstOrDefault(c => c.MonsterStatsId == id).Name;
+            ViewData["MonsterId"] = _context.Monsters.FirstOrDefault(c => c.MonsterStatsId == id).ID;
 
             return View(monsterStats);
         }

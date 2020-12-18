@@ -1,42 +1,66 @@
 ﻿@model IEnumerable<DivineMonad.Models.MonsterLoot>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Monsters Loot";
     Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
 }
 
-<h1>Index</h1>
+@functions {
+    public string FindMonster(string id)
+    {
+        return (from item in ViewData["Monsters"] as SelectList
+                where item.Value == id
+                select item.Text).FirstOrDefault();
+    }
+
+    public string FindItem(string id)
+    {
+        return (from item in ViewData["Items"] as SelectList
+                where item.Value == id
+                select item.Text).FirstOrDefault();
+    }
+}
+
+<h1>Monsters Loot</h1>
 
 <p>
     <a asp-action="Create">Create New</a>
 </p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.MonsterId)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ItemId)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.MonsterId)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ItemId)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.ID">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.ID">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.ID">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+<div class="horizontal-scroll">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    Monster Name
+                </th>
+                <th>
+                    Item Name
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+            <tr>
+                <td>
+                    <a asp-area="Admin" asp-controller="Monsters" asp-action="Details" asp-route-id="@item.MonsterId">
+                        @FindMonster(item.MonsterId.ToString())
+                    </a>
+                </td>
+                <td>
+                    <a asp-controller="Items" asp-action="Details" asp-route-id="@item.ItemId">
+                        @FindItem(item.ItemId.ToString())
+                    </a>
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.ID">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.ID">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.ID">Delete</a>
+                </td>
+            </tr>
+            }
+        </tbody>
+    </table>
+</div>
+<a asp-area="Admin" asp-controller="Home" asp-action="Index">Back to Admin home page</a>

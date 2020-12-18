@@ -50,6 +50,9 @@ namespace DivineMonad.Areas.Admin.Controllers
         public IActionResult Create()
         {
             ViewData["MonsterStatsId"] = new SelectList(_context.MonstersStats, "ID", "ID");
+            var statisticsId = new SelectList(_context.MonstersStats, "ID", "ID");
+            ViewData["StatisticsId"] = statisticsId;
+            ViewData["DefaultStatsId"] = statisticsId.FirstOrDefault().Value;
             return View();
         }
 
@@ -84,6 +87,9 @@ namespace DivineMonad.Areas.Admin.Controllers
                 return NotFound();
             }
             ViewData["MonsterStatsId"] = new SelectList(_context.MonstersStats, "ID", "ID", monster.MonsterStatsId);
+            var statisticsId = new SelectList(_context.MonstersStats, "ID", "ID");
+            ViewData["StatisticsId"] = statisticsId;
+            ViewData["DefaultStatsId"] = statisticsId.FirstOrDefault().Value;
             return View(monster);
         }
 
@@ -152,6 +158,12 @@ namespace DivineMonad.Areas.Admin.Controllers
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
+
+        public IActionResult ReloadViewComponent(int newId)
+        {
+            return ViewComponent("ShowExternalProps", new { id = newId, type = "MonsterStatistics" });
+        }
+
 
         private bool MonsterExists(int id)
         {

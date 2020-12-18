@@ -24,6 +24,12 @@ namespace DivineMonad.Areas.Admin.ViewComponents
                 if (id != null) ViewData["id"] = item.ID;
                 return View(type, item);
             }
+            if (type.Equals("MonsterStatistics"))
+            {
+                var item = await _context.MonstersStats.FirstOrDefaultAsync(s => s.ID == id);
+                if (id != null) ViewData["id"] = item.ID;
+                return View(type, item);
+            }
 
             return View("Default");
         }

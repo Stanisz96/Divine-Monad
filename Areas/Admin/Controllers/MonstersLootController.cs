@@ -23,7 +23,12 @@ namespace DivineMonad.Areas.Admin.Controllers
         // GET: Admin/MonstersLoot
         public async Task<IActionResult> Index()
         {
-            return View(await _context.MonstersLoot.ToListAsync());
+            var monstersLootList = await _context.MonstersLoot.ToListAsync();
+
+            ViewData["Monsters"] = new SelectList(_context.Monsters, "ID", "Name");
+            ViewData["Items"] = new SelectList(_context.Items, "ID", "Name");
+
+            return View(monstersLootList);
         }
 
         // GET: Admin/MonstersLoot/Details/5
@@ -47,6 +52,9 @@ namespace DivineMonad.Areas.Admin.Controllers
         // GET: Admin/MonstersLoot/Create
         public IActionResult Create()
         {
+            ViewData["Monsters"] = new SelectList(_context.Monsters, "ID", "Name");
+            ViewData["Items"] = new SelectList(_context.Items, "ID", "Name");
+
             return View();
         }
 
@@ -79,6 +87,10 @@ namespace DivineMonad.Areas.Admin.Controllers
             {
                 return NotFound();
             }
+
+            ViewData["Monsters"] = new SelectList(_context.Monsters, "ID", "Name", monsterLoot.MonsterId);
+            ViewData["Items"] = new SelectList(_context.Items, "ID", "Name", monsterLoot.ItemId);
+
             return View(monsterLoot);
         }
 
@@ -114,6 +126,7 @@ namespace DivineMonad.Areas.Admin.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
+
             return View(monsterLoot);
         }
 
