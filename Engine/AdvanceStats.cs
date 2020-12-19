@@ -24,6 +24,11 @@ namespace DivineMonad.Engine
         public int CritChance { get; set; }
         public int Accuracy { get; set; }
 
+        public double CritPr { get; set; }
+        public double DodgePr { get; set; }
+        public double BlockPr { get; set; }
+        public double ExtraDropPr { get; set; }
+
         public void CalculateWithoutEq(CharacterBaseStats baseStats)
         {
             Stamina = baseStats.Stamina;
@@ -32,7 +37,9 @@ namespace DivineMonad.Engine
             Agility = baseStats.Agility;
             Luck = baseStats.Luck;
 
-            Recalculate();
+            RecalculateStats();
+            RecalculatePr();
+
         }
 
         public void CalculateWithEq(IEnumerable<ItemStats> itemStatsList)
@@ -46,7 +53,7 @@ namespace DivineMonad.Engine
                 Luck += item.Luck;
             }
 
-            Recalculate();
+            RecalculateStats();
 
             foreach (var item in itemStatsList)
             {
@@ -62,6 +69,8 @@ namespace DivineMonad.Engine
             }
 
             AttackMin = (int)((0.8 + (Math.Sqrt(Accuracy) / 100)) * Attack);
+
+            RecalculatePr();
         }
 
 
@@ -84,19 +93,32 @@ namespace DivineMonad.Engine
             Accuracy = monsterStats.Accuracy;
         }
 
+        public void CalculatePercentages()
+        {
+            CritPr = CritChance / 1000;
+            DodgePr = Dodge / 1000;
+        }
 
-        private void Recalculate()
+        private void RecalculateStats()
         {
             HitPoints = (int)(Math.Pow(Stamina, 1.2) * 10);
             Armor = (int)Math.Pow(Stamina / 2, 1.2);
             Block = (int)Math.Pow(Strength / 2, 1.2);
-            Dodge = (int)(Math.Pow(Agility, 1.2) / 5);
+            Dodge = (int)(Math.Pow(Agility, 1.2));
             Speed = (int)(Math.Pow(Agility, 1.2) / 5) + (int)(Math.Pow(Dexterity, 1.2) / 5);
             CritChance = (int)Math.Pow(Luck, 1.2);
             Accuracy = (int)Math.Pow(Dexterity, 1.2);
             Attack = (int)Math.Pow(Strength, 1.2);
             AttackMin = (int)((0.8 + Math.Sqrt(Accuracy) / 100) * Attack);
             AttackMax = (int)(1.1 * Attack);
+        }
+
+        private void RecalculatePr()
+        {
+            CritPr = CritChance / 1000;
+            DodgePr = Dodge / 1000;
+            BlockPr = Block / 1000;
+            ExtraDropPr = Math.Sqrt(5 * Luck) / 100;
         }
     }
 }
