@@ -15,12 +15,6 @@ namespace DivineMonad.Engine
             rand = new Random();
         }
 
-        private void DealDmgToPlayer(AdvanceStats playerStats)
-        {
-            playerStats.HitPoints += rand.Next(0, 10) - 4;
-            HPInfo += "HP: " + playerStats.HitPoints + "\n";
-        }
-
         public void GenerateFight(AdvanceStats playerStats)
         {
             HPInfo = "HP: " + playerStats.HitPoints.ToString() + "\n";
@@ -28,6 +22,12 @@ namespace DivineMonad.Engine
             fightAction += DealDmgToPlayer;
 
             fightAction(playerStats);
+        }
+
+        private void DealDmgToPlayer(AdvanceStats playerStats)
+        {
+            playerStats.HitPoints += rand.Next(0, 10) - 4;
+            HPInfo += "HP: " + playerStats.HitPoints + "\n";
         }
     }
 }
