@@ -93,12 +93,6 @@ namespace DivineMonad.Engine
             Accuracy = monsterStats.Accuracy;
         }
 
-        public void CalculatePercentages()
-        {
-            CritPr = CritChance / 1000;
-            DodgePr = Dodge / 1000;
-        }
-
         private void RecalculateStats()
         {
             HitPoints = (int)(Math.Pow(Stamina, 1.2) * 10);
@@ -115,10 +109,10 @@ namespace DivineMonad.Engine
 
         private void RecalculatePr()
         {
-            CritPr = CritChance / 1000;
-            DodgePr = Dodge / 1000;
-            BlockPr = Block / 1000;
-            ExtraDropPr = Math.Sqrt(5 * Luck) / 100;
+            CritPr = ((double)CritChance / 1000);
+            DodgePr = ((double)Dodge / 1000);
+            BlockPr = ((double)Block / 1000);
+            ExtraDropPr = Math.Round(Math.Sqrt(5 * Luck) / 100, 3);
         }
     }
 }

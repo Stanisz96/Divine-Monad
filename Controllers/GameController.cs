@@ -1,4 +1,5 @@
 ﻿using DivineMonad.Data;
+using DivineMonad.Engine;
 using DivineMonad.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -22,7 +23,7 @@ namespace DivineMonad.Controllers
         }
 
 
-        public async Task<IActionResult> Index(int id)
+        public async Task<IActionResult> Index(int id, string m)
         {
             string userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
             try
@@ -31,6 +32,8 @@ namespace DivineMonad.Controllers
                                         .Include(c => c.GStats)
                                         .FirstOrDefaultAsync(m => m.ID == id);
                 ViewData["id"] = id;
+                if (m.Length == 0) ViewData["menu"] = "character";
+                else ViewData["menu"] = m;
 
                 if (userId.Equals(character.UserId)) return View(character);
                 else return View("NotNice");
@@ -42,14 +45,32 @@ namespace DivineMonad.Controllers
            
         }
 
-        public IActionResult ReloadViewComponent(int _cId, int _bsId, string type)
+        public IActionResult ReloadViewComponent(int? _cId, int? _bsId, string type)
         {
             if (type.Equals("game-character")) return ViewComponent("GameCharacter", new { cId = _cId, bsId = _bsId });
             else if (type.Equals("game-backpack")) return ViewComponent("GameBackpack");
-            else if (type.Equals("game-battle")) return ViewComponent("GameBattle");
+            else if (type.Equals("game-battle")) return ViewComponent("GameBattle", new { cId = _cId, bsId = _bsId });
             else if (type.Equals("game-market")) return ViewComponent("GameMarket");
             else if (type.Equals("game-news")) return ViewComponent("GameNews");
             else return NotFound();
+        }
+
+        [HttpPost]
+        public IActionResult ReloadViewComponent(string type)
+        {
+            if (type.Equals("game-battle"))
+                return ViewComponent("GameBattle", new { test = true });
+            else
+                return NotFound();
+        }
+
+        [HttpPost]
+        public string TestFight(AdvanceStats playerStats)
+        {
+            FightGenerator fightGenerator = new FightGenerator();
+            fightGenerator.GenerateFight(playerStats);
+
+            return fightGenerator.HPInfo;
         }
     }
 }

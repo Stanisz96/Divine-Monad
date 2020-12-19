@@ -19,7 +19,7 @@
         </div>
         <div class="game-sidebar-menu">
             <div class="list-group" id="list-tab" role="tablist">
-                <a class="list-group-item list-group-item-action active" id="game-character-btn" data-toggle="list" href="#game-character" role="tab" aria-controls="game-character">Character</a>
+                <a class="list-group-item list-group-item-action" id="game-character-btn" data-toggle="list" href="#game-character" role="tab" aria-controls="game-character">Character</a>
                 <a class="list-group-item list-group-item-action" id="game-backpack-btn" data-toggle="list" href="#game-backpack" role="tab" aria-controls="game-backpack">Backpack</a>
                 <a class="list-group-item list-group-item-action" id="game-battle-btn" data-toggle="list" href="#game-battle" role="tab" aria-controls="game-battle">Battle</a>
                 <a class="list-group-item list-group-item-action" id="game-market-btn" data-toggle="list" href="#game-market" role="tab" aria-controls="game-market">Market</a>
@@ -32,14 +32,14 @@
         </div>
         <div class="game-plane">
             <div class="tab-content" id="nav-tabContent">
-                <div class="tab-pane show active" id="game-character" role="tabpanel" aria-labelledby="game-character-btn">
+                <div class="tab-pane " id="game-character" role="tabpanel" aria-labelledby="game-character-btn">
                     @await Component.InvokeAsync("GameCharacter", new { cId = Model.CBStatsId, bsId = Model.ID })
                 </div>
                 <div class="tab-pane" id="game-backpack" role="tabpanel" aria-labelledby="game-backpack-btn">
-                    @await Component.InvokeAsync("GameBackpack")
+                        @await Component.InvokeAsync("GameBackpack")
                 </div>
                 <div class="tab-pane" id="game-battle" role="tabpanel" aria-labelledby="game-battle-btn">
-                    @await Component.InvokeAsync("GameBattle")
+                        @await Component.InvokeAsync("GameBattle")
                 </div>
                 <div class="tab-pane" id="game-market" role="tabpanel" aria-labelledby="game-market-btn">
                     @await Component.InvokeAsync("GameMarket")
@@ -53,6 +53,7 @@
 </div>
 
 @section Scripts {
+
     <script>
         $(".list-group-item").click(function () {
             let componentId = this.attributes.getNamedItem("aria-controls").value;
@@ -61,5 +62,17 @@
             let data = { _cId: @Model.ID, _bsId: @Model.CBStatsId, type: componentId };
             ReloadComponent(componentId, action, controller, data);
         });
+
+        $("#test").click(function () {
+            console.log("TEST!");
+        });
+
+        $(document).ready(function () {
+            let componentId = "game-" + "@ViewBag.menu";
+            $("#"+componentId + "-btn").addClass("active");
+            $("#" +componentId).addClass("show active");
+        
+        })
     </script>
+    
 }
