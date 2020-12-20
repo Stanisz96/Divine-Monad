@@ -1,0 +1,77 @@
+{
+  "Player": {
+    "ID": 1,
+    "Name": "PlayerName"
+  },
+  "Opponent": {
+    "ID": 2,
+    "Name": "OpponentName"
+  },
+  "Result": "win",
+  "Rounds": [
+    {
+      "Number": 1,
+      "Attacker": {
+        "ID": 1,
+        "HP": 200,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 25
+      },
+      "Defender": {
+        "ID": 2,
+        "HP": 185,
+        "Block": false,
+        "Receive": 15
+      }
+    },
+    {
+      "Number": 2,
+      "Attacker": {
+        "ID": 2,
+        "HP": 185,
+        "Crit": true,
+        "Miss": false,
+        "Damage": 90
+      },
+      "Defender": {
+        "ID": 1,
+        "HP": 120,
+        "Block": false,
+        "Receive": 80
+      }
+    },
+    {
+      "Number": 3,
+      "Attacker": {
+        "ID": 1,
+        "HP": 120,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 20
+      },
+      "Defender": {
+        "ID": 2,
+        "HP": 180,
+        "Block": true,
+        "Receive": 5
+      }
+    },
+    {
+      "Number": 4,
+      "Attacker": {
+        "ID": 2,
+        "HP": 180,
+        "Crit": true,
+        "Miss": false,
+        "Damage": 130
+      },
+      "Defender": {
+        "ID": 1,
+        "HP": 0,
+        "Block": false,
+        "Receive": 120
+      }
+    }
+  ]
+}

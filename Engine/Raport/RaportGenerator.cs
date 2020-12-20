@@ -10,6 +10,7 @@ namespace DivineMonad.Engine.Raport
         public Player Player { get; set; }
         public Opponent Opponent { get; set; }
         public string Result { get; set; }
+        public bool IsPvp { get; set; }
         public IList<Round> Rounds { get; set; }
     }
 }

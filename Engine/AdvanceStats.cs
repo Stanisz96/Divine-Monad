@@ -7,6 +7,8 @@ namespace DivineMonad.Engine
 {
     public class AdvanceStats
     {
+        public int CharacterId { get; set; }
+        public bool IsPlayer { get; set; }
         public int Stamina { get; set; }
         public int Strength { get; set; }
         public int Agility { get; set; }
@@ -32,8 +34,14 @@ namespace DivineMonad.Engine
         [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:P1}")]
         public double ExtraDropPr { get; set; }
 
+        public AdvanceStats(int id)
+        {
+            CharacterId = id;
+        }
+
         public void CalculateWithoutEq(CharacterBaseStats baseStats)
         {
+            IsPlayer = true;
             Stamina = baseStats.Stamina;
             Strength = baseStats.Strength;
             Dexterity = baseStats.Dexterity;
@@ -79,6 +87,7 @@ namespace DivineMonad.Engine
 
         public void CalculateMonster(MonsterStats monsterStats)
         {
+            IsPlayer = false;
             Stamina = monsterStats.Stamina;
             Strength = monsterStats.Strength;
             Dexterity = monsterStats.Dexterity;

@@ -30,7 +30,7 @@ namespace DivineMonad.ViewComponents
             CharacterBaseStats baseStats = _baseStatsRepo.GetStatsById(bsId);
             IEnumerable<ItemStats> itemStatsList = _itemsStatsRepo.GetListStatsByIds(isIds);
 
-            var characterAdvanceStats = new AdvanceStats();
+            var characterAdvanceStats = new AdvanceStats(cId);
             characterAdvanceStats.CalculateWithoutEq(baseStats);
             characterAdvanceStats.CalculateWithEq(itemStatsList);
 

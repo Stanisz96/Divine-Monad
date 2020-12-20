@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DivineMonad.Engine.Raport;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -9,25 +10,36 @@ namespace DivineMonad.Engine
     {
         Random rand;
         public string HPInfo { get; set; }
+        public AdvanceStats PlayerStats { get; set; }
+        public AdvanceStats OpponentStats { get; set; }
+        public RaportGenerator Raport { get; set; }
 
-        public FightGenerator()
+        public FightGenerator(AdvanceStats playerStats, AdvanceStats opponentStats)
         {
             rand = new Random();
+            PlayerStats = playerStats;
+            OpponentStats = opponentStats;
         }
 
-        public void GenerateFight(AdvanceStats playerStats)
+        public void GenerateFight()
         {
-            HPInfo = "HP: " + playerStats.HitPoints.ToString() + "\n";
-            Action<AdvanceStats> fightAction = new Action<AdvanceStats>(DealDmgToPlayer);
+            HPInfo = "HP: " + PlayerStats.HitPoints.ToString() + "\n";
+            Action<AdvanceStats, AdvanceStats> fightAction = new Action<AdvanceStats, AdvanceStats>(DealDmgToPlayer);
             fightAction += DealDmgToPlayer;
 
-            fightAction(playerStats);
+            fightAction(PlayerStats, OpponentStats);
         }
 
-        private void DealDmgToPlayer(AdvanceStats playerStats)
+        private void DealDmgToPlayer(AdvanceStats player, AdvanceStats opponent)
         {
-            playerStats.HitPoints += rand.Next(0, 10) - 4;
-            HPInfo += "HP: " + playerStats.HitPoints + "\n";
+            player.HitPoints += rand.Next(0, 10) - 4;
+            HPInfo += "HP: " + opponent.HitPoints + "\n";
+        }
+
+        private void SetMainRaportProps(AdvanceStats player, AdvanceStats opponent)
+        {
+            Raport.IsPvp = opponent.IsPlayer;
+            Raport.Player = new Player() { ID = player.CharacterId };
         }
     }
 }
