@@ -6,11 +6,9 @@ using System.Threading.Tasks;
 
 namespace DivineMonad.Engine
 {
-    public class FightGenerator
+    public class FightGenerator : IFightGenerator
     {
         Random rand;
-        public AdvanceStats PlayerStats { get; set; }
-        public AdvanceStats OpponentStats { get; set; }
         private AdvanceStats Attacker { get; set; }
         private AdvanceStats Defender { get; set; }
         public RaportGenerator Raport { get; set; }
@@ -23,59 +21,82 @@ namespace DivineMonad.Engine
         public bool IsMiss { get; set; }
         public int Damage { get; set; }
         public int Receive { get; set; }
+        public int RoundNumber { get; set; }
+        public bool IsExtraAttackDone { get; set; }
+        public bool DoExtraAttack { get; set; }
+        public bool IsFightOver { get; set; }
 
+        private readonly IAdvanceStats _playerStats;
+        private readonly IAdvanceStats _opponentStats;
 
-        public FightGenerator(AdvanceStats playerStats, AdvanceStats opponentStats)
+        public FightGenerator(IAdvanceStats playerStats, IAdvanceStats opponentStats)
         {
             rand = new Random();
-            PlayerStats = playerStats;
-            OpponentStats = opponentStats;
+            Raport = new RaportGenerator();
+            Raport.Rounds = new List<Round>();
+            _playerStats = playerStats;
+            _opponentStats = opponentStats;
         }
 
-        public void GenerateFight()
+        public RaportGenerator GenerateFight()
         {
+            IsExtraAttackDone = false;
+            DoExtraAttack = false;
+            IsFightOver = false;
+            RoundNumber = 1;
+
             Action fightAction = new Action(SetMainRaportProps);
             fightAction += SetWhoStart;
             fightAction += SetStartHp;
 
-            for (int i = 1; i <= 5; i++)
-            {
-                fightAction += UpdateBonuses;
-                fightAction += UpdateDamage;
-            }
+            fightAction += UpdateBonuses;
+            fightAction += UpdateDamage;
+            fightAction += UpdateReceiveDamage;
+            fightAction += AddRaportRound;
+            fightAction += CheckIfDoubleAttack;
+            fightAction += CheckIfFightOver;
+            fightAction += UpdateToNextRound;
 
             fightAction();
-        }
 
-/*        private void DealDmgToPlayer(AdvanceStats player, AdvanceStats opponent)
-        {
-            player.HitPoints += rand.Next(0, 10) - 4;
-            HPInfo += "HP: " + opponent.HitPoints + "\n";
-        }*/
+            fightAction -= SetWhoStart;
+            fightAction -= SetStartHp;
+
+            while(!IsFightOver)
+            {
+                if (RoundNumber >= 20) IsFightOver = true;
+
+                fightAction();
+            }
+
+            SetRaportResults();
+
+            return Raport;
+        }
 
         private void SetMainRaportProps()
         {
-            Raport.IsPvp = OpponentStats.IsPlayer;
-            Raport.Player = new Player() { ID = PlayerStats.CharacterId };
-            Raport.Opponent = new Opponent() { ID = OpponentStats.CharacterId };
-            Raport.Rounds = new List<Round>();
+            Raport.IsPvp = _opponentStats.IsPlayer;
+            Raport.Player = new Player() { ID = _playerStats.CharacterId };
+            Raport.Opponent = new Opponent() { ID = _opponentStats.CharacterId };
+
         }
 
         private void SetWhoStart()
         {
-            if (PlayerStats.Speed >= OpponentStats.Speed)
+            if (_playerStats.Speed >= _opponentStats.Speed)
             {
-                AttackerId = PlayerStats.CharacterId;
-                Attacker = PlayerStats;
-                DefenderId = OpponentStats.CharacterId;
-                Defender = OpponentStats;
+                AttackerId = _playerStats.CharacterId;
+                Attacker = (AdvanceStats)_playerStats;
+                DefenderId = _opponentStats.CharacterId;
+                Defender = (AdvanceStats)_opponentStats;
             }
             else
             {
-                AttackerId = OpponentStats.CharacterId;
-                Attacker = OpponentStats;
-                DefenderId = PlayerStats.CharacterId;
-                Defender = PlayerStats;
+                AttackerId = _opponentStats.CharacterId;
+                Attacker = (AdvanceStats)_opponentStats;
+                DefenderId = _playerStats.CharacterId;
+                Defender = (AdvanceStats)_playerStats;
             }
         }
 
@@ -112,6 +133,90 @@ namespace DivineMonad.Engine
             if(IsMiss)
             {
                 Receive = 0;
+            }
+            else
+            {
+                Receive = (int)(Damage * (1 - Defender.DamageReduction));
+                if (IsBlock) Receive = (int)(Receive * 0.5);
+            }
+
+            DefenderHp -= Receive;
+        }
+
+        private void AddRaportRound()
+        {
+            Raport.Rounds.Add(new Round()
+            {
+                Attacker = new Attacker() { Crit = IsCrit, Damage = Damage, HP = AttackerHp, ID = AttackerId, Miss = IsMiss },
+                Defender = new Defender() { Block = IsBlock, Receive = Receive, HP = DefenderHp, ID = DefenderId },
+                Number = RoundNumber
+            });
+        }
+
+        private void CheckIfDoubleAttack()
+        {
+            double doubleFactor = Attacker.Speed / Defender.Speed;
+            if(doubleFactor > 1 && IsExtraAttackDone == false)
+            {
+                double extraAttack = (RoundNumber * doubleFactor) - ((int)(RoundNumber * doubleFactor))
+                    / Math.Pow(doubleFactor, 1.2) + 0.04;
+
+                if(extraAttack <= 0.25)
+                {
+                    DoExtraAttack = true;
+                }
+            }
+            else
+            {
+                IsExtraAttackDone = false;
+            }
+        }
+
+        private void UpdateToNextRound()
+        {
+            RoundNumber += 1;
+
+            if(DoExtraAttack)
+            {
+                IsExtraAttackDone = true;
+            }
+
+            else
+            {
+                AdvanceStats tempA, tempB;
+                int hpA, hpB, idA, idB;
+                tempA = Attacker;
+                tempB = Defender;
+                hpA = AttackerHp;
+                hpB = DefenderHp;
+                idA = AttackerId;
+                idB = DefenderId;
+                Attacker = tempB;
+                Defender = tempA;
+                AttackerHp = hpB;
+                DefenderHp = hpA;
+                AttackerId = idB;
+                DefenderId = idA;
+            }
+        }
+
+        private void CheckIfFightOver()
+        {
+            if(DefenderHp <= 0)
+            {
+                IsFightOver = true;
+            }
+        }
+        private void SetRaportResults()
+        {
+            // Everything is the other way around, becouse
+            // function UpdateToNextRound() change attacker to defender
+
+            if (AttackerHp > 0) Raport.Result = "draw";
+            else
+            {
+                if (AttackerId == _playerStats.CharacterId) Raport.Result = "lose";
+                else Raport.Result = "win";
             }
         }
     }

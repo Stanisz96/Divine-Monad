@@ -23,25 +23,15 @@ namespace DivineMonad.ViewComponents
 
         }
 
-        public IViewComponentResult Invoke(int? cId, int? bsId)
+        public IViewComponentResult Invoke(int cId, int bsId)
         {
-            if (cId.HasValue && bsId.HasValue)
+            if (cId > 0 && bsId > 0)
             {
-                var characterItems = _characterItemsRepo.GetCharactersItemsList((int)cId, true);
-                List<int> isIds = characterItems.Select(i => i.ItemId).ToList();
-
-                CharacterBaseStats baseStats = _baseStatsRepo.GetStatsById((int)bsId);
-                IEnumerable<ItemStats> itemStatsList = _itemsStatsRepo.GetListStatsByIds(isIds);
-
-                var characterAdvanceStats = new AdvanceStats((int)cId);
-                characterAdvanceStats.CalculateWithoutEq(baseStats);
-                characterAdvanceStats.CalculateWithEq(itemStatsList);
-                return View("Empty", characterAdvanceStats);
+                ViewData["cId"] = cId;
+                ViewData["bsId"] = bsId;
+                return View("Empty");
             }
-            else
-            {
-                return View("Fight");
-            }
+            else return View("Fight");
         }
     }
 }

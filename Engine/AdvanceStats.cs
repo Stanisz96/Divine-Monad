@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace DivineMonad.Engine
 {
-    public class AdvanceStats
+    public class AdvanceStats : IAdvanceStats
     {
         public int CharacterId { get; set; }
         public bool IsPlayer { get; set; }
@@ -33,10 +33,11 @@ namespace DivineMonad.Engine
         public double BlockPr { get; set; }
         [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:P1}")]
         public double ExtraDropPr { get; set; }
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:P1}")]
+        public double DamageReduction { get; set; }
 
-        public AdvanceStats(int id)
+        public AdvanceStats()
         {
-            CharacterId = id;
         }
 
         public void CalculateWithoutEq(CharacterBaseStats baseStats)
@@ -125,6 +126,7 @@ namespace DivineMonad.Engine
             DodgePr = ((double)Dodge / 1000);
             BlockPr = ((double)Block / 1000);
             ExtraDropPr = Math.Round(Math.Sqrt(5 * Luck) / 100, 3);
+            DamageReduction = Math.Round(Math.Sqrt(Armor) / 200, 3);
         }
     }
 }

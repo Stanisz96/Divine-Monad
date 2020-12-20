@@ -18,14 +18,23 @@ namespace DivineMonad.Controllers
     public class GameController : Controller
     {
         private readonly ApplicationDbContext _context;
+        private readonly ICharacterBaseStatsRepo _baseStatsRepo;
+        private readonly ICharacterItemsRepo _characterItemsRepo;
+        private readonly IItemStatsRepo _itemsStatsRepo;
+        //private readonly IFightGenerator _fightGenerator;
 
-        public GameController(ApplicationDbContext context)
+        public GameController(ApplicationDbContext context, ICharacterBaseStatsRepo baseStatsRepo, ICharacterItemsRepo characterItemsRepo,
+            IItemStatsRepo itemsStatsRepo/*, IFightGenerator fightGenerator*/)
         {
             _context = context;
+            _baseStatsRepo = baseStatsRepo;
+            _characterItemsRepo = characterItemsRepo;
+            _itemsStatsRepo = itemsStatsRepo;
+            //_fightGenerator = fightGenerator;
         }
 
 
-        public async Task<IActionResult> Index(int id, string m)
+        public async Task<IActionResult> Index(int id)
         {
             string userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
             try
@@ -34,8 +43,7 @@ namespace DivineMonad.Controllers
                                         .Include(c => c.GStats)
                                         .FirstOrDefaultAsync(m => m.ID == id);
                 ViewData["id"] = id;
-                if (m.Length == 0) ViewData["menu"] = "character";
-                else ViewData["menu"] = m;
+                ViewData["menu"] = "character";
 
                 if (userId.Equals(character.UserId)) return View(character);
                 else return View("NotNice");
@@ -47,7 +55,7 @@ namespace DivineMonad.Controllers
 
         }
 
-        public IActionResult ReloadViewComponent(int? _cId, int? _bsId, string type)
+        public IActionResult ReloadViewComponent(int _cId, int _bsId, string type)
         {
             if (type.Equals("game-character")) return ViewComponent("GameCharacter", new { cId = _cId, bsId = _bsId });
             else if (type.Equals("game-backpack")) return ViewComponent("GameBackpack");
@@ -67,50 +75,52 @@ namespace DivineMonad.Controllers
         }
 
         [HttpPost]
-        public string TestFight(AdvanceStats playerStats)
+        public string TestFight()
         {
-            FightGenerator fightGenerator = new FightGenerator(playerStats, playerStats);
-            fightGenerator.GenerateFight();
 
-            RaportGenerator raportGenerator = new RaportGenerator();
-            raportGenerator.Player = new Player() { ID = 1 };
-            raportGenerator.Opponent = new Opponent() { ID = 3 };
-            raportGenerator.IsPvp = true;
-            raportGenerator.Result = "win";
-            raportGenerator.Rounds = new List<Round>
-            {
-                new Round
-                {
-                    Number = 1,
-                    Attacker = new Attacker() { Crit = false, Damage = 25, HP = 200, ID = 1, Miss = false },
-                    Defender = new Defender() { Block = false, ID = 3, HP = 185, Receive = 15 }
-                },
-                new Round
-                {
-                    Number = 2,
-                    Attacker = new Attacker() { Crit = true, Damage = 90, HP = 185, ID = 3, Miss = false },
-                    Defender = new Defender() { Block = false, ID = 1, HP = 120, Receive = 80 }
-                },
-                new Round
-                {
-                    Number = 3,
-                    Attacker = new Attacker() { Crit = false, Damage = 20, HP = 120, ID = 1, Miss = false },
-                    Defender = new Defender() { Block = true, ID = 3, HP = 180, Receive = 5 }
-                },
-                new Round
-                {
-                    Number = 4,
-                    Attacker = new Attacker() { Crit = true, Damage = 130, HP = 180, ID = 3, Miss = false },
-                    Defender = new Defender() { Block = false, ID = 1, HP = 0, Receive = 120 }
-                }
-            };
-
-            string stringjson = JsonConvert.SerializeObject(raportGenerator, Formatting.Indented);
-
-            System.IO.File.WriteAllText(@"wwwroot/raports/testRaport.json", stringjson);
+            int cId = Int32.Parse(Request.Headers["Referer"].ToString().Split("Index/").Last());
 
 
-            return stringjson;
+            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            var character = _context.Characters.Where(c => (c.UserId == userId) && (c.ID == cId))
+                .Include(c => c.CBStats).FirstOrDefault();
+
+            var character2 = _context.Characters.Where(c => (c.UserId == userId) && (c.ID == 3))
+                                    .Include(c => c.CBStats).FirstOrDefault();
+
+            var characterItems = _characterItemsRepo.GetCharactersItemsList(cId, true);
+            List<int> isIds = characterItems.Select(i => i.ItemId).ToList();
+
+            var characterItems2 = _characterItemsRepo.GetCharactersItemsList(3, true);
+            List<int> isIds2 = characterItems2.Select(i => i.ItemId).ToList();
+
+            CharacterBaseStats baseStats = _baseStatsRepo.GetStatsById(character.CBStatsId);
+            IEnumerable<ItemStats> itemStatsList = _itemsStatsRepo.GetListStatsByIds(isIds);
+
+            CharacterBaseStats baseStats2 = _baseStatsRepo.GetStatsById(character2.CBStatsId);
+            IEnumerable<ItemStats> itemStatsList2 = _itemsStatsRepo.GetListStatsByIds(isIds2);
+
+            var player1 = new AdvanceStats();
+            player1.IsPlayer = true;
+            player1.CharacterId = cId;
+            player1.CalculateWithoutEq(baseStats);
+            player1.CalculateWithEq(itemStatsList);
+
+            var player2 = new AdvanceStats();
+            player2.IsPlayer = true;
+            player2.CharacterId = 3;
+            player2.CalculateWithoutEq(baseStats2);
+            player2.CalculateWithEq(itemStatsList2);
+
+            FightGenerator fg = new FightGenerator(player1, player2);
+            RaportGenerator raportGenerator = fg.GenerateFight();
+
+            string fightReport = JsonConvert.SerializeObject(raportGenerator, Formatting.Indented);
+
+            System.IO.File.WriteAllText(@"wwwroot/raports/testRaport.json", fightReport);
+
+
+            return fightReport;
         }
     }
 }
