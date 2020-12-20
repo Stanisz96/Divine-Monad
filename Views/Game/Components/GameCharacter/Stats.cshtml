@@ -1,5 +1,9 @@
 ﻿@model DivineMonad.Engine.AdvanceStats
 
+@{ 
+    string propValue;
+    string propName;
+}
 
 <div style="margin-top: 50px;">
     @foreach (var prop in typeof(DivineMonad.Engine.AdvanceStats).GetProperties())
@@ -9,7 +13,31 @@
                 @prop.Name:
             </div>
             <div class="col-2">
-                @prop.GetValue(Model)
+                @{
+                    propValue = prop.GetValue(Model).ToString();
+                    propName = prop.Name;
+                }
+
+                @if (propName.Equals("CritPr"))
+                {
+                    @Html.DisplayFor(x => x.CritPr);
+                }
+                else if (propName.Equals("DodgePr"))
+                {
+                    @Html.DisplayFor(x => x.DodgePr);
+                }
+                else if (propName.Equals("BlockPr"))
+                {
+                    @Html.DisplayFor(x => x.BlockPr);
+                }
+                else if (propName.Equals("ExtraDropPr"))
+                {
+                    @Html.DisplayFor(x => x.ExtraDropPr);
+                }
+                else
+                {
+                    @Html.DisplayFor(x => propValue);
+                }
             </div>
         </div>
     }

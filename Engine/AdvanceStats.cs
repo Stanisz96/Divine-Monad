@@ -1,8 +1,7 @@
 ﻿using DivineMonad.Models;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using System.ComponentModel.DataAnnotations;
 
 namespace DivineMonad.Engine
 {
@@ -24,9 +23,13 @@ namespace DivineMonad.Engine
         public int CritChance { get; set; }
         public int Accuracy { get; set; }
 
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:P1}")]
         public double CritPr { get; set; }
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:P1}")]
         public double DodgePr { get; set; }
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:P1}")]
         public double BlockPr { get; set; }
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:P1}")]
         public double ExtraDropPr { get; set; }
 
         public void CalculateWithoutEq(CharacterBaseStats baseStats)
