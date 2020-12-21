@@ -25,6 +25,7 @@ namespace DivineMonad.Engine
         public bool IsExtraAttackDone { get; set; }
         public bool DoExtraAttack { get; set; }
         public bool IsFightOver { get; set; }
+        public bool IsHalfRound { get; set; }
 
         private readonly IAdvanceStats _playerStats;
         private readonly IAdvanceStats _opponentStats;
@@ -43,6 +44,7 @@ namespace DivineMonad.Engine
             IsExtraAttackDone = false;
             DoExtraAttack = false;
             IsFightOver = false;
+            IsHalfRound = true;
             RoundNumber = 1;
 
             Action fightAction = new Action(SetMainRaportProps);
@@ -155,13 +157,17 @@ namespace DivineMonad.Engine
 
         private void CheckIfDoubleAttack()
         {
-            double doubleFactor = Attacker.Speed / Defender.Speed;
+            double doubleFactor = (double)Attacker.Speed / Defender.Speed;
+            if (doubleFactor > 2) doubleFactor = 2;
             if(doubleFactor > 1 && IsExtraAttackDone == false)
             {
-                double extraAttack = (RoundNumber * doubleFactor) - ((int)(RoundNumber * doubleFactor))
-                    / Math.Pow(doubleFactor, 1.2) + 0.04;
+                double extraAttack = ((((double)RoundNumber / doubleFactor) - (int)((double)RoundNumber / doubleFactor))
+                    / Math.Pow(doubleFactor, 1.2)) + 0.04;
 
-                if(extraAttack <= 0.25)
+                string testExtraAttack = "ExtraAttackFactor: " + extraAttack.ToString() + " | " + "DoubleFactor: " + doubleFactor.ToString();
+                System.IO.File.AppendAllText(@"wwwroot/raports/testExtraAttack.txt", testExtraAttack + Environment.NewLine);
+
+                if (extraAttack <= 0.25)
                 {
                     DoExtraAttack = true;
                 }
@@ -174,13 +180,18 @@ namespace DivineMonad.Engine
 
         private void UpdateToNextRound()
         {
-            RoundNumber += 1;
+            if (IsHalfRound) IsHalfRound = false;
+            else
+            {
+                IsHalfRound = true;
+                RoundNumber += 1;
+            }
 
             if(DoExtraAttack)
             {
                 IsExtraAttackDone = true;
+                DoExtraAttack = false;
             }
-
             else
             {
                 AdvanceStats tempA, tempB;
