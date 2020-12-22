@@ -124,18 +124,13 @@ namespace DivineMonad.Engine
         private void UpdateDamage()
         {
             Damage = rand.Next(Attacker.AttackMin, Attacker.AttackMax);
-            if (IsCrit)
-            {
-                Damage = (int)(Damage * 1.5);
-            }
+
+            if (IsCrit) Damage = (int)(Damage * 1.5);
         }
 
         private void UpdateReceiveDamage()
         {
-            if(IsMiss)
-            {
-                Receive = 0;
-            }
+            if(IsMiss)Receive = 0;
             else
             {
                 Receive = (int)(Damage * (1 - Defender.DamageReduction));
@@ -158,23 +153,15 @@ namespace DivineMonad.Engine
         private void CheckIfDoubleAttack()
         {
             double speedFactor = (double)Attacker.Speed / Defender.Speed;
+
             if (speedFactor > 2) speedFactor = 2;
             if(speedFactor > 1)
             {
                 double extraAttack = ((((double)RoundNumber / speedFactor) - (int)((double)RoundNumber / speedFactor))
                     / Math.Pow(speedFactor, 1.2)) + 0.04;
 
-                string testExtraAttack = "ExtraAttackFactor: " + extraAttack.ToString() + " | " + "DoubleFactor: " + speedFactor.ToString();
-                System.IO.File.AppendAllText(@"wwwroot/raports/testExtraAttack.txt", testExtraAttack + Environment.NewLine);
-
-                if (extraAttack <= 0.25 && IsExtraAttackDone == false)
-                {
-                    DoExtraAttack = true;
-                }
-                else if(extraAttack > 0.25)
-                {
-                    IsExtraAttackDone = false;
-                }
+                if (extraAttack <= 0.25 && IsExtraAttackDone == false) DoExtraAttack = true;
+                else if(extraAttack > 0.25) IsExtraAttackDone = false;
             }
         }
 
@@ -216,10 +203,7 @@ namespace DivineMonad.Engine
 
         private void CheckIfFightOver()
         {
-            if(DefenderHp <= 0)
-            {
-                IsFightOver = true;
-            }
+            if(DefenderHp <= 0) IsFightOver = true;
         }
         private void SetRaportResults()
         {
