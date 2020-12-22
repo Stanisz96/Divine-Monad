@@ -2,48 +2,192 @@
 
 @{
     Layout = "_SubLayout";
-    string propValue;
-    string propName;
 }
 
 
-<div>
-    @foreach (var prop in typeof(DivineMonad.Engine.AdvanceStats).GetProperties())
-    {
-        <div class="row justify-content-center">
-            <div class="col-3 font-weight-bold">
-                @prop.Name:
+<div class="game-content-character" style="margin: 40px 10px 10px 10px">
+    <ul class="nav character-nav-tab" id="statsTab" role="tablist">
+        <li class="nav-item">
+            <a class="nav-link active" id="base-tab" data-toggle="tab" href="#base" role="tab" aria-controls="base" aria-selected="true">Base</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" id="advance-tab" data-toggle="tab" href="#advance" role="tab" aria-controls="advance" aria-selected="false">Advance</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" id="others-tab" data-toggle="tab" href="#others" role="tab" aria-controls="others" aria-selected="false">Others</a>
+        </li>
+    </ul>
+    <div class="tab-content" id="statsTabContent">
+        <div class="tab-pane fade show active" id="base" role="tabpanel" aria-labelledby="base-tab">
+            <div class="row justify-content-center">
+                <div class="col-3 font-weight-bold">
+                    @Html.DisplayNameFor(s => s.HitPoints):
+                </div>
+                <div class="col-2">
+                    @Html.DisplayFor(s => s.HitPoints)
+                </div>
             </div>
-            <div class="col-2">
-                @{
-                    propValue = prop.GetValue(Model).ToString();
-                    propName = prop.Name;
-                }
-
-                @if (propName.Equals("CritPr"))
-                {
-                    @Html.DisplayFor(x => x.CritPr);
-                }
-                else if (propName.Equals("DodgePr"))
-                {
-                    @Html.DisplayFor(x => x.DodgePr);
-                }
-                else if (propName.Equals("BlockPr"))
-                {
-                    @Html.DisplayFor(x => x.BlockPr);
-                }
-                else if (propName.Equals("ExtraDropPr"))
-                {
-                    @Html.DisplayFor(x => x.ExtraDropPr);
-                }
-                else
-                {
-                    @Html.DisplayFor(x => propValue);
-                }
+            <div class="row justify-content-center">
+                <div class="col-3 font-weight-bold">
+                    @Html.DisplayNameFor(s => s.Attack):
+                </div>
+                <div class="col-2">
+                    @Html.DisplayFor(s => s.Attack)
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-3 font-weight-bold">
+                    @Html.DisplayNameFor(s => s.Stamina):
+                </div>
+                <div class="col-2">
+                    @Html.DisplayFor(s => s.Stamina)
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-3 font-weight-bold">
+                    @Html.DisplayNameFor(s => s.Strength):
+                </div>
+                <div class="col-2">
+                    @Html.DisplayFor(s => s.Strength)
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-3 font-weight-bold">
+                    @Html.DisplayNameFor(s => s.Agility):
+                </div>
+                <div class="col-2">
+                    @Html.DisplayFor(s => s.Agility)
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-3 font-weight-bold">
+                    @Html.DisplayNameFor(s => s.Dexterity):
+                </div>
+                <div class="col-2">
+                    @Html.DisplayFor(s => s.Dexterity)
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-3 font-weight-bold">
+                    @Html.DisplayNameFor(s => s.Luck):
+                </div>
+                <div class="col-2">
+                    @Html.DisplayFor(s => s.Luck)
+                </div>
             </div>
         </div>
-    }
+        <div class="tab-pane fade" id="advance" role="tabpanel" aria-labelledby="advance-tab">
+            <div class="row justify-content-center">
+                <div class="col-3 font-weight-bold">
+                    @Html.DisplayNameFor(s => s.AttackMin):
+                </div>
+                <div class="col-2">
+                    @Html.DisplayFor(s => s.AttackMin)
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-3 font-weight-bold">
+                    @Html.DisplayNameFor(s => s.AttackMax):
+                </div>
+                <div class="col-2">
+                    @Html.DisplayFor(s => s.AttackMax)
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-3 font-weight-bold">
+                    @Html.DisplayNameFor(s => s.Armor):
+                </div>
+                <div class="col-2">
+                    @Html.DisplayFor(s => s.Armor)
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-3 font-weight-bold">
+                    @Html.DisplayNameFor(s => s.DmgRed):
+                </div>
+                <div class="col-2">
+                    @Html.DisplayFor(s => s.DmgRed)
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-3 font-weight-bold">
+                    @Html.DisplayNameFor(s => s.Block):
+                </div>
+                <div class="col-2">
+                    @Html.DisplayFor(s => s.Block)
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-3 font-weight-bold">
+                    @Html.DisplayNameFor(s => s.BlockPr):
+                </div>
+                <div class="col-2">
+                    @Html.DisplayFor(s => s.BlockPr)
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-3 font-weight-bold">
+                    @Html.DisplayNameFor(s => s.Dodge):
+                </div>
+                <div class="col-2">
+                    @Html.DisplayFor(s => s.Dodge)
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-3 font-weight-bold">
+                    @Html.DisplayNameFor(s => s.DodgePr):
+                </div>
+                <div class="col-2">
+                    @Html.DisplayFor(s => s.DodgePr)
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-3 font-weight-bold">
+                    @Html.DisplayNameFor(s => s.Accuracy):
+                </div>
+                <div class="col-2">
+                    @Html.DisplayFor(s => s.Accuracy)
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-3 font-weight-bold">
+                    @Html.DisplayNameFor(s => s.Speed):
+                </div>
+                <div class="col-2">
+                    @Html.DisplayFor(s => s.Speed)
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-3 font-weight-bold">
+                    @Html.DisplayNameFor(s => s.CritChance):
+                </div>
+                <div class="col-2">
+                    @Html.DisplayFor(s => s.CritChance)
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-3 font-weight-bold">
+                    @Html.DisplayNameFor(s => s.CritPr):
+                </div>
+                <div class="col-2">
+                    @Html.DisplayFor(s => s.CritPr)
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-3 font-weight-bold">
+                    @Html.DisplayNameFor(s => s.ExtraDropPr):
+                </div>
+                <div class="col-2">
+                    @Html.DisplayFor(s => s.ExtraDropPr)
+                </div>
+            </div>
+        </div>
+        <div class="tab-pane fade" id="others" role="tabpanel" aria-labelledby="others-tab">
+            GAME STATS (kills, collected gold ect.)
+        </div>
+    </div>
 </div>
+
 
 @section Scripts{
     <script>

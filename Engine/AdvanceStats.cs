@@ -34,7 +34,7 @@ namespace DivineMonad.Engine
         [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:P1}")]
         public double ExtraDropPr { get; set; }
         [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:P1}")]
-        public double DamageReduction { get; set; }
+        public double DmgRed { get; set; }
 
         public AdvanceStats()
         {
@@ -126,7 +126,7 @@ namespace DivineMonad.Engine
             DodgePr = Math.Round(((double)Dodge / 1000), 3);
             BlockPr = Math.Round(((double)Block / 1000), 3);
             ExtraDropPr = Math.Round(Math.Sqrt(5 * Luck) / 100, 3);
-            DamageReduction = Math.Round(Math.Sqrt(Armor) / 200, 3);
+            DmgRed = Math.Round(Math.Sqrt(Armor) / 200, 3);
         }
     }
 }

@@ -133,7 +133,7 @@ namespace DivineMonad.Engine
             if(IsMiss)Receive = 0;
             else
             {
-                Receive = (int)(Damage * (1 - Defender.DamageReduction));
+                Receive = (int)(Damage * (1 - Defender.DmgRed));
                 if (IsBlock) Receive = (int)(Receive * 0.5);
             }
 

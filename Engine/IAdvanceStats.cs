@@ -34,6 +34,6 @@ namespace DivineMonad.Engine
         public double DodgePr { get; set; }
         public double BlockPr { get; set; }
         public double ExtraDropPr { get; set; }
-        public double DamageReduction { get; set; }
+        public double DmgRed { get; set; }
     }
 }
