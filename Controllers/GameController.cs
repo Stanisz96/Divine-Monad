@@ -108,31 +108,31 @@ namespace DivineMonad.Controllers
 
         public async Task<IActionResult> Battle(int id)
         {
-            Character character = await _context.Characters.FirstOrDefaultAsync(c => c.ID == id);
+            Character character = await Validate.GetCharacter(id, User, _context);
             return View(character);
         }
 
         public async Task<IActionResult> Raport(int id)
         {
-            Character character = await _context.Characters.FirstOrDefaultAsync(c => c.ID == id);
+            Character character = await Validate.GetCharacter(id, User, _context);
             return View(character);
         }
 
         public async Task<IActionResult> Backpack(int id)
         {
-            Character character = await _context.Characters.FirstOrDefaultAsync(c => c.ID == id);
+            Character character = await Validate.GetCharacter(id, User, _context);
             return View(character);
         }
 
         public async Task<IActionResult> Market(int id)
         {
-            Character character = await _context.Characters.FirstOrDefaultAsync(c => c.ID == id);
+            Character character = await Validate.GetCharacter(id, User, _context);
             return View(character);
         }
 
         public async Task<IActionResult> News(int id)
         {
-            Character character = await _context.Characters.FirstOrDefaultAsync(c => c.ID == id);
+            Character character = await Validate.GetCharacter(id, User, _context);
             return View(character);
         }
 
