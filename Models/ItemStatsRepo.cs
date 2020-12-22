@@ -1,4 +1,5 @@
 ﻿using DivineMonad.Data;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,14 +18,14 @@ namespace DivineMonad.Models
 
         public IEnumerable<ItemStats> AllItemsStats => _appDbContext.ItemsStats;
 
-        public ItemStats GetStatsById(int statsId)
+        public async Task<ItemStats> GetStatsById(int statsId)
         {
-            return _appDbContext.ItemsStats.FirstOrDefault(i => i.ID == statsId);
+            return await _appDbContext.ItemsStats.FirstOrDefaultAsync(i => i.ID == statsId);
         }
 
-        public IEnumerable<ItemStats> GetListStatsByIds(List<int> ids)
+        public async Task<IEnumerable<ItemStats>> GetListStatsByIds(List<int> ids)
         {
-            return _appDbContext.ItemsStats.Where(s => ids.Contains(s.ID)).ToList();
+            return await _appDbContext.ItemsStats.Where(s => ids.Contains(s.ID)).ToListAsync();
         }
     }
 }

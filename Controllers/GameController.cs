@@ -90,13 +90,13 @@ namespace DivineMonad.Controllers
             return fightReport;
         }*/
 
-        public async Task<IActionResult> Character(int id)
+        public IActionResult Character(int id)
         {
             var characterItems = _characterItemsRepo.GetCharactersItemsList(id, true);
             List<int> isIds = characterItems.Result.Select(i => i.ItemId).ToList();
 
             CharacterBaseStats baseStats = _baseStatsRepo.GetStatsById(1).Result;
-            IEnumerable<ItemStats> itemStatsList = _itemsStatsRepo.GetListStatsByIds(isIds);
+            IEnumerable<ItemStats> itemStatsList = _itemsStatsRepo.GetListStatsByIds(isIds).Result;
 
             var characterAdvanceStats = new AdvanceStats();
             characterAdvanceStats.IsPlayer = true;

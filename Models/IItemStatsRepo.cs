@@ -8,7 +8,7 @@ namespace DivineMonad.Models
     public interface IItemStatsRepo
     {
         IEnumerable<ItemStats> AllItemsStats { get; }
-        IEnumerable<ItemStats> GetListStatsByIds(List<int> ids);
-        ItemStats GetStatsById(int statsId);
+        Task<IEnumerable<ItemStats>> GetListStatsByIds(List<int> ids);
+        Task<ItemStats> GetStatsById(int statsId);
     }
 }
