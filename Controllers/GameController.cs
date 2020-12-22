@@ -21,16 +21,14 @@ namespace DivineMonad.Controllers
         private readonly ICharacterBaseStatsRepo _baseStatsRepo;
         private readonly ICharacterItemsRepo _characterItemsRepo;
         private readonly IItemStatsRepo _itemsStatsRepo;
-        //private readonly IFightGenerator _fightGenerator;
 
         public GameController(ApplicationDbContext context, ICharacterBaseStatsRepo baseStatsRepo, ICharacterItemsRepo characterItemsRepo,
-            IItemStatsRepo itemsStatsRepo/*, IFightGenerator fightGenerator*/)
+            IItemStatsRepo itemsStatsRepo)
         {
             _context = context;
             _baseStatsRepo = baseStatsRepo;
             _characterItemsRepo = characterItemsRepo;
             _itemsStatsRepo = itemsStatsRepo;
-            //_fightGenerator = fightGenerator;
         }
 
 
@@ -43,14 +41,13 @@ namespace DivineMonad.Controllers
                                         .Include(c => c.GStats)
                                         .FirstOrDefaultAsync(m => m.ID == id);
                 ViewData["id"] = id;
-                ViewData["menu"] = "character";
 
                 if (userId.Equals(character.UserId)) return View(character);
                 else return View("NotNice");
             }
             catch (Exception)
-            {
-                return NotFound();
+            {   
+                return RedirectToAction("Index","Characters");
             }
 
         }
