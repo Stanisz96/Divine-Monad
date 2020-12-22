@@ -188,6 +188,7 @@ body {
 .character-btns input {
     max-height: 40px;
     max-width: 120px;
+    min-width: 100px;
 }
 .character-avatar {
     padding: 2px;

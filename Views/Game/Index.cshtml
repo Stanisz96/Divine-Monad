@@ -58,15 +58,15 @@
             ReloadComponent(componentId, action, controller, data);
         });
 
-        $("#test").click(function () {
-            console.log("TEST!");
-        });
-
         $(document).ready(function () {
             let componentId = "game-" + "@ViewBag.menu";
+            let action = componentId.split('-')[1];
+            let controller = "Game";
+            let data = { cId: @Model.ID };
+            ReloadComponent(componentId, action, controller, data);
             $("#"+componentId + "-btn").addClass("active");
             $("#" +componentId).addClass("show active");
-        
+
         })
     </script>
     

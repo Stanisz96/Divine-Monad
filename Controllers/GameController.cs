@@ -37,7 +37,11 @@ namespace DivineMonad.Controllers
         {
             var character = await Validate.GetCharacter(cId, User, _context);
 
-            if (!(character is null)) return View(character);
+            if (!(character is null))
+            {
+                ViewData["menu"] = "character";
+                return View(character);
+            }
             else return RedirectToAction("Index", "Characters");
         }
 
