@@ -80,7 +80,7 @@ namespace DivineMonad.Engine
                 Accuracy += item.Accuracy;
             }
 
-            AttackMin = (int)((0.8 + (Math.Sqrt(Accuracy) / 100)) * Attack);
+            AttackMin = (int)Math.Round(((0.8 + (Math.Sqrt(Accuracy) / 100)) * Attack), MidpointRounding.ToEven);
 
             RecalculatePr();
         }
@@ -108,23 +108,23 @@ namespace DivineMonad.Engine
 
         private void RecalculateStats()
         {
-            HitPoints = (int)(Math.Pow(Stamina, 1.2) * 10);
-            Armor = (int)Math.Pow(Stamina / 2, 1.2);
-            Block = (int)Math.Pow(Strength / 2, 1.2);
-            Dodge = (int)(Math.Pow(Agility, 1.2));
-            Speed = (int)(Math.Pow(Agility, 1.2) / 5) + (int)(Math.Pow(Dexterity, 1.2) / 5);
-            CritChance = (int)Math.Pow(Luck, 1.2);
-            Accuracy = (int)Math.Pow(Dexterity, 1.2);
-            Attack = (int)Math.Pow(Strength, 1.2);
-            AttackMin = (int)((0.8 + Math.Sqrt(Accuracy) / 100) * Attack);
-            AttackMax = (int)(1.1 * Attack);
+            HitPoints = (int)Math.Round((Math.Pow(Stamina, 1.2) * 10), MidpointRounding.ToEven);
+            Armor = (int)Math.Round(Math.Pow(Stamina / 2, 1.2), MidpointRounding.ToEven);
+            Block = (int)Math.Round(Math.Pow(Strength / 2, 1.2), MidpointRounding.ToEven);
+            Dodge = (int)Math.Round((Math.Pow(Agility, 1.2)), MidpointRounding.ToEven);
+            Speed = (int)Math.Round((Math.Pow(Agility, 1.2) / 5) + (int)(Math.Pow(Dexterity, 1.2) / 5), MidpointRounding.ToEven);
+            CritChance = (int)Math.Round(Math.Pow(Luck, 1.2), MidpointRounding.ToEven);
+            Accuracy = (int)Math.Round(Math.Pow(Dexterity, 1.2), MidpointRounding.ToEven);
+            Attack = (int)Math.Round(Math.Pow(Strength, 1.2), MidpointRounding.ToEven);
+            AttackMin = (int)Math.Round(((0.8 + Math.Sqrt(Accuracy) / 100) * Attack), MidpointRounding.ToEven);
+            AttackMax = (int)Math.Round((1.1 * Attack), MidpointRounding.ToEven);
         }
 
         private void RecalculatePr()
         {
-            CritPr = ((double)CritChance / 1000);
-            DodgePr = ((double)Dodge / 1000);
-            BlockPr = ((double)Block / 1000);
+            CritPr = Math.Round(((double)CritChance / 1000), 3);
+            DodgePr = Math.Round(((double)Dodge / 1000), 3);
+            BlockPr = Math.Round(((double)Block / 1000), 3);
             ExtraDropPr = Math.Round(Math.Sqrt(5 * Luck) / 100, 3);
             DamageReduction = Math.Round(Math.Sqrt(Armor) / 200, 3);
         }
