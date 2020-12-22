@@ -9,6 +9,6 @@ namespace DivineMonad.Models
     {
         IEnumerable<CharacterBaseStats> AllChatactersBaseStats { get; }
 
-        CharacterBaseStats GetStatsById(int id);
+        Task<CharacterBaseStats> GetStatsById(int id);
     }
 }

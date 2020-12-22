@@ -14,6 +14,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using DivineMonad.Models;
 using DivineMonad.Engine;
+using DivineMonad.Tools;
 
 namespace DivineMonad
 {
@@ -46,6 +47,7 @@ namespace DivineMonad
             services.AddScoped<ICharacterBaseStatsRepo, CharacterBaseStatsRepo>();
             services.AddScoped<IAdvanceStats, AdvanceStats>();
             services.AddScoped<IFightGenerator, FightGenerator>();
+            services.AddSingleton<Validate>();
 
             services.AddControllersWithViews();
             services.AddRazorPages();

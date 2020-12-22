@@ -1,4 +1,5 @@
 ﻿using DivineMonad.Data;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,9 +18,9 @@ namespace DivineMonad.Models
 
         public IEnumerable<CharacterBaseStats> AllChatactersBaseStats => _context.CharactersBaseStats;
 
-        public CharacterBaseStats GetStatsById(int id)
+        public async Task<CharacterBaseStats> GetStatsById(int id)
         {
-            return _context.CharactersBaseStats.FirstOrDefault(i => i.ID == id);
+            return await _context.CharactersBaseStats.FirstOrDefaultAsync(i => i.ID == id);
         }
     }
 }

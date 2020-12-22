@@ -2,6 +2,7 @@
 using DivineMonad.Engine;
 using DivineMonad.Engine.Raport;
 using DivineMonad.Models;
+using DivineMonad.Tools;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -32,43 +33,12 @@ namespace DivineMonad.Controllers
         }
 
 
-        public async Task<IActionResult> Index([FromForm] int id)
+        public async Task<IActionResult> Index([FromForm, Bind("id")] int id)
         {
-            string userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
-            try
-            {
-                Character character = await _context.Characters.Include(c => c.CBStats)
-                                        .Include(c => c.GStats)
-                                        .FirstOrDefaultAsync(m => m.ID == id);
-                ViewData["id"] = id;
+            var character = await Validate.GetCharacter(id, User, _context);
 
-                if (userId.Equals(character.UserId)) return View(character);
-                else return View("NotNice");
-            }
-            catch (Exception)
-            {   
-                return RedirectToAction("Index","Characters");
-            }
-
-        }
-
-        public IActionResult ReloadViewComponent(int _cId, int _bsId, string type)
-        {
-            if (type.Equals("game-character")) return ViewComponent("GameCharacter", new { cId = _cId, bsId = _bsId });
-            else if (type.Equals("game-backpack")) return ViewComponent("GameBackpack");
-            else if (type.Equals("game-battle")) return ViewComponent("GameBattle", new { cId = _cId, bsId = _bsId });
-            else if (type.Equals("game-market")) return ViewComponent("GameMarket");
-            else if (type.Equals("game-news")) return ViewComponent("GameNews");
-            else return NotFound();
-        }
-
-        [HttpPost]
-        public IActionResult ReloadViewComponent(string type)
-        {
-            if (type.Equals("game-battle"))
-                return ViewComponent("GameBattle", new { test = true });
-            else
-                return NotFound();
+            if (!(character is null)) return View(character);
+            else return RedirectToAction("Index", "Characters");
         }
 
 /*        [HttpPost]
@@ -120,19 +90,12 @@ namespace DivineMonad.Controllers
             return fightReport;
         }*/
 
-        [HttpGet]
-        public string testSendingData(string type)
-        {
-            return "";
-        }
-
         public async Task<IActionResult> Character(int id)
         {
             var characterItems = _characterItemsRepo.GetCharactersItemsList(id, true);
-            var task = await Task.WhenAll(characterItems);
-            List<int> isIds = task.SingleOrDefault().Select(i => i.ItemId).ToList();
+            List<int> isIds = characterItems.Result.Select(i => i.ItemId).ToList();
 
-            CharacterBaseStats baseStats = _baseStatsRepo.GetStatsById(1);
+            CharacterBaseStats baseStats = _baseStatsRepo.GetStatsById(1).Result;
             IEnumerable<ItemStats> itemStatsList = _itemsStatsRepo.GetListStatsByIds(isIds);
 
             var characterAdvanceStats = new AdvanceStats();
