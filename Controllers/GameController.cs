@@ -33,9 +33,9 @@ namespace DivineMonad.Controllers
         }
 
 
-        public async Task<IActionResult> Index([FromForm, Bind("id")] int id)
+        public async Task<IActionResult> Index([FromForm, Bind("cId")] int cId)
         {
-            var character = await Validate.GetCharacter(id, User, _context);
+            var character = await Validate.GetCharacter(cId, User, _context);
 
             if (!(character is null)) return View(character);
             else return RedirectToAction("Index", "Characters");
@@ -90,9 +90,9 @@ namespace DivineMonad.Controllers
             return fightReport;
         }*/
 
-        public IActionResult Character(int id)
+        public IActionResult Character(int cId)
         {
-            var characterItems = _characterItemsRepo.GetCharactersItemsList(id, true);
+            var characterItems = _characterItemsRepo.GetCharactersItemsList(cId, true);
             List<int> isIds = characterItems.Result.Select(i => i.ItemId).ToList();
 
             CharacterBaseStats baseStats = _baseStatsRepo.GetStatsById(1).Result;
@@ -100,39 +100,39 @@ namespace DivineMonad.Controllers
 
             var characterAdvanceStats = new AdvanceStats();
             characterAdvanceStats.IsPlayer = true;
-            characterAdvanceStats.CharacterId = id;
+            characterAdvanceStats.CharacterId = cId;
             characterAdvanceStats.CalculateWithoutEq(baseStats);
             characterAdvanceStats.CalculateWithEq(itemStatsList);
             return View(characterAdvanceStats);
         }
 
-        public async Task<IActionResult> Battle(int id)
+        public async Task<IActionResult> Battle(int cId)
         {
-            Character character = await Validate.GetCharacter(id, User, _context);
+            Character character = await Validate.GetCharacter(cId, User, _context);
             return View(character);
         }
 
-        public async Task<IActionResult> Raport(int id)
+        public async Task<IActionResult> Raport(int cId)
         {
-            Character character = await Validate.GetCharacter(id, User, _context);
+            Character character = await Validate.GetCharacter(cId, User, _context);
             return View(character);
         }
 
-        public async Task<IActionResult> Backpack(int id)
+        public async Task<IActionResult> Backpack(int cId)
         {
-            Character character = await Validate.GetCharacter(id, User, _context);
+            Character character = await Validate.GetCharacter(cId, User, _context);
             return View(character);
         }
 
-        public async Task<IActionResult> Market(int id)
+        public async Task<IActionResult> Market(int cId)
         {
-            Character character = await Validate.GetCharacter(id, User, _context);
+            Character character = await Validate.GetCharacter(cId, User, _context);
             return View(character);
         }
 
-        public async Task<IActionResult> News(int id)
+        public async Task<IActionResult> News(int cId)
         {
-            Character character = await Validate.GetCharacter(id, User, _context);
+            Character character = await Validate.GetCharacter(cId, User, _context);
             return View(character);
         }
 

@@ -24,7 +24,7 @@
                         </div>
                         <div class="col-4 character-btns">
                             <form asp-controller="Game" asp-action="Index">
-                                <input type="hidden" asp-for="@item.ID" name="id"  />
+                                <input type="hidden" asp-for="@item.ID" name="cId"  />
                                 <input type="submit" value="Play" class="btn btn-primary" />
                             </form>
                             @*<input type="button" value="Play" class="btn btn-primary" onclick="location.href='@Url.Action("Index", "Game", new { id = item.ID })'"  />*@
