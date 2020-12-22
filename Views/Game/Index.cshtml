@@ -33,19 +33,19 @@
         <div class="game-plane">
             <div class="tab-content" id="nav-tabContent">
                 <div class="tab-pane " id="game-character" role="tabpanel" aria-labelledby="game-character-btn">
-                    @await Component.InvokeAsync("GameCharacter", new { cId = Model.CBStatsId, bsId = Model.ID })
+@*                    @await Component.InvokeAsync("GameCharacter", new { cId = Model.CBStatsId, bsId = Model.ID })*@
                 </div>
                 <div class="tab-pane" id="game-backpack" role="tabpanel" aria-labelledby="game-backpack-btn">
-                        @await Component.InvokeAsync("GameBackpack")
+@*                        @await Component.InvokeAsync("GameBackpack")*@
                 </div>
                 <div class="tab-pane" id="game-battle" role="tabpanel" aria-labelledby="game-battle-btn">
-                        @await Component.InvokeAsync("GameBattle")
+@*                        @await Component.InvokeAsync("GameBattle")*@
                 </div>
                 <div class="tab-pane" id="game-market" role="tabpanel" aria-labelledby="game-market-btn">
-                    @await Component.InvokeAsync("GameMarket")
+@*                    @await Component.InvokeAsync("GameMarket", new { cId = Model.ID })*@
                 </div>
                 <div class="tab-pane" id="game-news" role="tabpanel" aria-labelledby="game-news-btn">
-                    @await Component.InvokeAsync("GameNews")
+@*                    @await Component.InvokeAsync("GameNews")*@
                 </div>
             </div>
         </div>
@@ -57,9 +57,9 @@
     <script>
         $(".list-group-item").click(function () {
             let componentId = this.attributes.getNamedItem("aria-controls").value;
-            let action = "ReloadViewComponent";
+            let action = componentId.split('-')[1];
             let controller = "Game";
-            let data = { _cId: @Model.ID, _bsId: @Model.CBStatsId, type: componentId };
+            let data = { id: @Model.ID };
             ReloadComponent(componentId, action, controller, data);
         });
 

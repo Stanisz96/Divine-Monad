@@ -157,29 +157,32 @@ namespace DivineMonad.Engine
 
         private void CheckIfDoubleAttack()
         {
-            double doubleFactor = (double)Attacker.Speed / Defender.Speed;
-            if (doubleFactor > 2) doubleFactor = 2;
-            if(doubleFactor > 1 && IsExtraAttackDone == false)
+            double speedFactor = (double)Attacker.Speed / Defender.Speed;
+            if (speedFactor > 2) speedFactor = 2;
+            if(speedFactor > 1)
             {
-                double extraAttack = ((((double)RoundNumber / doubleFactor) - (int)((double)RoundNumber / doubleFactor))
-                    / Math.Pow(doubleFactor, 1.2)) + 0.04;
+                double extraAttack = ((((double)RoundNumber / speedFactor) - (int)((double)RoundNumber / speedFactor))
+                    / Math.Pow(speedFactor, 1.2)) + 0.04;
 
-                string testExtraAttack = "ExtraAttackFactor: " + extraAttack.ToString() + " | " + "DoubleFactor: " + doubleFactor.ToString();
+                string testExtraAttack = "ExtraAttackFactor: " + extraAttack.ToString() + " | " + "DoubleFactor: " + speedFactor.ToString();
                 System.IO.File.AppendAllText(@"wwwroot/raports/testExtraAttack.txt", testExtraAttack + Environment.NewLine);
 
-                if (extraAttack <= 0.25)
+                if (extraAttack <= 0.25 && IsExtraAttackDone == false)
                 {
                     DoExtraAttack = true;
                 }
-            }
-            else
-            {
-                IsExtraAttackDone = false;
+                else if(extraAttack > 0.25)
+                {
+                    IsExtraAttackDone = false;
+                }
             }
         }
 
         private void UpdateToNextRound()
         {
+            string testExtraAttack2 = "IsExtraAttackDone: " + IsExtraAttackDone.ToString() + " | " + "DoExtraAttack: " + DoExtraAttack.ToString();
+            System.IO.File.AppendAllText(@"wwwroot/raports/testExtraAttack2.txt", testExtraAttack2 + Environment.NewLine);
+
             if (IsHalfRound) IsHalfRound = false;
             else
             {

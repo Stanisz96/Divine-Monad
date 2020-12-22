@@ -22,7 +22,7 @@ namespace DivineMonad.ViewComponents
             _itemsStatsRepo = itemsStatsRepo;
         }
 
-        public IViewComponentResult Invoke(int cId, int bsId)
+/*        public IViewComponentResult Invoke(int cId, int bsId)
         {
             var characterItems = _characterItemsRepo.GetCharactersItemsList(cId, true);
             List<int> isIds = characterItems.Select(i => i.ItemId).ToList();
@@ -37,6 +37,6 @@ namespace DivineMonad.ViewComponents
             characterAdvanceStats.CalculateWithEq(itemStatsList);
 
             return View("Stats", characterAdvanceStats);
-        }
+        }*/
     }
 }

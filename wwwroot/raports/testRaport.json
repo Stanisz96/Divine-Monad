@@ -12,590 +12,590 @@
       "Number": 1,
       "Attacker": {
         "ID": 1,
-        "HP": 3146,
+        "HP": 2699,
         "Crit": false,
         "Miss": false,
-        "Damage": 87
+        "Damage": 54
       },
       "Defender": {
         "ID": 3,
-        "HP": 2617,
+        "HP": 2648,
         "Block": false,
-        "Receive": 82
+        "Receive": 51
       }
     },
     {
       "Number": 1,
       "Attacker": {
         "ID": 3,
-        "HP": 2617,
-        "Crit": false,
-        "Miss": false,
-        "Damage": 51
-      },
-      "Defender": {
-        "ID": 1,
-        "HP": 3099,
-        "Block": false,
-        "Receive": 47
-      }
-    },
-    {
-      "Number": 2,
-      "Attacker": {
-        "ID": 1,
-        "HP": 3099,
-        "Crit": false,
-        "Miss": false,
-        "Damage": 109
-      },
-      "Defender": {
-        "ID": 3,
-        "HP": 2514,
-        "Block": false,
-        "Receive": 103
-      }
-    },
-    {
-      "Number": 2,
-      "Attacker": {
-        "ID": 1,
-        "HP": 3099,
-        "Crit": false,
-        "Miss": false,
-        "Damage": 98
-      },
-      "Defender": {
-        "ID": 3,
-        "HP": 2422,
-        "Block": false,
-        "Receive": 92
-      }
-    },
-    {
-      "Number": 3,
-      "Attacker": {
-        "ID": 3,
-        "HP": 2422,
-        "Crit": false,
-        "Miss": false,
-        "Damage": 55
-      },
-      "Defender": {
-        "ID": 1,
-        "HP": 3048,
-        "Block": false,
-        "Receive": 51
-      }
-    },
-    {
-      "Number": 3,
-      "Attacker": {
-        "ID": 1,
-        "HP": 3048,
-        "Crit": false,
-        "Miss": false,
-        "Damage": 105
-      },
-      "Defender": {
-        "ID": 3,
-        "HP": 2323,
-        "Block": false,
-        "Receive": 99
-      }
-    },
-    {
-      "Number": 4,
-      "Attacker": {
-        "ID": 3,
-        "HP": 2323,
-        "Crit": false,
-        "Miss": false,
-        "Damage": 45
-      },
-      "Defender": {
-        "ID": 1,
-        "HP": 3006,
-        "Block": false,
-        "Receive": 42
-      }
-    },
-    {
-      "Number": 4,
-      "Attacker": {
-        "ID": 1,
-        "HP": 3006,
-        "Crit": false,
-        "Miss": false,
-        "Damage": 80
-      },
-      "Defender": {
-        "ID": 3,
-        "HP": 2248,
-        "Block": false,
-        "Receive": 75
-      }
-    },
-    {
-      "Number": 5,
-      "Attacker": {
-        "ID": 1,
-        "HP": 3006,
-        "Crit": false,
-        "Miss": false,
-        "Damage": 93
-      },
-      "Defender": {
-        "ID": 3,
-        "HP": 2161,
-        "Block": false,
-        "Receive": 87
-      }
-    },
-    {
-      "Number": 5,
-      "Attacker": {
-        "ID": 3,
-        "HP": 2161,
-        "Crit": false,
-        "Miss": false,
-        "Damage": 45
-      },
-      "Defender": {
-        "ID": 1,
-        "HP": 2964,
-        "Block": false,
-        "Receive": 42
-      }
-    },
-    {
-      "Number": 6,
-      "Attacker": {
-        "ID": 1,
-        "HP": 2964,
-        "Crit": false,
-        "Miss": false,
-        "Damage": 84
-      },
-      "Defender": {
-        "ID": 3,
-        "HP": 2082,
-        "Block": false,
-        "Receive": 79
-      }
-    },
-    {
-      "Number": 6,
-      "Attacker": {
-        "ID": 1,
-        "HP": 2964,
-        "Crit": false,
-        "Miss": false,
-        "Damage": 98
-      },
-      "Defender": {
-        "ID": 3,
-        "HP": 1990,
-        "Block": false,
-        "Receive": 92
-      }
-    },
-    {
-      "Number": 7,
-      "Attacker": {
-        "ID": 3,
-        "HP": 1990,
+        "HP": 2648,
         "Crit": false,
         "Miss": false,
         "Damage": 49
       },
       "Defender": {
         "ID": 1,
-        "HP": 2919,
+        "HP": 2653,
         "Block": false,
-        "Receive": 45
+        "Receive": 46
+      }
+    },
+    {
+      "Number": 2,
+      "Attacker": {
+        "ID": 1,
+        "HP": 2653,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 44
+      },
+      "Defender": {
+        "ID": 3,
+        "HP": 2607,
+        "Block": false,
+        "Receive": 41
+      }
+    },
+    {
+      "Number": 2,
+      "Attacker": {
+        "ID": 1,
+        "HP": 2653,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 56
+      },
+      "Defender": {
+        "ID": 3,
+        "HP": 2555,
+        "Block": false,
+        "Receive": 52
+      }
+    },
+    {
+      "Number": 3,
+      "Attacker": {
+        "ID": 3,
+        "HP": 2555,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 57
+      },
+      "Defender": {
+        "ID": 1,
+        "HP": 2600,
+        "Block": false,
+        "Receive": 53
+      }
+    },
+    {
+      "Number": 3,
+      "Attacker": {
+        "ID": 1,
+        "HP": 2600,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 55
+      },
+      "Defender": {
+        "ID": 3,
+        "HP": 2504,
+        "Block": false,
+        "Receive": 51
+      }
+    },
+    {
+      "Number": 4,
+      "Attacker": {
+        "ID": 3,
+        "HP": 2504,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 50
+      },
+      "Defender": {
+        "ID": 1,
+        "HP": 2553,
+        "Block": false,
+        "Receive": 47
+      }
+    },
+    {
+      "Number": 4,
+      "Attacker": {
+        "ID": 1,
+        "HP": 2553,
+        "Crit": true,
+        "Miss": false,
+        "Damage": 76
+      },
+      "Defender": {
+        "ID": 3,
+        "HP": 2433,
+        "Block": false,
+        "Receive": 71
+      }
+    },
+    {
+      "Number": 5,
+      "Attacker": {
+        "ID": 1,
+        "HP": 2553,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 51
+      },
+      "Defender": {
+        "ID": 3,
+        "HP": 2385,
+        "Block": false,
+        "Receive": 48
+      }
+    },
+    {
+      "Number": 5,
+      "Attacker": {
+        "ID": 3,
+        "HP": 2385,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 56
+      },
+      "Defender": {
+        "ID": 1,
+        "HP": 2501,
+        "Block": false,
+        "Receive": 52
+      }
+    },
+    {
+      "Number": 6,
+      "Attacker": {
+        "ID": 1,
+        "HP": 2501,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 42
+      },
+      "Defender": {
+        "ID": 3,
+        "HP": 2346,
+        "Block": false,
+        "Receive": 39
+      }
+    },
+    {
+      "Number": 6,
+      "Attacker": {
+        "ID": 1,
+        "HP": 2501,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 53
+      },
+      "Defender": {
+        "ID": 3,
+        "HP": 2296,
+        "Block": false,
+        "Receive": 50
+      }
+    },
+    {
+      "Number": 7,
+      "Attacker": {
+        "ID": 3,
+        "HP": 2296,
+        "Crit": false,
+        "Miss": true,
+        "Damage": 43
+      },
+      "Defender": {
+        "ID": 1,
+        "HP": 2501,
+        "Block": false,
+        "Receive": 0
       }
     },
     {
       "Number": 7,
       "Attacker": {
         "ID": 1,
-        "HP": 2919,
+        "HP": 2501,
         "Crit": false,
         "Miss": false,
-        "Damage": 99
+        "Damage": 56
       },
       "Defender": {
         "ID": 3,
-        "HP": 1897,
+        "HP": 2244,
         "Block": false,
-        "Receive": 93
+        "Receive": 52
       }
     },
     {
       "Number": 8,
       "Attacker": {
         "ID": 3,
-        "HP": 1897,
+        "HP": 2244,
+        "Crit": true,
+        "Miss": false,
+        "Damage": 66
+      },
+      "Defender": {
+        "ID": 1,
+        "HP": 2439,
+        "Block": false,
+        "Receive": 62
+      }
+    },
+    {
+      "Number": 8,
+      "Attacker": {
+        "ID": 1,
+        "HP": 2439,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 52
+      },
+      "Defender": {
+        "ID": 3,
+        "HP": 2195,
+        "Block": false,
+        "Receive": 49
+      }
+    },
+    {
+      "Number": 9,
+      "Attacker": {
+        "ID": 1,
+        "HP": 2439,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 45
+      },
+      "Defender": {
+        "ID": 3,
+        "HP": 2153,
+        "Block": false,
+        "Receive": 42
+      }
+    },
+    {
+      "Number": 9,
+      "Attacker": {
+        "ID": 3,
+        "HP": 2153,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 44
+      },
+      "Defender": {
+        "ID": 1,
+        "HP": 2398,
+        "Block": false,
+        "Receive": 41
+      }
+    },
+    {
+      "Number": 10,
+      "Attacker": {
+        "ID": 1,
+        "HP": 2398,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 57
+      },
+      "Defender": {
+        "ID": 3,
+        "HP": 2100,
+        "Block": false,
+        "Receive": 53
+      }
+    },
+    {
+      "Number": 10,
+      "Attacker": {
+        "ID": 1,
+        "HP": 2398,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 53
+      },
+      "Defender": {
+        "ID": 3,
+        "HP": 2050,
+        "Block": false,
+        "Receive": 50
+      }
+    },
+    {
+      "Number": 11,
+      "Attacker": {
+        "ID": 3,
+        "HP": 2050,
         "Crit": false,
         "Miss": false,
         "Damage": 58
       },
       "Defender": {
         "ID": 1,
-        "HP": 2865,
+        "HP": 2344,
         "Block": false,
         "Receive": 54
       }
     },
     {
-      "Number": 8,
+      "Number": 11,
       "Attacker": {
         "ID": 1,
-        "HP": 2865,
+        "HP": 2344,
         "Crit": false,
         "Miss": false,
-        "Damage": 83
+        "Damage": 47
       },
       "Defender": {
         "ID": 3,
-        "HP": 1858,
-        "Block": true,
-        "Receive": 39
-      }
-    },
-    {
-      "Number": 9,
-      "Attacker": {
-        "ID": 1,
-        "HP": 2865,
-        "Crit": false,
-        "Miss": false,
-        "Damage": 80
-      },
-      "Defender": {
-        "ID": 3,
-        "HP": 1783,
+        "HP": 2006,
         "Block": false,
-        "Receive": 75
+        "Receive": 44
       }
     },
     {
-      "Number": 9,
+      "Number": 12,
       "Attacker": {
         "ID": 3,
-        "HP": 1783,
+        "HP": 2006,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 58
+      },
+      "Defender": {
+        "ID": 1,
+        "HP": 2290,
+        "Block": false,
+        "Receive": 54
+      }
+    },
+    {
+      "Number": 12,
+      "Attacker": {
+        "ID": 1,
+        "HP": 2290,
+        "Crit": true,
+        "Miss": false,
+        "Damage": 78
+      },
+      "Defender": {
+        "ID": 3,
+        "HP": 1933,
+        "Block": false,
+        "Receive": 73
+      }
+    },
+    {
+      "Number": 13,
+      "Attacker": {
+        "ID": 1,
+        "HP": 2290,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 45
+      },
+      "Defender": {
+        "ID": 3,
+        "HP": 1891,
+        "Block": false,
+        "Receive": 42
+      }
+    },
+    {
+      "Number": 13,
+      "Attacker": {
+        "ID": 3,
+        "HP": 1891,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 47
+      },
+      "Defender": {
+        "ID": 1,
+        "HP": 2246,
+        "Block": false,
+        "Receive": 44
+      }
+    },
+    {
+      "Number": 14,
+      "Attacker": {
+        "ID": 1,
+        "HP": 2246,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 51
+      },
+      "Defender": {
+        "ID": 3,
+        "HP": 1843,
+        "Block": false,
+        "Receive": 48
+      }
+    },
+    {
+      "Number": 14,
+      "Attacker": {
+        "ID": 1,
+        "HP": 2246,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 47
+      },
+      "Defender": {
+        "ID": 3,
+        "HP": 1799,
+        "Block": false,
+        "Receive": 44
+      }
+    },
+    {
+      "Number": 15,
+      "Attacker": {
+        "ID": 3,
+        "HP": 1799,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 57
+      },
+      "Defender": {
+        "ID": 1,
+        "HP": 2193,
+        "Block": false,
+        "Receive": 53
+      }
+    },
+    {
+      "Number": 15,
+      "Attacker": {
+        "ID": 1,
+        "HP": 2193,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 47
+      },
+      "Defender": {
+        "ID": 3,
+        "HP": 1755,
+        "Block": false,
+        "Receive": 44
+      }
+    },
+    {
+      "Number": 16,
+      "Attacker": {
+        "ID": 3,
+        "HP": 1755,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 55
+      },
+      "Defender": {
+        "ID": 1,
+        "HP": 2142,
+        "Block": false,
+        "Receive": 51
+      }
+    },
+    {
+      "Number": 16,
+      "Attacker": {
+        "ID": 1,
+        "HP": 2142,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 50
+      },
+      "Defender": {
+        "ID": 3,
+        "HP": 1708,
+        "Block": false,
+        "Receive": 47
+      }
+    },
+    {
+      "Number": 17,
+      "Attacker": {
+        "ID": 1,
+        "HP": 2142,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 53
+      },
+      "Defender": {
+        "ID": 3,
+        "HP": 1658,
+        "Block": false,
+        "Receive": 50
+      }
+    },
+    {
+      "Number": 17,
+      "Attacker": {
+        "ID": 3,
+        "HP": 1658,
         "Crit": false,
         "Miss": false,
         "Damage": 48
       },
       "Defender": {
         "ID": 1,
-        "HP": 2820,
+        "HP": 2097,
         "Block": false,
         "Receive": 45
       }
     },
     {
-      "Number": 10,
+      "Number": 18,
       "Attacker": {
         "ID": 1,
-        "HP": 2820,
+        "HP": 2097,
         "Crit": false,
         "Miss": false,
-        "Damage": 75
+        "Damage": 52
       },
       "Defender": {
         "ID": 3,
-        "HP": 1713,
-        "Block": false,
-        "Receive": 70
-      }
-    },
-    {
-      "Number": 10,
-      "Attacker": {
-        "ID": 1,
-        "HP": 2820,
-        "Crit": false,
-        "Miss": false,
-        "Damage": 82
-      },
-      "Defender": {
-        "ID": 3,
-        "HP": 1636,
-        "Block": false,
-        "Receive": 77
-      }
-    },
-    {
-      "Number": 11,
-      "Attacker": {
-        "ID": 3,
-        "HP": 1636,
-        "Crit": false,
-        "Miss": false,
-        "Damage": 42
-      },
-      "Defender": {
-        "ID": 1,
-        "HP": 2781,
-        "Block": false,
-        "Receive": 39
-      }
-    },
-    {
-      "Number": 11,
-      "Attacker": {
-        "ID": 1,
-        "HP": 2781,
-        "Crit": false,
-        "Miss": false,
-        "Damage": 96
-      },
-      "Defender": {
-        "ID": 3,
-        "HP": 1546,
-        "Block": false,
-        "Receive": 90
-      }
-    },
-    {
-      "Number": 12,
-      "Attacker": {
-        "ID": 3,
-        "HP": 1546,
-        "Crit": true,
-        "Miss": false,
-        "Damage": 75
-      },
-      "Defender": {
-        "ID": 1,
-        "HP": 2711,
-        "Block": false,
-        "Receive": 70
-      }
-    },
-    {
-      "Number": 12,
-      "Attacker": {
-        "ID": 1,
-        "HP": 2711,
-        "Crit": true,
-        "Miss": false,
-        "Damage": 114
-      },
-      "Defender": {
-        "ID": 3,
-        "HP": 1439,
-        "Block": false,
-        "Receive": 107
-      }
-    },
-    {
-      "Number": 13,
-      "Attacker": {
-        "ID": 1,
-        "HP": 2711,
-        "Crit": false,
-        "Miss": false,
-        "Damage": 93
-      },
-      "Defender": {
-        "ID": 3,
-        "HP": 1352,
-        "Block": false,
-        "Receive": 87
-      }
-    },
-    {
-      "Number": 13,
-      "Attacker": {
-        "ID": 3,
-        "HP": 1352,
-        "Crit": false,
-        "Miss": false,
-        "Damage": 53
-      },
-      "Defender": {
-        "ID": 1,
-        "HP": 2662,
+        "HP": 1609,
         "Block": false,
         "Receive": 49
       }
     },
     {
-      "Number": 14,
+      "Number": 18,
       "Attacker": {
         "ID": 1,
-        "HP": 2662,
-        "Crit": true,
-        "Miss": false,
-        "Damage": 132
-      },
-      "Defender": {
-        "ID": 3,
-        "HP": 1290,
-        "Block": true,
-        "Receive": 62
-      }
-    },
-    {
-      "Number": 14,
-      "Attacker": {
-        "ID": 1,
-        "HP": 2662,
-        "Crit": true,
-        "Miss": false,
-        "Damage": 130
-      },
-      "Defender": {
-        "ID": 3,
-        "HP": 1168,
-        "Block": false,
-        "Receive": 122
-      }
-    },
-    {
-      "Number": 15,
-      "Attacker": {
-        "ID": 3,
-        "HP": 1168,
-        "Crit": true,
-        "Miss": false,
-        "Damage": 81
-      },
-      "Defender": {
-        "ID": 1,
-        "HP": 2587,
-        "Block": false,
-        "Receive": 75
-      }
-    },
-    {
-      "Number": 15,
-      "Attacker": {
-        "ID": 1,
-        "HP": 2587,
+        "HP": 2097,
         "Crit": false,
-        "Miss": true,
-        "Damage": 81
+        "Miss": false,
+        "Damage": 56
       },
       "Defender": {
         "ID": 3,
-        "HP": 1168,
+        "HP": 1557,
         "Block": false,
-        "Receive": 0
+        "Receive": 52
       }
     },
     {
-      "Number": 16,
+      "Number": 19,
       "Attacker": {
         "ID": 3,
-        "HP": 1168,
+        "HP": 1557,
         "Crit": false,
         "Miss": true,
         "Damage": 55
       },
       "Defender": {
         "ID": 1,
-        "HP": 2587,
-        "Block": false,
-        "Receive": 0
-      }
-    },
-    {
-      "Number": 16,
-      "Attacker": {
-        "ID": 1,
-        "HP": 2587,
-        "Crit": false,
-        "Miss": false,
-        "Damage": 104
-      },
-      "Defender": {
-        "ID": 3,
-        "HP": 1070,
-        "Block": false,
-        "Receive": 98
-      }
-    },
-    {
-      "Number": 17,
-      "Attacker": {
-        "ID": 1,
-        "HP": 2587,
-        "Crit": false,
-        "Miss": false,
-        "Damage": 89
-      },
-      "Defender": {
-        "ID": 3,
-        "HP": 986,
-        "Block": false,
-        "Receive": 84
-      }
-    },
-    {
-      "Number": 17,
-      "Attacker": {
-        "ID": 3,
-        "HP": 986,
-        "Crit": false,
-        "Miss": false,
-        "Damage": 52
-      },
-      "Defender": {
-        "ID": 1,
-        "HP": 2539,
-        "Block": false,
-        "Receive": 48
-      }
-    },
-    {
-      "Number": 18,
-      "Attacker": {
-        "ID": 1,
-        "HP": 2539,
-        "Crit": false,
-        "Miss": false,
-        "Damage": 96
-      },
-      "Defender": {
-        "ID": 3,
-        "HP": 896,
-        "Block": false,
-        "Receive": 90
-      }
-    },
-    {
-      "Number": 18,
-      "Attacker": {
-        "ID": 1,
-        "HP": 2539,
-        "Crit": false,
-        "Miss": false,
-        "Damage": 76
-      },
-      "Defender": {
-        "ID": 3,
-        "HP": 825,
-        "Block": false,
-        "Receive": 71
-      }
-    },
-    {
-      "Number": 19,
-      "Attacker": {
-        "ID": 3,
-        "HP": 825,
-        "Crit": false,
-        "Miss": true,
-        "Damage": 54
-      },
-      "Defender": {
-        "ID": 1,
-        "HP": 2539,
+        "HP": 2097,
         "Block": false,
         "Receive": 0
       }
@@ -604,14 +604,14 @@
       "Number": 19,
       "Attacker": {
         "ID": 1,
-        "HP": 2539,
+        "HP": 2097,
         "Crit": false,
         "Miss": true,
-        "Damage": 90
+        "Damage": 49
       },
       "Defender": {
         "ID": 3,
-        "HP": 825,
+        "HP": 1557,
         "Block": false,
         "Receive": 0
       }
@@ -620,16 +620,16 @@
       "Number": 20,
       "Attacker": {
         "ID": 3,
-        "HP": 825,
+        "HP": 1557,
         "Crit": false,
-        "Miss": false,
-        "Damage": 54
+        "Miss": true,
+        "Damage": 58
       },
       "Defender": {
         "ID": 1,
-        "HP": 2489,
+        "HP": 2097,
         "Block": false,
-        "Receive": 50
+        "Receive": 0
       }
     }
   ]

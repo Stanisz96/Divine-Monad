@@ -1,0 +1,17 @@
+﻿@model DivineMonad.Models.Character
+
+@{ 
+    Layout = "_SubLayout";
+}
+
+<div style="margin: 50px;">
+<button type="button" class="btn btn-primary">Raport!</button>
+</div>
+
+@section Scripts{ 
+    <script>
+        $('button').click(function () {
+            console.log("WAS CLICKED!");
+        });
+    </script>
+}

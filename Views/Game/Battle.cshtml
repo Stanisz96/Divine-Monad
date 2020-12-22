@@ -1,0 +1,20 @@
+﻿@model DivineMonad.Models.Character
+
+@{ 
+    Layout = "_SubLayout";
+}
+
+<div style="margin: 50px;">
+    <p>BATTLE!</p>
+    <form asp-controller="Game" asp-action="Raport">
+        <input id="test" type="submit" value="Attack" class="btn btn-primary" style="margin: 50px;" />
+    </form>
+</div>
+
+@section Scripts{ 
+    <script>
+        $('button').click(function () {
+            console.log("Fight!");
+        });
+    </script>
+}

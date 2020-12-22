@@ -1,1 +1,8 @@
-﻿Market! Coming soon...
+﻿@model DivineMonad.Models.Character
+
+Market! Coming soon...
+
+
+
+<button id="test" type="button" value="Click me!" class="btn btn-primary" style="margin: 50px;"
+        onclick="location.href='@Url.Action("testSendingData", "Game", new { id = Model.ID })'" />

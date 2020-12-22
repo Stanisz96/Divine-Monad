@@ -34,7 +34,7 @@ namespace DivineMonad.Controllers
         }
 
 
-        public async Task<IActionResult> Index(int id)
+        public async Task<IActionResult> Index([FromForm] int id)
         {
             string userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
             try
@@ -74,7 +74,7 @@ namespace DivineMonad.Controllers
                 return NotFound();
         }
 
-        [HttpPost]
+/*        [HttpPost]
         public string TestFight()
         {
 
@@ -121,6 +121,60 @@ namespace DivineMonad.Controllers
 
 
             return fightReport;
+        }*/
+
+        [HttpGet]
+        public string testSendingData(string type)
+        {
+            return "";
         }
+
+        public async Task<IActionResult> Character(int id)
+        {
+            var characterItems = _characterItemsRepo.GetCharactersItemsList(id, true);
+            var task = await Task.WhenAll(characterItems);
+            List<int> isIds = task.SingleOrDefault().Select(i => i.ItemId).ToList();
+
+            CharacterBaseStats baseStats = _baseStatsRepo.GetStatsById(1);
+            IEnumerable<ItemStats> itemStatsList = _itemsStatsRepo.GetListStatsByIds(isIds);
+
+            var characterAdvanceStats = new AdvanceStats();
+            characterAdvanceStats.IsPlayer = true;
+            characterAdvanceStats.CharacterId = id;
+            characterAdvanceStats.CalculateWithoutEq(baseStats);
+            characterAdvanceStats.CalculateWithEq(itemStatsList);
+            return View(characterAdvanceStats);
+        }
+
+        public async Task<IActionResult> Battle(int id)
+        {
+            Character character = await _context.Characters.FirstOrDefaultAsync(c => c.ID == id);
+            return View(character);
+        }
+
+        public async Task<IActionResult> Raport(int id)
+        {
+            Character character = await _context.Characters.FirstOrDefaultAsync(c => c.ID == id);
+            return View(character);
+        }
+
+        public async Task<IActionResult> Backpack(int id)
+        {
+            Character character = await _context.Characters.FirstOrDefaultAsync(c => c.ID == id);
+            return View(character);
+        }
+
+        public async Task<IActionResult> Market(int id)
+        {
+            Character character = await _context.Characters.FirstOrDefaultAsync(c => c.ID == id);
+            return View(character);
+        }
+
+        public async Task<IActionResult> News(int id)
+        {
+            Character character = await _context.Characters.FirstOrDefaultAsync(c => c.ID == id);
+            return View(character);
+        }
+
     }
 }

@@ -1,4 +1,5 @@
-﻿using DivineMonad.Engine;
+﻿using DivineMonad.Data;
+using DivineMonad.Engine;
 using DivineMonad.Models;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -10,16 +11,18 @@ namespace DivineMonad.ViewComponents
 {
     public class GameMarketViewComponent : ViewComponent
     {
-        private readonly ICharacterBaseStatsRepo _baseStats;
+        private readonly ApplicationDbContext _context;
 
-        public GameMarketViewComponent(ICharacterBaseStatsRepo baseStatsRepo)
+        public GameMarketViewComponent(ApplicationDbContext context)
         {
-            _baseStats = baseStatsRepo;
+            _context = context;
         }
 
-        public IViewComponentResult Invoke()
+        public IViewComponentResult Invoke(int cId)
         {
-            return View("Empty");
+            var character = _context.Characters.FirstOrDefault(i => i.ID == cId);
+
+            return View("Empty", character);
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using DivineMonad.Data;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,14 +18,14 @@ namespace DivineMonad.Models
 
         public IEnumerable<CharacterItems> AllCharacterItems => _appDbContext.CharactersItems;
 
-        public IEnumerable<CharacterItems> GetCharactersItemsList(int cId, bool onlyEquipped)
+        public async Task<IEnumerable<CharacterItems>> GetCharactersItemsList(int cId, bool onlyEquipped)
         {
             if (onlyEquipped)
-                return _appDbContext.CharactersItems
-                    .Where(i => (i.CharacterId == cId) && i.IsEquipped).ToList();
+                return await _appDbContext.CharactersItems
+                    .Where(i => (i.CharacterId == cId) && i.IsEquipped).ToListAsync();
             else
-                return _appDbContext.CharactersItems
-                    .Where(i => i.CharacterId == cId).ToList();
+                return await _appDbContext.CharactersItems
+                    .Where(i => i.CharacterId == cId).ToListAsync();
         }
     }
 }
