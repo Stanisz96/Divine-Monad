@@ -4,17 +4,19 @@
     Layout = "_SubLayout";
 }
 
-<div style="margin: 50px;">
+<div id="battle" style="margin: 50px;">
     <p>BATTLE!</p>
-    <form asp-controller="Game" asp-action="Raport">
-        <input id="test" type="submit" value="Attack" class="btn btn-primary" style="margin: 50px;" />
-    </form>
+    <input id="attackBtn" type="button" value="Attack" class="btn btn-primary" style="margin: 50px;" />
 </div>
 
 @section Scripts{ 
     <script>
-        $('button').click(function () {
-            console.log("Fight!");
+        $("#attackBtn").click(function () {
+            let componentId = "battle";
+            let action = "Raport";
+            let controller = "Game";
+            let data = { id: @Model.ID };
+            ReloadComponent(componentId, action, controller, data);
         });
     </script>
 }
