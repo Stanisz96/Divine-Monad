@@ -7,7 +7,7 @@ namespace DivineMonad.Engine.Raport
 {
     public class Attacker
     {
-        public int ID { get; set; }
+        public string Name { get; set; }
         public int HP { get; set; }
         public bool Crit { get; set; }
         public bool Miss { get; set; }

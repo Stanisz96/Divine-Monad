@@ -13,6 +13,7 @@ namespace DivineMonad.Engine
         public void CalculateMonster(MonsterStats monsterStats);
 
         public int CharacterId { get; set; }
+        public string CharacterName { get; set; }
         public bool IsPlayer { get; set; }
         public int Stamina { get; set; }
         public int Strength { get; set; }

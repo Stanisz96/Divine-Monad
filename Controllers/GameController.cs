@@ -136,17 +136,21 @@ namespace DivineMonad.Controllers
             AdvanceStats attacker = new AdvanceStats();
             attacker.IsPlayer = true;
             attacker.CharacterId = cId;
+            attacker.CharacterName = character.Name;
             attacker.CalculateWithoutEq(character.CBStats);
             attacker.CalculateWithEq(itemStatsList);
 
+
             Monster monster = await DbContextHelper.GetMonster(mId, _context);
 
-
             AdvanceStats defender = new AdvanceStats();
-            defender.IsPlayer = true;
-            defender.CharacterId = 3;
+            defender.IsPlayer = false;
+            defender.CharacterId = mId;
+            defender.CharacterName = monster.Name;
             defender.CalculateMonster(monster.MonsterStats);
 
+            
+            
             FightGenerator fight = new FightGenerator(attacker, defender);
             RaportGenerator fightRaport = fight.GenerateFight();
 

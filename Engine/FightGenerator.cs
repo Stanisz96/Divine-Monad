@@ -79,8 +79,8 @@ namespace DivineMonad.Engine
         private void SetMainRaportProps()
         {
             Raport.IsPvp = _opponentStats.IsPlayer;
-            Raport.Player = new Player() { ID = _playerStats.CharacterId };
-            Raport.Opponent = new Opponent() { ID = _opponentStats.CharacterId };
+            Raport.Player = new Player() { ID = _playerStats.CharacterId, Name = _playerStats.CharacterName };
+            Raport.Opponent = new Opponent() { ID = _opponentStats.CharacterId, Name = _opponentStats.CharacterName };
 
         }
 
@@ -144,8 +144,8 @@ namespace DivineMonad.Engine
         {
             Raport.Rounds.Add(new Round()
             {
-                Attacker = new Attacker() { Crit = IsCrit, Damage = Damage, HP = AttackerHp, ID = AttackerId, Miss = IsMiss },
-                Defender = new Defender() { Block = IsBlock, Receive = Receive, HP = DefenderHp, ID = DefenderId },
+                Attacker = new Attacker() { Crit = IsCrit, Damage = Damage, HP = AttackerHp, Name = Attacker.CharacterName, Miss = IsMiss },
+                Defender = new Defender() { Block = IsBlock, Receive = Receive, HP = DefenderHp, Name = Defender.CharacterName },
                 Number = RoundNumber
             });
         }
@@ -167,37 +167,37 @@ namespace DivineMonad.Engine
 
         private void UpdateToNextRound()
         {
-            string testExtraAttack2 = "IsExtraAttackDone: " + IsExtraAttackDone.ToString() + " | " + "DoExtraAttack: " + DoExtraAttack.ToString();
-            System.IO.File.AppendAllText(@"wwwroot/raports/testExtraAttack2.txt", testExtraAttack2 + Environment.NewLine);
+            if (!IsFightOver)
+            {
+                if (IsHalfRound) IsHalfRound = false;
+                else
+                {
+                    IsHalfRound = true;
+                    RoundNumber += 1;
+                }
 
-            if (IsHalfRound) IsHalfRound = false;
-            else
-            {
-                IsHalfRound = true;
-                RoundNumber += 1;
-            }
-
-            if(DoExtraAttack)
-            {
-                IsExtraAttackDone = true;
-                DoExtraAttack = false;
-            }
-            else
-            {
-                AdvanceStats tempA, tempB;
-                int hpA, hpB, idA, idB;
-                tempA = Attacker;
-                tempB = Defender;
-                hpA = AttackerHp;
-                hpB = DefenderHp;
-                idA = AttackerId;
-                idB = DefenderId;
-                Attacker = tempB;
-                Defender = tempA;
-                AttackerHp = hpB;
-                DefenderHp = hpA;
-                AttackerId = idB;
-                DefenderId = idA;
+                if (DoExtraAttack)
+                {
+                    IsExtraAttackDone = true;
+                    DoExtraAttack = false;
+                }
+                else
+                {
+                    AdvanceStats tempA, tempB;
+                    int hpA, hpB, idA, idB;
+                    tempA = Attacker;
+                    tempB = Defender;
+                    hpA = AttackerHp;
+                    hpB = DefenderHp;
+                    idA = AttackerId;
+                    idB = DefenderId;
+                    Attacker = tempB;
+                    Defender = tempA;
+                    AttackerHp = hpB;
+                    DefenderHp = hpA;
+                    AttackerId = idB;
+                    DefenderId = idA;
+                }
             }
         }
 
@@ -207,13 +207,11 @@ namespace DivineMonad.Engine
         }
         private void SetRaportResults()
         {
-            // Everything is the other way around, becouse
-            // function UpdateToNextRound() change attacker to defender
-
-            if (AttackerHp > 0) Raport.Result = "draw";
+            if (DefenderHp > 0) Raport.Result = "draw";
             else
             {
-                if (AttackerId == _playerStats.CharacterId) Raport.Result = "lose";
+                if (Defender.CharacterId == _playerStats.CharacterId && Defender.CharacterName == _playerStats.CharacterName)
+                    Raport.Result = "lose";
                 else Raport.Result = "win";
             }
         }

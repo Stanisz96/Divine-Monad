@@ -8,6 +8,7 @@ namespace DivineMonad.Engine
     public class AdvanceStats : IAdvanceStats
     {
         public int CharacterId { get; set; }
+        public string CharacterName { get; set; }
         public bool IsPlayer { get; set; }
         public int Stamina { get; set; }
         public int Strength { get; set; }
