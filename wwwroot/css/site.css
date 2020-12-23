@@ -168,6 +168,37 @@ body {
     border-bottom: none;
 }
 
+.game-content-battle {
+    margin: 40px 10px 10px 10px;
+    display: flex;
+}
+
+.game-content-battle .card {
+    max-width: 180px;
+    position: relative;
+    display: -ms-flexbox;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-clip: border-box;
+    border: none;
+    background-color: transparent;
+}
+
+.game-content-battle .card-body {
+    background-color: rgba(224, 246, 238, 0.20);
+    border-radius: 6px;
+    border: solid 2px #00a17e;
+    border-top: solid 1px #00a17e;
+    -webkit-box-shadow: inset 0px 15px 20px -20px rgba(26,92,68,1);
+    -moz-box-shadow: inset 0px 15px 20px -20px rgba(26,92,68,1);
+    box-shadow: inset 0px 15px 20px -20px rgba(26,92,68,1);
+    margin: 0px 5px 10px 5px;
+    padding: 5px 2px 5px 2px;
+    text-align: center;
+}
+
 /* NEW STYLES*/
 /*Style for button*/
 

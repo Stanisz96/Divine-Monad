@@ -1,12 +1,25 @@
-﻿@model DivineMonad.Models.Character
+﻿@model IEnumerable<DivineMonad.Models.Monster>
 
 @{ 
     Layout = "_SubLayout";
 }
 
-<div id="battle" style="margin: 50px;">
-    <p>BATTLE!</p>
-    <input id="attackBtn" type="button" value="Attack" class="btn btn-primary" style="margin: 50px;" />
+<div class="game-content-battle" id="battle">
+    @foreach (Monster monster in Model)
+    {
+        <div class="card">
+            <img src="@Url.Content(monster.ImageUrl)" class="card-img-top" alt="@monster.Name">
+            <div class="card-body">
+                <p class="card-title">@monster.Name</p>
+                <p class="card-text">
+                    @Html.DisplayNameFor(m => m.Level): @Html.DisplayFor(m => monster.Level)
+                </p>
+                <button id="@monster.ID-monster" type="button" class="btn btn-primary">Attack</button>
+            </div>
+        </div>
+    }
+
+    @*<input id="attackBtn" type="button" value="Attack" class="btn btn-primary" style="margin: 50px;" />*@
 </div>
 
 @section Scripts{ 
@@ -15,7 +28,7 @@
             let componentId = "battle";
             let action = "Raport";
             let controller = "Game";
-            let data = { cId: @Model.ID };
+            let data = { cId: @ViewBag.cId };
             ReloadComponent(componentId, action, controller, data);
         });
     </script>

@@ -35,7 +35,7 @@ namespace DivineMonad.Controllers
 
         public async Task<IActionResult> Index([FromForm, Bind("cId")] int cId)
         {
-            var character = await Validate.GetCharacter(cId, User, _context);
+            Character character = await Validate.GetCharacter(cId, User, _context);
 
             if (!(character is null))
             {
@@ -113,7 +113,15 @@ namespace DivineMonad.Controllers
         public async Task<IActionResult> Battle(int cId)
         {
             Character character = await Validate.GetCharacter(cId, User, _context);
-            return View(character);
+
+            if (!(character is null))
+            {
+                var monsters = await _context.Monsters.ToListAsync();
+
+                ViewData["cId"] = cId;
+                return View(monsters);
+            }
+            else return RedirectToAction("Index", "Characters");
         }
 
         public async Task<IActionResult> Raport(int cId)
