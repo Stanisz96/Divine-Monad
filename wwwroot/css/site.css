@@ -156,7 +156,7 @@ body {
     background-color: rgba(224, 246, 238, 0.30);
     border-radius: 6px;
     border: solid #00a17e;
-    border-top: none;
+    border-top: solid 1px #00a17e;
     padding: 50px;
 }
 

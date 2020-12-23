@@ -14,6 +14,10 @@ namespace DivineMonad.Models
         [RegularExpression(@"[a-zA-Z0-9\s]*$"), Required, StringLength(20)]
         public string Name { get; set; }
 
+        public string Description { get; set; }
+
+        public string ImageUrl { get; set; }
+
         public int Level { get; set; }
 
         public int Gold { get; set; }

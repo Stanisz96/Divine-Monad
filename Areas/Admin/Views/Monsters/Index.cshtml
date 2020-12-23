@@ -18,6 +18,12 @@
                     @Html.DisplayNameFor(model => model.Name)
                 </th>
                 <th>
+                    @Html.DisplayNameFor(model => model.Description)
+                </th>
+                <th>
+                    Image
+                </th>
+                <th>
                     @Html.DisplayNameFor(model => model.Level)
                 </th>
                 <th>
@@ -35,30 +41,36 @@
         <tbody>
             @foreach (var item in Model)
             {
-                <tr>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Name)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Level)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Gold)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Experience)
-                    </td>
-                    <td>
-                        <a asp-controller="MonstersStats" asp-action="Details" asp-route-id="@item.MonsterStatsId">
-                            Details
-                        </a>
-                    </td>
-                    <td>
-                        <a asp-action="Edit" asp-route-id="@item.ID">Edit</a> |
-                        <a asp-action="Details" asp-route-id="@item.ID">Details</a> |
-                        <a asp-action="Delete" asp-route-id="@item.ID">Delete</a>
-                    </td>
-                </tr>
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td class="text-truncate" style="max-width: 200px;">
+                    @Html.DisplayFor(modelItem => item.Description)
+                </td>
+                <td>
+                    <img src="@Url.Content(item.ImageUrl)" class="img-item" alt="@item.Name" style="max-width: 60px!important;">
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Level)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Gold)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Experience)
+                </td>
+                <td>
+                    <a asp-controller="MonstersStats" asp-action="Details" asp-route-id="@item.MonsterStatsId">
+                        Details
+                    </a>
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.ID">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.ID">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.ID">Delete</a>
+                </td>
+            </tr>
             }
         </tbody>
     </table>

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using DivineMonad.Engine.Raport;
 using DivineMonad.Models;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
@@ -25,6 +26,7 @@ namespace DivineMonad.Data
         public DbSet<Monster> Monsters { get; set; }
         public DbSet<MonsterLoot> MonstersLoot { get; set; }
         public DbSet<MonsterStats> MonstersStats { get; set; }
+
 
         protected override void OnModelCreating(ModelBuilder builder)
         {

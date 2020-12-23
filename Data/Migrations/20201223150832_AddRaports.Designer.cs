@@ -4,20 +4,161 @@ using DivineMonad.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace DivineMonad.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20201223150832_AddRaports")]
+    partial class AddRaports
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
                 .HasAnnotation("ProductVersion", "3.1.10")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+            modelBuilder.Entity("DivineMonad.Engine.Raport.Attacker", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<bool>("Crit")
+                        .HasColumnType("bit");
+
+                    b.Property<int>("Damage")
+                        .HasColumnType("int");
+
+                    b.Property<int>("HP")
+                        .HasColumnType("int");
+
+                    b.Property<bool>("Miss")
+                        .HasColumnType("bit");
+
+                    b.Property<int>("attackerId")
+                        .HasColumnType("int");
+
+                    b.HasKey("ID");
+
+                    b.ToTable("Attacker");
+                });
+
+            modelBuilder.Entity("DivineMonad.Engine.Raport.Defender", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<bool>("Block")
+                        .HasColumnType("bit");
+
+                    b.Property<int>("HP")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Receive")
+                        .HasColumnType("int");
+
+                    b.Property<int>("defenderId")
+                        .HasColumnType("int");
+
+                    b.HasKey("ID");
+
+                    b.ToTable("Defender");
+                });
+
+            modelBuilder.Entity("DivineMonad.Engine.Raport.Opponent", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("opponentId")
+                        .HasColumnType("int");
+
+                    b.HasKey("ID");
+
+                    b.ToTable("Opponent");
+                });
+
+            modelBuilder.Entity("DivineMonad.Engine.Raport.Player", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("playerId")
+                        .HasColumnType("int");
+
+                    b.HasKey("ID");
+
+                    b.ToTable("Player");
+                });
+
+            modelBuilder.Entity("DivineMonad.Engine.Raport.RaportGenerator", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<bool>("IsPvp")
+                        .HasColumnType("bit");
+
+                    b.Property<int?>("OpponentID")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("PlayerID")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Result")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("ID");
+
+                    b.HasIndex("OpponentID");
+
+                    b.HasIndex("PlayerID");
+
+                    b.ToTable("Raports");
+                });
+
+            modelBuilder.Entity("DivineMonad.Engine.Raport.Round", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int?>("AttackerID")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("DefenderID")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Number")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("RaportGeneratorID")
+                        .HasColumnType("int");
+
+                    b.HasKey("ID");
+
+                    b.HasIndex("AttackerID");
+
+                    b.HasIndex("DefenderID");
+
+                    b.HasIndex("RaportGeneratorID");
+
+                    b.ToTable("Round");
+                });
 
             modelBuilder.Entity("DivineMonad.Models.Character", b =>
                 {
@@ -616,6 +757,32 @@ namespace DivineMonad.Data.Migrations
                     b.HasKey("UserId", "LoginProvider", "Name");
 
                     b.ToTable("AspNetUserTokens");
+                });
+
+            modelBuilder.Entity("DivineMonad.Engine.Raport.RaportGenerator", b =>
+                {
+                    b.HasOne("DivineMonad.Engine.Raport.Opponent", "Opponent")
+                        .WithMany()
+                        .HasForeignKey("OpponentID");
+
+                    b.HasOne("DivineMonad.Engine.Raport.Player", "Player")
+                        .WithMany()
+                        .HasForeignKey("PlayerID");
+                });
+
+            modelBuilder.Entity("DivineMonad.Engine.Raport.Round", b =>
+                {
+                    b.HasOne("DivineMonad.Engine.Raport.Attacker", "Attacker")
+                        .WithMany()
+                        .HasForeignKey("AttackerID");
+
+                    b.HasOne("DivineMonad.Engine.Raport.Defender", "Defender")
+                        .WithMany()
+                        .HasForeignKey("DefenderID");
+
+                    b.HasOne("DivineMonad.Engine.Raport.RaportGenerator", null)
+                        .WithMany("Rounds")
+                        .HasForeignKey("RaportGeneratorID");
                 });
 
             modelBuilder.Entity("DivineMonad.Models.Character", b =>
