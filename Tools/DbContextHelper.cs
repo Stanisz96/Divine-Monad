@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace DivineMonad.Tools
 {
-    public class Validate
+    public class DbContextHelper
     {
         public static async Task<Character> GetCharacter(int cId, ClaimsPrincipal user, ApplicationDbContext context)
         {
@@ -23,6 +23,21 @@ namespace DivineMonad.Tools
 
                 if (userId.Equals(character.UserId)) return character;
                 else return null;
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
+
+        public static async Task<Monster> GetMonster(int mId, ApplicationDbContext context)
+        {
+            try
+            {
+                Monster monster = await context.Monsters.Include(c => c.MonsterStats)
+                                        .FirstOrDefaultAsync(c => c.ID == mId);
+
+                return monster;
             }
             catch (Exception)
             {

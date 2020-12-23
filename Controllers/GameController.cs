@@ -35,7 +35,7 @@ namespace DivineMonad.Controllers
 
         public async Task<IActionResult> Index([FromForm, Bind("cId")] int cId)
         {
-            Character character = await Validate.GetCharacter(cId, User, _context);
+            Character character = await DbContextHelper.GetCharacter(cId, User, _context);
 
             if (!(character is null))
             {
@@ -112,7 +112,7 @@ namespace DivineMonad.Controllers
 
         public async Task<IActionResult> Battle(int cId)
         {
-            Character character = await Validate.GetCharacter(cId, User, _context);
+            Character character = await DbContextHelper.GetCharacter(cId, User, _context);
 
             if (!(character is null))
             {
@@ -124,27 +124,56 @@ namespace DivineMonad.Controllers
             else return RedirectToAction("Index", "Characters");
         }
 
-        public async Task<IActionResult> Raport(int cId)
+        public async Task<IActionResult> Raport(int cId, int mId)
         {
-            Character character = await Validate.GetCharacter(cId, User, _context);
-            return View(character);
+            Character character = await DbContextHelper.GetCharacter(cId, User, _context);
+
+            var characterItems =  await _characterItemsRepo.GetCharactersItemsList(cId, true);
+            List<int> isIds = characterItems.Select(i => i.ItemId).ToList();
+
+            IEnumerable<ItemStats> itemStatsList = await _itemsStatsRepo.GetListStatsByIds(isIds);
+
+            AdvanceStats attacker = new AdvanceStats();
+            attacker.IsPlayer = true;
+            attacker.CharacterId = cId;
+            attacker.CalculateWithoutEq(character.CBStats);
+            attacker.CalculateWithEq(itemStatsList);
+
+            Monster monster = await DbContextHelper.GetMonster(mId, _context);
+
+
+            AdvanceStats defender = new AdvanceStats();
+            defender.IsPlayer = true;
+            defender.CharacterId = 3;
+            defender.CalculateMonster(monster.MonsterStats);
+
+            FightGenerator fight = new FightGenerator(attacker, defender);
+            RaportGenerator fightRaport = fight.GenerateFight();
+
+            string fightRaportJson = JsonConvert.SerializeObject(fightRaport, Formatting.Indented);
+
+            System.IO.File.WriteAllText(@"wwwroot/raports/testRaport.json", fightRaportJson);
+
+
+
+            return View(fightRaport);
         }
 
         public async Task<IActionResult> Backpack(int cId)
         {
-            Character character = await Validate.GetCharacter(cId, User, _context);
+            Character character = await DbContextHelper.GetCharacter(cId, User, _context);
             return View(character);
         }
 
         public async Task<IActionResult> Market(int cId)
         {
-            Character character = await Validate.GetCharacter(cId, User, _context);
+            Character character = await DbContextHelper.GetCharacter(cId, User, _context);
             return View(character);
         }
 
         public async Task<IActionResult> News(int cId)
         {
-            Character character = await Validate.GetCharacter(cId, User, _context);
+            Character character = await DbContextHelper.GetCharacter(cId, User, _context);
             return View(character);
         }
 

@@ -4,10 +4,10 @@
     Layout = "_SubLayout";
 }
 
-<div class="game-content-battle" id="battle">
+<div class="game-content-battle row" id="battle">
     @foreach (Monster monster in Model)
     {
-        <div class="card">
+        <div class="card col-4">
             <img src="@Url.Content(monster.ImageUrl)" class="card-img-top" alt="@monster.Name">
             <div class="card-body">
                 <p class="card-title">@monster.Name</p>
@@ -24,11 +24,12 @@
 
 @section Scripts{ 
     <script>
-        $("#attackBtn").click(function () {
+        $("button").click(function () {
+            let monsterId = this.id.split('-')[0];
             let componentId = "battle";
             let action = "Raport";
             let controller = "Game";
-            let data = { cId: @ViewBag.cId };
+            let data = { cId: @ViewBag.cId, mId: monsterId };
             ReloadComponent(componentId, action, controller, data);
         });
     </script>
