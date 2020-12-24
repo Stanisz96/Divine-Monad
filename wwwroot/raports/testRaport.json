@@ -17,61 +17,61 @@
         "HP": 2700,
         "Crit": false,
         "Miss": false,
-        "Damage": 56
+        "Damage": 43
       },
       "Defender": {
         "Name": "Enchanted Tree",
-        "HP": 64,
+        "HP": 77,
         "Block": false,
-        "Receive": 56
+        "Receive": 43
       }
     },
     {
       "Number": 1,
       "Attacker": {
         "Name": "Enchanted Tree",
-        "HP": 64,
+        "HP": 77,
         "Crit": false,
-        "Miss": true,
-        "Damage": 9
+        "Miss": false,
+        "Damage": 10
       },
       "Defender": {
         "Name": "AdminCharacter",
-        "HP": 2700,
+        "HP": 2691,
         "Block": false,
-        "Receive": 0
+        "Receive": 9
       }
     },
     {
       "Number": 2,
       "Attacker": {
         "Name": "AdminCharacter",
-        "HP": 2700,
+        "HP": 2691,
         "Crit": false,
         "Miss": false,
-        "Damage": 48
+        "Damage": 53
       },
       "Defender": {
         "Name": "Enchanted Tree",
-        "HP": 16,
+        "HP": 24,
         "Block": false,
-        "Receive": 48
+        "Receive": 53
       }
     },
     {
       "Number": 2,
       "Attacker": {
         "Name": "AdminCharacter",
-        "HP": 2700,
+        "HP": 2691,
         "Crit": false,
         "Miss": false,
-        "Damage": 50
+        "Damage": 43
       },
       "Defender": {
         "Name": "Enchanted Tree",
-        "HP": -34,
+        "HP": -19,
         "Block": false,
-        "Receive": 50
+        "Receive": 43
       }
     }
   ]

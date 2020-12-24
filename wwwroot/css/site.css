@@ -199,6 +199,26 @@ body {
     text-align: center;
 }
 
+.game-content-battle .card-img-top {
+    padding: 0px 10px 0px 10px;
+}
+
+.game-content-raport {
+    margin: 0px 30px 10px 30px;
+}
+
+.game-content-raport .raport {
+    max-height: 250px;
+}
+
+.game-content-raport .opponent {
+    max-height: 150px;
+}
+
+.game-content-raport .player {
+    max-height: 150px;
+}
+
 /* NEW STYLES*/
 /*Style for button*/
 
@@ -206,6 +226,11 @@ body {
 .horizontal-scroll {
     overflow-x: scroll;
     white-space: nowrap;
+    background-color: rgba(242, 255, 251, 0.30);
+}
+
+.vertical-scroll {
+    overflow-y: scroll;
     background-color: rgba(242, 255, 251, 0.30);
 }
 
