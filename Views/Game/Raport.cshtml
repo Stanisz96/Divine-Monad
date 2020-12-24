@@ -12,10 +12,23 @@
         </div>
     </div>
     <div class="row raport vertical-scroll">
-        <div class="col" >
-            Folly words widow one downs few age every seven. If miss part by fact he park just shew. Discovered had get considered projection who favourable. Necessary up knowledge it tolerably. Unwilling departure education is be dashwoods or an. Use off agreeable law unwilling sir deficient curiosity instantly. Easy mind life fact with see has bore ten. Parish any chatty can elinor direct for former. Up as meant widow equal an share least.
-
-            Another journey chamber way yet females man. Way extensive and dejection get delivered deficient sincerity gentleman age. Too end instrument possession contrasted motionless. Calling offence six joy feeling. Coming merits and was talent enough far. Sir joy northward sportsmen education. Discovery incommode earnestly no he commanded if. Put still any about manor heard.
+        <div class="col">
+            <p>The fight between @Model.Player.Name and @Model.Opponent.Name has begun.</p>
+            @foreach (var round in Model.Rounds)
+            {
+                @round.Attacker.Name <span>inflict a hit for @round.Attacker.Damage damage.</span> <br />
+                @round.Defender.Name <span>takes @round.Defender.Receive damage and is left with @round.Defender.HP HP.</span>
+                <p></p>
+            }
+            <br />
+            @if (Model.Result == "draw")
+            {
+                <p>The fight ended in a draw</p>
+            }else
+            {
+                @Model.Player.Name <span></span> @Model.Result <span> the game.</span>
+            }
+            <br />
         </div>
     </div>
     <div class="row player mt-4">
