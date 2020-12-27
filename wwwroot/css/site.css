@@ -219,8 +219,41 @@ body {
     max-height: 150px;
 }
 
-/* NEW STYLES*/
-/*Style for button*/
+.game-content-backpack {
+    margin: 40px 30px 10px 30px;
+}
+
+.game-content-backpack .equipment {
+    background-color: rgba(224, 246, 238, 0.30);
+    border-radius: 10px;
+    border: solid 1px #00a17e;
+    height: 240px;
+}
+
+.game-content-backpack .stats {
+    background-color: bisque;
+    height: 240px;
+}
+
+.game-content-backpack .backpack {
+    background-color: coral;
+    height: 400px;
+}
+
+.game-content-backpack .test {
+    background-color: #083c31;
+    height: 80px;
+    text-align: center;
+    padding: 0px;
+    border: 1px solid #26A45D;
+    border-radius: 12px;
+}
+
+.game-content-backpack .img-item {
+    max-width: 76px;
+    margin: 0px;
+    background-color: transparent;
+}
 
 /*Horizontal scroll*/
 .horizontal-scroll {
