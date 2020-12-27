@@ -220,28 +220,29 @@ body {
 }
 
 .game-content-backpack {
-    margin: 40px 30px 10px 30px;
+    margin: 40px 35px 10px 35px;
 }
 
 .game-content-backpack .equipment {
-    background-color: rgba(224, 246, 238, 0.30);
-    border-radius: 10px;
-    border: solid 1px #00a17e;
+    background-color: moccasin;
     height: 240px;
 }
 
 .game-content-backpack .stats {
-    background-color: bisque;
+    background-color: lavender;
     height: 240px;
+    padding-top: 10px;
 }
 
 .game-content-backpack .backpack {
     background-color: coral;
-    height: 400px;
+    padding: 30px 55px 30px 55px;
+    margin-top: 30px;
 }
 
-.game-content-backpack .test {
+.game-content-backpack .item-slot {
     background-color: #083c31;
+    max-width: 80px;
     height: 80px;
     text-align: center;
     padding: 0px;
@@ -250,10 +251,11 @@ body {
 }
 
 .game-content-backpack .img-item {
-    max-width: 76px;
-    margin: 0px;
+    max-width: 75px;
+    margin-top: 1px;
     background-color: transparent;
 }
+
 
 /*Horizontal scroll*/
 .horizontal-scroll {
