@@ -65,7 +65,7 @@ namespace DivineMonad.Areas.Admin.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ID,CharacterId,ItemId,IsEquipped")] CharacterItems characterItems)
+        public async Task<IActionResult> Create([Bind("ID,CharacterId,ItemId,IsEquipped,BpSlotId")] CharacterItems characterItems)
         {
             if (ModelState.IsValid)
             {
@@ -101,7 +101,7 @@ namespace DivineMonad.Areas.Admin.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("ID,CharacterId,ItemId,IsEquipped")] CharacterItems characterItems)
+        public async Task<IActionResult> Edit(int id, [Bind("ID,CharacterId,ItemId,IsEquipped,BpSlotId")] CharacterItems characterItems)
         {
             if (id != characterItems.ID)
             {

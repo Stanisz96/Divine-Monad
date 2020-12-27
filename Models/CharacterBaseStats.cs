@@ -6,6 +6,7 @@
         public int Level { get; set; }
         public int Experience { get; set; }
         public int Gold { get; set; }
+        public int BpSlots { get; set; }
         public int Stamina { get; set; }
         public int Strength { get; set; }
         public int Agility { get; set; }
@@ -23,6 +24,7 @@
                 Level = 1;
                 Experience = 0;
                 Gold = 0;
+                BpSlots = 18;
                 Stamina = 10;
                 Strength = 10;
                 Agility = 10;
