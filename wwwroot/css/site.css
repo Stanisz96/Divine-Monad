@@ -224,18 +224,19 @@ body {
 }
 
 .game-content-backpack .equipment {
-    background-color: moccasin;
     height: 240px;
 }
 
 .game-content-backpack .stats {
-    background-color: lavender;
+    background-color: rgba(18, 189, 126, 0.20);
+    border: 3px outset #26a485;
     height: 240px;
     padding-top: 10px;
 }
 
 .game-content-backpack .backpack {
-    background-color: coral;
+    background-color: rgba(18, 189, 126, 0.20);
+    border: 3px outset #26a485;
     padding: 30px 55px 30px 55px;
     margin-top: 30px;
 }
