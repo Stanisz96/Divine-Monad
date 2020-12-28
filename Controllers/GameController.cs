@@ -166,5 +166,19 @@ namespace DivineMonad.Controllers
                     return new { from, to, valid = DbContextHelper.CanChangeIt(from, to, backpack), str = "Move & change: " };
             }
         }
+
+        public async Task<ItemStats> ItemInfo(int cId, int bpSlotId)
+        {
+            Backpack backpack = new Backpack();
+            backpack.Character = await DbContextHelper.GetCharacter(cId, User, _context);
+            backpack.CharacterItemsList = await _characterItemsRepo.GetCharactersItemsList(cId, false);
+            List<int> itemIds = backpack.CharacterItemsList.Select(i => i.ItemId).ToList();
+            backpack.ItemsList = await _itemsRepo.GetItemsList(itemIds);
+
+
+            return backpack.ItemsList.FirstOrDefault
+                (i => i.ID == backpack.CharacterItemsList.
+                FirstOrDefault(i => i.BpSlotId == bpSlotId).ItemId).Statistics;
+        }
     }
 }

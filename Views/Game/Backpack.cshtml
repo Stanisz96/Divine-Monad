@@ -179,7 +179,14 @@
 
                     $(".img-item").removeClass("active-item");
                 } else {
-                    console.log("Clicked slot: " + e.target.id);
+                    let data = { cId: @Model.Character.ID, bpSlotId: e.target.id };
+                    $.ajax({
+                        url: "/Game/ItemInfo",
+                        data: data,
+                        success: function (data) {
+                            console.log(data);
+                        }
+                    });
                     $(e.target).addClass("active-item");
                 }
             }
