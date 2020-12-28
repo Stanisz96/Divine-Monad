@@ -98,10 +98,17 @@
                         data: data,
                         success: function (data) {
                             if (data.valid) {
-                                console.log("OK");
+                                console.log(data.option + ": " + data.from + " | " + data.to);
+
+                                let tempSrcFrom = $("#" + data.from).attr("src");
+                                let tempSrcTo = $("#" + data.to).attr("src");
+                                $("#" + data.from).attr("src", tempSrcTo);
+                                $("#" + data.to).attr("src", tempSrcFrom);
+                                $("#" + data.from).addClass("empty-slot");
+                                $("#" + data.to).removeClass("empty-slot");
                             }
                             else {
-                                console.log("NOT VALID BABE!");
+                                console.log("NOT VALID!");
                             }
                         }
                     });
@@ -119,10 +126,15 @@
                         data: data,
                         success: function (data) {
                             if (data.valid) {
-                                console.log("OK");
+                                console.log(data.option + ": " + data.from + " | " + data.to);
+
+                                let tempSrcFrom = $("#" + data.from).attr("src");
+                                let tempSrcTo = $("#" + data.to).attr("src");
+                                $("#" + data.from).attr("src", tempSrcTo);
+                                $("#" + data.to).attr("src", tempSrcFrom);
                             }
                             else {
-                                console.log("NOT VALID BABE!");
+                                console.log("NOT VALID!");
                             }
                         }
                     });
