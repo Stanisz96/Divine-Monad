@@ -7,31 +7,48 @@
     CharacterItems cItem;
 }
 
+@functions {
+    public string GetUrl(int id)
+    {
+        CharacterItems tempCItem = Model.CharacterItemsList.FirstOrDefault(i => i.BpSlotId == id && i.IsEquipped == true);
+        if(!(tempCItem is null))
+        {
+            Item tempItem = Model.ItemsList.FirstOrDefault(i => i.ID == tempCItem.ItemId);
+            if(!(tempItem is null))
+            {
+                return tempItem.ImageUrl;
+            }
+            return "~/images/bg_item.png";
+        }
+        return "~/images/bg_item.png";
+    }
+}
+
 <div class="game-content-backpack">
     <div class="row">
         <div class="col-5 offset-1 equipment">
             <div class="row">
                 <div class="col-4 offset-4 item-slot" id="1">
-                    <img src="@Url.Content("~/images/green/helmet/ExpertHunterHat.png")" class="img-item" alt="item">
+                    <img src="@Url.Content(GetUrl(1))" class="img-item" alt="item">
                 </div>
                 <div class="col-4 item-slot" id="2">
-                    <img src="@Url.Content("~/images/green/gloves/Hunter.png")" class="img-item" alt="item">
+                    <img src="@Url.Content(GetUrl(2))" class="img-item" alt="item">
                 </div>
             </div>
             <div class="row">
                 <div class="col-4 item-slot" id="3">
-                    <img src="@Url.Content("~/images/green/MeleeWeapon1H/ShortDagger_[Paint].png")" class="img-item" alt="item">
+                    <img src="@Url.Content(GetUrl(3))" class="img-item" alt="item">
                 </div>
                 <div class="col-4 item-slot" id="4">
-                    <img src="@Url.Content("~/images/green/armor/Hunter.png")" class="img-item" alt="item">
+                    <img src="@Url.Content(GetUrl(4))" class="img-item" alt="item">
                 </div>
                 <div class="col-4 item-slot" id="5">
-                    <img src="@Url.Content("~/images/green/shields/WoodenBuckler.png")" class="img-item" alt="item">
+                    <img src="@Url.Content(GetUrl(5))" class="img-item" alt="item">
                 </div>
             </div>
             <div class="row">
                 <div class="col-4 offset-4 item-slot" id="6">
-                    <img src="@Url.Content("~/images/green/boots/hunter.png")" class="img-item" alt="item">
+                    <img src="@Url.Content(GetUrl(6))" class="img-item" alt="item">
                 </div>
             </div>
         </div>
