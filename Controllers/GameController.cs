@@ -138,5 +138,18 @@ namespace DivineMonad.Controllers
             return View(character);
         }
 
+        public object SlotsChange(int from, int to, bool isEmpty)
+        {
+            if(isEmpty)
+            {
+                /* return "Move item: " + from.ToString() + " -> " + to.ToString();*/
+                return new { from, to, valid = true };
+            }
+            else
+            {
+                /*return "Change items: " + from.ToString() + " <-> " + to.ToString();*/
+                return new { from, to, valid = true };
+            }
+        }
     }
 }

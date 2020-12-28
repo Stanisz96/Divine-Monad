@@ -5,10 +5,11 @@
 
     Item item;
     CharacterItems cItem;
+    string emptySlot = "";
 }
 
 @functions {
-    public string GetUrl(int id)
+    public string GetUrl(int id, out string emptySlot)
     {
         CharacterItems tempCItem = Model.CharacterItemsList.FirstOrDefault(i => i.BpSlotId == id && i.IsEquipped == true);
         if(!(tempCItem is null))
@@ -16,10 +17,13 @@
             Item tempItem = Model.ItemsList.FirstOrDefault(i => i.ID == tempCItem.ItemId);
             if(!(tempItem is null))
             {
+                emptySlot = "";
                 return tempItem.ImageUrl;
             }
+            emptySlot = "empty-slot";
             return "~/images/bg_item.png";
         }
+        emptySlot = "empty-slot";
         return "~/images/bg_item.png";
     }
 }
@@ -28,27 +32,27 @@
     <div class="row">
         <div class="col-5 offset-1 equipment">
             <div class="row">
-                <div class="col-4 offset-4 item-slot" id="1">
-                    <img src="@Url.Content(GetUrl(1))" class="img-item" alt="item">
+                <div class="col-4 offset-4 item-slot">
+                    <img src="@Url.Content(GetUrl(1, out emptySlot))" class="img-item @emptySlot" alt="item" id="1">
                 </div>
-                <div class="col-4 item-slot" id="2">
-                    <img src="@Url.Content(GetUrl(2))" class="img-item" alt="item">
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-4 item-slot" id="3">
-                    <img src="@Url.Content(GetUrl(3))" class="img-item" alt="item">
-                </div>
-                <div class="col-4 item-slot" id="4">
-                    <img src="@Url.Content(GetUrl(4))" class="img-item" alt="item">
-                </div>
-                <div class="col-4 item-slot" id="5">
-                    <img src="@Url.Content(GetUrl(5))" class="img-item" alt="item">
+                <div class="col-4 item-slot">
+                    <img src="@Url.Content(GetUrl(2, out emptySlot))" class="img-item @emptySlot" alt="item" id="2">
                 </div>
             </div>
             <div class="row">
-                <div class="col-4 offset-4 item-slot" id="6">
-                    <img src="@Url.Content(GetUrl(6))" class="img-item" alt="item">
+                <div class="col-4 item-slot">
+                    <img src="@Url.Content(GetUrl(3, out emptySlot))" class="img-item @emptySlot" alt="item" id="3">
+                </div>
+                <div class="col-4 item-slot">
+                    <img src="@Url.Content(GetUrl(4, out emptySlot))" class="img-item @emptySlot" alt="item" id="4">
+                </div>
+                <div class="col-4 item-slot">
+                    <img src="@Url.Content(GetUrl(5, out emptySlot))" class="img-item @emptySlot" alt="item" id="5">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-4 offset-4 item-slot">
+                    <img src="@Url.Content(GetUrl(6, out emptySlot))" class="img-item @emptySlot" alt="item" id="6">
                 </div>
             </div>
         </div>
@@ -114,15 +118,15 @@
                         item = Model.ItemsList.FirstOrDefault(i => i.ID == cItem.ItemId);
                         if (!(item is null))
                         {
-                            <div class="col-2 item-slot" id="@slotId">
-                                <img src="@Url.Content(item.ImageUrl)" class="img-item" alt="item">
+                            <div class="col-2 item-slot">
+                                <img src="@Url.Content(item.ImageUrl)" class="img-item" alt="item" id="@slotId">
                             </div>
                         }
                     }
                     else
                     {
-                        <div class="col-2 item-slot" id="@slotId">
-                            <img src="@Url.Content("~/images/bg_item.png")" class="img-item" alt="item">
+                        <div class="col-2 item-slot">
+                            <img src="@Url.Content("~/images/bg_item.png")" class="img-item empty-slot" alt="item" id="@slotId">
                         </div>
                     }
                 }
@@ -133,7 +137,53 @@
 
 @section Scripts{ 
     <script>
-        $('img').click(function () {
+        $(document).on("click", ".item-slot", function (e) {
+            if ($(e.target).hasClass("empty-slot")) {
+                if ($(".img-item").hasClass("active-item")) {
+                    //console.log("Move item: " + $(".active-item").attr("id") + " -> " + e.target.id);
+                    let data = { from: $(".active-item").attr("id"), to: e.target.id, isEmpty: true };
+                    $.ajax({
+                        url: "/Game/SlotsChange",
+                        data: data,
+                        success: function (data) {
+                            if (data.valid) {
+                                console.log("Move FROM: " + data.from);
+                                console.log("Move TO: " + data.to);
+                            }
+                        }
+                    });
+
+
+                    $(".img-item").removeClass("active-item");
+                } else {
+                    console.log("Clicked slot: empty");
+                }
+            } else {
+                if ($(".img-item").hasClass("active-item")) {
+                    //console.log("Change items: " + $(".active-item").attr("id") + " <-> " + e.target.id);
+                    let data = { from: $(".active-item").attr("id"), to: e.target.id, isEmpty: false };
+                    $.ajax({
+                        url: "/Game/SlotsChange",
+                        data: data,
+                        success: function (data) {
+                            if (data.valid) {
+                                console.log("Change FROM: " + data.from);
+                                console.log("Change TO: " + data.to);
+                            }
+                        }
+                    });
+
+                    $(".img-item").removeClass("active-item");
+                } else {
+                    console.log("Clicked slot: " + e.target.id);
+                    $(e.target).addClass("active-item");
+                }
+            }
+
+            // show stats
+        });
+        $(document).on("dblclick", ".item-slot", function (e) {
+            // lets equipe
         });
     </script>
 }
