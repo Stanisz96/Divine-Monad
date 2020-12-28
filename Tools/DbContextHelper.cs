@@ -115,6 +115,101 @@ namespace DivineMonad.Tools
             }
         }
 
+
+        public static async Task<List<CharacterItems>> UpdateBpSlotsId(int from, int to, Backpack backpack, ApplicationDbContext context, string option)
+        {
+            CharacterItems cItemFrom = null;
+            CharacterItems cItemTo = null;
+
+            if(option.Equals("putOn"))
+            {
+                cItemFrom = backpack.CharacterItemsList.FirstOrDefault(i => i.BpSlotId == from);
+                if (!(cItemFrom is null))
+                {
+                    cItemFrom.BpSlotId = to;
+                    cItemFrom.IsEquipped = true;
+                }
+            }
+            else if(option.Equals("takeOff"))
+            {
+                cItemFrom = backpack.CharacterItemsList.FirstOrDefault(i => i.BpSlotId == from);
+                if (!(cItemFrom is null))
+                {
+                    cItemFrom.BpSlotId = to;
+                    cItemFrom.IsEquipped = false;
+                }
+            }
+            else if (option.Equals("move"))
+            {
+                cItemFrom = backpack.CharacterItemsList.FirstOrDefault(i => i.BpSlotId == from);
+                if (!(cItemFrom is null))
+                {
+                    cItemFrom.BpSlotId = to;
+                }
+            }
+            else if (option.Equals("putOnAndChange"))
+            {
+                cItemFrom = backpack.CharacterItemsList.FirstOrDefault(i => i.BpSlotId == from);
+                cItemTo = backpack.CharacterItemsList.FirstOrDefault(i => i.BpSlotId == to);
+                if (!(cItemFrom is null) && !(cItemTo is null))
+                {
+                    cItemFrom.BpSlotId = to;
+                    cItemFrom.IsEquipped = true;
+                    cItemTo.BpSlotId = from;
+                    cItemTo.IsEquipped = false;
+                }
+            }
+            else if (option.Equals("takeOffAndChange"))
+            {
+                cItemFrom = backpack.CharacterItemsList.FirstOrDefault(i => i.BpSlotId == from);
+                cItemTo = backpack.CharacterItemsList.FirstOrDefault(i => i.BpSlotId == to);
+                if (!(cItemFrom is null) && !(cItemTo is null))
+                {
+                    cItemFrom.BpSlotId = to;
+                    cItemFrom.IsEquipped = false;
+                    cItemTo.BpSlotId = from;
+                    cItemTo.IsEquipped = true;
+                }
+            }
+            else if (option.Equals("moveAndChange"))
+            {
+                cItemFrom = backpack.CharacterItemsList.FirstOrDefault(i => i.BpSlotId == from);
+                cItemTo = backpack.CharacterItemsList.FirstOrDefault(i => i.BpSlotId == to);
+                if (!(cItemFrom is null) && !(cItemTo is null))
+                {
+                    cItemFrom.BpSlotId = to;
+                    cItemTo.BpSlotId = from;
+                }
+            }
+
+            try
+            {
+                if (!(cItemFrom is null))
+                {
+                    context.Update(cItemFrom);
+                    await context.SaveChangesAsync();
+                }
+
+                if (!(cItemTo is null))
+                {
+                    context.Update(cItemTo);
+                    await context.SaveChangesAsync();
+                }
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                throw;
+            }
+
+            List<CharacterItems> returnCItems = new List<CharacterItems>{
+                cItemFrom,
+                cItemTo
+            };
+
+            return returnCItems;
+
+        }
+
         enum CategoryName
         {
             Helmet = 1,

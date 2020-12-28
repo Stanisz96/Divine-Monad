@@ -50,13 +50,6 @@
 @section Scripts {
 
     <script>
-        $(".list-group-item").click(function () {
-            let componentId = this.attributes.getNamedItem("aria-controls").value;
-            let action = componentId.split('-')[1];
-            let controller = "Game";
-            let data = { cId: @Model.ID };
-            ReloadComponent(componentId, action, controller, data);
-        });
 
         $(document).ready(function () {
             let componentId = "game-" + "@ViewBag.menu";
@@ -65,8 +58,16 @@
             let data = { cId: @Model.ID };
             ReloadComponent(componentId, action, controller, data);
             $("#"+componentId + "-btn").addClass("active");
-            $("#" +componentId).addClass("show active");
+            $("#" + componentId).addClass("show active");
 
+
+            $(".list-group-item").click(function () {
+                let componentId = this.attributes.getNamedItem("aria-controls").value;
+                let action = componentId.split('-')[1];
+                let controller = "Game";
+                let data = { cId: @Model.ID };
+                ReloadComponent(componentId, action, controller, data);
+            });
         })
     </script>
     

@@ -57,54 +57,6 @@
             </div>
         </div>
         <div class="col-5 stats offset-1">
-            <div class="row justify-content-center">
-                <div class="col-5 font-weight-bold">
-                    Attack:
-                </div>
-                <div class="col-4">
-                    121
-                </div>
-            </div>
-            <div class="row justify-content-center">
-                <div class="col-5 font-weight-bold">
-                    Agility:
-                </div>
-                <div class="col-4">
-                    43
-                </div>
-            </div>
-            <div class="row justify-content-center">
-                <div class="col-5 font-weight-bold">
-                    Armor:
-                </div>
-                <div class="col-4">
-                    120
-                </div>
-            </div>
-            <div class="row justify-content-center">
-                <div class="col-5 font-weight-bold">
-                    HitPoints:
-                </div>
-                <div class="col-4">
-                    420
-                </div>
-            </div>
-            <div class="row justify-content-center">
-                <div class="col-5 font-weight-bold">
-                    Dodge:
-                </div>
-                <div class="col-4">
-                    45
-                </div>
-            </div>
-            <div class="row justify-content-center">
-                <div class="col-5 font-weight-bold">
-                    Luck:
-                </div>
-                <div class="col-4">
-                    12
-                </div>
-            </div>
         </div>
     </div>
     <div class="row">
@@ -137,17 +89,16 @@
 
 @section Scripts{ 
     <script>
-        $(document).on("click", ".item-slot", function (e) {
+        $(".item-slot").click(function (e) {
             if ($(e.target).hasClass("empty-slot")) {
                 if ($(".img-item").hasClass("active-item")) {
-                    //console.log("Move item: " + $(".active-item").attr("id") + " -> " + e.target.id);
                     let data = { cId: @Model.Character.ID, from: $(".active-item").attr("id"), to: e.target.id, isEmpty: true };
                     $.ajax({
                         url: "/Game/SlotsChange",
                         data: data,
                         success: function (data) {
                             if (data.valid) {
-                                console.log(data.str + data.from + " | " + data.to);
+                                console.log("OK");
                             }
                             else {
                                 console.log("NOT VALID BABE!");
@@ -162,14 +113,13 @@
                 }
             } else {
                 if ($(".img-item").hasClass("active-item")) {
-                    //console.log("Change items: " + $(".active-item").attr("id") + " <-> " + e.target.id);
                     let data = { cId: @Model.Character.ID, from: $(".active-item").attr("id"), to: e.target.id, isEmpty: false };
                     $.ajax({
                         url: "/Game/SlotsChange",
                         data: data,
                         success: function (data) {
                             if (data.valid) {
-                                console.log(data.str + data.from + " | " + data.to);
+                                console.log("OK");
                             }
                             else {
                                 console.log("NOT VALID BABE!");
