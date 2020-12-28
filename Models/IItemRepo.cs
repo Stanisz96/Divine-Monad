@@ -9,5 +9,6 @@ namespace DivineMonad.Models
     {
         IEnumerable<Item> AllItems { get; }
         Item GetItemById(int itemId);
+        Task<IEnumerable<Item>> GetItemsList(List<int> ids);
     }
 }

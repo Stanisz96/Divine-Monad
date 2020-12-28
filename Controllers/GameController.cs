@@ -22,14 +22,16 @@ namespace DivineMonad.Controllers
         private readonly ICharacterBaseStatsRepo _baseStatsRepo;
         private readonly ICharacterItemsRepo _characterItemsRepo;
         private readonly IItemStatsRepo _itemsStatsRepo;
+        private readonly IItemRepo _itemsRepo;
 
         public GameController(ApplicationDbContext context, ICharacterBaseStatsRepo baseStatsRepo, ICharacterItemsRepo characterItemsRepo,
-            IItemStatsRepo itemsStatsRepo)
+            IItemStatsRepo itemsStatsRepo, IItemRepo itemsRepo)
         {
             _context = context;
             _baseStatsRepo = baseStatsRepo;
             _characterItemsRepo = characterItemsRepo;
             _itemsStatsRepo = itemsStatsRepo;
+            _itemsRepo = itemsRepo;
         }
 
 
@@ -44,55 +46,6 @@ namespace DivineMonad.Controllers
             }
             else return RedirectToAction("Index", "Characters");
         }
-
-/*        [HttpPost]
-        public string TestFight()
-        {
-
-            int cId = Int32.Parse(Request.Headers["Referer"].ToString().Split("Index/").Last());
-
-
-            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
-            var character = _context.Characters.Where(c => (c.UserId == userId) && (c.ID == cId))
-                .Include(c => c.CBStats).FirstOrDefault();
-
-            var character2 = _context.Characters.Where(c => (c.UserId == userId) && (c.ID == 3))
-                                    .Include(c => c.CBStats).FirstOrDefault();
-
-            var characterItems = _characterItemsRepo.GetCharactersItemsList(cId, true);
-            List<int> isIds = characterItems.Select(i => i.ItemId).ToList();
-
-            var characterItems2 = _characterItemsRepo.GetCharactersItemsList(3, true);
-            List<int> isIds2 = characterItems2.Select(i => i.ItemId).ToList();
-
-            CharacterBaseStats baseStats = _baseStatsRepo.GetStatsById(character.CBStatsId);
-            IEnumerable<ItemStats> itemStatsList = _itemsStatsRepo.GetListStatsByIds(isIds);
-
-            CharacterBaseStats baseStats2 = _baseStatsRepo.GetStatsById(character2.CBStatsId);
-            IEnumerable<ItemStats> itemStatsList2 = _itemsStatsRepo.GetListStatsByIds(isIds2);
-
-            var player1 = new AdvanceStats();
-            player1.IsPlayer = true;
-            player1.CharacterId = cId;
-            player1.CalculateWithoutEq(baseStats);
-            player1.CalculateWithEq(itemStatsList);
-
-            var player2 = new AdvanceStats();
-            player2.IsPlayer = true;
-            player2.CharacterId = 3;
-            player2.CalculateWithoutEq(baseStats2);
-            player2.CalculateWithEq(itemStatsList2);
-
-            FightGenerator fg = new FightGenerator(player1, player2);
-            RaportGenerator raportGenerator = fg.GenerateFight();
-
-            string fightReport = JsonConvert.SerializeObject(raportGenerator, Formatting.Indented);
-
-            System.IO.File.WriteAllText(@"wwwroot/raports/testRaport.json", fightReport);
-
-
-            return fightReport;
-        }*/
 
         public IActionResult Character(int cId)
         {
@@ -150,7 +103,6 @@ namespace DivineMonad.Controllers
             defender.CalculateMonster(monster.MonsterStats);
 
             
-            
             FightGenerator fight = new FightGenerator(attacker, defender);
             RaportGenerator fightRaport = fight.GenerateFight();
 
@@ -165,8 +117,13 @@ namespace DivineMonad.Controllers
 
         public async Task<IActionResult> Backpack(int cId)
         {
-            Character character = await DbContextHelper.GetCharacter(cId, User, _context);
-            return View(character);
+            Backpack backpack = new Backpack();
+            backpack.Character = await DbContextHelper.GetCharacter(cId, User, _context);
+            var characterItems = await _characterItemsRepo.GetCharactersItemsList(cId, false);
+            List<int> itemIds = characterItems.Select(i => i.ItemId).ToList();
+            backpack.ItemsList = await _itemsRepo.GetItemsList(itemIds);
+
+            return View(backpack);
         }
 
         public async Task<IActionResult> Market(int cId)
