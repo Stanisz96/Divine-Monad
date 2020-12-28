@@ -119,8 +119,8 @@ namespace DivineMonad.Controllers
         {
             Backpack backpack = new Backpack();
             backpack.Character = await DbContextHelper.GetCharacter(cId, User, _context);
-            var characterItems = await _characterItemsRepo.GetCharactersItemsList(cId, false);
-            List<int> itemIds = characterItems.Select(i => i.ItemId).ToList();
+            backpack.CharacterItemsList = await _characterItemsRepo.GetCharactersItemsList(cId, false);
+            List<int> itemIds = backpack.CharacterItemsList.Select(i => i.ItemId).ToList();
             backpack.ItemsList = await _itemsRepo.GetItemsList(itemIds);
 
             return View(backpack);

@@ -88,10 +88,10 @@
     <div class="row">
         <div class="col-12 backpack">
             <div class="row">
-                @foreach (Item item in Model.ItemsList)
+                @foreach (CharacterItems cItem in Model.CharacterItemsList)
                 {
                     <div class="col-2 item-slot" id="@slotId">
-                        <img src="@Url.Content(item.ImageUrl)" class="img-item" alt="item">
+                        <img src="@Url.Content(Model.ItemsList.FirstOrDefault(i => i.ID == cItem.ItemId).ImageUrl)" class="img-item" alt="item">
                     </div>
 
                     slotId++;
