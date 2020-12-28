@@ -3,9 +3,8 @@
 @{ 
     Layout = "_SubLayout";
 
-    var slotId = 7;
     Item item;
-    string urlImage = "";
+    CharacterItems cItem;
 }
 
 <div class="game-content-backpack">
@@ -90,63 +89,26 @@
     <div class="row">
         <div class="col-12 backpack">
             <div class="row">
-                @foreach (CharacterItems cItem in Model.CharacterItemsList)
+                @for (int slotId = 7; slotId <= Model.Character.CBStats.BpSlots + 6; slotId++)
                 {
-                    item = Model.ItemsList.FirstOrDefault(i => (i.ID == cItem.ItemId) && (cItem.IsEquipped == false));
-                    if (!(item is null))
+                    cItem = Model.CharacterItemsList.FirstOrDefault(i => i.BpSlotId == slotId && i.IsEquipped == false);
+                    if (!(cItem is null))
+                    {
+                        item = Model.ItemsList.FirstOrDefault(i => i.ID == cItem.ItemId);
+                        if (!(item is null))
+                        {
+                            <div class="col-2 item-slot" id="@slotId">
+                                <img src="@Url.Content(item.ImageUrl)" class="img-item" alt="item">
+                            </div>
+                        }
+                    }
+                    else
                     {
                         <div class="col-2 item-slot" id="@slotId">
-                            <img src="@Url.Content(item.ImageUrl)" class="img-item" alt="item">
+                            <img src="@Url.Content("~/images/bg_item.png")" class="img-item" alt="item">
                         </div>
-                        slotId++;
                     }
-
                 }
-
-                @for (int i = slotId; i <= Model.Character.CBStats.BpSlots + 6; i++)
-                {
-                    <div class="col-2 item-slot" id="@i">
-                        <img src="@Url.Content("~/images/bg_item.png")" class="img-item" alt="item">
-                    </div>
-                }
-
-
-                @*                <div class="col-2 item-slot" id="7">
-            <img src="@Url.Content("~/images/bg_item.png")" class="img-item" alt="item">
-        </div>
-        <div class="col-2 item-slot" id="8">
-            <img src="@Url.Content("~/images/bg_item.png")" class="img-item" alt="item">
-        </div>
-        <div class="col-2 item-slot" id="9">
-            <img src="@Url.Content("~/images/bg_item.png")" class="img-item" alt="item">
-        </div>
-        <div class="col-2 item-slot" id="10">
-            <img src="@Url.Content("~/images/bg_item.png")" class="img-item" alt="item">
-        </div>
-        <div class="col-2 item-slot" id="11">
-            <img src="@Url.Content("~/images/bg_item.png")" class="img-item" alt="item">
-        </div>
-        <div class="col-2 item-slot" id="12">
-            <img src="@Url.Content("~/images/bg_item.png")" class="img-item" alt="item">
-        </div>
-        <div class="col-2 item-slot" id="13">
-            <img src="@Url.Content("~/images/bg_item.png")" class="img-item" alt="item">
-        </div>
-        <div class="col-2 item-slot" id="14">
-            <img src="@Url.Content("~/images/bg_item.png")" class="img-item" alt="item">
-        </div>
-        <div class="col-2 item-slot" id="15">
-            <img src="@Url.Content("~/images/bg_item.png")" class="img-item" alt="item">
-        </div>
-        <div class="col-2 item-slot" id="16">
-            <img src="@Url.Content("~/images/bg_item.png")" class="img-item" alt="item">
-        </div>
-        <div class="col-2 item-slot" id="17">
-            <img src="@Url.Content("~/images/bg_item.png")" class="img-item" alt="item">
-        </div>
-        <div class="col-2 item-slot" id="18">
-            <img src="@Url.Content("~/images/bg_item.png")" class="img-item" alt="item">
-        </div>*@
             </div>
         </div>
     </div>
