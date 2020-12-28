@@ -1,0 +1,24 @@
+﻿@model DivineMonad.Models.ItemStats
+
+@{
+    Layout = "";
+    int value = 0;
+}
+
+
+@foreach (var prop in typeof(DivineMonad.Models.ItemStats).GetProperties())
+{
+    value = Int32.Parse(prop.GetValue(Model).ToString());
+
+    if (value > 0 && prop.Name.ToString() != "ID")
+    {
+        <div class="row justify-content-center">
+            <div class="col-5 font-weight-bold">
+                @prop.Name:
+            </div>
+            <div class="col-4">
+                @prop.GetValue(Model)
+            </div>
+        </div>
+    }
+}

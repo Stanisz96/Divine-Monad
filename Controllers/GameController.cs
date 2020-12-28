@@ -160,14 +160,16 @@ namespace DivineMonad.Controllers
             {
                 if (from >= 7 && to < 7)
                     return new { from, to, valid = DbContextHelper.CanPutItOn(from, to, backpack), str = "Put on & change: " };
-                if (to >= 7 && from < 7)
+                else if (to >= 7 && from < 7)
                     return new { from, to, valid = DbContextHelper.CanPutItOn(from, to, backpack), str = "Take off & change: " };
+                else if (from == to)
+                    return new { from, to, valid = true, str = "Do nothing: " };
                 else
                     return new { from, to, valid = DbContextHelper.CanChangeIt(from, to, backpack), str = "Move & change: " };
             }
         }
 
-        public async Task<ItemStats> ItemInfo(int cId, int bpSlotId)
+        public async Task<IActionResult> ItemInfo(int cId, int bpSlotId)
         {
             Backpack backpack = new Backpack();
             backpack.Character = await DbContextHelper.GetCharacter(cId, User, _context);
@@ -176,9 +178,11 @@ namespace DivineMonad.Controllers
             backpack.ItemsList = await _itemsRepo.GetItemsList(itemIds);
 
 
-            return backpack.ItemsList.FirstOrDefault
+            ItemStats itemStats = backpack.ItemsList.FirstOrDefault
                 (i => i.ID == backpack.CharacterItemsList.
                 FirstOrDefault(i => i.BpSlotId == bpSlotId).ItemId).Statistics;
+
+            return View(itemStats);
         }
     }
 }

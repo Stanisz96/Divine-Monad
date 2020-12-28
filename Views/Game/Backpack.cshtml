@@ -184,17 +184,12 @@
                         url: "/Game/ItemInfo",
                         data: data,
                         success: function (data) {
-                            console.log(data);
+                            $(".stats").html(data);
                         }
                     });
                     $(e.target).addClass("active-item");
                 }
             }
-
-            // show stats
-        });
-        $(document).on("dblclick", ".item-slot", function (e) {
-            // lets equipe
         });
     </script>
 }
