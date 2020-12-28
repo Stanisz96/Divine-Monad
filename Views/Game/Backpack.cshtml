@@ -141,14 +141,16 @@
             if ($(e.target).hasClass("empty-slot")) {
                 if ($(".img-item").hasClass("active-item")) {
                     //console.log("Move item: " + $(".active-item").attr("id") + " -> " + e.target.id);
-                    let data = { from: $(".active-item").attr("id"), to: e.target.id, isEmpty: true };
+                    let data = { cId: @Model.Character.ID, from: $(".active-item").attr("id"), to: e.target.id, isEmpty: true };
                     $.ajax({
                         url: "/Game/SlotsChange",
                         data: data,
                         success: function (data) {
                             if (data.valid) {
-                                console.log("Move FROM: " + data.from);
-                                console.log("Move TO: " + data.to);
+                                console.log(data.str + data.from + " | " + data.to);
+                            }
+                            else {
+                                console.log("NOT VALID BABE!");
                             }
                         }
                     });
@@ -161,14 +163,16 @@
             } else {
                 if ($(".img-item").hasClass("active-item")) {
                     //console.log("Change items: " + $(".active-item").attr("id") + " <-> " + e.target.id);
-                    let data = { from: $(".active-item").attr("id"), to: e.target.id, isEmpty: false };
+                    let data = { cId: @Model.Character.ID, from: $(".active-item").attr("id"), to: e.target.id, isEmpty: false };
                     $.ajax({
                         url: "/Game/SlotsChange",
                         data: data,
                         success: function (data) {
                             if (data.valid) {
-                                console.log("Change FROM: " + data.from);
-                                console.log("Change TO: " + data.to);
+                                console.log(data.str + data.from + " | " + data.to);
+                            }
+                            else {
+                                console.log("NOT VALID BABE!");
                             }
                         }
                     });

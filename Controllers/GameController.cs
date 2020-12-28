@@ -138,17 +138,32 @@ namespace DivineMonad.Controllers
             return View(character);
         }
 
-        public object SlotsChange(int from, int to, bool isEmpty)
+        public async Task<object> SlotsChange(int cId, int from, int to, bool isEmpty)
         {
-            if(isEmpty)
+            Backpack backpack = new Backpack();
+            backpack.Character = await DbContextHelper.GetCharacter(cId, User, _context);
+            backpack.CharacterItemsList = await _characterItemsRepo.GetCharactersItemsList(cId, false);
+            List<int> itemIds = backpack.CharacterItemsList.Select(i => i.ItemId).ToList();
+            backpack.ItemsList = await _itemsRepo.GetItemsList(itemIds);
+
+
+            if (isEmpty)
             {
-                /* return "Move item: " + from.ToString() + " -> " + to.ToString();*/
-                return new { from, to, valid = true };
+                if (to < 7 && from >= 7)
+                    return new { from, to, valid = DbContextHelper.CanPutItOn(from, to, backpack), str = "Put on: " };
+                else if (from < 7)
+                    return new { from, to, valid = DbContextHelper.CanMoveIt(from, to, backpack), str = "Take off: " };
+                else
+                    return new { from, to, valid = DbContextHelper.CanMoveIt(from, to, backpack), str = "Move: " };
             }
             else
             {
-                /*return "Change items: " + from.ToString() + " <-> " + to.ToString();*/
-                return new { from, to, valid = true };
+                if (from >= 7 && to < 7)
+                    return new { from, to, valid = DbContextHelper.CanPutItOn(from, to, backpack), str = "Put on & change: " };
+                if (to >= 7 && from < 7)
+                    return new { from, to, valid = DbContextHelper.CanPutItOn(from, to, backpack), str = "Take off & change: " };
+                else
+                    return new { from, to, valid = DbContextHelper.CanChangeIt(from, to, backpack), str = "Move & change: " };
             }
         }
     }

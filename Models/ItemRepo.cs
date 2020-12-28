@@ -31,7 +31,8 @@ namespace DivineMonad.Models
 
         public async Task<IEnumerable<Item>> GetItemsList(List<int> ids)
         {
-            return await _appDbContext.Items.Where(s => ids.Contains(s.ID)).Include(s => s.Statistics).ToListAsync();
+            return await _appDbContext.Items.Where(s => ids.Contains(s.ID)).Include(s => s.Category)
+                .Include(s => s.Statistics).ToListAsync();
         }
     }
 }

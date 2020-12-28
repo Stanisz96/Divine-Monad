@@ -44,5 +44,88 @@ namespace DivineMonad.Tools
                 return null;
             }
         }
+
+        public static bool CanPutItOn(int from, int to, Backpack backpack)
+        {
+            try
+            {
+                if(from > to)
+                {
+                    CharacterItems cItem = backpack.CharacterItemsList.FirstOrDefault(i => i.BpSlotId == from);
+                    Item item = backpack.ItemsList.FirstOrDefault(i => i.ID == cItem.ItemId);
+                    Character character = backpack.Character;
+
+                    CategoryName itemCategory = (CategoryName)Enum.Parse(typeof(CategoryName), item.Category.Name, true);
+
+                    return (int)itemCategory == to;
+                }
+                else
+                {
+                    CharacterItems cItem = backpack.CharacterItemsList.FirstOrDefault(i => i.BpSlotId == to);
+                    Item item = backpack.ItemsList.FirstOrDefault(i => i.ID == cItem.ItemId);
+                    Character character = backpack.Character;
+
+                    CategoryName itemCategory = (CategoryName)Enum.Parse(typeof(CategoryName), item.Category.Name, true);
+
+                    return (int)itemCategory == to;
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        public static bool CanMoveIt(int from, int to, Backpack backpack)
+        {
+            try
+            {
+                CharacterItems fromItem = backpack.CharacterItemsList.FirstOrDefault(i => i.BpSlotId == from);
+                CharacterItems toItem = backpack.CharacterItemsList.FirstOrDefault(i => i.BpSlotId == to);
+                if (fromItem is null) return false;
+                else
+                {
+                    if (toItem is null && to >= 7) return true;
+                    else return false;
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        public static bool CanChangeIt(int from, int to, Backpack backpack)
+        {
+            try
+            {
+                CharacterItems fromItem = backpack.CharacterItemsList.FirstOrDefault(i => i.BpSlotId == from);
+                CharacterItems toItem = backpack.CharacterItemsList.FirstOrDefault(i => i.BpSlotId == to);
+                if (fromItem is null) return false;
+                else
+                {
+                    if (toItem is null) return false;
+                    else return true;
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        enum CategoryName
+        {
+            Helmet = 1,
+            Gloves = 2,
+            MeleeWeapon1H = 3,
+            MeleeWeapon2H = 3,
+            Bows = 3,
+            Armor = 4,
+            Arrows = 5,
+            Shields = 5,
+            Boots = 6
+        }
     }
 }
