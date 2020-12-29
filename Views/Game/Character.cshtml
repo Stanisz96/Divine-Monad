@@ -151,6 +151,14 @@
                     </div>
                 </div>
             </div>
+            <div class="row justify-content-center mt-4">
+                <div class="col-4 pl-4">
+                    <button id="add-points" type="button" class="btn btn-primary">Add points</button>
+                </div>
+                <div class="col-4 pl-0">
+                    <button id="reset-points" type="button" class="btn btn-primary">Reset points</button>
+                </div>
+            </div>
         </div>
         <div class="tab-pane fade" id="advanced" role="tabpanel" aria-labelledby="advanced-tab">
             <div class="row justify-content-center">
@@ -321,6 +329,27 @@
                     }
                     $("#statsPoints").text(statsPoints);
                 }
+            });
+
+            $('#reset-points').click(function (e) {
+                let classCollection = document.getElementsByClassName('btn-svg');
+                let i;
+                let tempStatsName = [];
+                let statsName = [];
+                for (i = 0; i < classCollection.length; i++) {
+                    tempStatsName.push($(classCollection[i]).attr("class").split(' ')[2]);
+                }
+                $.each(tempStatsName, function (i, el) {
+                    if ($.inArray(el, statsName) === -1) {
+                        statsName.push(el);
+                        $("#" + el).text("(+" + 0 + ")");
+                    }
+                });
+                statsPoints = defaultStatsPoints;
+                $("#statsPoints").text(statsPoints);
+                $("#hitpoints").text("(+0)");
+                $("#attack").text("(+0)");
+
             });
         });
     </script>
