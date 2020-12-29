@@ -38,5 +38,6 @@ namespace DivineMonad.Engine
         public double DmgRed { get; set; }
 
         public GameStats GameStats { get; set; }
+        public int StatsPoints { get; set; }
     }
 }

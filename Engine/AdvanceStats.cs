@@ -38,6 +38,7 @@ namespace DivineMonad.Engine
         public double DmgRed { get; set; }
 
         public GameStats GameStats { get; set; }
+        public int StatsPoints { get; set; }
 
         public AdvanceStats()
         {
@@ -51,6 +52,7 @@ namespace DivineMonad.Engine
             Dexterity = baseStats.Dexterity;
             Agility = baseStats.Agility;
             Luck = baseStats.Luck;
+            StatsPoints = baseStats.StatsPoints;
 
             RecalculateStats();
             RecalculatePr();

@@ -11,7 +11,7 @@
             <a class="nav-link active" id="base-tab" data-toggle="tab" href="#base" role="tab" aria-controls="base" aria-selected="true">Base</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" id="advance-tab" data-toggle="tab" href="#advance" role="tab" aria-controls="advance" aria-selected="false">Advance</a>
+            <a class="nav-link" id="advanced-tab" data-toggle="tab" href="#advanced" role="tab" aria-controls="advanced" aria-selected="false">Advanced</a>
         </li>
         <li class="nav-item">
             <a class="nav-link" id="others-tab" data-toggle="tab" href="#others" role="tab" aria-controls="others" aria-selected="false">Others</a>
@@ -19,64 +19,120 @@
     </ul>
     <div class="tab-content" id="statsTabContent">
         <div class="tab-pane fade show active" id="base" role="tabpanel" aria-labelledby="base-tab">
-            <div class="row justify-content-center">
-                <div class="col-3 font-weight-bold">
+            <div class="row mb-3">
+                <div class="col-4 font-weight-bold offset-1 pl-4">
+                    Basic Statistics
+                </div>
+                <div class="col-3 font-weight-bold offset-1">
+                    Stats Points:
+                </div>
+                <div class="col-1">
+                    @Html.DisplayFor(s => s.StatsPoints)
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-3 font-weight-bold offset-1 pl-4">
                     @Html.DisplayNameFor(s => s.HitPoints):
                 </div>
                 <div class="col-2">
                     @Html.DisplayFor(s => s.HitPoints)
                 </div>
+                <div class="col-2" id="hitpoints">
+                    (+0)
+                </div>
+                <div class="col-2">
+                </div>
             </div>
-            <div class="row justify-content-center">
-                <div class="col-3 font-weight-bold">
+            <div class="row">
+                <div class="col-3 font-weight-bold offset-1 pl-4">
                     @Html.DisplayNameFor(s => s.Attack):
                 </div>
                 <div class="col-2">
                     @Html.DisplayFor(s => s.Attack)
                 </div>
+                <div class="col-2" id="attack">
+                    (+0)
+                </div>
+                <div class="col-2">
+                </div>
             </div>
-            <div class="row justify-content-center">
-                <div class="col-3 font-weight-bold">
+            <div class="row">
+                <div class="col-3 font-weight-bold offset-1 pl-4">
                     @Html.DisplayNameFor(s => s.Stamina):
                 </div>
                 <div class="col-2">
                     @Html.DisplayFor(s => s.Stamina)
                 </div>
+                <div class="col-2" id="stamina">
+                    (+0)
+                </div>
+                <div class="col-2">
+                    <button type="button" class="fas fa-plus-square plus stamina"></button>
+                    <button type="button" class="fas fa-minus-square minus stamina"></button>
+                </div>
             </div>
-            <div class="row justify-content-center">
-                <div class="col-3 font-weight-bold">
+            <div class="row ">
+                <div class="col-3 font-weight-bold offset-1 pl-4">
                     @Html.DisplayNameFor(s => s.Strength):
                 </div>
                 <div class="col-2">
                     @Html.DisplayFor(s => s.Strength)
                 </div>
+                <div class="col-2" id="strength">
+                    (+0)
+                </div>
+                <div class="col-2">
+                    <button type="button" class="fas fa-plus-square plus strength"></button>
+                    <button type="button" class="fas fa-minus-square minus strength"></button>
+                </div>
             </div>
-            <div class="row justify-content-center">
-                <div class="col-3 font-weight-bold">
+            <div class="row ">
+                <div class="col-3 font-weight-bold offset-1 pl-4">
                     @Html.DisplayNameFor(s => s.Agility):
                 </div>
                 <div class="col-2">
                     @Html.DisplayFor(s => s.Agility)
                 </div>
+                <div class="col-2" id="agility">
+                    (+0)
+                </div>
+                <div class="col-2">
+                    <button type="button" class="fas fa-plus-square plus agility"></button>
+                    <button type="button" class="fas fa-minus-square minus agility"></button>
+                </div>
             </div>
-            <div class="row justify-content-center">
-                <div class="col-3 font-weight-bold">
+            <div class="row">
+                <div class="col-3 font-weight-bold offset-1 pl-4">
                     @Html.DisplayNameFor(s => s.Dexterity):
                 </div>
                 <div class="col-2">
                     @Html.DisplayFor(s => s.Dexterity)
                 </div>
+                <div class="col-2" id="dexterity">
+                    (+0)
+                </div>
+                <div class="col-2">
+                    <button type="button" class="fas fa-plus-square plus dexterity"></button>
+                    <button type="button" class="fas fa-minus-square minus dexterity"></button>
+                </div>
             </div>
-            <div class="row justify-content-center">
-                <div class="col-3 font-weight-bold">
+            <div class="row">
+                <div class="col-3 font-weight-bold offset-1 pl-4">
                     @Html.DisplayNameFor(s => s.Luck):
                 </div>
                 <div class="col-2">
                     @Html.DisplayFor(s => s.Luck)
                 </div>
+                <div class="col-2" id="luck">
+                    (+0)
+                </div>
+                <div class="col-2">
+                    <button type="button" class="fas fa-plus-square plus luck"></button>
+                    <button type="button" class="fas fa-minus-square minus luck"></button>
+                </div>
             </div>
         </div>
-        <div class="tab-pane fade" id="advance" role="tabpanel" aria-labelledby="advance-tab">
+        <div class="tab-pane fade" id="advanced" role="tabpanel" aria-labelledby="advanced-tab">
             <div class="row justify-content-center">
                 <div class="col-3 font-weight-bold">
                     @Html.DisplayNameFor(s => s.AttackMin):
