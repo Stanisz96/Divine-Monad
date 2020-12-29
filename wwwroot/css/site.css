@@ -164,8 +164,8 @@ body {
 .game-content-character .tab-pane.fade {
     background-color: rgba(224, 246, 238, 0.30);
     border-radius: 6px;
-    border: solid #00a17e;
-    border-top: solid 1px #00a17e;
+    border: 3px outset #26a485;
+    border-top: 1px outset #26a485;
     padding: 50px;
 }
 
@@ -239,6 +239,8 @@ body {
 .game-content-backpack .stats {
     background-color: rgba(18, 189, 126, 0.20);
     border: 3px outset #26a485;
+    border-top: 1px outset #26a485;
+    border-radius: 6px;
     height: 240px;
     padding-top: 10px;
 }
@@ -246,6 +248,8 @@ body {
 .game-content-backpack .backpack {
     background-color: rgba(18, 189, 126, 0.20);
     border: 3px outset #26a485;
+    border-top: 1px outset #26a485;
+    border-radius: 6px;
     padding: 30px 55px 30px 55px;
     margin-top: 30px;
 }
