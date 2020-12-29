@@ -242,6 +242,10 @@ namespace DivineMonad.Controllers
                 { 
                     return new { from, to, valid = true, option = "nothing" };
                 }
+                else if (from < 7 && to < 7)
+                {
+                    return new { from, to, valid = false, option = "not valid" };
+                }
                 else
                 {
                     valid = DbContextHelper.CanChangeIt(from, to, backpack);
