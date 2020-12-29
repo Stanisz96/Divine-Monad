@@ -63,7 +63,7 @@ namespace DivineMonad.Areas.Admin.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ID,Level,Experience,Gold,BpSlots,Stamina,Strength,Agility,Dexterity,Luck")] CharacterBaseStats characterBaseStats)
+        public async Task<IActionResult> Create([Bind("ID,Level,Experience,Gold,BpSlots,Stamina,Strength,Agility,Dexterity,Luck,StatsPoints")] CharacterBaseStats characterBaseStats)
         {
             if (ModelState.IsValid)
             {
@@ -96,7 +96,7 @@ namespace DivineMonad.Areas.Admin.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("ID,Level,Experience,Gold,BpSlots,Stamina,Strength,Agility,Dexterity,Luck")] CharacterBaseStats characterBaseStats)
+        public async Task<IActionResult> Edit(int id, [Bind("ID,Level,Experience,Gold,BpSlots,Stamina,Strength,Agility,Dexterity,Luck,StatsPoints")] CharacterBaseStats characterBaseStats)
         {
             if (id != characterBaseStats.ID)
             {

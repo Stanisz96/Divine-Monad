@@ -13,6 +13,8 @@
         public int Dexterity { get; set; }
         public int Luck { get; set; }
 
+        public int StatsPoints { get; set; }
+
         public CharacterBaseStats()
         {
         }
@@ -30,6 +32,7 @@
                 Agility = 10;
                 Dexterity = 10;
                 Luck = 10;
+                StatsPoints = 0;
             }
 
         }

@@ -60,6 +60,9 @@
                 <th>
                     @Html.DisplayNameFor(model => model.Luck)
                 </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.StatsPoints)
+                </th>
                 <th></th>
             </tr>
         </thead>
@@ -99,6 +102,9 @@
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.Luck)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.StatsPoints)
                 </td>
                 <td>
                     <a asp-action="Edit" asp-route-id="@item.ID">Edit</a> |
