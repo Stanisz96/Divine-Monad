@@ -37,6 +37,8 @@ namespace DivineMonad.Engine
         [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:P1}")]
         public double DmgRed { get; set; }
 
+        public GameStats GameStats { get; set; }
+
         public AdvanceStats()
         {
         }

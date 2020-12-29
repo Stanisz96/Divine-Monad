@@ -36,5 +36,7 @@ namespace DivineMonad.Engine
         public double BlockPr { get; set; }
         public double ExtraDropPr { get; set; }
         public double DmgRed { get; set; }
+
+        public GameStats GameStats { get; set; }
     }
 }

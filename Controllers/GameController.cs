@@ -47,20 +47,29 @@ namespace DivineMonad.Controllers
             else return RedirectToAction("Index", "Characters");
         }
 
-        public IActionResult Character(int cId)
+        public async Task<IActionResult> Character(int cId)
         {
-            var characterItems = _characterItemsRepo.GetCharactersItemsList(cId, true);
-            List<int> isIds = characterItems.Result.Select(i => i.ItemId).ToList();
+            Character character = await DbContextHelper.GetCharacter(cId, User, _context);
 
-            CharacterBaseStats baseStats = _baseStatsRepo.GetStatsById(1).Result;
-            IEnumerable<ItemStats> itemStatsList = _itemsStatsRepo.GetListStatsByIds(isIds).Result;
+            if (!(character is null))
+            {
+                var characterItems = _characterItemsRepo.GetCharactersItemsList(cId, true);
+                List<int> isIds = characterItems.Result.Select(i => i.ItemId).ToList();
 
-            var characterAdvanceStats = new AdvanceStats();
-            characterAdvanceStats.IsPlayer = true;
-            characterAdvanceStats.CharacterId = cId;
-            characterAdvanceStats.CalculateWithoutEq(baseStats);
-            characterAdvanceStats.CalculateWithEq(itemStatsList);
-            return View(characterAdvanceStats);
+                CharacterBaseStats baseStats = _baseStatsRepo.GetStatsById(1).Result;
+                IEnumerable<ItemStats> itemStatsList = _itemsStatsRepo.GetListStatsByIds(isIds).Result;
+
+                var characterAdvanceStats = new AdvanceStats();
+                characterAdvanceStats.IsPlayer = true;
+                characterAdvanceStats.CharacterId = cId;
+                characterAdvanceStats.CalculateWithoutEq(baseStats);
+                characterAdvanceStats.CalculateWithEq(itemStatsList);
+                characterAdvanceStats.GameStats = character.GStats;
+
+                return PartialView(characterAdvanceStats);
+
+            }
+            else return RedirectToAction("Index", "Characters");
         }
 
         public async Task<IActionResult> Battle(int cId)
