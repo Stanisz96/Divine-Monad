@@ -1,14 +1,30 @@
-﻿@model DivineMonad.Models.ItemStats
+﻿@model DivineMonad.Models.Item
 
 @{
     Layout = "";
     int value = 0;
+    string color = "";
 }
 
 
+<div class="row justify-content-center">
+    <div class="col-8 font-weight-bold text-center">
+        @Model.Name
+    </div>
+</div>
+<div class="row justify-content-center">
+    @if (@Model.Rarity.Name.Equals("normal")) color = "gray";
+    else if (@Model.Rarity.Name.Equals("unique")) color = "green";
+    else if (@Model.Rarity.Name.Equals("heroic")) color = "#3d3de6";
+    else if (@Model.Rarity.Name.Equals("legendary")) color = "#e08210";
+    <div class="col-8 font-italic item-rarity text-center" style="color: @color;">
+        *@Model.Rarity.Name*
+    </div>
+</div>
+
 @foreach (var prop in typeof(DivineMonad.Models.ItemStats).GetProperties())
 {
-    value = Int32.Parse(prop.GetValue(Model).ToString());
+    value = Int32.Parse(prop.GetValue(Model.Statistics).ToString());
 
     if (value > 0 && prop.Name.ToString() != "ID")
     {
@@ -17,7 +33,7 @@
                 @prop.Name:
             </div>
             <div class="col-4 pl-4">
-                @prop.GetValue(Model)
+                @prop.GetValue(Model.Statistics)
             </div>
         </div>
     }

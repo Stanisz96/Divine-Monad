@@ -276,6 +276,11 @@ body {
 
 }
 
+.game-content-backpack .item-rarity {
+    margin-top: -8px;
+    font-size: 14px;
+}
+
 
 /*Horizontal scroll*/
 .horizontal-scroll {

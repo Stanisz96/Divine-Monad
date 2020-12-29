@@ -285,11 +285,11 @@ namespace DivineMonad.Controllers
             backpack.ItemsList = await _itemsRepo.GetItemsList(itemIds);
 
 
-            ItemStats itemStats = backpack.ItemsList.FirstOrDefault
+            Item item = backpack.ItemsList.FirstOrDefault
                 (i => i.ID == backpack.CharacterItemsList.
-                FirstOrDefault(i => i.BpSlotId == bpSlotId).ItemId).Statistics;
+                FirstOrDefault(i => i.BpSlotId == bpSlotId).ItemId);
 
-            return PartialView(itemStats);
+            return PartialView(item);
         }
 
         public async Task<object> DistributePoints(int cId, int dp, int sta, int str, int agi, int dex, int luc)
