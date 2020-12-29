@@ -301,7 +301,7 @@
                         let tempPoints = $("#" + statsName).text().split('+')[1].split(')')[0];
                         tempPoints = parseInt(tempPoints, 10);
                         tempPoints++;
-                        
+
                         if (statsName == "stamina") {
                             $("#hitpoints").text("(+" + Math.round((Math.pow(tempPoints, 1.2) * 10)) + ")");
                         } else if (statsName == "strength") {
@@ -349,7 +349,32 @@
                 $("#statsPoints").text(statsPoints);
                 $("#hitpoints").text("(+0)");
                 $("#attack").text("(+0)");
+            });
 
+            $('#add-points').click(function (e) {
+                let distributedPoints = defaultStatsPoints - statsPoints;
+
+                if (distributedPoints > 0) {
+                    let data = {
+                        cId: @Model.CharacterId,
+                        dp: distributedPoints,
+                        sta: parseInt($("#stamina").text().split('+')[1].split(')')[0], 10),
+                        str: parseInt($("#strength").text().split('+')[1].split(')')[0], 10),
+                        agi: parseInt($("#agility").text().split('+')[1].split(')')[0], 10),
+                        dex: parseInt($("#dexterity").text().split('+')[1].split(')')[0], 10),
+                        luc: parseInt($("#luck").text().split('+')[1].split(')')[0], 10),
+                    };
+
+                    $.ajax({
+                        url: "/Game/DistributePoints",
+                        data: data,
+                        success: function (data) {
+                            if (data.valid) {
+                                ReloadComponent("game-character", "character", "game", { cId: @Model.CharacterId });
+                            }
+                        }
+                    });
+                }
             });
         });
     </script>

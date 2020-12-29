@@ -291,5 +291,35 @@ namespace DivineMonad.Controllers
 
             return PartialView(itemStats);
         }
+
+        public async Task<object> DistributePoints(int cId, int dp, int sta, int str, int agi, int dex, int luc)
+        {
+            Character character = await DbContextHelper.GetCharacter(cId, User, _context);
+
+            if (character is null) return new { valid = false };
+
+            if (character.CBStats.StatsPoints >= dp)
+            {
+                character.CBStats.StatsPoints -= dp;
+                character.CBStats.Stamina += sta;
+                character.CBStats.Strength += str;
+                character.CBStats.Agility += agi;
+                character.CBStats.Dexterity += dex;
+                character.CBStats.Luck += luc;
+
+                try
+                {
+                    _context.Update(character.CBStats);
+                    await _context.SaveChangesAsync();
+                }
+                catch (Exception)
+                {
+                    return new { valid = false };
+                }
+
+                return new { valid = true };
+            }
+            else return new { valid = false };
+        }
     }
 }
