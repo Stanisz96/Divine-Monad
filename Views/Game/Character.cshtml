@@ -5,7 +5,7 @@
 }
 
 
-<div class="game-content-character" style="margin: 40px 10px 10px 10px">
+<div class="game-content-character" unselectable="on" onselectstart="return false;" onmousedown="return false;">
     <ul class="nav character-nav-tab" id="statsTab" role="tablist">
         <li class="nav-item">
             <a class="nav-link active" id="base-tab" data-toggle="tab" href="#base" role="tab" aria-controls="base" aria-selected="true">Base</a>
@@ -26,7 +26,7 @@
                 <div class="col-3 font-weight-bold offset-1">
                     Stats Points:
                 </div>
-                <div class="col-1">
+                <div class="col-1 pl-0" id="statsPoints">
                     @Html.DisplayFor(s => s.StatsPoints)
                 </div>
             </div>
@@ -66,9 +66,13 @@
                 <div class="col-2" id="stamina">
                     (+0)
                 </div>
-                <div class="col-2">
-                    <button type="button" class="fas fa-plus-square plus stamina"></button>
-                    <button type="button" class="fas fa-minus-square minus stamina"></button>
+                <div class="col-2 d-flex">
+                    <div class="btn-svg plus stamina pr-2">
+                        <button type="button" class="fas fa-plus-square"></button>
+                    </div>
+                    <div class="btn-svg minus stamina">
+                        <button type="button" class="fas fa-minus-square"></button>
+                    </div>
                 </div>
             </div>
             <div class="row ">
@@ -81,9 +85,13 @@
                 <div class="col-2" id="strength">
                     (+0)
                 </div>
-                <div class="col-2">
-                    <button type="button" class="fas fa-plus-square plus strength"></button>
-                    <button type="button" class="fas fa-minus-square minus strength"></button>
+                <div class="col-2 d-flex">
+                    <div class="btn-svg plus strength pr-2">
+                        <button type="button" class="fas fa-plus-square"></button>
+                    </div>
+                    <div class="btn-svg minus strength">
+                        <button type="button" class="fas fa-minus-square"></button>
+                    </div>
                 </div>
             </div>
             <div class="row ">
@@ -96,9 +104,13 @@
                 <div class="col-2" id="agility">
                     (+0)
                 </div>
-                <div class="col-2">
-                    <button type="button" class="fas fa-plus-square plus agility"></button>
-                    <button type="button" class="fas fa-minus-square minus agility"></button>
+                <div class="col-2 d-flex">
+                    <div class="btn-svg plus agility pr-2">
+                        <button type="button" class="fas fa-plus-square"></button>
+                    </div>
+                    <div class="btn-svg minus agility">
+                        <button type="button" class="fas fa-minus-square"></button>
+                    </div>
                 </div>
             </div>
             <div class="row">
@@ -111,9 +123,13 @@
                 <div class="col-2" id="dexterity">
                     (+0)
                 </div>
-                <div class="col-2">
-                    <button type="button" class="fas fa-plus-square plus dexterity"></button>
-                    <button type="button" class="fas fa-minus-square minus dexterity"></button>
+                <div class="col-2 d-flex">
+                    <div class="btn-svg plus dexterity pr-2">
+                        <button type="button" class="fas fa-plus-square"></button>
+                    </div>
+                    <div class="btn-svg minus dexterity">
+                        <button type="button" class="fas fa-minus-square"></button>
+                    </div>
                 </div>
             </div>
             <div class="row">
@@ -126,9 +142,13 @@
                 <div class="col-2" id="luck">
                     (+0)
                 </div>
-                <div class="col-2">
-                    <button type="button" class="fas fa-plus-square plus luck"></button>
-                    <button type="button" class="fas fa-minus-square minus luck"></button>
+                <div class="col-2 d-flex">
+                    <div class="btn-svg plus luck pr-2">
+                        <button type="button" class="fas fa-plus-square"></button>
+                    </div>
+                    <div class="btn-svg minus luck">
+                        <button type="button" class="fas fa-minus-square"></button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -260,5 +280,48 @@
 
 @section Scripts{
     <script>
+        $(document).ready(function () {
+            let defaultStatsPoints = parseInt($("#statsPoints").text(), 10);
+            let statsPoints = defaultStatsPoints;
+
+            $('.btn-svg').click(function (e) {
+                if (statsPoints >= 0) {
+                    let operation = $(this).attr("class").split(' ')[1];
+                    let statsName = $(this).attr("class").split(' ')[2];
+                    if (operation == "plus" && statsPoints > 0) {
+                        statsPoints--;
+                        let tempPoints = $("#" + statsName).text().split('+')[1].split(')')[0];
+                        tempPoints = parseInt(tempPoints, 10);
+                        tempPoints++;
+                        
+                        if (statsName == "stamina") {
+                            $("#hitpoints").text("(+" + Math.round((Math.pow(tempPoints, 1.2) * 10)) + ")");
+                        } else if (statsName == "strength") {
+                            $("#attack").text("(+" + Math.round((Math.pow(tempPoints, 1.2))) + ")");
+                        }
+
+                        $("#" + statsName).text("(+" + tempPoints + ")");
+                        console.log("Add 1 to " + statsName + " | " + statsPoints);
+                    } else if (operation == "minus" && statsPoints < defaultStatsPoints) {
+                        let tempPoints = $("#" + statsName).text().split('+')[1].split(')')[0];
+                        tempPoints = parseInt(tempPoints, 10);
+                        if (tempPoints > 0) {
+                            statsPoints++;
+                            tempPoints--;
+
+                            if (statsName == "stamina") {
+                                $("#hitpoints").text("(+" + Math.round((Math.pow(tempPoints, 1.2) * 10)) + ")");
+                            } else if (statsName == "strength") {
+                                $("#attack").text("(+" + Math.round((Math.pow(tempPoints, 1.2))) + ")");
+                            }
+
+                            $("#" + statsName).text("(+" + tempPoints + ")");
+                            console.log("Subtract 1 from " + statsName + " | " + statsPoints);
+                        }
+                    }
+                    $("#statsPoints").text(statsPoints);
+                }
+            });
+        });
     </script>
 }

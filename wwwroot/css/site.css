@@ -146,6 +146,15 @@ body {
     }
 }
 
+.game-content-character {
+    margin: 40px 10px 10px 10px;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -o-user-select: none;
+}
+
 .game-content-character .nav-tabs {
     color: #495057;
     background-color: rgba(224, 246, 238, 0.20);
