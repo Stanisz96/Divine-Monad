@@ -89,69 +89,77 @@
 
 @section Scripts{ 
     <script>
-        $(".item-slot").click(function (e) {
-            if ($(e.target).hasClass("empty-slot")) {
-                if ($(".img-item").hasClass("active-item")) {
-                    let data = { cId: @Model.Character.ID, from: $(".active-item").attr("id"), to: e.target.id, isEmpty: true };
-                    $.ajax({
-                        url: "/Game/SlotsChange",
-                        data: data,
-                        success: function (data) {
-                            if (data.valid) {
-                                console.log(data.option + ": " + data.from + " | " + data.to);
+        $(document).ready(function () {
+            $(".item-slot").click(function (e) {
+                if ($(e.target).hasClass("empty-slot")) {
+                    if ($(".img-item").hasClass("active-item")) {
+                        let data = { cId: @Model.Character.ID, from: $(".active-item").attr("id"), to: e.target.id, isEmpty: true };
+                        $.ajax({
+                            url: "/Game/SlotsChange",
+                            data: data,
+                            success: function (data) {
+                                if (data.valid) {
+                                    console.log(data.option + ": " + data.from + " | " + data.to);
 
-                                let tempSrcFrom = $("#" + data.from).attr("src");
-                                let tempSrcTo = $("#" + data.to).attr("src");
-                                $("#" + data.from).attr("src", tempSrcTo);
-                                $("#" + data.to).attr("src", tempSrcFrom);
-                                $("#" + data.from).addClass("empty-slot");
-                                $("#" + data.to).removeClass("empty-slot");
+                                    let tempSrcFrom = $("#" + data.from).attr("src");
+                                    let tempSrcTo = $("#" + data.to).attr("src");
+                                    $("#" + data.from).attr("src", tempSrcTo);
+                                    $("#" + data.to).attr("src", tempSrcFrom);
+                                    $("#" + data.from).addClass("empty-slot");
+                                    $("#" + data.to).removeClass("empty-slot");
+                                }
+                                else {
+                                    console.log("NOT VALID!");
+                                }
                             }
-                            else {
-                                console.log("NOT VALID!");
-                            }
-                        }
-                    });
+                        });
 
 
-                    $(".img-item").removeClass("active-item");
+                        $(".img-item").removeClass("active-item");
+                    } else {
+                        console.log("Clicked slot: empty");
+                    }
                 } else {
-                    console.log("Clicked slot: empty");
+                    if ($(".img-item").hasClass("active-item")) {
+                        let data = { cId: @Model.Character.ID, from: $(".active-item").attr("id"), to: e.target.id, isEmpty: false };
+                        $.ajax({
+                            url: "/Game/SlotsChange",
+                            data: data,
+                            success: function (data) {
+                                if (data.valid) {
+                                    console.log(data.option + ": " + data.from + " | " + data.to);
+
+                                    let tempSrcFrom = $("#" + data.from).attr("src");
+                                    let tempSrcTo = $("#" + data.to).attr("src");
+                                    $("#" + data.from).attr("src", tempSrcTo);
+                                    $("#" + data.to).attr("src", tempSrcFrom);
+                                }
+                                else {
+                                    console.log("NOT VALID!");
+                                }
+                            }
+                        });
+
+                        $(".img-item").removeClass("active-item");
+                    } else {
+                        let data = { cId: @Model.Character.ID, bpSlotId: e.target.id };
+                        $.ajax({
+                            url: "/Game/ItemInfo",
+                            data: data,
+                            success: function (data) {
+                                $(".stats").html(data);
+                            }
+                        });
+                        $(e.target).addClass("active-item");
+                    }
                 }
-            } else {
-                if ($(".img-item").hasClass("active-item")) {
-                    let data = { cId: @Model.Character.ID, from: $(".active-item").attr("id"), to: e.target.id, isEmpty: false };
-                    $.ajax({
-                        url: "/Game/SlotsChange",
-                        data: data,
-                        success: function (data) {
-                            if (data.valid) {
-                                console.log(data.option + ": " + data.from + " | " + data.to);
+            });
 
-                                let tempSrcFrom = $("#" + data.from).attr("src");
-                                let tempSrcTo = $("#" + data.to).attr("src");
-                                $("#" + data.from).attr("src", tempSrcTo);
-                                $("#" + data.to).attr("src", tempSrcFrom);
-                            }
-                            else {
-                                console.log("NOT VALID!");
-                            }
-                        }
-                    });
-
+            $(".game-plane").click(function (e) {
+                if (!$(e.target).hasClass("img-item")) {
                     $(".img-item").removeClass("active-item");
-                } else {
-                    let data = { cId: @Model.Character.ID, bpSlotId: e.target.id };
-                    $.ajax({
-                        url: "/Game/ItemInfo",
-                        data: data,
-                        success: function (data) {
-                            $(".stats").html(data);
-                        }
-                    });
-                    $(e.target).addClass("active-item");
                 }
-            }
+            });
         });
     </script>
 }
