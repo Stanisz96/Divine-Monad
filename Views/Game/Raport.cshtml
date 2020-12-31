@@ -2,6 +2,7 @@
 
 @{ 
     Layout = "_SubLayout";
+    int n = 1;
 }
 
 <div class="game-content-raport">
@@ -11,23 +12,37 @@
                  class="character-avatar" alt="avatar">
         </div>
     </div>
-    <div class="row raport vertical-scroll">
+    <div class="row quick raport vertical-scroll" style="display: none;">
         <div class="col">
+            <div id="quick-raport">
+                <p>The fight between @Model.Player.Name and @Model.Opponent.Name has begun.</p>
+                @foreach (var round in Model.Rounds)
+                {
+                    <div id="@n">
+                        @round.Attacker.Name <span>inflict a hit for @round.Attacker.Damage damage.</span> <br />
+                        @round.Defender.Name <span>takes @round.Defender.Receive damage and is left with @round.Defender.HP HP.</span>
+                        <p></p>
+                    </div>
+                    n++;
+                }
+                @if (Model.Result == "draw")
+                {
+                    <div id="@n" class="mt-1">
+                        <p>The fight ended in a draw</p>
+                    </div>
+                }
+                else
+                {
+                    <div id="@n" class="mt-1">
+                        <p>@Model.Player.Name <span></span> @Model.Result <span> the game.</span></p>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+    <div class="row slow raport vertical-scroll">
+        <div class="col" id="slow-raport">
             <p>The fight between @Model.Player.Name and @Model.Opponent.Name has begun.</p>
-            @foreach (var round in Model.Rounds)
-            {
-                @round.Attacker.Name <span>inflict a hit for @round.Attacker.Damage damage.</span> <br />
-                @round.Defender.Name <span>takes @round.Defender.Receive damage and is left with @round.Defender.HP HP.</span>
-                <p></p>
-            }
-            <br />
-            @if (Model.Result == "draw")
-            {
-                <p>The fight ended in a draw</p>
-            }else
-            {
-                <p>@Model.Player.Name <span></span> @Model.Result <span> the game.</span></p>
-            }
         </div>
     </div>
     <div class="row player mt-4">
@@ -42,8 +57,20 @@
 
 @section Scripts{ 
     <script>
-        $('button').click(function () {
-            console.log("WAS CLICKED!");
+        $(document).ready(function (e) {
+            var quickRaport = $("#quick-raport").children();
+            var slowRaport = $("#slow-raport");
+            var i = 1;
+
+            var interval = setInterval(function () {
+                if (i < quickRaport.length) {
+                    $(quickRaport[i]).hide().appendTo(slowRaport).fadeIn(1000);
+                    $(".slow").animate({ scrollTop: $("#slow-raport").height() }, "slow");
+                } else {
+                    clearInterval(interval)
+                }
+                i++;
+            }, 1000);
         });
     </script>
 }

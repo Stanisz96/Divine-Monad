@@ -218,6 +218,7 @@ body {
 
 .game-content-raport .raport {
     max-height: 250px;
+    min-height: 250px;
 }
 
 .game-content-raport .opponent {
