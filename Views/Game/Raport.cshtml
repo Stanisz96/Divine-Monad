@@ -65,12 +65,14 @@
             var interval = setInterval(function () {
                 if (i < quickRaport.length) {
                     $(quickRaport[i]).hide().appendTo(slowRaport).fadeIn(1000);
-                    $(".slow").animate({ scrollTop: $("#slow-raport").height() }, "slow");
+                    if (i > 3) {
+                        $(".slow").animate({ scrollTop: $("#slow-raport").height() }, 1000);
+                    }
                 } else {
                     clearInterval(interval)
                 }
                 i++;
-            }, 1000);
+            }, 1500);
         });
     </script>
 }
