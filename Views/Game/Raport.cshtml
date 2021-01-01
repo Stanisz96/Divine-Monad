@@ -12,7 +12,7 @@
                  class="character-avatar" alt="avatar">
         </div>
     </div>
-    <div class="row quick raport vertical-scroll" style="display: none;">
+    <div class="row quick raport vertical-scroll">
         <div class="col">
             <div id="quick-raport">
                 <p>The fight between @Model.Player.Name and @Model.Opponent.Name has begun.</p>
@@ -57,22 +57,32 @@
 
 @section Scripts{ 
     <script>
+        var quickFight = '@(Model.QuickFight)' === '@true';
         $(document).ready(function (e) {
+            $("html").scrollTop(0);
+
             var quickRaport = $("#quick-raport").children();
             var slowRaport = $("#slow-raport");
             var i = 1;
 
-            var interval = setInterval(function () {
-                if (i < quickRaport.length) {
-                    $(quickRaport[i]).hide().appendTo(slowRaport).fadeIn(1000);
-                    if (i > 3) {
-                        $(".slow").animate({ scrollTop: $("#slow-raport").height() }, 1000);
+            if (quickFight) {
+                $(".slow").css({ display: "none" });
+                $(".quick").animate({ scrollTop: $("#quick-raport").height() }, 1000);
+            } else {
+                $(".quick").css({ display: "none" });
+
+                var interval = setInterval(function () {
+                    if (i < quickRaport.length) {
+                        $(quickRaport[i]).hide().appendTo(slowRaport).fadeIn(1000);
+                        if (i > 3) {
+                            $(".slow").animate({ scrollTop: $("#slow-raport").height() }, 1000);
+                        }
+                    } else {
+                        clearInterval(interval)
                     }
-                } else {
-                    clearInterval(interval)
-                }
-                i++;
-            }, 1500);
+                    i++;
+                }, 1500);
+            }
         });
     </script>
 }

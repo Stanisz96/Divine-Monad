@@ -17,20 +17,20 @@
         "HP": 3195,
         "Crit": false,
         "Miss": false,
-        "Damage": 73
+        "Damage": 59
       },
       "Defender": {
         "Name": "Ogre",
-        "HP": 3127,
+        "HP": 3141,
         "Block": false,
-        "Receive": 73
+        "Receive": 59
       }
     },
     {
       "Number": 1,
       "Attacker": {
         "Name": "Ogre",
-        "HP": 3127,
+        "HP": 3141,
         "Crit": false,
         "Miss": false,
         "Damage": 220
@@ -49,13 +49,13 @@
         "HP": 2988,
         "Crit": false,
         "Miss": false,
-        "Damage": 60
+        "Damage": 74
       },
       "Defender": {
         "Name": "Ogre",
         "HP": 3067,
         "Block": false,
-        "Receive": 60
+        "Receive": 74
       }
     },
     {
@@ -65,574 +65,575 @@
         "HP": 2988,
         "Crit": false,
         "Miss": false,
-        "Damage": 84
+        "Damage": 86
       },
       "Defender": {
         "Name": "Ogre",
-        "HP": 2983,
+        "HP": 2981,
         "Block": false,
-        "Receive": 84
+        "Receive": 86
       }
     },
     {
       "Number": 3,
       "Attacker": {
         "Name": "Ogre",
-        "HP": 2983,
+        "HP": 2981,
         "Crit": false,
-        "Miss": true,
-        "Damage": 211
+        "Miss": false,
+        "Damage": 210
       },
       "Defender": {
         "Name": "AdminCharacter",
-        "HP": 2988,
+        "HP": 2791,
         "Block": false,
-        "Receive": 0
+        "Receive": 197
       }
     },
     {
       "Number": 3,
       "Attacker": {
         "Name": "AdminCharacter",
-        "HP": 2988,
-        "Crit": false,
-        "Miss": false,
-        "Damage": 65
-      },
-      "Defender": {
-        "Name": "Ogre",
-        "HP": 2918,
-        "Block": false,
-        "Receive": 65
-      }
-    },
-    {
-      "Number": 4,
-      "Attacker": {
-        "Name": "Ogre",
-        "HP": 2918,
-        "Crit": false,
-        "Miss": false,
-        "Damage": 244
-      },
-      "Defender": {
-        "Name": "AdminCharacter",
-        "HP": 2874,
-        "Block": true,
-        "Receive": 114
-      }
-    },
-    {
-      "Number": 4,
-      "Attacker": {
-        "Name": "AdminCharacter",
-        "HP": 2874,
-        "Crit": false,
-        "Miss": false,
-        "Damage": 67
-      },
-      "Defender": {
-        "Name": "Ogre",
-        "HP": 2851,
-        "Block": false,
-        "Receive": 67
-      }
-    },
-    {
-      "Number": 5,
-      "Attacker": {
-        "Name": "Ogre",
-        "HP": 2851,
-        "Crit": false,
-        "Miss": true,
-        "Damage": 225
-      },
-      "Defender": {
-        "Name": "AdminCharacter",
-        "HP": 2874,
-        "Block": false,
-        "Receive": 0
-      }
-    },
-    {
-      "Number": 5,
-      "Attacker": {
-        "Name": "AdminCharacter",
-        "HP": 2874,
-        "Crit": false,
-        "Miss": false,
-        "Damage": 78
-      },
-      "Defender": {
-        "Name": "Ogre",
-        "HP": 2773,
-        "Block": false,
-        "Receive": 78
-      }
-    },
-    {
-      "Number": 6,
-      "Attacker": {
-        "Name": "AdminCharacter",
-        "HP": 2874,
-        "Crit": false,
-        "Miss": false,
-        "Damage": 62
-      },
-      "Defender": {
-        "Name": "Ogre",
-        "HP": 2711,
-        "Block": false,
-        "Receive": 62
-      }
-    },
-    {
-      "Number": 6,
-      "Attacker": {
-        "Name": "Ogre",
-        "HP": 2711,
-        "Crit": false,
-        "Miss": false,
-        "Damage": 227
-      },
-      "Defender": {
-        "Name": "AdminCharacter",
-        "HP": 2661,
-        "Block": false,
-        "Receive": 213
-      }
-    },
-    {
-      "Number": 7,
-      "Attacker": {
-        "Name": "AdminCharacter",
-        "HP": 2661,
-        "Crit": false,
-        "Miss": false,
-        "Damage": 72
-      },
-      "Defender": {
-        "Name": "Ogre",
-        "HP": 2639,
-        "Block": false,
-        "Receive": 72
-      }
-    },
-    {
-      "Number": 7,
-      "Attacker": {
-        "Name": "Ogre",
-        "HP": 2639,
-        "Crit": false,
-        "Miss": false,
-        "Damage": 243
-      },
-      "Defender": {
-        "Name": "AdminCharacter",
-        "HP": 2433,
-        "Block": false,
-        "Receive": 228
-      }
-    },
-    {
-      "Number": 8,
-      "Attacker": {
-        "Name": "AdminCharacter",
-        "HP": 2433,
-        "Crit": false,
-        "Miss": false,
-        "Damage": 80
-      },
-      "Defender": {
-        "Name": "Ogre",
-        "HP": 2559,
-        "Block": false,
-        "Receive": 80
-      }
-    },
-    {
-      "Number": 8,
-      "Attacker": {
-        "Name": "AdminCharacter",
-        "HP": 2433,
-        "Crit": false,
-        "Miss": false,
-        "Damage": 72
-      },
-      "Defender": {
-        "Name": "Ogre",
-        "HP": 2487,
-        "Block": false,
-        "Receive": 72
-      }
-    },
-    {
-      "Number": 9,
-      "Attacker": {
-        "Name": "Ogre",
-        "HP": 2487,
-        "Crit": false,
-        "Miss": true,
-        "Damage": 207
-      },
-      "Defender": {
-        "Name": "AdminCharacter",
-        "HP": 2433,
-        "Block": false,
-        "Receive": 0
-      }
-    },
-    {
-      "Number": 9,
-      "Attacker": {
-        "Name": "AdminCharacter",
-        "HP": 2433,
-        "Crit": true,
-        "Miss": false,
-        "Damage": 124
-      },
-      "Defender": {
-        "Name": "Ogre",
-        "HP": 2363,
-        "Block": false,
-        "Receive": 124
-      }
-    },
-    {
-      "Number": 10,
-      "Attacker": {
-        "Name": "Ogre",
-        "HP": 2363,
-        "Crit": false,
-        "Miss": false,
-        "Damage": 244
-      },
-      "Defender": {
-        "Name": "AdminCharacter",
-        "HP": 2204,
-        "Block": false,
-        "Receive": 229
-      }
-    },
-    {
-      "Number": 10,
-      "Attacker": {
-        "Name": "AdminCharacter",
-        "HP": 2204,
-        "Crit": false,
-        "Miss": false,
-        "Damage": 76
-      },
-      "Defender": {
-        "Name": "Ogre",
-        "HP": 2287,
-        "Block": false,
-        "Receive": 76
-      }
-    },
-    {
-      "Number": 11,
-      "Attacker": {
-        "Name": "Ogre",
-        "HP": 2287,
-        "Crit": false,
-        "Miss": false,
-        "Damage": 230
-      },
-      "Defender": {
-        "Name": "AdminCharacter",
-        "HP": 1988,
-        "Block": false,
-        "Receive": 216
-      }
-    },
-    {
-      "Number": 11,
-      "Attacker": {
-        "Name": "AdminCharacter",
-        "HP": 1988,
-        "Crit": false,
-        "Miss": false,
-        "Damage": 79
-      },
-      "Defender": {
-        "Name": "Ogre",
-        "HP": 2208,
-        "Block": false,
-        "Receive": 79
-      }
-    },
-    {
-      "Number": 12,
-      "Attacker": {
-        "Name": "AdminCharacter",
-        "HP": 1988,
-        "Crit": false,
-        "Miss": false,
-        "Damage": 67
-      },
-      "Defender": {
-        "Name": "Ogre",
-        "HP": 2141,
-        "Block": false,
-        "Receive": 67
-      }
-    },
-    {
-      "Number": 12,
-      "Attacker": {
-        "Name": "Ogre",
-        "HP": 2141,
-        "Crit": false,
-        "Miss": false,
-        "Damage": 236
-      },
-      "Defender": {
-        "Name": "AdminCharacter",
-        "HP": 1766,
-        "Block": false,
-        "Receive": 222
-      }
-    },
-    {
-      "Number": 13,
-      "Attacker": {
-        "Name": "AdminCharacter",
-        "HP": 1766,
-        "Crit": false,
-        "Miss": false,
-        "Damage": 73
-      },
-      "Defender": {
-        "Name": "Ogre",
-        "HP": 2068,
-        "Block": false,
-        "Receive": 73
-      }
-    },
-    {
-      "Number": 13,
-      "Attacker": {
-        "Name": "AdminCharacter",
-        "HP": 1766,
-        "Crit": false,
-        "Miss": false,
-        "Damage": 61
-      },
-      "Defender": {
-        "Name": "Ogre",
-        "HP": 2007,
-        "Block": false,
-        "Receive": 61
-      }
-    },
-    {
-      "Number": 14,
-      "Attacker": {
-        "Name": "Ogre",
-        "HP": 2007,
-        "Crit": false,
-        "Miss": false,
-        "Damage": 227
-      },
-      "Defender": {
-        "Name": "AdminCharacter",
-        "HP": 1553,
-        "Block": false,
-        "Receive": 213
-      }
-    },
-    {
-      "Number": 14,
-      "Attacker": {
-        "Name": "AdminCharacter",
-        "HP": 1553,
+        "HP": 2791,
         "Crit": false,
         "Miss": false,
         "Damage": 77
       },
       "Defender": {
         "Name": "Ogre",
-        "HP": 1930,
+        "HP": 2904,
         "Block": false,
         "Receive": 77
       }
     },
     {
-      "Number": 15,
+      "Number": 4,
       "Attacker": {
         "Name": "Ogre",
-        "HP": 1930,
+        "HP": 2904,
         "Crit": false,
         "Miss": false,
-        "Damage": 203
+        "Damage": 236
       },
       "Defender": {
         "Name": "AdminCharacter",
-        "HP": 1362,
+        "HP": 2569,
         "Block": false,
-        "Receive": 191
+        "Receive": 222
       }
     },
     {
-      "Number": 15,
+      "Number": 4,
       "Attacker": {
         "Name": "AdminCharacter",
-        "HP": 1362,
+        "HP": 2569,
         "Crit": false,
         "Miss": false,
-        "Damage": 73
+        "Damage": 85
       },
       "Defender": {
         "Name": "Ogre",
-        "HP": 1857,
+        "HP": 2819,
         "Block": false,
-        "Receive": 73
+        "Receive": 85
       }
     },
     {
-      "Number": 16,
+      "Number": 5,
       "Attacker": {
         "Name": "Ogre",
-        "HP": 1857,
-        "Crit": false,
-        "Miss": true,
-        "Damage": 227
-      },
-      "Defender": {
-        "Name": "AdminCharacter",
-        "HP": 1362,
-        "Block": false,
-        "Receive": 0
-      }
-    },
-    {
-      "Number": 16,
-      "Attacker": {
-        "Name": "AdminCharacter",
-        "HP": 1362,
+        "HP": 2819,
         "Crit": false,
         "Miss": false,
-        "Damage": 78
+        "Damage": 216
       },
       "Defender": {
-        "Name": "Ogre",
-        "HP": 1779,
+        "Name": "AdminCharacter",
+        "HP": 2366,
         "Block": false,
-        "Receive": 78
+        "Receive": 203
       }
     },
     {
-      "Number": 17,
+      "Number": 5,
       "Attacker": {
         "Name": "AdminCharacter",
-        "HP": 1362,
+        "HP": 2366,
         "Crit": false,
         "Miss": false,
-        "Damage": 59
+        "Damage": 66
       },
       "Defender": {
         "Name": "Ogre",
-        "HP": 1720,
+        "HP": 2753,
         "Block": false,
-        "Receive": 59
+        "Receive": 66
       }
     },
     {
-      "Number": 17,
-      "Attacker": {
-        "Name": "Ogre",
-        "HP": 1720,
-        "Crit": false,
-        "Miss": true,
-        "Damage": 235
-      },
-      "Defender": {
-        "Name": "AdminCharacter",
-        "HP": 1362,
-        "Block": false,
-        "Receive": 0
-      }
-    },
-    {
-      "Number": 18,
+      "Number": 6,
       "Attacker": {
         "Name": "AdminCharacter",
-        "HP": 1362,
+        "HP": 2366,
         "Crit": false,
         "Miss": false,
-        "Damage": 86
+        "Damage": 69
       },
       "Defender": {
         "Name": "Ogre",
-        "HP": 1634,
+        "HP": 2684,
         "Block": false,
-        "Receive": 86
+        "Receive": 69
       }
     },
     {
-      "Number": 18,
+      "Number": 6,
       "Attacker": {
         "Name": "Ogre",
-        "HP": 1634,
+        "HP": 2684,
         "Crit": false,
         "Miss": false,
-        "Damage": 243
+        "Damage": 210
       },
       "Defender": {
         "Name": "AdminCharacter",
-        "HP": 1134,
+        "HP": 2169,
         "Block": false,
-        "Receive": 228
+        "Receive": 197
       }
     },
     {
-      "Number": 19,
+      "Number": 7,
       "Attacker": {
         "Name": "AdminCharacter",
-        "HP": 1134,
-        "Crit": false,
-        "Miss": false,
-        "Damage": 71
-      },
-      "Defender": {
-        "Name": "Ogre",
-        "HP": 1563,
-        "Block": false,
-        "Receive": 71
-      }
-    },
-    {
-      "Number": 19,
-      "Attacker": {
-        "Name": "AdminCharacter",
-        "HP": 1134,
+        "HP": 2169,
         "Crit": false,
         "Miss": false,
         "Damage": 74
       },
       "Defender": {
         "Name": "Ogre",
-        "HP": 1489,
+        "HP": 2610,
         "Block": false,
         "Receive": 74
+      }
+    },
+    {
+      "Number": 7,
+      "Attacker": {
+        "Name": "Ogre",
+        "HP": 2610,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 240
+      },
+      "Defender": {
+        "Name": "AdminCharacter",
+        "HP": 1943,
+        "Block": false,
+        "Receive": 226
+      }
+    },
+    {
+      "Number": 8,
+      "Attacker": {
+        "Name": "AdminCharacter",
+        "HP": 1943,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 70
+      },
+      "Defender": {
+        "Name": "Ogre",
+        "HP": 2540,
+        "Block": false,
+        "Receive": 70
+      }
+    },
+    {
+      "Number": 8,
+      "Attacker": {
+        "Name": "AdminCharacter",
+        "HP": 1943,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 81
+      },
+      "Defender": {
+        "Name": "Ogre",
+        "HP": 2459,
+        "Block": false,
+        "Receive": 81
+      }
+    },
+    {
+      "Number": 9,
+      "Attacker": {
+        "Name": "Ogre",
+        "HP": 2459,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 238
+      },
+      "Defender": {
+        "Name": "AdminCharacter",
+        "HP": 1719,
+        "Block": false,
+        "Receive": 224
+      }
+    },
+    {
+      "Number": 9,
+      "Attacker": {
+        "Name": "AdminCharacter",
+        "HP": 1719,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 68
+      },
+      "Defender": {
+        "Name": "Ogre",
+        "HP": 2391,
+        "Block": false,
+        "Receive": 68
+      }
+    },
+    {
+      "Number": 10,
+      "Attacker": {
+        "Name": "Ogre",
+        "HP": 2391,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 204
+      },
+      "Defender": {
+        "Name": "AdminCharacter",
+        "HP": 1527,
+        "Block": false,
+        "Receive": 192
+      }
+    },
+    {
+      "Number": 10,
+      "Attacker": {
+        "Name": "AdminCharacter",
+        "HP": 1527,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 80
+      },
+      "Defender": {
+        "Name": "Ogre",
+        "HP": 2311,
+        "Block": false,
+        "Receive": 80
+      }
+    },
+    {
+      "Number": 11,
+      "Attacker": {
+        "Name": "Ogre",
+        "HP": 2311,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 248
+      },
+      "Defender": {
+        "Name": "AdminCharacter",
+        "HP": 1294,
+        "Block": false,
+        "Receive": 233
+      }
+    },
+    {
+      "Number": 11,
+      "Attacker": {
+        "Name": "AdminCharacter",
+        "HP": 1294,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 80
+      },
+      "Defender": {
+        "Name": "Ogre",
+        "HP": 2231,
+        "Block": false,
+        "Receive": 80
+      }
+    },
+    {
+      "Number": 12,
+      "Attacker": {
+        "Name": "AdminCharacter",
+        "HP": 1294,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 77
+      },
+      "Defender": {
+        "Name": "Ogre",
+        "HP": 2154,
+        "Block": false,
+        "Receive": 77
+      }
+    },
+    {
+      "Number": 12,
+      "Attacker": {
+        "Name": "Ogre",
+        "HP": 2154,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 213
+      },
+      "Defender": {
+        "Name": "AdminCharacter",
+        "HP": 1094,
+        "Block": false,
+        "Receive": 200
+      }
+    },
+    {
+      "Number": 13,
+      "Attacker": {
+        "Name": "AdminCharacter",
+        "HP": 1094,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 59
+      },
+      "Defender": {
+        "Name": "Ogre",
+        "HP": 2095,
+        "Block": false,
+        "Receive": 59
+      }
+    },
+    {
+      "Number": 13,
+      "Attacker": {
+        "Name": "AdminCharacter",
+        "HP": 1094,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 80
+      },
+      "Defender": {
+        "Name": "Ogre",
+        "HP": 2015,
+        "Block": false,
+        "Receive": 80
+      }
+    },
+    {
+      "Number": 14,
+      "Attacker": {
+        "Name": "Ogre",
+        "HP": 2015,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 249
+      },
+      "Defender": {
+        "Name": "AdminCharacter",
+        "HP": 860,
+        "Block": false,
+        "Receive": 234
+      }
+    },
+    {
+      "Number": 14,
+      "Attacker": {
+        "Name": "AdminCharacter",
+        "HP": 860,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 85
+      },
+      "Defender": {
+        "Name": "Ogre",
+        "HP": 1930,
+        "Block": false,
+        "Receive": 85
+      }
+    },
+    {
+      "Number": 15,
+      "Attacker": {
+        "Name": "Ogre",
+        "HP": 1930,
+        "Crit": false,
+        "Miss": true,
+        "Damage": 246
+      },
+      "Defender": {
+        "Name": "AdminCharacter",
+        "HP": 860,
+        "Block": false,
+        "Receive": 0
+      }
+    },
+    {
+      "Number": 15,
+      "Attacker": {
+        "Name": "AdminCharacter",
+        "HP": 860,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 68
+      },
+      "Defender": {
+        "Name": "Ogre",
+        "HP": 1862,
+        "Block": false,
+        "Receive": 68
+      }
+    },
+    {
+      "Number": 16,
+      "Attacker": {
+        "Name": "Ogre",
+        "HP": 1862,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 235
+      },
+      "Defender": {
+        "Name": "AdminCharacter",
+        "HP": 639,
+        "Block": false,
+        "Receive": 221
+      }
+    },
+    {
+      "Number": 16,
+      "Attacker": {
+        "Name": "AdminCharacter",
+        "HP": 639,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 60
+      },
+      "Defender": {
+        "Name": "Ogre",
+        "HP": 1802,
+        "Block": false,
+        "Receive": 60
+      }
+    },
+    {
+      "Number": 17,
+      "Attacker": {
+        "Name": "AdminCharacter",
+        "HP": 639,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 81
+      },
+      "Defender": {
+        "Name": "Ogre",
+        "HP": 1721,
+        "Block": false,
+        "Receive": 81
+      }
+    },
+    {
+      "Number": 17,
+      "Attacker": {
+        "Name": "Ogre",
+        "HP": 1721,
+        "Crit": false,
+        "Miss": true,
+        "Damage": 212
+      },
+      "Defender": {
+        "Name": "AdminCharacter",
+        "HP": 639,
+        "Block": false,
+        "Receive": 0
+      }
+    },
+    {
+      "Number": 18,
+      "Attacker": {
+        "Name": "AdminCharacter",
+        "HP": 639,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 75
+      },
+      "Defender": {
+        "Name": "Ogre",
+        "HP": 1646,
+        "Block": false,
+        "Receive": 75
+      }
+    },
+    {
+      "Number": 18,
+      "Attacker": {
+        "Name": "Ogre",
+        "HP": 1646,
+        "Crit": false,
+        "Miss": true,
+        "Damage": 249
+      },
+      "Defender": {
+        "Name": "AdminCharacter",
+        "HP": 639,
+        "Block": false,
+        "Receive": 0
+      }
+    },
+    {
+      "Number": 19,
+      "Attacker": {
+        "Name": "AdminCharacter",
+        "HP": 639,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 63
+      },
+      "Defender": {
+        "Name": "Ogre",
+        "HP": 1583,
+        "Block": false,
+        "Receive": 63
+      }
+    },
+    {
+      "Number": 19,
+      "Attacker": {
+        "Name": "AdminCharacter",
+        "HP": 639,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 61
+      },
+      "Defender": {
+        "Name": "Ogre",
+        "HP": 1522,
+        "Block": false,
+        "Receive": 61
       }
     },
     {
       "Number": 20,
       "Attacker": {
         "Name": "Ogre",
-        "HP": 1489,
+        "HP": 1522,
         "Crit": false,
-        "Miss": false,
-        "Damage": 231
+        "Miss": true,
+        "Damage": 238
       },
       "Defender": {
         "Name": "AdminCharacter",
-        "HP": 917,
+        "HP": 639,
         "Block": false,
-        "Receive": 217
+        "Receive": 0
       }
     }
-  ]
+  ],
+  "QuickFight": false
 }

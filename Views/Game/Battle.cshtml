@@ -4,33 +4,64 @@
     Layout = "_SubLayout";
 }
 
-<div class="game-content-battle row" id="battle">
-    @foreach (Monster monster in Model)
-    {
-        <div class="card col-4">
-            <img src="@Url.Content(monster.ImageUrl)" class="card-img-top" alt="@monster.Name">
-            <div class="card-body">
-                <p class="card-title">@monster.Name</p>
-                <p class="card-text">
-                    @Html.DisplayNameFor(m => m.Level): @Html.DisplayFor(m => monster.Level)
-                </p>
-                <button id="@monster.ID-monster" type="button" class="btn btn-primary">Attack</button>
-            </div>
+<div class="game-content-battle" id="battle">
+    <div class="row justify-content-center mb-3">
+        <div class="col-1 pr-0 btn-svg">
         </div>
-    }
-
-    @*<input id="attackBtn" type="button" value="Attack" class="btn btn-primary" style="margin: 50px;" />*@
+        <div class="col-3 pl-0">
+            <p>Quick fight</p>
+        </div>
+    </div>
+    <div class="row">
+        @foreach (Monster monster in Model)
+        {
+            <div class="card col-4">
+                <img src="@Url.Content(monster.ImageUrl)" class="card-img-top" alt="@monster.Name">
+                <div class="card-body">
+                    <p class="card-title">@monster.Name</p>
+                    <p class="card-text">
+                        @Html.DisplayNameFor(m => m.Level): @Html.DisplayFor(m => monster.Level)
+                    </p>
+                    <button id="@monster.ID-monster" type="button" class="btn btn-primary">Attack</button>
+                </div>
+            </div>
+        }
+    </div>
 </div>
 
 @section Scripts{ 
     <script>
-        $("button").click(function () {
-            let monsterId = this.id.split('-')[0];
-            let componentId = "battle";
-            let action = "Raport";
-            let controller = "Game";
-            let data = { cId: @ViewBag.cId, mId: monsterId };
-            ReloadComponent(componentId, action, controller, data);
+        $(document).ready(function () {
+            var quickFightCookie = getCookie("quickFight");
+            quickFightCookie = (quickFightCookie == "true");
+
+            if (quickFightCookie == false) {
+                $(".btn-svg").html(`<button type="button" class="far fa-square"></button>`);
+            } else {
+                $(".btn-svg").html(`<button type="button" class="far fa-check-square"></button>`);
+            }
+
+            $(".btn").click(function () {
+                let monsterId = this.id.split('-')[0];
+                let componentId = "battle";
+                let action = "Raport";
+                let controller = "Game";
+                let data = { cId: @ViewBag.cId, mId: monsterId, qf: quickFightCookie };
+                ReloadComponent(componentId, action, controller, data);
+            });
+
+            $(".btn-svg").click(function () {
+                if (quickFightCookie == false) {
+                    $(".btn-svg").html(`<button type="button" class="far fa-check-square"></button>`);
+                    quickFightCookie = true;
+                    document.cookie = "quickFight=true";
+                } else {
+                    $(".btn-svg").html(`<button type="button" class="far fa-square"></button>`);
+                    quickFightCookie = false;
+                    document.cookie = "quickFight=false";
+                }
+            });
         });
+
     </script>
 }

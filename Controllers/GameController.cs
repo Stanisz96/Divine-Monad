@@ -86,7 +86,7 @@ namespace DivineMonad.Controllers
             else return RedirectToAction("Index", "Characters");
         }
 
-        public async Task<IActionResult> Raport(int cId, int mId)
+        public async Task<IActionResult> Raport(int cId, int mId, bool qf)
         {
             Character character = await DbContextHelper.GetCharacter(cId, User, _context);
 
@@ -114,12 +114,11 @@ namespace DivineMonad.Controllers
             
             FightGenerator fight = new FightGenerator(attacker, defender);
             RaportGenerator fightRaport = fight.GenerateFight();
+            fightRaport.QuickFight = qf;
 
             string fightRaportJson = JsonConvert.SerializeObject(fightRaport, Formatting.Indented);
 
             System.IO.File.WriteAllText(@"wwwroot/raports/testRaport.json", fightRaportJson);
-
-
 
             return PartialView(fightRaport);
         }

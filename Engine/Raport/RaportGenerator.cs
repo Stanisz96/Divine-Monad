@@ -12,5 +12,6 @@ namespace DivineMonad.Engine.Raport
         public string Result { get; set; }
         public bool IsPvp { get; set; }
         public IList<Round> Rounds { get; set; }
+        public bool QuickFight { get; set; }
     }
 }

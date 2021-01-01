@@ -178,8 +178,7 @@ body {
 }
 
 .game-content-battle {
-    margin: 40px 30px 10px 30px;
-    display: flex;
+    margin: 20px 40px 10px 40px;
 }
 
 .game-content-battle .card {
@@ -213,7 +212,6 @@ body {
 }
 
 .game-content-raport {
-    margin: 0px 30px 10px 30px;
     width: 100%;
 }
 
