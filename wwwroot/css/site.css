@@ -388,14 +388,29 @@ body {
 
 .game-avatar {
     text-align: center;
-    margin-top: 20px;
+    margin-top: 10px;
 }
 
 .game-character-info {
-    margin: 20px 10px 20px 10px;
-    height: 120px;
+    margin: 10px;
+    height: 170px;
 }
 
 .game-character-info p {
-    margin: 5px;
+    margin: 0 0 3px 0;
+}
+
+.game-character-info .custom-fieldset {
+    font-size: 14px;
+    text-align: center;
+    border: 1px solid #389072;
+    padding-left: 40px;
+    padding-right: 40px;
+}
+
+.game-character-info .custom-legend {
+    font-size: 12px;
+    margin: 0;
+    padding-left: 10px;
+    padding-right: 10px;
 }

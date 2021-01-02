@@ -9,12 +9,22 @@
                      class="character-avatar" alt="avatar">
             </div>
             <div class="game-character-info">
-                <p class="text-truncate">
-                    Name: @Model.Name <br />
-                    Level: @Model.CBStats.Level <br />
-                    Exp.: @Model.CBStats.Experience <br />
-                    Gold: @Model.CBStats.Gold G
-                </p>
+                <fieldset class="custom-fieldset">
+                    <legend class="text-center custom-legend">Name</legend>
+                    <p>@Model.Name</p>
+                </fieldset>
+                <fieldset class="custom-fieldset">
+                    <legend class="text-center custom-legend">Level</legend>
+                    <p>@Model.CBStats.Level</p>
+                </fieldset>
+                <fieldset class="custom-fieldset">
+                    <legend class="text-center custom-legend">Experience</legend>
+                    <p>@Model.CBStats.Experience</p>
+                </fieldset>
+                <fieldset class="custom-fieldset">
+                    <legend class="text-center custom-legend">Gold</legend>
+                    <p>@Model.CBStats.Gold</p>
+                </fieldset>
             </div>
         </section>
         <section class="game-sidebar-menu">
