@@ -393,7 +393,7 @@ body {
 
 .game-character-info {
     margin: 10px;
-    height: 170px;
+    height: 190px;
 }
 
 .game-character-info p {
@@ -401,11 +401,16 @@ body {
 }
 
 .game-character-info .custom-fieldset {
+    margin-bottom: 4px;
     font-size: 14px;
     text-align: center;
     border: 1px solid #389072;
     padding-left: 40px;
     padding-right: 40px;
+    background-color: rgba(181, 251, 232, 0.20);
+    -webkit-box-shadow: inset 0px 15px 20px -20px rgba(26,92,68,1);
+    -moz-box-shadow: inset 0px 15px 20px -20px rgba(26,92,68,1);
+    box-shadow: inset 0px 15px 20px -20px rgba(26,92,68,1);
 }
 
 .game-character-info .custom-legend {
@@ -413,4 +418,6 @@ body {
     margin: 0;
     padding-left: 10px;
     padding-right: 10px;
+    background-color: rgba(181, 251, 232, 0.20);
+    border: 1px solid #389072;
 }
