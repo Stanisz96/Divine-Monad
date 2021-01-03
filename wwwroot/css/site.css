@@ -358,7 +358,7 @@ body {
 
 .game-container {
     display: grid;
-    grid-template-columns: 200px 600px;
+    grid-template-columns: 200px 610px;
     grid-auto-rows: minmax(min-content, max-content);
     gap: 0px 0px;
     grid-template-areas: "game-sidebar-character game-plane" "game-sidebar-menu game-plane" ". game-plane";
@@ -366,17 +366,127 @@ body {
 
 .game-sidebar-character {
     grid-area: game-sidebar-character;
-    background-color: rgba(93, 199, 170, 0.6);
+    background-color: rgba(129, 212, 189, 0.5);
     border: 1px solid #389072;
     border-radius: 5px;
-    margin: 0 1px 1px 0;
+    margin: 0 0 20px 0;
 }
+
+.game-sidebar-character .custom-background {
+    position: relative;
+    padding: 0;
+    margin: 0;
+}
+
+.game-sidebar-character .custom-background #top-left {
+    position: absolute;
+    background: url('../images/gui/corner1_1.png') no-repeat 0 0;
+    background-size: 40px 40px;
+    width: 40px;
+    height: 40px;
+    margin: -13px 0 0 -13px;
+    z-index: 4;
+}
+
+.game-sidebar-character .custom-background #top-middle {
+    position: absolute;
+    background: url('../images/gui/corner1_t.png') repeat-x 0 0;
+    background-size: 4px 4px;
+    margin: -2px auto 0 auto;
+    width: 100%;
+    height: 8px;
+}
+
+.game-sidebar-character .custom-background #top-right {
+    position: absolute;
+    background: url('../images/gui/corner1_2.png') no-repeat 0 0;
+    background-size: 40px 40px;
+    width: 40px;
+    height: 40px;
+    margin-left: calc(100% - 27px);
+    margin-top: -13px;
+    z-index: 4;
+}
+
+.game-sidebar-character .custom-background #middle-left {
+    position: absolute;
+    background: url('../images/gui/corner1_l.png') repeat-y 0 0;
+    background-size: 4px 4px;
+    height: 360px;
+    margin-left: -2px;
+    width: 4px;
+}
+
+.game-sidebar-character .custom-background #middle-right {
+    position: absolute;
+    background: url('../images/gui/corner1_r.png') repeat-y 0 0;
+    background-size: 4px 4px;
+    height: 360px;
+    margin-left: calc(100% - 2px);
+    width: 4px;
+}
+
+.game-sidebar-character .custom-background #bottom-left {
+    position: absolute;
+    background: url('../images/gui/corner1_3.png') no-repeat 0 0;
+    background-size: 40px 40px;
+    width: 40px;
+    height: 40px;
+    margin: 333px 0 0 -13px;
+    z-index: 4;
+}
+
+.game-sidebar-character .custom-background #bottom-middle {
+    position: absolute;
+    background: url('../images/gui/corner1_b.png') repeat-x 0 0;
+    background-size: 4px 4px;
+    margin: 360px auto 0 auto;
+    width: 100%;
+    height: 8px;
+}
+
+.game-sidebar-character .custom-background #bottom-right {
+    position: absolute;
+    background: url('../images/gui/corner1_4.png') no-repeat 0 0;
+    background-size: 40px 40px;
+    width: 40px;
+    height: 40px;
+    margin-left: calc(100% - 27px);
+    margin-top: 333px;
+    z-index: 4;
+}
+
 
 .game-sidebar-menu {
     grid-area: game-sidebar-menu;
     border: 1px solid #389072;
+    background-color: rgba(129, 212, 189, 0.5);
     border-radius: 5px;
     margin-right: 1px;
+}
+
+.game-sidebar-menu a {
+    background: url('../images/gui/button3.png') no-repeat 49.351% 55%;
+    height: 40px;
+    text-align: center;
+    padding: 8px;
+    margin-top: 10px;
+}
+
+.game-sidebar-menu a:visited, a:link, a:hover {
+    color: #05352d;
+    font-style: normal;
+    text-decoration: none;
+}
+
+.game-sidebar-menu .active {
+    text-shadow: 0px 0px 5px white;
+    background: transparent url('../images/gui/button4.png') no-repeat 49.351% 55%;
+}
+
+.game-sidebar-menu .list-group {
+    padding-bottom: 20px;
+    padding-top: 10px;
 }
 
 .game-plane {
@@ -384,7 +494,9 @@ body {
     background-color: rgba(129, 212, 189, 0.5);
     border: 1px solid #389072;
     border-radius: 5px;
+    margin-left: 10px;
 }
+
 
 .game-avatar {
     text-align: center;
@@ -393,7 +505,7 @@ body {
 
 .game-character-info {
     margin: 10px;
-    height: 220px;
+    height: 230px;
 }
 
 .game-character-info p {
@@ -403,8 +515,8 @@ body {
 }
 
 .game-character-info .background {
-    background: url(../images/gui/test1.png) no-repeat 38.638% 6.54%;
-    background-size: 500px 500px;
+    background: url(../images/gui/button1.png) no-repeat 49.254% 27%;
+    background-size: 240px 60px;
     height: 29px;
     margin-left: -50px;
     margin-right: -50px;
