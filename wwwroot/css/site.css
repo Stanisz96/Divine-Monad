@@ -393,24 +393,33 @@ body {
 
 .game-character-info {
     margin: 10px;
-    height: 190px;
+    height: 220px;
 }
 
 .game-character-info p {
     margin: 0 0 3px 0;
+    padding-top: 6px;
+
+}
+
+.game-character-info .background {
+    background: url(../images/gui/test1.png) no-repeat 38.638% 6.54%;
+    background-size: 500px 500px;
+    height: 29px;
+    margin-left: -50px;
+    margin-right: -50px;
 }
 
 .game-character-info .custom-fieldset {
-    margin-bottom: 4px;
+    margin-bottom: 10px;
     font-size: 14px;
     text-align: center;
-    border: 1px solid #389072;
-    padding-left: 40px;
-    padding-right: 40px;
-    background-color: rgba(181, 251, 232, 0.20);
-    -webkit-box-shadow: inset 0px 15px 20px -20px rgba(26,92,68,1);
-    -moz-box-shadow: inset 0px 15px 20px -20px rgba(26,92,68,1);
-    box-shadow: inset 0px 15px 20px -20px rgba(26,92,68,1);
+    border-top: 1px solid #389072;
+    padding-left: 50px;
+    padding-right: 50px;
+    -webkit-box-shadow: inset 0px 16px 10px -20px rgba(26,92,68,1);
+    -moz-box-shadow: inset 0px 16px 10px -20px rgba(26,92,68,1);
+    box-shadow: inset 0px 16px 10px -20px rgba(26,92,68,1);
 }
 
 .game-character-info .custom-legend {
@@ -420,4 +429,10 @@ body {
     padding-right: 10px;
     background-color: rgba(181, 251, 232, 0.20);
     border: 1px solid #389072;
+    border-radius: 6px;
+}
+
+.game-character-info .custom-border {
+    border-bottom: 1.5px solid #389072;
+    margin: -2.5px 14px 0 14px;
 }
