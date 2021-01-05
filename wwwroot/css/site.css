@@ -76,6 +76,10 @@ body {
     background-color: #e8f7f4;
 }
 
+.container {
+    padding: 0;
+}
+
 /*EDIT STYLES*/
 .table td, tr {
     vertical-align: unset!important;
@@ -358,7 +362,7 @@ body {
 
 .game-container {
     display: grid;
-    grid-template-columns: 200px 610px;
+    grid-template-columns: 200px 640px;
     grid-auto-rows: minmax(min-content, max-content);
     gap: 0px 0px;
     grid-template-areas: "game-sidebar-character game-plane" "game-sidebar-menu game-plane" ". game-plane";
@@ -372,13 +376,19 @@ body {
     margin: 0 0 20px 0;
 }
 
-.game-sidebar-character .custom-background {
+.small-background {
     position: relative;
     padding: 0;
     margin: 0;
 }
 
-.game-sidebar-character .custom-background #top-left {
+.big-background {
+    position: relative;
+    padding: 0;
+    margin: 0;
+}
+
+.small-background .top-left {
     position: absolute;
     background: url('../images/gui/corner1_1.png') no-repeat 0 0;
     background-size: 40px 40px;
@@ -388,16 +398,35 @@ body {
     z-index: 4;
 }
 
-.game-sidebar-character .custom-background #top-middle {
+.big-background .top-left {
+    position: absolute;
+    background: url('../images/gui/corner2_1.png') no-repeat 0 0;
+    background-size: 60px 60px;
+    width: 60px;
+    height: 60px;
+    margin: -15px 0 0 -18px;
+    z-index: 4;
+}
+
+.small-background .top-middle {
     position: absolute;
     background: url('../images/gui/corner1_t.png') repeat-x 0 0;
     background-size: 4px 4px;
-    margin: -2px auto 0 auto;
+    margin-top: -2px;
     width: 100%;
     height: 8px;
 }
 
-.game-sidebar-character .custom-background #top-right {
+.big-background .top-middle {
+    position: absolute;
+    background: url('../images/gui/corner1_t.png') repeat-x 0 0;
+    background-size: 6px 6px;
+    margin-top: -2px;
+    width: 100%;
+    height: 8px;
+}
+
+.small-background .top-right {
     position: absolute;
     background: url('../images/gui/corner1_2.png') no-repeat 0 0;
     background-size: 40px 40px;
@@ -408,51 +437,102 @@ body {
     z-index: 4;
 }
 
-.game-sidebar-character .custom-background #middle-left {
+.big-background .top-right {
+    position: absolute;
+    background: url('../images/gui/corner2_2.png') no-repeat 0 0;
+    background-size: 60px 60px;
+    width: 60px;
+    height: 60px;
+    margin-left: calc(100% - 40px);
+    margin-top: -17px;
+    z-index: 4;
+}
+
+.small-background .middle-left {
     position: absolute;
     background: url('../images/gui/corner1_l.png') repeat-y 0 0;
     background-size: 4px 4px;
-    height: 360px;
     margin-left: -2px;
     width: 4px;
 }
 
-.game-sidebar-character .custom-background #middle-right {
+.big-background .middle-left {
+    position: absolute;
+    background: url('../images/gui/corner1_l.png') repeat-y 0 0;
+    background-size: 6px 6px;
+    margin-left: -2px;
+    width: 8px;
+}
+
+.small-background .middle-right {
     position: absolute;
     background: url('../images/gui/corner1_r.png') repeat-y 0 0;
     background-size: 4px 4px;
-    height: 360px;
     margin-left: calc(100% - 2px);
     width: 4px;
 }
 
-.game-sidebar-character .custom-background #bottom-left {
+.big-background .middle-right {
+    position: absolute;
+    background: url('../images/gui/corner1_r.png') repeat-y 0 0;
+    background-size: 6px 6px;
+    margin-left: calc(100% - 2px);
+    width: 8px;
+}
+
+.small-background .bottom-left {
     position: absolute;
     background: url('../images/gui/corner1_3.png') no-repeat 0 0;
     background-size: 40px 40px;
     width: 40px;
     height: 40px;
-    margin: 333px 0 0 -13px;
+    margin-left: -13px;
     z-index: 4;
 }
 
-.game-sidebar-character .custom-background #bottom-middle {
+.big-background .bottom-left {
+    position: absolute;
+    background: url('../images/gui/corner2_4.png') no-repeat 0 0;
+    background-size: 60px 60px;
+    width: 60px;
+    height: 60px;
+    margin-left: -18px;
+    z-index: 4;
+}
+
+.small-background .bottom-middle {
     position: absolute;
     background: url('../images/gui/corner1_b.png') repeat-x 0 0;
     background-size: 4px 4px;
-    margin: 360px auto 0 auto;
     width: 100%;
     height: 8px;
 }
 
-.game-sidebar-character .custom-background #bottom-right {
+.big-background .bottom-middle {
+    position: absolute;
+    background: url('../images/gui/corner1_b.png') repeat-x 0 0;
+    background-size: 6px 6px;
+    width: 100%;
+    height: 8px;
+}
+
+.small-background .bottom-right {
     position: absolute;
     background: url('../images/gui/corner1_4.png') no-repeat 0 0;
     background-size: 40px 40px;
     width: 40px;
     height: 40px;
     margin-left: calc(100% - 27px);
-    margin-top: 333px;
+    z-index: 4;
+}
+
+.big-background .bottom-right {
+    position: absolute;
+    background: url('../images/gui/corner2_3.png') no-repeat 0 0;
+    background-size: 60px 60px;
+    width: 60px;
+    height: 60px;
+    margin-left: calc(100% - 38px);
     z-index: 4;
 }
 
@@ -494,7 +574,7 @@ body {
     background-color: rgba(129, 212, 189, 0.5);
     border: 1px solid #389072;
     border-radius: 5px;
-    margin-left: 10px;
+    margin-left: 40px;
 }
 
 
@@ -505,25 +585,25 @@ body {
 
 .game-character-info {
     margin: 10px;
-    height: 230px;
+    height: 245px;
 }
 
 .game-character-info p {
     margin: 0 0 3px 0;
-    padding-top: 6px;
+    padding-top: 8px;
 
 }
 
 .game-character-info .background {
-    background: url(../images/gui/button1.png) no-repeat 49.254% 27%;
+    background: url(../images/gui/button1.png) no-repeat 49.254% 55%;
     background-size: 240px 60px;
-    height: 29px;
-    margin-left: -50px;
-    margin-right: -50px;
+    height: 40px;
+    width: 240px;
+    margin-left: -80px;
 }
 
 .game-character-info .custom-fieldset {
-    margin-bottom: 10px;
+    margin-bottom: 2px;
     font-size: 14px;
     text-align: center;
     border-top: 1px solid #389072;
@@ -544,7 +624,7 @@ body {
     border-radius: 6px;
 }
 
-.game-character-info .custom-border {
+/*.game-character-info .custom-border {
     border-bottom: 1.5px solid #389072;
     margin: -2.5px 14px 0 14px;
-}
+}*/

@@ -4,16 +4,16 @@
 <div class="game-page">
     <div class="game-container">
         <section class="game-sidebar-character">
-            <div class="custom-background">
-                <div id="head"></div>
-                <div id="top-left"></div>
-                <div id="top-middle"></div>
-                <div id="top-right"></div>
-                <div id="middle-left"></div>
-                <div id="middle-right"></div>
-                <div id="bottom-left"></div>
-                <div id="bottom-middle"></div>
-                <div id="bottom-right"></div>
+            <div class="small-background">
+                <div class="head"></div>
+                <div class="top-left"></div>
+                <div class="top-middle"></div>
+                <div class="top-right"></div>
+                <div class="middle-left" style="height: 360px;"></div>
+                <div class="middle-right" style="height: 360px;"></div>
+                <div class="bottom-left" style="margin-top: 347px"></div>
+                <div class="bottom-middle" style="margin-top: 373px"></div>
+                <div class="bottom-right" style="margin-top: 347px"></div>
             </div>
             <div class="game-avatar">
                 <img src="@Url.Content("~/images/avatars/sir_deevis2.jpg")"
@@ -53,6 +53,17 @@
             </div>
         </section>
         <section class="game-sidebar-menu">
+            <div class="small-background">
+                <div class="head"></div>
+                <div class="top-left"></div>
+                <div class="top-middle"></div>
+                <div class="top-right"></div>
+                <div class="middle-left" style="height: 280px;"></div>
+                <div class="middle-right" style="height: 280px;"></div>
+                <div class="bottom-left" style="margin-top: 254px"></div>
+                <div class="bottom-middle" style="margin-top: 280px"></div>
+                <div class="bottom-right" style="margin-top: 254px"></div>
+            </div>
             <div class="list-group" id="list-tab" role="tablist">
                 <a id="game-character-btn" data-toggle="list" href="#game-character" role="tab" aria-controls="game-character">Character</a>
                 <a id="game-backpack-btn" data-toggle="list" href="#game-backpack" role="tab" aria-controls="game-backpack">Backpack</a>
@@ -62,6 +73,17 @@
             </div>
         </section>
         <section class="game-plane">
+            <div class="big-background">
+                <div class="head"></div>
+                <div class="top-left"></div>
+                <div class="top-middle"></div>
+                <div class="top-right"></div>
+                <div class="middle-left"></div>
+                <div class="middle-right"></div>
+                <div class="bottom-left" style="visibility: hidden;"></div>
+                <div class="bottom-middle" style="visibility: hidden;"></div>
+                <div class="bottom-right" style="visibility: hidden;"></div>
+            </div>
             <div class="tab-content" id="nav-tabContent">
                 <div class="tab-pane " id="game-character" role="tabpanel" aria-labelledby="game-character-btn">
                 </div>
@@ -83,6 +105,10 @@
     <script>
 
         $(document).ready(function () {
+            $(".list-group").children().each(function (i, v) {
+                document.cookie = $(v).attr("aria-controls") + "=false"
+            })
+
             let componentId = "game-" + "@ViewBag.menu";
             let action = componentId.split('-')[1];
             let controller = "Game";
@@ -98,8 +124,11 @@
                 let controller = "Game";
                 let data = { cId: @Model.ID };
                 ReloadComponent(componentId, action, controller, data);
+
             });
         })
+
+
     </script>
     
 }
