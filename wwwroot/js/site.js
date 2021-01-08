@@ -9,35 +9,12 @@
                 var imgN = $("#" + componentId).find("img").length;
                 var imgLoaded = 0
 
-                if (imgN == 0) {
-                    document.cookie = componentId + "=true";
-                }
-
-                if (getCookie(componentId) == "true") {
-                    $(".big-background .middle-left").height($(".game-plane").height());
-                    $(".big-background .middle-right").height($(".game-plane").height());
-                    $(".big-background .bottom-left").css({ "margin-top": $(".game-plane").height() - 32 })
-                    $(".big-background .bottom-middle").css({ "margin-top": $(".game-plane").height() })
-                    $(".big-background .bottom-right").css({ "margin-top": $(".game-plane").height() - 32 })
-                    $(".big-background .bottom-left").css({ "visibility": "visible" })
-                    $(".big-background .bottom-middle").css({ "visibility": "visible" })
-                    $(".big-background .bottom-right").css({ "visibility": "visible" })
-                }
+                if (imgN == 0) document.cookie = componentId + "=true";
+                if (getCookie(componentId) == "true") updateImageBorders(componentId);
 
                 $("#" + componentId).find("img").on("load", function () {
                     imgLoaded++
-                    if (imgLoaded == imgN) {
-                        console.log($(".game-plane").height())
-                        $(".big-background .middle-left").height($(".game-plane").height());
-                        $(".big-background .middle-right").height($(".game-plane").height());
-                        $(".big-background .bottom-left").css({ "margin-top": $(".game-plane").height() - 32 })
-                        $(".big-background .bottom-middle").css({ "margin-top": $(".game-plane").height() })
-                        $(".big-background .bottom-right").css({ "margin-top": $(".game-plane").height() - 32 })
-                        $(".big-background .bottom-left").css({ "visibility": "visible" })
-                        $(".big-background .bottom-middle").css({ "visibility": "visible" })
-                        $(".big-background .bottom-right").css({ "visibility": "visible" })
-                        document.cookie = componentId + "=true";
-                    }
+                    if (imgLoaded == imgN) updateImageBorders(componentId);
                 })
             });
         }
@@ -60,4 +37,17 @@ function getCookie(name) {
         }
     }
     return decodeURI(dc.substring(begin + prefix.length, end));
-} 
+};
+
+
+function updateImageBorders(component) {
+    $(".big-background .middle-left").height($(".game-plane").height());
+    $(".big-background .middle-right").height($(".game-plane").height());
+    $(".big-background .bottom-left").css({ "margin-top": $(".game-plane").height() - 32 })
+    $(".big-background .bottom-middle").css({ "margin-top": $(".game-plane").height() })
+    $(".big-background .bottom-right").css({ "margin-top": $(".game-plane").height() - 32 })
+    $(".big-background .bottom-left").css({ "visibility": "visible" })
+    $(".big-background .bottom-middle").css({ "visibility": "visible" })
+    $(".big-background .bottom-right").css({ "visibility": "visible" })
+    document.cookie = component + "=true";
+};
