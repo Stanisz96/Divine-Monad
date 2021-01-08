@@ -1,4 +1,5 @@
 ﻿using DivineMonad.Engine.Raport;
+using DivineMonad.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,6 +12,9 @@ namespace DivineMonad.Engine
         public RaportGenerator GenerateFight();
 
         public RaportGenerator Raport { get; set; }
+        public Monster Monster { get; set; }
+        public IEnumerable<Item> Items { get; set; }
+        public Item ItemLooted { get; set; }
         public int AttackerId { get; set; }
         public int DefenderId { get; set; }
         public int AttackerHp { get; set; }

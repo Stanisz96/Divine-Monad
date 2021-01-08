@@ -45,6 +45,7 @@ namespace DivineMonad
             services.AddScoped<IItemStatsRepo, ItemStatsRepo>();
             services.AddScoped<ICharacterItemsRepo, CharacterItemsRepo>();
             services.AddScoped<ICharacterBaseStatsRepo, CharacterBaseStatsRepo>();
+            services.AddScoped<IRarityRepo, RarityRepo>();
             services.AddScoped<IAdvanceStats, AdvanceStats>();
             services.AddScoped<IFightGenerator, FightGenerator>();
             services.AddSingleton<DbContextHelper>();

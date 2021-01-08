@@ -23,15 +23,17 @@ namespace DivineMonad.Controllers
         private readonly ICharacterItemsRepo _characterItemsRepo;
         private readonly IItemStatsRepo _itemsStatsRepo;
         private readonly IItemRepo _itemsRepo;
+        private readonly IRarityRepo _rarityRepo;
 
         public GameController(ApplicationDbContext context, ICharacterBaseStatsRepo baseStatsRepo, ICharacterItemsRepo characterItemsRepo,
-            IItemStatsRepo itemsStatsRepo, IItemRepo itemsRepo)
+            IItemStatsRepo itemsStatsRepo, IItemRepo itemsRepo, IRarityRepo rarityRepo)
         {
             _context = context;
             _baseStatsRepo = baseStatsRepo;
             _characterItemsRepo = characterItemsRepo;
             _itemsStatsRepo = itemsStatsRepo;
             _itemsRepo = itemsRepo;
+            _rarityRepo = rarityRepo;
         }
 
 
@@ -112,8 +114,10 @@ namespace DivineMonad.Controllers
             defender.CharacterName = monster.Name;
             defender.CalculateMonster(monster.MonsterStats);
 
+            var monsterItemsIds = await _context.MonstersLoot.Where(i => i.MonsterId == monster.ID).Select(i => i.ItemId).ToListAsync();
+            var monsterItems = await _itemsRepo.GetItemsList(monsterItemsIds);
             
-            FightGenerator fight = new FightGenerator(attacker, defender);
+            FightGenerator fight = new FightGenerator(attacker, defender, monster, monsterItems, _rarityRepo);
             RaportGenerator fightRaport = fight.GenerateFight();
             fightRaport.QuickFight = qf;
 
@@ -320,6 +324,19 @@ namespace DivineMonad.Controllers
                 return new { valid = true };
             }
             else return new { valid = false };
+        }
+
+        public string Test()
+        {
+            Random random = new Random();
+            string val = "";
+            double temp = 0;
+            for (int i = 0; i < 1000; i++)
+            {
+                temp = random.NextDouble();
+                if (temp * 1000 <= 1) val += temp.ToString() + "\n";
+            }
+            return val;
         }
     }
 }

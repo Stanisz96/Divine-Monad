@@ -1,4 +1,5 @@
 ﻿using DivineMonad.Engine.Raport;
+using DivineMonad.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,6 +13,9 @@ namespace DivineMonad.Engine
         private AdvanceStats Attacker { get; set; }
         private AdvanceStats Defender { get; set; }
         public RaportGenerator Raport { get; set; }
+        public Monster Monster { get; set; }
+        public IEnumerable<Item> Items { get; set; }
+        public Item ItemLooted { get; set; }
         public int AttackerId { get; set; }
         public int DefenderId { get; set; }
         public int AttackerHp { get; set; }
@@ -27,14 +31,31 @@ namespace DivineMonad.Engine
         public bool IsFightOver { get; set; }
         public bool IsHalfRound { get; set; }
 
+
         private readonly IAdvanceStats _playerStats;
         private readonly IAdvanceStats _opponentStats;
+        private readonly IRarityRepo _rarityRepo;
 
         public FightGenerator(IAdvanceStats playerStats, IAdvanceStats opponentStats)
         {
             rand = new Random();
             Raport = new RaportGenerator();
             Raport.Rounds = new List<Round>();
+            _playerStats = playerStats;
+            _opponentStats = opponentStats;
+
+        }
+
+        public FightGenerator(IAdvanceStats playerStats, IAdvanceStats opponentStats,
+            Monster monster, IEnumerable<Item> items, IRarityRepo rarityRepo)
+        {
+            rand = new Random();
+            Raport = new RaportGenerator();
+            Raport.Rounds = new List<Round>();
+            Raport.Reward = new Reward();
+            Monster = monster;
+            Items = items;
+            _rarityRepo = rarityRepo;
             _playerStats = playerStats;
             _opponentStats = opponentStats;
         }
@@ -72,6 +93,7 @@ namespace DivineMonad.Engine
             }
 
             SetRaportResults();
+            SetRewards();
 
             return Raport;
         }
@@ -213,6 +235,61 @@ namespace DivineMonad.Engine
                 if (Defender.CharacterId == _playerStats.CharacterId && Defender.CharacterName == _playerStats.CharacterName)
                     Raport.Result = "lose";
                 else Raport.Result = "win";
+            }
+        }
+
+        private void SetRewards()
+        {
+            int index = 0;
+            if (!_opponentStats.IsPlayer)
+            {
+                if (Raport.Result == "win")
+                {
+                    Raport.Reward.Experience = Monster.Experience;
+                    Raport.Reward.Gold = Monster.Gold;
+
+                    if (rand.NextDouble() * 1000 > _rarityRepo.GetRarity("legendary").Chance)
+                    {
+                        if (rand.NextDouble() * 1000 > _rarityRepo.GetRarity("heroic").Chance)
+                        {
+                            if (rand.NextDouble() * 1000 > _rarityRepo.GetRarity("unique").Chance)
+                            {
+                                if (rand.NextDouble() * 1000 <= _rarityRepo.GetRarity("normal").Chance)
+                                {
+                                    index = rand.Next(0, Items.Where(i => i.Rarity.Name == "normal").Count());
+                                    ItemLooted = Items.Where(i => i.Rarity.Name == "normal").ElementAt(index);
+                                }
+                            }
+                            else
+                            {
+                                index = rand.Next(0, Items.Where(i => i.Rarity.Name == "unique").Count());
+                                ItemLooted = Items.Where(i => i.Rarity.Name == "unique").ElementAt(index);
+                            }
+                        }
+                        else
+                        {
+                            index = rand.Next(0, Items.Where(i => i.Rarity.Name == "heroic").Count());
+                            ItemLooted = Items.Where(i => i.Rarity.Name == "heroic").ElementAt(index);
+                        }
+                    }
+                    else
+                    {
+                        index = rand.Next(0, Items.Where(i => i.Rarity.Name == "legendary").Count());
+                        ItemLooted = Items.Where(i => i.Rarity.Name == "legendary").ElementAt(index);
+                    }
+
+                    if (!(ItemLooted is null))
+                    {
+                        Raport.Reward.ItemID = ItemLooted.ID;
+                        Raport.Reward.ItemName = ItemLooted.Name;
+                        Raport.Reward.ItemRarity = ItemLooted.Rarity.Name;
+                    }
+                }
+                else
+                {
+                    Raport.Reward.Gold = 0;
+                    Raport.Reward.Experience = 0;
+                }
             }
         }
     }
