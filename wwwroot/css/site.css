@@ -216,7 +216,7 @@ body {
 }
 
 .game-content-raport {
-    margin: 20px 40px 10px 40px;
+    margin: 40px;
 }
 
 .game-content-raport .raport {
@@ -624,7 +624,14 @@ body {
     border-radius: 6px;
 }
 
-/*.game-character-info .custom-border {
-    border-bottom: 1.5px solid #389072;
-    margin: -2.5px 14px 0 14px;
-}*/
+/*.game-character-info .progress {
+    display: inline-block;
+    margin-top: 10px;
+    width: 100px;
+}
+
+.game-character-info .progress-bar {
+    display: contents;
+    background-color: red;
+}
+*/

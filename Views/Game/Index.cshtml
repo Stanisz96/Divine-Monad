@@ -1,5 +1,9 @@
 ﻿@model DivineMonad.Models.Character
 
+@{ 
+    double expP = Model.CBStats.Experience / (int)ViewData["reqExp"];
+}
+
 
 <div class="game-page">
     <div class="game-container">
@@ -38,8 +42,8 @@
                 </fieldset>
                 <fieldset class="custom-fieldset">
                     <legend class="text-center custom-legend">Experience</legend>
-                    <div class="background">
-                        <p>@Model.CBStats.Experience</p>
+                    <div class="background">    
+                        <p>@Model.CBStats.Experience / @ViewData["reqExp"]</p>
                         <div class="custom-border"></div>
                     </div>
                 </fieldset>

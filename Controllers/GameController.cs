@@ -42,6 +42,7 @@ namespace DivineMonad.Controllers
             if (!(character is null))
             {
                 ViewData["menu"] = "character";
+                ViewData["reqExp"] = CharacterHelper.RequiredExperience(character.CBStats.Level);
                 return View(character);
             }
             else return RedirectToAction("Index", "Characters");
