@@ -4,8 +4,8 @@
     "Name": "AdminCharacter"
   },
   "Opponent": {
-    "ID": 3,
-    "Name": "Enchanted Tree"
+    "ID": 4,
+    "Name": "Goblin"
   },
   "Result": "win",
   "IsPvp": false,
@@ -14,57 +14,25 @@
       "Number": 1,
       "Attacker": {
         "Name": "AdminCharacter",
-        "HP": 3195,
+        "HP": 3346,
         "Crit": false,
         "Miss": false,
-        "Damage": 72
+        "Damage": 81
       },
       "Defender": {
-        "Name": "Enchanted Tree",
-        "HP": 48,
+        "Name": "Goblin",
+        "HP": -69,
         "Block": false,
-        "Receive": 72
-      }
-    },
-    {
-      "Number": 1,
-      "Attacker": {
-        "Name": "Enchanted Tree",
-        "HP": 48,
-        "Crit": false,
-        "Miss": false,
-        "Damage": 8
-      },
-      "Defender": {
-        "Name": "AdminCharacter",
-        "HP": 3188,
-        "Block": false,
-        "Receive": 7
-      }
-    },
-    {
-      "Number": 2,
-      "Attacker": {
-        "Name": "AdminCharacter",
-        "HP": 3188,
-        "Crit": false,
-        "Miss": false,
-        "Damage": 65
-      },
-      "Defender": {
-        "Name": "Enchanted Tree",
-        "HP": -17,
-        "Block": false,
-        "Receive": 65
+        "Receive": 81
       }
     }
   ],
-  "QuickFight": true,
+  "QuickFight": false,
   "Reward": {
-    "Experience": 3,
+    "Experience": 2,
     "Gold": 2,
-    "ItemID": 1,
-    "ItemName": "Peasant armor",
-    "ItemRarity": "normal"
+    "ItemID": -1,
+    "ItemName": null,
+    "ItemRarity": null
   }
 }

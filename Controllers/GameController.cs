@@ -138,6 +138,11 @@ namespace DivineMonad.Controllers
                 }
                 _context.Update(character);
                 await _context.SaveChangesAsync();
+
+                ViewData["gold"] = character.CBStats.Gold;
+                ViewData["level"] = character.CBStats.Level;
+                ViewData["exp"] = character.CBStats.Experience;
+                ViewData["reqExp"] = _characterHelper.RequiredExperience(character.CBStats.Level);
             }
             catch (Exception)
             {

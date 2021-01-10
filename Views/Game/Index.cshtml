@@ -27,7 +27,7 @@
                 <fieldset class="custom-fieldset">
                     <legend class="text-center custom-legend">Name</legend>
                     <div class="background">
-                        <p>@Model.Name</p>
+                        <p id="character-name">@Model.Name</p>
                         <div class="custom-border"></div>
                     </div>
 
@@ -36,21 +36,21 @@
                 <fieldset class="custom-fieldset">
                     <legend class="text-center custom-legend">Level</legend>
                     <div class="background">
-                        <p>@Model.CBStats.Level</p>
+                        <p id="character-level">@Model.CBStats.Level</p>
                         <div class="custom-border"></div>
                     </div>
                 </fieldset>
                 <fieldset class="custom-fieldset">
                     <legend class="text-center custom-legend">Experience</legend>
                     <div class="background">    
-                        <p>@Model.CBStats.Experience / @ViewData["reqExp"]</p>
+                        <p><sapn id="character-exp">@Model.CBStats.Experience</sapn> / <span id="character-reqExp">@ViewData["reqExp"]</span></p>
                         <div class="custom-border"></div>
                     </div>
                 </fieldset>
                 <fieldset class="custom-fieldset">
                     <legend class="text-center custom-legend">Gold</legend>
                     <div class="background">
-                        <p>@Model.CBStats.Gold</p>
+                        <p id="character-gold">@Model.CBStats.Gold</p>
                         <div class="custom-border"></div>
                     </div>
                 </fieldset>

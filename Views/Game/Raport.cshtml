@@ -80,6 +80,7 @@
             if (quickFight) {
                 $(".slow").css({ display: "none" });
                 $(".quick").animate({ scrollTop: $("#quick-raport").height() }, 1000);
+                updateCharacterInfo();
             } else {
                 $(".quick").css({ display: "none" });
 
@@ -90,11 +91,39 @@
                             $(".slow").animate({ scrollTop: $("#slow-raport").height() }, 1000);
                         }
                     } else {
+                        updateCharacterInfo();
                         clearInterval(interval)
                     }
                     i++;
                 }, 1500);
             }
         });
+
+        function updateCharacterInfo() {
+            let gold = @ViewBag.gold;
+            let exp = @ViewBag.exp;
+            let reqExp = @ViewBag.reqExp;
+            let level = @ViewBag.level;
+            if (exp != $("#character-exp").text()) {
+                $("#character-exp").fadeOut(300, function () {
+                    $(this).text(exp.toString()).fadeIn(300);
+                });
+            }
+            if (gold != $("#character-gold").text()) {
+                $("#character-gold").fadeOut(300, function () {
+                    $(this).text(gold.toString()).fadeIn(300);
+                })
+            }
+            if (reqExp != $("#character-reqExp").text()) {
+                $("#character-reqExp").fadeOut(300, function () {
+                    $(this).text(reqExp.toString()).fadeIn(300);
+                })
+            }
+            if (level != $("#character-level").text()) {
+                $("#character-level").fadeOut(300, function () {
+                    $(this).text(level.toString()).fadeIn(300);
+                })
+            }
+        }
     </script>
 }
