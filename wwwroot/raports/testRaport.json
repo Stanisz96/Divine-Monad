@@ -17,20 +17,20 @@
         "HP": 3195,
         "Crit": false,
         "Miss": false,
-        "Damage": 86
+        "Damage": 64
       },
       "Defender": {
         "Name": "Enchanted Tree",
-        "HP": 34,
+        "HP": 56,
         "Block": false,
-        "Receive": 86
+        "Receive": 64
       }
     },
     {
       "Number": 1,
       "Attacker": {
         "Name": "Enchanted Tree",
-        "HP": 34,
+        "HP": 56,
         "Crit": false,
         "Miss": true,
         "Damage": 9
@@ -49,13 +49,13 @@
         "HP": 3195,
         "Crit": false,
         "Miss": false,
-        "Damage": 65
+        "Damage": 79
       },
       "Defender": {
         "Name": "Enchanted Tree",
-        "HP": -31,
+        "HP": -23,
         "Block": false,
-        "Receive": 65
+        "Receive": 79
       }
     }
   ],

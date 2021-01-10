@@ -1,4 +1,5 @@
 ﻿using DivineMonad.Data;
+using DivineMonad.Engine.Raport;
 using DivineMonad.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -10,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace DivineMonad.Tools
 {
-    public class DbContextHelper
+    public class DbContextHelper : IDbContextHelper
     {
         public async Task<Character> GetCharacter(int cId, ClaimsPrincipal user, ApplicationDbContext context)
         {
@@ -210,7 +211,10 @@ namespace DivineMonad.Tools
 
         }
 
+        public async void AssignRewards(RaportGenerator raport, Character character, ApplicationDbContext context)
+        {
 
+        }
 
         enum CategoryName
         {

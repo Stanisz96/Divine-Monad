@@ -19,6 +19,8 @@ namespace DivineMonad.Controllers
     public class GameController : Controller
     {
         private readonly ApplicationDbContext _context;
+        private readonly IDbContextHelper _contextHelper;
+        private readonly ICharacterHelper _characterHelper;
         private readonly ICharacterBaseStatsRepo _baseStatsRepo;
         private readonly ICharacterItemsRepo _characterItemsRepo;
         private readonly IItemStatsRepo _itemsStatsRepo;
@@ -26,7 +28,7 @@ namespace DivineMonad.Controllers
         private readonly IRarityRepo _rarityRepo;
 
         public GameController(ApplicationDbContext context, ICharacterBaseStatsRepo baseStatsRepo, ICharacterItemsRepo characterItemsRepo,
-            IItemStatsRepo itemsStatsRepo, IItemRepo itemsRepo, IRarityRepo rarityRepo)
+            IItemStatsRepo itemsStatsRepo, IItemRepo itemsRepo, IRarityRepo rarityRepo, IDbContextHelper contextHelper, ICharacterHelper characterHelper)
         {
             _context = context;
             _baseStatsRepo = baseStatsRepo;
@@ -34,17 +36,19 @@ namespace DivineMonad.Controllers
             _itemsStatsRepo = itemsStatsRepo;
             _itemsRepo = itemsRepo;
             _rarityRepo = rarityRepo;
+            _contextHelper = contextHelper;
+            _characterHelper = characterHelper;
         }
 
 
         public async Task<IActionResult> Index([FromForm, Bind("cId")] int cId)
         {
-            Character character = await DbContextHelper.GetCharacter(cId, User, _context);
+            Character character = await _contextHelper.GetCharacter(cId, User, _context);
 
             if (!(character is null))
             {
                 ViewData["menu"] = "character";
-                ViewData["reqExp"] = CharacterHelper.RequiredExperience(character.CBStats.Level);
+                ViewData["reqExp"] = _characterHelper.RequiredExperience(character.CBStats.Level);
                 return View(character);
             }
             else return RedirectToAction("Index", "Characters");
@@ -52,7 +56,7 @@ namespace DivineMonad.Controllers
 
         public async Task<IActionResult> Character(int cId)
         {
-            Character character = await DbContextHelper.GetCharacter(cId, User, _context);
+            Character character = await _contextHelper.GetCharacter(cId, User, _context);
 
             if (!(character is null))
             {
@@ -77,7 +81,7 @@ namespace DivineMonad.Controllers
 
         public async Task<IActionResult> Battle(int cId)
         {
-            Character character = await DbContextHelper.GetCharacter(cId, User, _context);
+            Character character = await _contextHelper.GetCharacter(cId, User, _context);
 
             if (!(character is null))
             {
@@ -91,7 +95,7 @@ namespace DivineMonad.Controllers
 
         public async Task<IActionResult> Raport(int cId, int mId, bool qf)
         {
-            Character character = await DbContextHelper.GetCharacter(cId, User, _context);
+            Character character = await _contextHelper.GetCharacter(cId, User, _context);
 
             var characterItems =  await _characterItemsRepo.GetCharactersItemsList(cId, true);
             List<int> isIds = characterItems.Select(i => i.ItemId).ToList();
@@ -106,7 +110,7 @@ namespace DivineMonad.Controllers
             attacker.CalculateWithEq(itemStatsList);
 
 
-            Monster monster = await DbContextHelper.GetMonster(mId, _context);
+            Monster monster = await _contextHelper.GetMonster(mId, _context);
 
             AdvanceStats defender = new AdvanceStats();
             defender.IsPlayer = false;
@@ -131,7 +135,7 @@ namespace DivineMonad.Controllers
         public async Task<IActionResult> Backpack(int cId)
         {
             Backpack backpack = new Backpack();
-            backpack.Character = await DbContextHelper.GetCharacter(cId, User, _context);
+            backpack.Character = await _contextHelper.GetCharacter(cId, User, _context);
             backpack.CharacterItemsList = await _characterItemsRepo.GetCharactersItemsList(cId, false);
             List<int> itemIds = backpack.CharacterItemsList.Select(i => i.ItemId).ToList();
             backpack.ItemsList = await _itemsRepo.GetItemsList(itemIds);
@@ -141,13 +145,13 @@ namespace DivineMonad.Controllers
 
         public async Task<IActionResult> Market(int cId)
         {
-            Character character = await DbContextHelper.GetCharacter(cId, User, _context);
+            Character character = await _contextHelper.GetCharacter(cId, User, _context);
             return PartialView(character);
         }
 
         public async Task<IActionResult> News(int cId)
         {
-            Character character = await DbContextHelper.GetCharacter(cId, User, _context);
+            Character character = await _contextHelper.GetCharacter(cId, User, _context);
             return PartialView(character);
         }
 
@@ -156,7 +160,7 @@ namespace DivineMonad.Controllers
             bool valid = false;
             List<CharacterItems> characterItemsList = new List<CharacterItems>();
             Backpack backpack = new Backpack();
-            backpack.Character = await DbContextHelper.GetCharacter(cId, User, _context);
+            backpack.Character = await _contextHelper.GetCharacter(cId, User, _context);
             backpack.CharacterItemsList = await _characterItemsRepo.GetCharactersItemsList(cId, false);
             List<int> itemIds = backpack.CharacterItemsList.Select(i => i.ItemId).ToList();
             backpack.ItemsList = await _itemsRepo.GetItemsList(itemIds);
@@ -189,17 +193,17 @@ namespace DivineMonad.Controllers
             }
 
             if (updateOption.Equals("putOn") || updateOption.Equals("putOnAndChange") || updateOption.Equals("takeOffAndChange"))
-                valid = DbContextHelper.CanPutItOn(from, to, backpack);
+                valid = _contextHelper.CanPutItOn(from, to, backpack);
             else if (updateOption.Equals("takeOff") || updateOption.Equals("move"))
-                valid = DbContextHelper.CanMoveIt(from, to, backpack);
+                valid = _contextHelper.CanMoveIt(from, to, backpack);
             else if (updateOption.Equals("moveAndChange"))
-                valid = DbContextHelper.CanChangeIt(from, to, backpack);
+                valid = _contextHelper.CanChangeIt(from, to, backpack);
             else if (updateOption.Equals("nothing") || updateOption.Equals("not valid"))
                 valid = false;
 
             if (valid)
             {
-                characterItemsList = await DbContextHelper.UpdateBpSlotsId(from, to, backpack, _context, updateOption);
+                characterItemsList = await _contextHelper.UpdateBpSlotsId(from, to, backpack, _context, updateOption);
                 try
                 {
                     if (isOneItemChanged) _context.Update(characterItemsList[0]);
@@ -220,7 +224,7 @@ namespace DivineMonad.Controllers
         public async Task<IActionResult> ItemInfo(int cId, int bpSlotId)
         {
             Backpack backpack = new Backpack();
-            backpack.Character = await DbContextHelper.GetCharacter(cId, User, _context);
+            backpack.Character = await _contextHelper.GetCharacter(cId, User, _context);
             backpack.CharacterItemsList = await _characterItemsRepo.GetCharactersItemsList(cId, false);
             List<int> itemIds = backpack.CharacterItemsList.Select(i => i.ItemId).ToList();
             backpack.ItemsList = await _itemsRepo.GetItemsList(itemIds);
@@ -235,7 +239,7 @@ namespace DivineMonad.Controllers
 
         public async Task<object> DistributePoints(int cId, int dp, int sta, int str, int agi, int dex, int luc)
         {
-            Character character = await DbContextHelper.GetCharacter(cId, User, _context);
+            Character character = await _contextHelper.GetCharacter(cId, User, _context);
 
             if (character is null) return new { valid = false };
 

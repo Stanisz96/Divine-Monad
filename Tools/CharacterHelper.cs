@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace DivineMonad.Tools
 {
-    public class CharacterHelper
+    public class CharacterHelper : ICharacterHelper
     {
         public int RequiredExperience(int level)
         {
