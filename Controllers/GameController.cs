@@ -161,123 +161,60 @@ namespace DivineMonad.Controllers
             List<int> itemIds = backpack.CharacterItemsList.Select(i => i.ItemId).ToList();
             backpack.ItemsList = await _itemsRepo.GetItemsList(itemIds);
 
+            bool isOneItemChanged = true;
+            string updateOption = "";
 
             if (isEmpty)
             {
-                if (to < 7 && from >= 7)
-                {
-                    valid = DbContextHelper.CanPutItOn(from, to, backpack);
-                    if (valid)
-                    {
-                        characterItemsList = await DbContextHelper.UpdateBpSlotsId(from, to, backpack, _context, "putOn");
-                        try
-                        {
-                            _context.Update(characterItemsList[0]);
-                            await _context.SaveChangesAsync();
-                        }
-                        catch (Exception) { throw; };
-                    }
-                        
-                    return new { from, to, valid, option = "putOn" };
-                }
-                else if (from < 7)
-                {
-                    valid = DbContextHelper.CanMoveIt(from, to, backpack);
-                    if (valid)
-                    {
-                        characterItemsList = await DbContextHelper.UpdateBpSlotsId(from, to, backpack, _context, "takeOff");
-                        try
-                        {
-                            _context.Update(characterItemsList[0]);
-                            await _context.SaveChangesAsync();
-                        }
-                        catch (Exception) { throw; };
-                    }
-
-                    return new { from, to, valid, option = "takeOff" };
-                }
-                else
-                {
-                    valid = DbContextHelper.CanMoveIt(from, to, backpack);
-                    if (valid)
-                    {
-                        characterItemsList = await DbContextHelper.UpdateBpSlotsId(from, to, backpack, _context, "move");
-                        try
-                        {
-                            _context.Update(characterItemsList[0]);
-                            await _context.SaveChangesAsync();
-                        }
-                        catch (Exception) { throw; };
-                    }
-
-                    return new { from, to, valid, option = "move" };
-                }
+                if (to < 7 && from >= 7) updateOption = "putOn";
+                else if (from < 7) updateOption = "takeOff";
+                else updateOption = "move";
             }
             else
             {
-                if (from >= 7 && to < 7)
-                {
-                    valid = DbContextHelper.CanPutItOn(from, to, backpack);
-                    if (valid)
-                    {
-                        characterItemsList = await DbContextHelper.UpdateBpSlotsId(from, to, backpack, _context, "putOnAndChange");
-                        try
-                        {
-                            _context.Update(characterItemsList[0]);
-                            await _context.SaveChangesAsync();
-                            _context.Update(characterItemsList[1]);
-                            await _context.SaveChangesAsync();
-                        }
-                        catch (Exception) { throw; };
-                    }
-
-                    return new { from, to, valid, option = "putOnAndChange" }; 
-                }
-                else if (to >= 7 && from < 7)
-                {
-                    valid = DbContextHelper.CanPutItOn(from, to, backpack);
-                    if (valid)
-                    {
-                        characterItemsList = await DbContextHelper.UpdateBpSlotsId(from, to, backpack, _context, "takeOffAndChange");
-                        try
-                        {
-                            _context.Update(characterItemsList[0]);
-                            await _context.SaveChangesAsync();
-                            _context.Update(characterItemsList[1]);
-                            await _context.SaveChangesAsync();
-                        }
-                        catch (Exception) { throw; };
-                    }
-
-                    return new { from, to, valid, option = "takeOffAndChange" };
-                }
+                isOneItemChanged = false;
+                if (from >= 7 && to < 7) updateOption = "putOnAndChange";
+                else if (to >= 7 && from < 7) updateOption = "takeOffAndChange";
                 else if (from == to)
-                { 
-                    return new { from, to, valid = true, option = "nothing" };
+                {
+                    isOneItemChanged = true;
+                    updateOption = "nothing";
                 }
                 else if (from < 7 && to < 7)
                 {
-                    return new { from, to, valid = false, option = "not valid" };
+                    isOneItemChanged = true;
+                    updateOption = "not valid";
                 }
-                else
-                {
-                    valid = DbContextHelper.CanChangeIt(from, to, backpack);
-                    if (valid)
-                    {
-                        characterItemsList = await DbContextHelper.UpdateBpSlotsId(from, to, backpack, _context, "moveAndChange");
-                        try
-                        {
-                            _context.Update(characterItemsList[0]);
-                            await _context.SaveChangesAsync();
-                            _context.Update(characterItemsList[1]);
-                            await _context.SaveChangesAsync();
-                        }
-                        catch (Exception) { throw; };
-                    }
-
-                    return new { from, to, valid, option = "moveAndChange" };
-                }
+                else updateOption = "moveAndChange";
             }
+
+            if (updateOption.Equals("putOn") || updateOption.Equals("putOnAndChange") || updateOption.Equals("takeOffAndChange"))
+                valid = DbContextHelper.CanPutItOn(from, to, backpack);
+            else if (updateOption.Equals("takeOff") || updateOption.Equals("move"))
+                valid = DbContextHelper.CanMoveIt(from, to, backpack);
+            else if (updateOption.Equals("moveAndChange"))
+                valid = DbContextHelper.CanChangeIt(from, to, backpack);
+            else if (updateOption.Equals("nothing") || updateOption.Equals("not valid"))
+                valid = false;
+
+            if (valid)
+            {
+                characterItemsList = await DbContextHelper.UpdateBpSlotsId(from, to, backpack, _context, updateOption);
+                try
+                {
+                    if (isOneItemChanged) _context.Update(characterItemsList[0]);
+                    else
+                    {
+                        _context.Update(characterItemsList[0]);
+                        await _context.SaveChangesAsync();
+                        _context.Update(characterItemsList[1]);
+                    }
+                    await _context.SaveChangesAsync();
+                }
+                catch (Exception) { throw; };
+            }
+            
+            return new { from, to, valid, option = updateOption };
         }
 
         public async Task<IActionResult> ItemInfo(int cId, int bpSlotId)
