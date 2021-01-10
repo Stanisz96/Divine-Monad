@@ -34,8 +34,20 @@
                 else
                 {
                     <div id="@n" class="mt-1">
-                        <p>@Model.Player.Name <span></span> @Model.Result <span> the game.</span></p>
+                        <p>@Model.Player.Name <span></span> @Model.Result <span> the fight.</span></p>
                     </div>
+                    if (Model.Result == "win")
+                    {
+                        <div id="@(n+1)" class="mt-1">
+                            Reward: <br />
+                            Gold: @Model.Reward.Gold G <br />
+                            Exp.: @Model.Reward.Experience exp <br />
+                            @if (!(Model.Reward.ItemName is null))
+                            {
+                                <span>Item: @Model.Reward.ItemName *@Model.Reward.ItemRarity*</span>
+                            }
+                        </div>
+                    }
                 }
             </div>
         </div>

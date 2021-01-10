@@ -17,61 +17,61 @@
         "HP": 2724,
         "Crit": false,
         "Miss": false,
-        "Damage": 49
+        "Damage": 45
       },
       "Defender": {
         "Name": "Enchanted Tree",
-        "HP": 71,
+        "HP": 75,
         "Block": false,
-        "Receive": 49
+        "Receive": 45
       }
     },
     {
       "Number": 1,
       "Attacker": {
         "Name": "Enchanted Tree",
-        "HP": 71,
+        "HP": 75,
         "Crit": false,
-        "Miss": false,
-        "Damage": 9
+        "Miss": true,
+        "Damage": 10
       },
       "Defender": {
         "Name": "AdminCharacter",
-        "HP": 2716,
+        "HP": 2724,
         "Block": false,
-        "Receive": 8
+        "Receive": 0
       }
     },
     {
       "Number": 2,
       "Attacker": {
         "Name": "AdminCharacter",
-        "HP": 2716,
+        "HP": 2724,
         "Crit": false,
         "Miss": false,
-        "Damage": 42
+        "Damage": 49
       },
       "Defender": {
         "Name": "Enchanted Tree",
-        "HP": 29,
+        "HP": 26,
         "Block": false,
-        "Receive": 42
+        "Receive": 49
       }
     },
     {
       "Number": 2,
       "Attacker": {
         "Name": "AdminCharacter",
-        "HP": 2716,
+        "HP": 2724,
         "Crit": false,
         "Miss": false,
-        "Damage": 39
+        "Damage": 40
       },
       "Defender": {
         "Name": "Enchanted Tree",
-        "HP": -10,
+        "HP": -14,
         "Block": false,
-        "Receive": 39
+        "Receive": 40
       }
     }
   ],
@@ -79,8 +79,8 @@
   "Reward": {
     "Experience": 3,
     "Gold": 2,
-    "ItemID": 1,
-    "ItemName": "Peasant armor",
-    "ItemRarity": "normal"
+    "ItemID": 0,
+    "ItemName": null,
+    "ItemRarity": null
   }
 }
