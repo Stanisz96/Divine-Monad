@@ -118,7 +118,7 @@ namespace DivineMonad.Controllers
             var monsterItems = await _itemsRepo.GetItemsList(monsterItemsIds);
             
             FightGenerator fight = new FightGenerator(attacker, defender, monster, monsterItems, _rarityRepo);
-            RaportGenerator fightRaport = fight.GenerateFight();
+            RaportGenerator fightRaport = await fight.GenerateFight();
             fightRaport.QuickFight = qf;
 
             string fightRaportJson = JsonConvert.SerializeObject(fightRaport, Formatting.Indented);

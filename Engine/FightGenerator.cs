@@ -13,6 +13,7 @@ namespace DivineMonad.Engine
         private AdvanceStats Attacker { get; set; }
         private AdvanceStats Defender { get; set; }
         public RaportGenerator Raport { get; set; }
+        public IEnumerable<Rarity> Rarities { get; set; }
         public Monster Monster { get; set; }
         public IEnumerable<Item> Items { get; set; }
         public Item ItemLooted { get; set; }
@@ -60,8 +61,10 @@ namespace DivineMonad.Engine
             _opponentStats = opponentStats;
         }
 
-        public RaportGenerator GenerateFight()
+        public async Task<RaportGenerator> GenerateFight()
         {
+            Rarities = await _rarityRepo.GetRaritiesList();
+
             IsExtraAttackDone = false;
             DoExtraAttack = false;
             IsFightOver = false;
@@ -241,41 +244,24 @@ namespace DivineMonad.Engine
         private void SetRewards()
         {
             int index = 0;
+            var gachiaDraw = rand.NextDouble() * 1000;
+
             if (!_opponentStats.IsPlayer)
             {
                 if (Raport.Result == "win")
                 {
                     Raport.Reward.Experience = Monster.Experience;
                     Raport.Reward.Gold = Monster.Gold;
+                    Raport.Reward.ItemID = -1;
 
-                    if (rand.NextDouble() * 1000 > _rarityRepo.GetRarity("legendary").Chance)
+                    foreach (var rarity in Rarities.OrderBy(r => r.Chance))
                     {
-                        if (rand.NextDouble() * 1000 > _rarityRepo.GetRarity("heroic").Chance)
+                        if (gachiaDraw <= rarity.Chance)
                         {
-                            if (rand.NextDouble() * 1000 > _rarityRepo.GetRarity("unique").Chance)
-                            {
-                                if (rand.NextDouble() * 1000 <= _rarityRepo.GetRarity("normal").Chance)
-                                {
-                                    index = rand.Next(0, Items.Where(i => i.Rarity.Name == "normal").Count());
-                                    ItemLooted = Items.Where(i => i.Rarity.Name == "normal").ElementAt(index);
-                                }
-                            }
-                            else
-                            {
-                                index = rand.Next(0, Items.Where(i => i.Rarity.Name == "unique").Count());
-                                ItemLooted = Items.Where(i => i.Rarity.Name == "unique").ElementAt(index);
-                            }
+                            index = rand.Next(0, Items.Where(i => i.Rarity.Name == rarity.Name).Count());
+                            ItemLooted = Items.Where(i => i.Rarity.Name == rarity.Name).ElementAt(index);
+                            break;
                         }
-                        else
-                        {
-                            index = rand.Next(0, Items.Where(i => i.Rarity.Name == "heroic").Count());
-                            ItemLooted = Items.Where(i => i.Rarity.Name == "heroic").ElementAt(index);
-                        }
-                    }
-                    else
-                    {
-                        index = rand.Next(0, Items.Where(i => i.Rarity.Name == "legendary").Count());
-                        ItemLooted = Items.Where(i => i.Rarity.Name == "legendary").ElementAt(index);
                     }
 
                     if (!(ItemLooted is null))

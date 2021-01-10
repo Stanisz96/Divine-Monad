@@ -9,11 +9,12 @@ namespace DivineMonad.Engine
 {
     public interface IFightGenerator
     {
-        public RaportGenerator GenerateFight();
+        public Task<RaportGenerator> GenerateFight();
 
         public RaportGenerator Raport { get; set; }
         public Monster Monster { get; set; }
         public IEnumerable<Item> Items { get; set; }
+        public IEnumerable<Rarity> Rarities { get; set; }
         public Item ItemLooted { get; set; }
         public int AttackerId { get; set; }
         public int DefenderId { get; set; }
