@@ -17,12 +17,12 @@
         {
             <div class="card col-4">
                 <img src="@Url.Content(monster.ImageUrl)" class="card-img-top" alt="@monster.Name">
-                <div class="card-body">
+                <div class="card-body small-border">
                     <p class="card-title">@monster.Name</p>
                     <p class="card-text">
                         @Html.DisplayNameFor(m => m.Level): @Html.DisplayFor(m => monster.Level)
                     </p>
-                    <button id="@monster.ID-monster" type="button" class="btn btn-primary">Attack</button>
+                    <button id="@monster.ID-monster" type="button" class="btn btn-primary mb-3">Attack</button>
                 </div>
             </div>
         }

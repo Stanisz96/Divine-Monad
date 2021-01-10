@@ -4,10 +4,10 @@
     "Name": "AdminCharacter"
   },
   "Opponent": {
-    "ID": 2007,
-    "Name": "Ogre"
+    "ID": 3,
+    "Name": "Enchanted Tree"
   },
-  "Result": "lose",
+  "Result": "win",
   "IsPvp": false,
   "Rounds": [
     {
@@ -15,248 +15,24 @@
       "Attacker": {
         "Name": "AdminCharacter",
         "HP": 1015,
-        "Crit": false,
-        "Miss": false,
-        "Damage": 91
-      },
-      "Defender": {
-        "Name": "Ogre",
-        "HP": 3109,
-        "Block": false,
-        "Receive": 91
-      }
-    },
-    {
-      "Number": 1,
-      "Attacker": {
-        "Name": "Ogre",
-        "HP": 3109,
-        "Crit": false,
-        "Miss": false,
-        "Damage": 213
-      },
-      "Defender": {
-        "Name": "AdminCharacter",
-        "HP": 810,
-        "Block": false,
-        "Receive": 205
-      }
-    },
-    {
-      "Number": 2,
-      "Attacker": {
-        "Name": "AdminCharacter",
-        "HP": 810,
-        "Crit": false,
-        "Miss": false,
-        "Damage": 83
-      },
-      "Defender": {
-        "Name": "Ogre",
-        "HP": 3026,
-        "Block": false,
-        "Receive": 83
-      }
-    },
-    {
-      "Number": 2,
-      "Attacker": {
-        "Name": "AdminCharacter",
-        "HP": 810,
-        "Crit": false,
-        "Miss": false,
-        "Damage": 94
-      },
-      "Defender": {
-        "Name": "Ogre",
-        "HP": 2932,
-        "Block": false,
-        "Receive": 94
-      }
-    },
-    {
-      "Number": 3,
-      "Attacker": {
-        "Name": "Ogre",
-        "HP": 2932,
-        "Crit": false,
-        "Miss": false,
-        "Damage": 234
-      },
-      "Defender": {
-        "Name": "AdminCharacter",
-        "HP": 584,
-        "Block": false,
-        "Receive": 226
-      }
-    },
-    {
-      "Number": 3,
-      "Attacker": {
-        "Name": "AdminCharacter",
-        "HP": 584,
         "Crit": true,
         "Miss": false,
-        "Damage": 132
+        "Damage": 151
       },
       "Defender": {
-        "Name": "Ogre",
-        "HP": 2800,
+        "Name": "Enchanted Tree",
+        "HP": -31,
         "Block": false,
-        "Receive": 132
-      }
-    },
-    {
-      "Number": 4,
-      "Attacker": {
-        "Name": "Ogre",
-        "HP": 2800,
-        "Crit": false,
-        "Miss": false,
-        "Damage": 223
-      },
-      "Defender": {
-        "Name": "AdminCharacter",
-        "HP": 369,
-        "Block": false,
-        "Receive": 215
-      }
-    },
-    {
-      "Number": 4,
-      "Attacker": {
-        "Name": "AdminCharacter",
-        "HP": 369,
-        "Crit": false,
-        "Miss": false,
-        "Damage": 97
-      },
-      "Defender": {
-        "Name": "Ogre",
-        "HP": 2703,
-        "Block": false,
-        "Receive": 97
-      }
-    },
-    {
-      "Number": 5,
-      "Attacker": {
-        "Name": "AdminCharacter",
-        "HP": 369,
-        "Crit": false,
-        "Miss": false,
-        "Damage": 103
-      },
-      "Defender": {
-        "Name": "Ogre",
-        "HP": 2600,
-        "Block": false,
-        "Receive": 103
-      }
-    },
-    {
-      "Number": 5,
-      "Attacker": {
-        "Name": "Ogre",
-        "HP": 2600,
-        "Crit": false,
-        "Miss": true,
-        "Damage": 214
-      },
-      "Defender": {
-        "Name": "AdminCharacter",
-        "HP": 369,
-        "Block": false,
-        "Receive": 0
-      }
-    },
-    {
-      "Number": 6,
-      "Attacker": {
-        "Name": "AdminCharacter",
-        "HP": 369,
-        "Crit": false,
-        "Miss": false,
-        "Damage": 80
-      },
-      "Defender": {
-        "Name": "Ogre",
-        "HP": 2520,
-        "Block": false,
-        "Receive": 80
-      }
-    },
-    {
-      "Number": 6,
-      "Attacker": {
-        "Name": "AdminCharacter",
-        "HP": 369,
-        "Crit": false,
-        "Miss": false,
-        "Damage": 89
-      },
-      "Defender": {
-        "Name": "Ogre",
-        "HP": 2431,
-        "Block": false,
-        "Receive": 89
-      }
-    },
-    {
-      "Number": 7,
-      "Attacker": {
-        "Name": "Ogre",
-        "HP": 2431,
-        "Crit": false,
-        "Miss": false,
-        "Damage": 221
-      },
-      "Defender": {
-        "Name": "AdminCharacter",
-        "HP": 156,
-        "Block": false,
-        "Receive": 213
-      }
-    },
-    {
-      "Number": 7,
-      "Attacker": {
-        "Name": "AdminCharacter",
-        "HP": 156,
-        "Crit": false,
-        "Miss": false,
-        "Damage": 99
-      },
-      "Defender": {
-        "Name": "Ogre",
-        "HP": 2332,
-        "Block": false,
-        "Receive": 99
-      }
-    },
-    {
-      "Number": 8,
-      "Attacker": {
-        "Name": "Ogre",
-        "HP": 2332,
-        "Crit": false,
-        "Miss": false,
-        "Damage": 212
-      },
-      "Defender": {
-        "Name": "AdminCharacter",
-        "HP": -49,
-        "Block": false,
-        "Receive": 205
+        "Receive": 151
       }
     }
   ],
   "QuickFight": true,
   "Reward": {
-    "Experience": 0,
-    "Gold": 0,
-    "ItemID": 0,
-    "ItemName": null,
-    "ItemRarity": null
+    "Experience": 3,
+    "Gold": 2,
+    "ItemID": 1,
+    "ItemName": "Peasant armor",
+    "ItemRarity": "normal"
   }
 }

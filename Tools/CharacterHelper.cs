@@ -16,7 +16,7 @@ namespace DivineMonad.Tools
 
         public int GetFirstEmptySlot(Character character, IEnumerable<CharacterItems> characterItems)
         {
-            for (int n = 7; n <= character.CBStats.BpSlots + 7; n++)
+            for (int n = 7; n < character.CBStats.BpSlots + 7; n++)
             {
                 if(characterItems.FirstOrDefault(i => i.BpSlotId == n) is null)
                 {

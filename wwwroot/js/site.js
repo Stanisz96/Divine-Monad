@@ -41,13 +41,9 @@ function getCookie(name) {
 
 
 function updateImageBorders(component) {
-    $(".big-background .middle-left").height($(".game-plane").height());
-    $(".big-background .middle-right").height($(".game-plane").height());
-    $(".big-background .bottom-left").css({ "margin-top": $(".game-plane").height() - 32 })
-    $(".big-background .bottom-middle").css({ "margin-top": $(".game-plane").height() })
-    $(".big-background .bottom-right").css({ "margin-top": $(".game-plane").height() - 32 })
+    $(".big-background .bottom-left").css({ "margin-top": $(".game-plane").height() - 40 })
+    $(".big-background .bottom-right").css({ "margin-top": $(".game-plane").height() - 40 })
     $(".big-background .bottom-left").css({ "visibility": "visible" })
-    $(".big-background .bottom-middle").css({ "visibility": "visible" })
     $(".big-background .bottom-right").css({ "visibility": "visible" })
     document.cookie = component + "=true";
 };
