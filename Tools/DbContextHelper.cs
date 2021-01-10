@@ -219,6 +219,10 @@ namespace DivineMonad.Tools
             int surplusExp = 0;
             if (raport.Result.Equals("win"))
             {
+                character.GStats.CollectedGold += raport.Reward.Gold;
+                character.GStats.WinFights += 1;
+                if (!raport.IsPvp) character.GStats.MonsterKills += 1;
+
                 character.CBStats.Experience += raport.Reward.Experience;
                 character.CBStats.Gold += raport.Reward.Gold;
                 surplusExp = character.CBStats.Experience - characterHelper.RequiredExperience(character.CBStats.Level);
@@ -229,10 +233,10 @@ namespace DivineMonad.Tools
                     character.CBStats.Experience = surplusExp;
                     if (character.CBStats.Level % 10 == 0) character.CBStats.BpSlots += 6;
                 }
-                if(raport.Reward.ItemID != -1)
+                if (raport.Reward.ItemID != -1)
                 {
                     var newItemSlotId = characterHelper.GetFirstEmptySlot(character, characterItems);
-                    if(newItemSlotId != -1)
+                    if (newItemSlotId != -1)
                     {
                         item = new CharacterItems
                         {
@@ -242,8 +246,15 @@ namespace DivineMonad.Tools
                             ItemId = raport.Reward.ItemID
                         };
                     }
+
+                    if (raport.Reward.ItemRarity.Equals("normal")) character.GStats.LootedNormal += 1;
+                    else if (raport.Reward.ItemRarity.Equals("unique")) character.GStats.LootedUnique += 1;
+                    else if (raport.Reward.ItemRarity.Equals("heroic")) character.GStats.LootedHeroic += 1;
+                    else if (raport.Reward.ItemRarity.Equals("legendary")) character.GStats.LootedLegendary += 1;
                 }
             }
+            else if (raport.Result.Equals("draw")) character.GStats.DrawFights += 1;
+            else if (raport.Result.Equals("lose")) character.GStats.LostFights += 1;
 
             return (character, item);
         }
