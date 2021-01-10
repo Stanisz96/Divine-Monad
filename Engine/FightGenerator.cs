@@ -243,7 +243,7 @@ namespace DivineMonad.Engine
 
         private void SetRewards()
         {
-            int index = 0;
+            int index = 0, count = 0;
             var gachiaDraw = rand.NextDouble() * 1000;
 
             if (!_opponentStats.IsPlayer)
@@ -258,8 +258,12 @@ namespace DivineMonad.Engine
                     {
                         if (gachiaDraw <= rarity.Chance)
                         {
-                            index = rand.Next(0, Items.Where(i => i.Rarity.Name == rarity.Name).Count());
-                            ItemLooted = Items.Where(i => i.Rarity.Name == rarity.Name).ElementAt(index);
+                            count = Items.Where(i => i.Rarity.Name == rarity.Name).Count();
+                            if (count > 0)
+                            {
+                                index = rand.Next(0, count);
+                                ItemLooted = Items.Where(i => i.Rarity.Name == rarity.Name).ElementAt(index);
+                            }
                             break;
                         }
                     }
