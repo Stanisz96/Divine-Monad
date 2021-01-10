@@ -12,7 +12,7 @@ namespace DivineMonad.Tools
 {
     public class DbContextHelper
     {
-        public static async Task<Character> GetCharacter(int cId, ClaimsPrincipal user, ApplicationDbContext context)
+        public async Task<Character> GetCharacter(int cId, ClaimsPrincipal user, ApplicationDbContext context)
         {
             string userId = user.FindFirstValue(ClaimTypes.NameIdentifier);
             try
@@ -30,7 +30,7 @@ namespace DivineMonad.Tools
             }
         }
 
-        public static async Task<Monster> GetMonster(int mId, ApplicationDbContext context)
+        public async Task<Monster> GetMonster(int mId, ApplicationDbContext context)
         {
             try
             {
@@ -45,7 +45,7 @@ namespace DivineMonad.Tools
             }
         }
 
-        public static bool CanPutItOn(int from, int to, Backpack backpack)
+        public bool CanPutItOn(int from, int to, Backpack backpack)
         {
             try
             {
@@ -77,7 +77,7 @@ namespace DivineMonad.Tools
             }
         }
 
-        public static bool CanMoveIt(int from, int to, Backpack backpack)
+        public bool CanMoveIt(int from, int to, Backpack backpack)
         {
             try
             {
@@ -96,7 +96,7 @@ namespace DivineMonad.Tools
             }
         }
 
-        public static bool CanChangeIt(int from, int to, Backpack backpack)
+        public bool CanChangeIt(int from, int to, Backpack backpack)
         {
             try
             {
@@ -116,7 +116,7 @@ namespace DivineMonad.Tools
         }
 
 
-        public static async Task<List<CharacterItems>> UpdateBpSlotsId(int from, int to, Backpack backpack, ApplicationDbContext context, string option)
+        public async Task<List<CharacterItems>> UpdateBpSlotsId(int from, int to, Backpack backpack, ApplicationDbContext context, string option)
         {
             CharacterItems cItemFrom = null;
             CharacterItems cItemTo = null;
@@ -209,6 +209,8 @@ namespace DivineMonad.Tools
             return returnCItems;
 
         }
+
+
 
         enum CategoryName
         {
