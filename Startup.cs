@@ -31,7 +31,7 @@ namespace DivineMonad
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<ApplicationDbContext>(options =>
-                    options.UseSqlServer(Configuration.GetConnectionString("ExternalConnection")));
+                    options.UseSqlServer(Configuration.GetConnectionString("LocalConnection")));
             services.AddIdentity<IdentityUser, IdentityRole>(options =>
                     {
                         options.SignIn.RequireConfirmedAccount = true;
