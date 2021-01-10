@@ -13,6 +13,7 @@ namespace DivineMonad.Tools
 {
     public class DbContextHelper : IDbContextHelper
     {
+
         public async Task<Character> GetCharacter(int cId, ClaimsPrincipal user, ApplicationDbContext context)
         {
             string userId = user.FindFirstValue(ClaimTypes.NameIdentifier);
@@ -211,9 +212,32 @@ namespace DivineMonad.Tools
 
         }
 
-        public async void AssignRewards(RaportGenerator raport, Character character, ApplicationDbContext context)
+        public (Character, CharacterItems) AssignRewards(RaportGenerator raport, Character character,
+            ApplicationDbContext context, ICharacterHelper characterHelper, IEnumerable<CharacterItems> characterItems)
         {
+            CharacterItems item = null;
 
+            if (raport.Result.Equals("win"))
+            {
+                character.CBStats.Experience += raport.Reward.Experience;
+                character.CBStats.Gold += raport.Reward.Gold;
+                if(raport.Reward.ItemID != -1)
+                {
+                    var newItemSlotId = characterHelper.GetFirstEmptySlot(character, characterItems);
+                    if(newItemSlotId != -1)
+                    {
+                        item = new CharacterItems
+                        {
+                            BpSlotId = newItemSlotId,
+                            CharacterId = character.ID,
+                            IsEquipped = false,
+                            ItemId = raport.Reward.ItemID
+                        };
+                    }
+                }
+            }
+
+            return (character, item);
         }
 
         enum CategoryName

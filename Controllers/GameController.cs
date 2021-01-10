@@ -97,8 +97,8 @@ namespace DivineMonad.Controllers
         {
             Character character = await _contextHelper.GetCharacter(cId, User, _context);
 
-            var characterItems =  await _characterItemsRepo.GetCharactersItemsList(cId, true);
-            List<int> isIds = characterItems.Select(i => i.ItemId).ToList();
+            var characterItemsEquipped =  await _characterItemsRepo.GetCharactersItemsList(cId, true);
+            List<int> isIds = characterItemsEquipped.Select(i => i.ItemId).ToList();
 
             IEnumerable<ItemStats> itemStatsList = await _itemsStatsRepo.GetListStatsByIds(isIds);
 
@@ -125,6 +125,25 @@ namespace DivineMonad.Controllers
             RaportGenerator fightRaport = await fight.GenerateFight();
             fightRaport.QuickFight = qf;
 
+            IEnumerable<CharacterItems> characterItems = await _context.CharactersItems.Where(i => i.CharacterId == character.ID).ToListAsync();
+
+            CharacterItems newItem = null;
+            (character, newItem) = _contextHelper.AssignRewards(fightRaport, character, _context, _characterHelper, characterItems);
+            try
+            {
+                if (!(newItem is null))
+                {
+                    _context.Add(newItem);
+                    await _context.SaveChangesAsync();
+                }
+                _context.Update(character);
+                await _context.SaveChangesAsync();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
             string fightRaportJson = JsonConvert.SerializeObject(fightRaport, Formatting.Indented);
 
             System.IO.File.WriteAllText(@"wwwroot/raports/testRaport.json", fightRaportJson);

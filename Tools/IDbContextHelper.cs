@@ -17,7 +17,7 @@ namespace DivineMonad.Tools
         public bool CanMoveIt(int from, int to, Backpack backpack);
         public bool CanChangeIt(int from, int to, Backpack backpack);
         public Task<List<CharacterItems>> UpdateBpSlotsId(int from, int to, Backpack backpack, ApplicationDbContext context, string option);
-        public void AssignRewards(RaportGenerator raport, Character character, ApplicationDbContext context);
+        public (Character, CharacterItems) AssignRewards(RaportGenerator raport, Character character, ApplicationDbContext context, ICharacterHelper characterHelper, IEnumerable<CharacterItems> characterItems);
         enum CategoryName { };
 
     }

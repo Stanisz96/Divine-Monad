@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DivineMonad.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -11,6 +12,18 @@ namespace DivineMonad.Tools
         {
             double exp = Math.Pow(10 * level, 1.7) / 4 + 10;
             return (int)exp;
+        }
+
+        public int GetFirstEmptySlot(Character character, IEnumerable<CharacterItems> characterItems)
+        {
+            for (int n = 7; n <= character.CBStats.BpSlots + 7; n++)
+            {
+                if(characterItems.FirstOrDefault(i => i.BpSlotId == n) is null)
+                {
+                    return n;
+                }
+            }
+            return -1;
         }
     }
 }
