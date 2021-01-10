@@ -4,8 +4,8 @@
     "Name": "AdminCharacter"
   },
   "Opponent": {
-    "ID": 4,
-    "Name": "Goblin"
+    "ID": 2003,
+    "Name": "Werewolf"
   },
   "Result": "win",
   "IsPvp": false,
@@ -17,20 +17,20 @@
         "HP": 3346,
         "Crit": false,
         "Miss": false,
-        "Damage": 81
+        "Damage": 80
       },
       "Defender": {
-        "Name": "Goblin",
-        "HP": -69,
+        "Name": "Werewolf",
+        "HP": -70,
         "Block": false,
-        "Receive": 81
+        "Receive": 80
       }
     }
   ],
-  "QuickFight": false,
+  "QuickFight": true,
   "Reward": {
-    "Experience": 2,
-    "Gold": 2,
+    "Experience": 5,
+    "Gold": 5,
     "ItemID": -1,
     "ItemName": null,
     "ItemRarity": null

@@ -216,11 +216,17 @@ namespace DivineMonad.Tools
             ApplicationDbContext context, ICharacterHelper characterHelper, IEnumerable<CharacterItems> characterItems)
         {
             CharacterItems item = null;
-
+            int surplusExp = 0;
             if (raport.Result.Equals("win"))
             {
                 character.CBStats.Experience += raport.Reward.Experience;
                 character.CBStats.Gold += raport.Reward.Gold;
+                surplusExp = character.CBStats.Experience - characterHelper.RequiredExperience(character.CBStats.Level);
+                if (surplusExp >= 0)
+                {
+                    character.CBStats.Level += 1;
+                    character.CBStats.Experience = surplusExp;
+                }
                 if(raport.Reward.ItemID != -1)
                 {
                     var newItemSlotId = characterHelper.GetFirstEmptySlot(character, characterItems);
