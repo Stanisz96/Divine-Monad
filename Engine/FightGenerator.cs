@@ -256,7 +256,7 @@ namespace DivineMonad.Engine
 
                     foreach (var rarity in Rarities.OrderBy(r => r.Chance))
                     {
-                        if (gachiaDraw <= rarity.Chance)
+                        if (gachiaDraw <= rarity.Chance * (1 + _playerStats.ExtraDropPr))
                         {
                             count = Items.Where(i => i.Rarity.Name == rarity.Name).Count();
                             if (count > 0)
