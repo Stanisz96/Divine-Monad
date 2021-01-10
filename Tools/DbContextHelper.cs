@@ -225,7 +225,9 @@ namespace DivineMonad.Tools
                 if (surplusExp >= 0)
                 {
                     character.CBStats.Level += 1;
+                    character.CBStats.StatsPoints += 10;
                     character.CBStats.Experience = surplusExp;
+                    if (character.CBStats.Level % 10 == 0) character.CBStats.BpSlots += 6;
                 }
                 if(raport.Reward.ItemID != -1)
                 {
