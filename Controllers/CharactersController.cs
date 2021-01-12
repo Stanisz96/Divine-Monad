@@ -1,4 +1,6 @@
 ﻿using DivineMonad.Data;
+using DivineMonad.Models;
+using DivineMonad.Tools;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -16,10 +18,12 @@ namespace DivineMonad.Controllers
     {
 
         private readonly ApplicationDbContext _context;
+        private readonly IDbContextHelper _contextHelper;
 
-        public CharactersController(ApplicationDbContext context)
+        public CharactersController(ApplicationDbContext context, IDbContextHelper contextHelper)
         {
             _context = context;
+            _contextHelper = contextHelper;
         }
 
         
@@ -38,8 +42,53 @@ namespace DivineMonad.Controllers
 
         public IActionResult Create()
         {
+            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            if(!(userId is null))
+            {
+                Character newCharacter = new Character { UserId = userId };
+                return View(newCharacter);
+            }
+            else return RedirectToAction("Index", "Characters");
+        }
 
-            return View();
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Create([Bind("ID,Name,UserId")] Character character)
+        {
+            if (ModelState.IsValid)
+            {
+                character.CBStats = new CharacterBaseStats("new");
+                character.GStats = new GameStats("new");
+
+                _context.Add(character);
+
+                await _context.SaveChangesAsync();
+                return RedirectToAction(nameof(Index));
+            }
+            return View(character);
+        }
+
+
+        [AcceptVerbs("GET", "POST")]
+        public IActionResult IsNameUnique(string name, int id)
+        {
+            var isEditMode = Request.Headers["Referer"].ToString().Contains("Characters/Edit");
+
+            if (isEditMode)
+            {
+                if (_context.Characters.FirstOrDefault(c => c.ID == id).Name.Equals(name))
+                    return Json(true);
+                if (_context.Characters.Any(c => c.Name == name))
+                    return Json($"Character name already exists.");
+            }
+            else
+            {
+                if (_context.Characters.Any(c => c.Name == name))
+                    return Json($"Character name already exists.");
+            }
+
+            return Json(true);
         }
     }
 }
