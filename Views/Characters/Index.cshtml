@@ -24,10 +24,13 @@
                         </div>
                         <div class="col-4 character-btns justify-content-center align-items-center">
                             <form asp-controller="Game" asp-action="Index">
-                                <input type="hidden" asp-for="@item.ID" name="cId"  />
+                                <input type="hidden" asp-for="@item.ID" name="cId" />
                                 <input type="submit" value="Play" class="btn-std" />
                             </form>
-                            <input type="button" value="Manage" class="btn-std"/>
+                            <form asp-controller="Manage" asp-action="Index">
+                                <input type="hidden" asp-for="@item.ID" name="cId" />
+                                <input type="submit" value="Manage" class="btn-std" />
+                            </form>
                         </div>
                     </div>
                 </li>

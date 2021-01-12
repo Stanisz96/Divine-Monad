@@ -73,9 +73,10 @@ namespace DivineMonad.Controllers
         [AcceptVerbs("GET", "POST")]
         public IActionResult IsNameUnique(string name, int id)
         {
-            var isEditMode = Request.Headers["Referer"].ToString().Contains("Characters/Edit");
+            bool isEditMode = Request.Headers["Referer"].ToString().Contains("Characters/Edit");
+            bool isManageMode = Request.Headers["Referer"].ToString().Contains("Characters/Manage");
 
-            if (isEditMode)
+            if (isEditMode || isManageMode)
             {
                 if (_context.Characters.FirstOrDefault(c => c.ID == id).Name.Equals(name))
                     return Json(true);
