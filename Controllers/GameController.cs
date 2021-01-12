@@ -63,7 +63,7 @@ namespace DivineMonad.Controllers
                 var characterItems = _characterItemsRepo.GetCharactersItemsList(cId, true);
                 List<int> isIds = characterItems.Result.Select(i => i.ItemId).ToList();
 
-                CharacterBaseStats baseStats = _baseStatsRepo.GetStatsById(1).Result;
+                CharacterBaseStats baseStats = _baseStatsRepo.GetStatsById(cId).Result;
                 IEnumerable<ItemStats> itemStatsList = _itemsStatsRepo.GetListStatsByIds(isIds).Result;
 
                 var characterAdvanceStats = new AdvanceStats();
