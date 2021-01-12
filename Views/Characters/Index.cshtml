@@ -4,7 +4,7 @@
     ViewData["Title"] = "Characters";
 }
 
-<div class="row justify-content-md-center">
+<div class="row justify-content-center">
     <div class="col-8">
         <ul class="list-group">
             <li class="list-group-item active ">
@@ -12,17 +12,17 @@
             </li>
             @foreach (Character item in Model)
             {
-                <li class="list-group-item">
+                <li class="list-group-item character-list medium-border">
                     <div class="row">
                         <div class="col-3" style="min-width: 60px;">
                             <img src="@Url.Content("~/images/avatars/sir_deevis2.jpg")"
                                  class="character-avatar" alt="avatar">
                         </div>
-                        <div class="col-5 character-info">
+                        <div class="col-5 character-info p-3">
                             <p>Name: @item.Name</p>
                             <p>Level: @item.CBStats.Level</p>
                         </div>
-                        <div class="col-4 character-btns">
+                        <div class="col-4 character-btns justify-content-center align-items-center">
                             <form asp-controller="Game" asp-action="Index">
                                 <input type="hidden" asp-for="@item.ID" name="cId"  />
                                 <input type="submit" value="Play" class="btn-std" />
@@ -32,12 +32,12 @@
                     </div>
                 </li>
             }
-            <li class="list-group-item">
+            <li class="list-group-item new-character-list medium-border">
                 <div class="row">
-                    <div class="col-8 character-info">
+                    <div class="col-8 character-info p-3">
                         <p>Create new character</p>
                     </div>
-                    <div class="col-4 character-btns">
+                    <div class="col-4 character-btns justify-content-center align-items-center"">
                         <input type="button" value="Create" class="btn-std" onclick="location.href='@Url.Action("Create", "Characters")'" />
                     </div>
                 </div>

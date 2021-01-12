@@ -303,11 +303,21 @@ body {
     min-height: 60px;
 }
 .character-info p {
-    margin-bottom: 0;
-    margin-left: 0.5rem;
-    margin-top: 0.5rem;
+    margin: 5px;
     white-space: nowrap
 }
+
+.character-list {
+    border-image-width: 6px 6px 0 6px !important;
+    background-color: rgba(170, 220, 207, 0.7);
+    padding: 20px !important;
+}
+
+.new-character-list {
+    background-color: rgba(207, 238, 229, 0.50);
+    padding: 20px !important;
+}
+
 .character-btns {
     max-height: 100px;
     min-width: 95px;
