@@ -67,6 +67,7 @@ body {
     background-position: top left;
     /*background-color: #f2fcfa;*/
 }
+
 .footer {
     position: absolute;
     bottom: 0;
@@ -369,6 +370,22 @@ body {
     border-image-outset: 0px;
     border-image-repeat: stretch stretch;
     border-image-source: url(../images/gui/border.png);
+}
+
+.btn-std {
+    background: url('../images/gui/btn_std_all.png') no-repeat -10px -4px;
+    border: none;
+    width: 101px;
+    height: 32px;
+}
+
+.btn-std:active {
+    background-position: -10px -43px;
+}
+
+.btn-std:focus {
+    outline: none;
+    box-shadow: none;
 }
 
 .game-page {

@@ -17,22 +17,22 @@
         "HP": 1015,
         "Crit": true,
         "Miss": false,
-        "Damage": 151
+        "Damage": 130
       },
       "Defender": {
         "Name": "Enchanted Tree",
-        "HP": -31,
+        "HP": -10,
         "Block": false,
-        "Receive": 151
+        "Receive": 130
       }
     }
   ],
-  "QuickFight": true,
+  "QuickFight": false,
   "Reward": {
     "Experience": 3,
     "Gold": 2,
-    "ItemID": 1,
-    "ItemName": "Peasant armor",
-    "ItemRarity": "normal"
+    "ItemID": -1,
+    "ItemName": null,
+    "ItemRarity": null
   }
 }

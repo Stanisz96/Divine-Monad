@@ -25,9 +25,9 @@
                         <div class="col-4 character-btns">
                             <form asp-controller="Game" asp-action="Index">
                                 <input type="hidden" asp-for="@item.ID" name="cId"  />
-                                <input type="submit" value="Play" class="btn btn-primary" />
+                                <input type="submit" value="Play" class="btn-std" />
                             </form>
-                            <input type="button" value="Manage" class="btn btn-primary"/>
+                            <input type="button" value="Manage" class="btn-std"/>
                         </div>
                     </div>
                 </li>
@@ -35,10 +35,10 @@
             <li class="list-group-item">
                 <div class="row">
                     <div class="col-8 character-info">
-                        <p>Create new character...</p>
+                        <p>Create new character</p>
                     </div>
                     <div class="col-4 character-btns">
-                        <input type="button" value="Manage" class="btn btn-primary" onclick="location.href='@Url.Action("Create", "Characters")'" />
+                        <input type="button" value="Create" class="btn-std" onclick="location.href='@Url.Action("Create", "Characters")'" />
                     </div>
                 </div>
             </li>
