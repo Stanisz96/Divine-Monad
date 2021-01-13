@@ -40,7 +40,7 @@ namespace DivineMonad.Controllers
             _characterHelper = characterHelper;
         }
 
-
+        
         public async Task<IActionResult> Index([FromForm, Bind("cId")] int cId)
         {
             Character character = await _contextHelper.GetCharacter(cId, User, _context);

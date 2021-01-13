@@ -12,7 +12,6 @@ using System.Threading.Tasks;
 namespace DivineMonad.Controllers
 {
     [Authorize(Policy = "user")]
-    [Route("Characters/Manage/")]
     public class ManageController : Controller
     {
         private readonly ApplicationDbContext _context;
@@ -24,7 +23,7 @@ namespace DivineMonad.Controllers
             _contextHelper = contextHelper;
         }
 
-        public async Task<IActionResult> Index([FromForm, Bind("cId")] int cId)
+        public async Task<IActionResult> Index(int cId)
         {
             Character character = await _contextHelper.GetCharacter(cId, User, _context);
 
@@ -33,6 +32,44 @@ namespace DivineMonad.Controllers
                 return View(character);
             }
             else return RedirectToAction("Index", "Characters");
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Edit([Bind("ID,Name,UserId")] Character character)
+        {
+            var updateCharacter = await _contextHelper.GetCharacter(character.ID, User, _context);
+            if (ModelState.IsValid)
+            {
+                if (!(updateCharacter is null))
+                {
+                    updateCharacter.Name = character.Name;
+
+                    _context.Update(updateCharacter);
+
+                    await _context.SaveChangesAsync();
+                    return RedirectToAction(nameof(Index));
+                }
+
+            }
+             return RedirectToAction(nameof(Index));
+        }
+
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Delete([FromForm, Bind("ID")] int ID)
+        {
+            var character = await _contextHelper.GetCharacter(ID, User, _context);
+            if(!(character is null))
+            {
+                _context.Characters.Remove(character);
+                _context.CharactersBaseStats.Remove(character.CBStats);
+                _context.CharactersGameStats.Remove(character.GStats);
+                await _context.SaveChangesAsync();
+                return RedirectToAction("Index", "Characters");
+            }
+            return RedirectToAction(nameof(Index));
         }
     }
 }

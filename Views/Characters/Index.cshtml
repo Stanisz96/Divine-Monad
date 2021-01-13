@@ -27,7 +27,7 @@
                                 <input type="hidden" asp-for="@item.ID" name="cId" />
                                 <input type="submit" value="Play" class="btn-std" />
                             </form>
-                            <form asp-controller="Manage" asp-action="Index">
+                            <form asp-controller="Manage" asp-action="Index" method="get">
                                 <input type="hidden" asp-for="@item.ID" name="cId" />
                                 <input type="submit" value="Manage" class="btn-std" />
                             </form>

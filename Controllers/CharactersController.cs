@@ -74,7 +74,7 @@ namespace DivineMonad.Controllers
         public IActionResult IsNameUnique(string name, int id)
         {
             bool isEditMode = Request.Headers["Referer"].ToString().Contains("Characters/Edit");
-            bool isManageMode = Request.Headers["Referer"].ToString().Contains("Characters/Manage");
+            bool isManageMode = Request.Headers["Referer"].ToString().Contains("Manage");
 
             if (isEditMode || isManageMode)
             {
