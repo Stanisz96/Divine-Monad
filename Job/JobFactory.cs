@@ -5,17 +5,17 @@ using Quartz.Spi;
 
 namespace DivineMonad.Job
 {
-    public class SingletonJobFactory : IJobFactory
+    public class JobFactory : IJobFactory
     {
         private readonly IServiceProvider _serviceProvider;
-        public SingletonJobFactory(IServiceProvider serviceProvider)
+        public JobFactory(IServiceProvider serviceProvider)
         {
             _serviceProvider = serviceProvider;
         }
 
         public IJob NewJob(TriggerFiredBundle bundle, IScheduler scheduler)
         {
-            return _serviceProvider.GetRequiredService(bundle.JobDetail.JobType) as IJob;
+            return _serviceProvider.GetRequiredService<QuartzJobRunner>();
         }
 
         public void ReturnJob(IJob job) { }

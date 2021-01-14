@@ -1,4 +1,5 @@
 ﻿using DivineMonad.Data;
+using DivineMonad.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Quartz;
@@ -12,24 +13,49 @@ namespace DivineMonad.Job
     [DisallowConcurrentExecution]
     public class MarketJob : IJob
     {
-        private readonly IServiceScopeFactory _scopeFactory;
+        private readonly ApplicationDbContext _context;
 
-        public MarketJob(IServiceScopeFactory scopeFactory)
+        public MarketJob(ApplicationDbContext context)
         {
-            _scopeFactory = scopeFactory;
+            _context = context;
         }
 
         public async Task Execute(IJobExecutionContext context)
         {
-            using (var scope = _scopeFactory.CreateScope())
-            {
-                var dbContext = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
+            Random rand = new Random();
+            int index = 0, count = 0;
+            double gachiaDraw = 0;
 
-                var characterStats = dbContext.CharactersBaseStats.Where(s => s.ID == 1).FirstOrDefault();
-                characterStats.Gold += 1;
-                dbContext.Update(characterStats);
-                await dbContext.SaveChangesAsync();
+            _context.Markets.RemoveRange(_context.Markets);
+            await _context.SaveChangesAsync();
+            var markets = await _context.Markets.ToListAsync();
+            var items = await _context.Items.ToListAsync();
+            var rarities = await _context.Rarity.ToListAsync();
+
+            for (int i = 0; i < 10; i++)
+            {
+                gachiaDraw = rand.NextDouble() * 1000;
+
+                foreach (var rarity in rarities.OrderBy(r => r.Chance))
+                {
+                    if (gachiaDraw <= rarity.Chance)
+                    {
+                        count = items.Where(i => i.Rarity.Name == rarity.Name).Count();
+                        if (count > 0)
+                        {
+                            Market marketItem = new Market() { LevelMin = 1, LevelMax = 99 };
+
+                            index = rand.Next(0, count);
+                            marketItem.ItemId = items.Where(i => i.Rarity.Name == rarity.Name).ElementAt(index).ID;
+
+                            markets.Add(marketItem);
+                        }
+                        break;
+                    }
+                }
             }
+            await _context.AddRangeAsync(markets);
+            await _context.SaveChangesAsync();
         }
     }
 }

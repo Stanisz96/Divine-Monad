@@ -55,12 +55,13 @@ namespace DivineMonad
             services.AddScoped<ICharacterHelper, CharacterHelper>();
             services.AddScoped<IDbContextHelper, DbContextHelper>();
 
-            services.AddSingleton<IJobFactory, SingletonJobFactory>();
+            services.AddSingleton<QuartzJobRunner>();
+            services.AddSingleton<IJobFactory, JobFactory>();
             services.AddSingleton<ISchedulerFactory, StdSchedulerFactory>();
-            services.AddSingleton<MarketJob>();
+            services.AddScoped<MarketJob>();
             services.AddSingleton(new JobSchedule(
                 jobType: typeof(MarketJob),
-                cronExpression: "0/20 * * * * ?"));
+                cronExpression: "0/5 * * * * ?"));
 
 
             services.AddControllersWithViews();
