@@ -22,8 +22,11 @@ namespace DivineMonad.Tools
                 Character character = await context.Characters.Include(c => c.CBStats)
                                         .Include(c => c.GStats)
                                         .FirstOrDefaultAsync(c => c.ID == cId);
-
-                if (userId.Equals(character.UserId)) return character;
+                if (!(character is null))
+                {
+                    if (userId.Equals(character.UserId)) return character;
+                    else return null;
+                }
                 else return null;
             }
             catch (Exception)

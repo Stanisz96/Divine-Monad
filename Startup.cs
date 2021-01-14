@@ -61,7 +61,7 @@ namespace DivineMonad
             services.AddScoped<MarketJob>();
             services.AddSingleton(new JobSchedule(
                 jobType: typeof(MarketJob),
-                cronExpression: "0/5 * * * * ?"));
+                cronExpression: "0 0/10 * * * ?"));
 
 
             services.AddControllersWithViews();

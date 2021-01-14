@@ -32,6 +32,9 @@
                     User
                 </th>
                 <th>
+                    Avatar
+                </th>
+                <th>
                     @Html.DisplayNameFor(model => model.GStats)
                 </th>
                 <th>
@@ -49,6 +52,9 @@
                     </td>
                     <td>
                         @FindUser(item.UserId)
+                    </td>
+                    <td>
+                        <img src="@Url.Content(item.AvatarUrl)" class="img-item" alt="@item.Name" style="max-width: 60px!important;">
                     </td>
                     <td>
                         <a asp-controller="CharactersGameStats" asp-action="Details" asp-route-id="@item.GStatsId">Details</a>

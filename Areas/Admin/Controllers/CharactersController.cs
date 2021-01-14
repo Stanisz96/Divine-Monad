@@ -113,7 +113,7 @@ namespace DivineMonad.Areas.Admin.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("ID,Name,UserId,CBStatsId,GStatsId")] Character character)
+        public async Task<IActionResult> Edit(int id, [Bind("ID,Name,UserId,AvatarUrl,CBStatsId,GStatsId")] Character character)
         {
             if (id != character.ID)
             {
