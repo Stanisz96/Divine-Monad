@@ -12,14 +12,15 @@
                 <input asp-for="Name" class="form-control" />
                 <span asp-validation-for="Name" class="text-danger"></span>
             </div>
-            <div class="form-group">
+            <div class="form-group text-center">
                 <input type="submit" value="Save" class="btn-std" />
             </div>
         </form>
-        <form asp-action="Delete">
+        <form asp-action="Delete" id="delete-form">
             <input type="hidden" asp-for="ID" />
-            <div class="form-group">
-                <input type="submit" value="Delete" class="btn-std" />
+            <label class="control-label mt-5">Delete Character</label>
+            <div class="form-group text-center">
+                <input type="button" value="Delete" onclick="delete_submit()" class="btn-std" />
             </div>
         </form>
     </div>
@@ -28,4 +29,12 @@
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    <script>
+        function delete_submit() {
+            var res = confirm("Are you sure you want to delete this character?");
+            if (res == true) {
+                $("#delete-form").submit();
+            }
+        }
+    </script>
 }
