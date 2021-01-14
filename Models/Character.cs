@@ -11,7 +11,7 @@ namespace DivineMonad.Models
     {
         public int ID { get; set; }
 
-        [RegularExpression(@"[a-zA-Z0-9\s]*$"), Required, StringLength(20)]
+        [RegularExpression(@"[a-zA-Z0-9\s]*$"), Required, StringLength(13, MinimumLength = 4)]
         [Remote(action: "IsNameUnique", controller: "Characters", AdditionalFields = nameof(ID))]
         public string Name { get; set; }
 
@@ -22,6 +22,8 @@ namespace DivineMonad.Models
 
         public int GStatsId { get; set; }
         public GameStats GStats { get; set; }
+
+        public string AvatarUrl { get; set; }
 
         public Character()
         {

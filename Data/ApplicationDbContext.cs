@@ -26,6 +26,7 @@ namespace DivineMonad.Data
         public DbSet<Monster> Monsters { get; set; }
         public DbSet<MonsterLoot> MonstersLoot { get; set; }
         public DbSet<MonsterStats> MonstersStats { get; set; }
+        public DbSet<Market> Markets { get; set; }
 
 
         protected override void OnModelCreating(ModelBuilder builder)
