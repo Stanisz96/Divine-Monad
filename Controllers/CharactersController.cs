@@ -2,11 +2,13 @@
 using DivineMonad.Models;
 using DivineMonad.Tools;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
@@ -19,11 +21,13 @@ namespace DivineMonad.Controllers
 
         private readonly ApplicationDbContext _context;
         private readonly IDbContextHelper _contextHelper;
+        private readonly IWebHostEnvironment _hostingEnv;
 
-        public CharactersController(ApplicationDbContext context, IDbContextHelper contextHelper)
+        public CharactersController(ApplicationDbContext context, IDbContextHelper contextHelper, IWebHostEnvironment hostingEnv)
         {
             _context = context;
             _contextHelper = contextHelper;
+            _hostingEnv = hostingEnv;
         }
 
         
@@ -54,12 +58,27 @@ namespace DivineMonad.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ID,Name,UserId")] Character character)
+        public async Task<IActionResult> Create([Bind("ID,Name,AvatarImage,UserId")] Character character)
         {
             if (ModelState.IsValid)
             {
                 character.CBStats = new CharacterBaseStats("new");
                 character.GStats = new GameStats("new");
+
+                if (character.AvatarImage != null)
+                {
+                    var a = _hostingEnv.WebRootPath;
+                    var fileName = Path.GetFileName(character.AvatarImage.FileName);
+                    var filePath = Path.Combine(a, "images\\avatars", fileName);
+
+                    using (var fileSteam = new FileStream(filePath, FileMode.Create))
+                    {
+                        await character.AvatarImage.CopyToAsync(fileSteam);
+                    }
+
+                    character.AvatarUrl = "~\\" + filePath.Split("wwwroot\\")[1];
+                    character.AvatarUrl = character.AvatarUrl.Replace("\\", "/");
+                }
 
                 _context.Add(character);
 
