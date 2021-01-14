@@ -15,6 +15,10 @@ using Microsoft.Extensions.Hosting;
 using DivineMonad.Models;
 using DivineMonad.Engine;
 using DivineMonad.Tools;
+using Quartz.Spi;
+using DivineMonad.Job;
+using Quartz;
+using Quartz.Impl;
 
 namespace DivineMonad
 {
@@ -51,6 +55,13 @@ namespace DivineMonad
             services.AddScoped<ICharacterHelper, CharacterHelper>();
             services.AddScoped<IDbContextHelper, DbContextHelper>();
 
+            services.AddSingleton<IJobFactory, SingletonJobFactory>();
+            services.AddSingleton<ISchedulerFactory, StdSchedulerFactory>();
+            services.AddSingleton<MarketJob>();
+            services.AddSingleton(new JobSchedule(
+                jobType: typeof(MarketJob),
+                cronExpression: "0/20 * * * * ?"));
+
 
             services.AddControllersWithViews();
             services.AddRazorPages();
@@ -62,6 +73,8 @@ namespace DivineMonad
                 options.AddPolicy("admin",
                     builder => builder.RequireRole("Admin"));
             });
+
+            services.AddHostedService<QuartzHostedService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
