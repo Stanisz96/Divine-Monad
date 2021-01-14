@@ -63,9 +63,10 @@ namespace DivineMonad.Controllers
             var character = await _contextHelper.GetCharacter(ID, User, _context);
             if(!(character is null))
             {
-                _context.Characters.Remove(character);
-                _context.CharactersBaseStats.Remove(character.CBStats);
-                _context.CharactersGameStats.Remove(character.GStats);
+                _context.Remove(character);
+                _context.Remove(character.GStats);
+                _context.Remove(character.CBStats);
+                _context.RemoveRange(_context.CharactersItems.Where(i => i.CharacterId == character.ID));
                 await _context.SaveChangesAsync();
                 return RedirectToAction("Index", "Characters");
             }

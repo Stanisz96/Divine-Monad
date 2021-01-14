@@ -1,7 +1,7 @@
 {
   "Player": {
-    "ID": 2004,
-    "Name": "Test2"
+    "ID": 4004,
+    "Name": "test"
   },
   "Opponent": {
     "ID": 3,
@@ -20,7 +20,7 @@
         "Damage": 9
       },
       "Defender": {
-        "Name": "Test2",
+        "Name": "test",
         "HP": 150,
         "Block": false,
         "Receive": 8
@@ -29,7 +29,7 @@
     {
       "Number": 1,
       "Attacker": {
-        "Name": "Test2",
+        "Name": "test",
         "HP": 150,
         "Crit": false,
         "Miss": false,
@@ -49,13 +49,13 @@
         "HP": 106,
         "Crit": false,
         "Miss": false,
-        "Damage": 9
+        "Damage": 10
       },
       "Defender": {
-        "Name": "Test2",
-        "HP": 142,
+        "Name": "test",
+        "HP": 141,
         "Block": false,
-        "Receive": 8
+        "Receive": 9
       }
     },
     {
@@ -65,107 +65,123 @@
         "HP": 106,
         "Crit": false,
         "Miss": false,
-        "Damage": 8
+        "Damage": 9
       },
       "Defender": {
-        "Name": "Test2",
-        "HP": 135,
+        "Name": "test",
+        "HP": 133,
         "Block": false,
-        "Receive": 7
+        "Receive": 8
       }
     },
     {
       "Number": 3,
       "Attacker": {
-        "Name": "Test2",
-        "HP": 135,
+        "Name": "test",
+        "HP": 133,
         "Crit": false,
         "Miss": false,
-        "Damage": 13
+        "Damage": 16
       },
       "Defender": {
         "Name": "Enchanted Tree",
-        "HP": 93,
+        "HP": 90,
         "Block": false,
-        "Receive": 13
+        "Receive": 16
       }
     },
     {
       "Number": 3,
       "Attacker": {
         "Name": "Enchanted Tree",
-        "HP": 93,
-        "Crit": false,
-        "Miss": false,
-        "Damage": 10
-      },
-      "Defender": {
-        "Name": "Test2",
-        "HP": 126,
-        "Block": false,
-        "Receive": 9
-      }
-    },
-    {
-      "Number": 4,
-      "Attacker": {
-        "Name": "Test2",
-        "HP": 126,
-        "Crit": true,
-        "Miss": false,
-        "Damage": 25
-      },
-      "Defender": {
-        "Name": "Enchanted Tree",
-        "HP": 68,
-        "Block": false,
-        "Receive": 25
-      }
-    },
-    {
-      "Number": 4,
-      "Attacker": {
-        "Name": "Enchanted Tree",
-        "HP": 68,
-        "Crit": false,
-        "Miss": false,
-        "Damage": 8
-      },
-      "Defender": {
-        "Name": "Test2",
-        "HP": 119,
-        "Block": false,
-        "Receive": 7
-      }
-    },
-    {
-      "Number": 5,
-      "Attacker": {
-        "Name": "Test2",
-        "HP": 119,
-        "Crit": false,
-        "Miss": false,
-        "Damage": 15
-      },
-      "Defender": {
-        "Name": "Enchanted Tree",
-        "HP": 53,
-        "Block": false,
-        "Receive": 15
-      }
-    },
-    {
-      "Number": 5,
-      "Attacker": {
-        "Name": "Enchanted Tree",
-        "HP": 53,
+        "HP": 90,
         "Crit": false,
         "Miss": false,
         "Damage": 9
       },
       "Defender": {
-        "Name": "Test2",
-        "HP": 111,
+        "Name": "test",
+        "HP": 125,
+        "Block": false,
+        "Receive": 8
+      }
+    },
+    {
+      "Number": 4,
+      "Attacker": {
+        "Name": "test",
+        "HP": 125,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 14
+      },
+      "Defender": {
+        "Name": "Enchanted Tree",
+        "HP": 76,
+        "Block": false,
+        "Receive": 14
+      }
+    },
+    {
+      "Number": 4,
+      "Attacker": {
+        "Name": "Enchanted Tree",
+        "HP": 76,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 10
+      },
+      "Defender": {
+        "Name": "test",
+        "HP": 116,
+        "Block": false,
+        "Receive": 9
+      }
+    },
+    {
+      "Number": 5,
+      "Attacker": {
+        "Name": "test",
+        "HP": 116,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 17
+      },
+      "Defender": {
+        "Name": "Enchanted Tree",
+        "HP": 59,
+        "Block": false,
+        "Receive": 17
+      }
+    },
+    {
+      "Number": 5,
+      "Attacker": {
+        "Name": "Enchanted Tree",
+        "HP": 59,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 8
+      },
+      "Defender": {
+        "Name": "test",
+        "HP": 109,
+        "Block": false,
+        "Receive": 7
+      }
+    },
+    {
+      "Number": 6,
+      "Attacker": {
+        "Name": "Enchanted Tree",
+        "HP": 59,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 9
+      },
+      "Defender": {
+        "Name": "test",
+        "HP": 101,
         "Block": false,
         "Receive": 8
       }
@@ -173,31 +189,15 @@
     {
       "Number": 6,
       "Attacker": {
-        "Name": "Enchanted Tree",
-        "HP": 53,
-        "Crit": false,
-        "Miss": true,
-        "Damage": 8
-      },
-      "Defender": {
-        "Name": "Test2",
-        "HP": 111,
-        "Block": false,
-        "Receive": 0
-      }
-    },
-    {
-      "Number": 6,
-      "Attacker": {
-        "Name": "Test2",
-        "HP": 111,
+        "Name": "test",
+        "HP": 101,
         "Crit": false,
         "Miss": false,
         "Damage": 14
       },
       "Defender": {
         "Name": "Enchanted Tree",
-        "HP": 39,
+        "HP": 45,
         "Block": false,
         "Receive": 14
       }
@@ -206,30 +206,30 @@
       "Number": 7,
       "Attacker": {
         "Name": "Enchanted Tree",
-        "HP": 39,
+        "HP": 45,
         "Crit": false,
         "Miss": false,
-        "Damage": 9
+        "Damage": 10
       },
       "Defender": {
-        "Name": "Test2",
-        "HP": 103,
+        "Name": "test",
+        "HP": 92,
         "Block": false,
-        "Receive": 8
+        "Receive": 9
       }
     },
     {
       "Number": 7,
       "Attacker": {
         "Name": "Enchanted Tree",
-        "HP": 39,
+        "HP": 45,
         "Crit": false,
         "Miss": false,
         "Damage": 9
       },
       "Defender": {
-        "Name": "Test2",
-        "HP": 95,
+        "Name": "test",
+        "HP": 84,
         "Block": false,
         "Receive": 8
       }
@@ -237,81 +237,81 @@
     {
       "Number": 8,
       "Attacker": {
-        "Name": "Test2",
-        "HP": 95,
+        "Name": "test",
+        "HP": 84,
         "Crit": false,
         "Miss": false,
-        "Damage": 13
+        "Damage": 15
       },
       "Defender": {
         "Name": "Enchanted Tree",
-        "HP": 26,
+        "HP": 30,
         "Block": false,
-        "Receive": 13
+        "Receive": 15
       }
     },
     {
       "Number": 8,
       "Attacker": {
         "Name": "Enchanted Tree",
-        "HP": 26,
+        "HP": 30,
         "Crit": false,
         "Miss": false,
-        "Damage": 9
+        "Damage": 8
       },
       "Defender": {
-        "Name": "Test2",
-        "HP": 87,
+        "Name": "test",
+        "HP": 77,
         "Block": false,
-        "Receive": 8
+        "Receive": 7
       }
     },
     {
       "Number": 9,
       "Attacker": {
-        "Name": "Test2",
-        "HP": 87,
+        "Name": "test",
+        "HP": 77,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 16
+      },
+      "Defender": {
+        "Name": "Enchanted Tree",
+        "HP": 14,
+        "Block": false,
+        "Receive": 16
+      }
+    },
+    {
+      "Number": 9,
+      "Attacker": {
+        "Name": "Enchanted Tree",
+        "HP": 14,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 9
+      },
+      "Defender": {
+        "Name": "test",
+        "HP": 69,
+        "Block": false,
+        "Receive": 8
+      }
+    },
+    {
+      "Number": 10,
+      "Attacker": {
+        "Name": "test",
+        "HP": 69,
         "Crit": false,
         "Miss": false,
         "Damage": 17
       },
       "Defender": {
         "Name": "Enchanted Tree",
-        "HP": 9,
+        "HP": -3,
         "Block": false,
         "Receive": 17
-      }
-    },
-    {
-      "Number": 9,
-      "Attacker": {
-        "Name": "Enchanted Tree",
-        "HP": 9,
-        "Crit": false,
-        "Miss": false,
-        "Damage": 8
-      },
-      "Defender": {
-        "Name": "Test2",
-        "HP": 80,
-        "Block": false,
-        "Receive": 7
-      }
-    },
-    {
-      "Number": 10,
-      "Attacker": {
-        "Name": "Test2",
-        "HP": 80,
-        "Crit": false,
-        "Miss": false,
-        "Damage": 13
-      },
-      "Defender": {
-        "Name": "Enchanted Tree",
-        "HP": -4,
-        "Block": false,
-        "Receive": 13
       }
     }
   ],
