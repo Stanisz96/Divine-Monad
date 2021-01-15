@@ -66,10 +66,18 @@ namespace DivineMonad.Controllers
                 character.GStats = new GameStats("new");
 
                 if (character.AvatarImage != null)
-                {
-                    var a = _hostingEnv.WebRootPath;
-                    var fileName = Path.GetFileName(character.AvatarImage.FileName);
-                    var filePath = Path.Combine(a, "images\\avatars", fileName);
+                { 
+                    string userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+                    string a = _hostingEnv.WebRootPath;
+                    string characterDataPath = Path.Combine(a, "data\\"+userId.ToString()+"\\"+character.Name);
+                    string AvatarExtension = Path.GetExtension(character.AvatarImage.FileName);
+
+                    if (!Directory.Exists(characterDataPath))
+                    {
+                        DirectoryInfo di = Directory.CreateDirectory(characterDataPath);
+                    }
+
+                    var filePath = Path.Combine(characterDataPath, "avatar"+AvatarExtension);
 
                     using (var fileSteam = new FileStream(filePath, FileMode.Create))
                     {
