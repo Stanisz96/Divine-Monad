@@ -158,8 +158,44 @@
                 });
 
 
-                $("#game-market .game-plane").click(function (e) {
+                $(".game-plane").click(function (e) {
                     if (!$(e.target).hasClass("img-item")) {
+                        $(".img-item").removeClass("active-item");
+                    }
+                });
+
+                $("#game-market #sell").click(function (e) {
+                    if ($("#game-market .backpack .img-item").hasClass("active-item")) {
+                        let data = { cId: @Model.Character.ID, bpSlotId: $(".active-item").attr("id") };
+                        $.ajax({
+                            url: "/Game/Trade",
+                            data: data,
+                            success: function (data) {
+                                if (data.valid) {
+                                    let tempSrc = "/images/bg_item.png";
+                                    $("#" + data.bpSlotId).attr("src", tempSrc);
+                                    $("#" + data.bpSlotId).addClass("empty-slot");
+                                }
+                            }
+                        });
+                        $(".img-item").removeClass("active-item");
+                    }
+                });
+
+                $("#game-market #buy").click(function (e) {
+                    if ($("#game-market .market .img-item").hasClass("active-item")) {
+                        let data = { cId: @Model.Character.ID, iId: $(".active-item").attr("id") };
+                        $.ajax({
+                            url: "/Game/Trade",
+                            data: data,
+                            success: function (data) {
+                                if (data.valid) {
+                                    let tempSrc = $("#" + data.iId).attr("src");
+                                    $("#" + data.bpSlotId).attr("src", tempSrc);
+                                    $("#" + data.bpSlotId).removeClass("empty-slot");
+                                }
+                            }
+                        });
                         $(".img-item").removeClass("active-item");
                     }
                 });

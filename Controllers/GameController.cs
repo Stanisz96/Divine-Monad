@@ -321,6 +321,60 @@ namespace DivineMonad.Controllers
             else return new { valid = false };
         }
 
+        public async Task<object> Trade(int cId, int? bpSlotId, int? iId)
+        {
+            Character character = await _contextHelper.GetCharacter(cId, User, _context);
+            Item item = null;
+            Backpack backpack = new Backpack();
+            backpack.Character = character;
+            backpack.CharacterItemsList = await _characterItemsRepo.GetCharactersItemsList(cId, false);
+
+            if (bpSlotId != null)
+            {
+                List<int> itemIds = backpack.CharacterItemsList.Select(i => i.ItemId).ToList();
+                backpack.ItemsList = await _itemsRepo.GetItemsList(itemIds);
+
+
+                item = backpack.ItemsList.FirstOrDefault
+                    (i => i.ID == backpack.CharacterItemsList.
+                    FirstOrDefault(i => i.BpSlotId == bpSlotId).ItemId);
+
+                character.CBStats.Gold += item.Price;
+                CharacterItems removeCharacterItem = await _context.CharactersItems.Where(i => i.CharacterId == character.ID
+                                                                    && i.ItemId == item.ID).FirstOrDefaultAsync();
+                _context.CharactersItems.Remove(removeCharacterItem);
+                _context.Characters.Update(character);
+                await _context.SaveChangesAsync();
+
+                return new { valid = true, bpSlotId };
+            }
+            else if (iId != null)
+            {
+                item = await _itemsRepo.GetItemById((int)iId);
+                if (character.CBStats.Gold >= item.Price)
+                {
+                    character.CBStats.Gold -= item.Price;
+                    CharacterItems newItem = new CharacterItems()
+                    {
+                        BpSlotId = _characterHelper.GetFirstEmptySlot(character, backpack.CharacterItemsList),
+                        CharacterId = character.ID,
+                        IsEquipped = false,
+                        ItemId = item.ID
+                    };
+                    _context.CharactersItems.Add(newItem);
+                    _context.Characters.Update(character);
+                    await _context.SaveChangesAsync();
+
+                    return new { valid = true, bpSlotId = newItem.BpSlotId, iId };
+                }
+                else return new { valid = false };
+            }
+
+            return new { valid = false };
+        }
+
+
+
         public string Test()
         {
             Random random = new Random();
