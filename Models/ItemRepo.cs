@@ -24,9 +24,10 @@ namespace DivineMonad.Models
             }
         }
 
-        public Item GetItemById(int itemId)
+        public async Task<Item> GetItemById(int itemId)
         {
-            return _appDbContext.Items.FirstOrDefault(i => i.ID == itemId);
+            return await _appDbContext.Items.Include(s => s.Category)
+                .Include(s => s.Statistics).Include(s => s.Rarity).FirstOrDefaultAsync(i => i.ID == itemId);
         }
 
         public async Task<IEnumerable<Item>> GetItemsList(List<int> ids)

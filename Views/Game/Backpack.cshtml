@@ -90,7 +90,7 @@
 @section Scripts{ 
     <script>
         $(document).ready(function () {
-            $(".item-slot").click(function (e) {
+            $("#game-backpack .item-slot").click(function (e) {
                 if ($(e.target).hasClass("empty-slot")) {
                     if ($(".img-item").hasClass("active-item")) {
                         let data = { cId: @Model.Character.ID, from: $(".active-item").attr("id"), to: e.target.id, isEmpty: true };
@@ -155,7 +155,7 @@
                 }
             });
 
-            $(".game-plane").click(function (e) {
+            $("#game-backpack .game-plane").click(function (e) {
                 if (!$(e.target).hasClass("img-item")) {
                     $(".img-item").removeClass("active-item");
                 }

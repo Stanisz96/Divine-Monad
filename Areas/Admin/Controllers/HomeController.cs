@@ -28,8 +28,7 @@ namespace DivineMonad.Areas.Admin.Controllers
 
         public IActionResult Test()
         {
-            _itemRepo.GetItemById(1).Price += 1;
-            return View(_itemRepo.GetItemById(1));
+            return View();
         }
     }
 }

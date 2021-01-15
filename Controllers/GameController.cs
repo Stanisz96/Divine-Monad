@@ -266,18 +266,27 @@ namespace DivineMonad.Controllers
             return new { from, to, valid, option = updateOption };
         }
 
-        public async Task<IActionResult> ItemInfo(int cId, int bpSlotId)
+        public async Task<IActionResult> ItemInfo(int cId, int? bpSlotId, int? iId)
         {
-            Backpack backpack = new Backpack();
-            backpack.Character = await _contextHelper.GetCharacter(cId, User, _context);
-            backpack.CharacterItemsList = await _characterItemsRepo.GetCharactersItemsList(cId, false);
-            List<int> itemIds = backpack.CharacterItemsList.Select(i => i.ItemId).ToList();
-            backpack.ItemsList = await _itemsRepo.GetItemsList(itemIds);
+            Item item = null;
+
+            if (bpSlotId != null)
+            {
+                Backpack backpack = new Backpack();
+                backpack.Character = await _contextHelper.GetCharacter(cId, User, _context);
+                backpack.CharacterItemsList = await _characterItemsRepo.GetCharactersItemsList(cId, false);
+                List<int> itemIds = backpack.CharacterItemsList.Select(i => i.ItemId).ToList();
+                backpack.ItemsList = await _itemsRepo.GetItemsList(itemIds);
 
 
-            Item item = backpack.ItemsList.FirstOrDefault
-                (i => i.ID == backpack.CharacterItemsList.
-                FirstOrDefault(i => i.BpSlotId == bpSlotId).ItemId);
+                item = backpack.ItemsList.FirstOrDefault
+                    (i => i.ID == backpack.CharacterItemsList.
+                    FirstOrDefault(i => i.BpSlotId == bpSlotId).ItemId);
+            }
+            if (iId != null)
+            {
+                item = await _itemsRepo.GetItemById((int)iId);
+            }
 
             return PartialView(item);
         }
