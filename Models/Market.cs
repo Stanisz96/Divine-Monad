@@ -11,5 +11,6 @@ namespace DivineMonad.Models
         public int LevelMin { get; set; }
         public int LevelMax { get; set; }
         public int ItemId { get; set; }
+        public Item Item { get; set; }
     }
 }

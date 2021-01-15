@@ -1,13 +1,38 @@
-﻿@{ 
+﻿@model IEnumerable<Market>
+
+@{ 
     Layout = "_SubLayout";
+    Item mItem = null;
 }
 
 <div style="margin: 50px;">
-    Market! Coming soon...
+    <div class="col-12 backpack medium-border">
+        <div class="row">
+@*            @for (int i = 1; i <= 10; i++)
+            {
+                mItem = Model.CharacterItemsList.FirstOrDefault(i => i.BpSlotId == slotId && i.IsEquipped == false);
+                if (!(mItem is null))
+                {
+                    item = Model.ItemsList.FirstOrDefault(i => i.ID == cItem.ItemId);
+                    if (!(item is null))
+                    {
+                        <div class="col-2 item-slot">
+                            <img src="@Url.Content(item.ImageUrl)" class="img-item" alt="item" id="@slotId">
+                        </div>
+                    }
+                }
+                else
+                {
+                    <div class="col-2 item-slot">
+                        <img src="@Url.Content("~/images/bg_item.png")" class="img-item empty-slot" alt="item" id="@slotId">
+                    </div>
+                }
+            }*@
+        </div>
+    </div>
 </div>
 
-@section Scripts{ 
-    <script>
-        console.log("Market! Coming soon...");
-    </script>
-}
+    @section Scripts{
+        <script>
+        </script>
+    }
