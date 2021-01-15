@@ -5,7 +5,6 @@
         success: function (data) {
             $("#" + componentId).html(data);
             $("#" + componentId).ready(function () {
-                console.log(componentId);
                 var imgN = $("#" + componentId).find("img").length;
                 var imgLoaded = 0
 

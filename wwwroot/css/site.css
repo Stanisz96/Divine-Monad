@@ -163,7 +163,7 @@ body {
 .game-content-character .nav-tabs {
     color: #495057;
     background-color: rgba(224, 246, 238, 0.20);
-    border:none;
+    border: none;
 }
 
 .game-content-character .tab-pane.fade {
@@ -171,10 +171,14 @@ body {
     padding: 50px;
 }
 
-.game-content-character .nav-link.active {
+.game-content-character .nav-link {
     border-spacing: 23px;
     background-color: rgba(44, 151, 115, 0.20);
     color: #0f8e72;
+}
+
+.game-content-character .nav-link.active {
+    background-color: rgba(224, 246, 238, 0.20);
 }
 
 .game-content-battle {
