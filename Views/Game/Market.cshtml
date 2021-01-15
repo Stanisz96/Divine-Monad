@@ -1,33 +1,50 @@
-﻿@model IEnumerable<Market>
+﻿@model DivineMonad.Models.MarketViewModel
 
 @{ 
     Layout = "_SubLayout";
-    Item mItem = null;
+    Item item;
+    CharacterItems cItem;
+    string emptySlot = "";
 }
 
-<div style="margin: 50px;">
-    <div class="col-12 backpack medium-border">
-        <div class="row">
-@*            @for (int i = 1; i <= 10; i++)
-            {
-                mItem = Model.CharacterItemsList.FirstOrDefault(i => i.BpSlotId == slotId && i.IsEquipped == false);
-                if (!(mItem is null))
+<div class="game-content-backpack">
+    <div class="row">
+        <div class="col-12 backpack medium-border">
+            <div class="row">
+                @foreach (var mItem in Model.MarketItems)
                 {
-                    item = Model.ItemsList.FirstOrDefault(i => i.ID == cItem.ItemId);
-                    if (!(item is null))
+                    item = mItem.Item;
+                    <div class="col-2 item-slot">
+                        <img src="@Url.Content(item.ImageUrl)" class="img-item" alt="item" id="@mItem.ID">
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12 backpack medium-border">
+            <div class="row">
+                @for (int slotId = 7; slotId <= Model.Character.CBStats.BpSlots + 6; slotId++)
+                {
+                    cItem = Model.CharacterItemsList.FirstOrDefault(i => i.BpSlotId == slotId && i.IsEquipped == false);
+                    if (!(cItem is null))
+                    {
+                        item = Model.ItemsList.FirstOrDefault(i => i.ID == cItem.ItemId);
+                        if (!(item is null))
+                        {
+                            <div class="col-2 item-slot">
+                                <img src="@Url.Content(item.ImageUrl)" class="img-item" alt="item" id="@slotId">
+                            </div>
+                        }
+                    }
+                    else
                     {
                         <div class="col-2 item-slot">
-                            <img src="@Url.Content(item.ImageUrl)" class="img-item" alt="item" id="@slotId">
+                            <img src="@Url.Content("~/images/bg_item.png")" class="img-item empty-slot" alt="item" id="@slotId">
                         </div>
                     }
                 }
-                else
-                {
-                    <div class="col-2 item-slot">
-                        <img src="@Url.Content("~/images/bg_item.png")" class="img-item empty-slot" alt="item" id="@slotId">
-                    </div>
-                }
-            }*@
+            </div>
         </div>
     </div>
 </div>

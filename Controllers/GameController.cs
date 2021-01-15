@@ -184,8 +184,14 @@ namespace DivineMonad.Controllers
 
         public async Task<IActionResult> Market(int cId)
         {
-            Character character = await _contextHelper.GetCharacter(cId, User, _context);
-            return PartialView(character);
+            MarketViewModel marketView = new MarketViewModel();
+            marketView.Character = await _contextHelper.GetCharacter(cId, User, _context);
+            marketView.CharacterItemsList = await _characterItemsRepo.GetCharactersItemsList(cId, false);
+            List<int> itemIds = marketView.CharacterItemsList.Select(i => i.ItemId).ToList();
+            marketView.ItemsList = await _itemsRepo.GetItemsList(itemIds);
+            marketView.MarketItems = await _context.Markets.Where(m => m.LevelMin <= marketView.Character.CBStats.Level && 
+                                        m.LevelMax >= marketView.Character.CBStats.Level).Include(i => i.Item).ToListAsync();
+            return PartialView(marketView);
         }
 
         public async Task<IActionResult> News(int cId)
