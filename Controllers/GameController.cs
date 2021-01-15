@@ -4,11 +4,13 @@ using DivineMonad.Engine.Raport;
 using DivineMonad.Models;
 using DivineMonad.Tools;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
@@ -26,9 +28,10 @@ namespace DivineMonad.Controllers
         private readonly IItemStatsRepo _itemsStatsRepo;
         private readonly IItemRepo _itemsRepo;
         private readonly IRarityRepo _rarityRepo;
+        private readonly IWebHostEnvironment _hostingEnv;
 
         public GameController(ApplicationDbContext context, ICharacterBaseStatsRepo baseStatsRepo, ICharacterItemsRepo characterItemsRepo,
-            IItemStatsRepo itemsStatsRepo, IItemRepo itemsRepo, IRarityRepo rarityRepo, IDbContextHelper contextHelper, ICharacterHelper characterHelper)
+            IItemStatsRepo itemsStatsRepo, IItemRepo itemsRepo, IRarityRepo rarityRepo, IDbContextHelper contextHelper, ICharacterHelper characterHelper, IWebHostEnvironment hostEnv)
         {
             _context = context;
             _baseStatsRepo = baseStatsRepo;
@@ -38,6 +41,7 @@ namespace DivineMonad.Controllers
             _rarityRepo = rarityRepo;
             _contextHelper = contextHelper;
             _characterHelper = characterHelper;
+            _hostingEnv = hostEnv;
         }
 
         
@@ -151,7 +155,18 @@ namespace DivineMonad.Controllers
             }
             string fightRaportJson = JsonConvert.SerializeObject(fightRaport, Formatting.Indented);
 
-            System.IO.File.WriteAllText(@"wwwroot/raports/testRaport.json", fightRaportJson);
+            string userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            string a = _hostingEnv.WebRootPath;
+            string characterDataPath = Path.Combine(a, "data\\" + userId.ToString() + "\\" + character.Name + "\\raports");
+
+            if (!Directory.Exists(characterDataPath))
+            {
+                DirectoryInfo di = Directory.CreateDirectory(characterDataPath);
+            }
+
+            string dateTime = DateTime.Now.Ticks.ToString();
+
+            System.IO.File.WriteAllText(Path.Combine(characterDataPath, dateTime+".json"), fightRaportJson);
 
             return PartialView(fightRaport);
         }
