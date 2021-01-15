@@ -65,10 +65,11 @@ namespace DivineMonad.Controllers
                 character.CBStats = new CharacterBaseStats("new");
                 character.GStats = new GameStats("new");
 
+                string userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+                string a = _hostingEnv.WebRootPath;
+
                 if (character.AvatarImage != null)
                 { 
-                    string userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
-                    string a = _hostingEnv.WebRootPath;
                     string characterDataPath = Path.Combine(a, "data\\"+userId.ToString()+"\\"+character.Name);
                     string AvatarExtension = Path.GetExtension(character.AvatarImage.FileName);
 
@@ -84,6 +85,12 @@ namespace DivineMonad.Controllers
                         await character.AvatarImage.CopyToAsync(fileSteam);
                     }
 
+                    character.AvatarUrl = "~\\" + filePath.Split("wwwroot\\")[1];
+                    character.AvatarUrl = character.AvatarUrl.Replace("\\", "/");
+                }
+                else
+                {
+                    var filePath = Path.Combine(a, "images\\avatars\\avatar_default.png");
                     character.AvatarUrl = "~\\" + filePath.Split("wwwroot\\")[1];
                     character.AvatarUrl = character.AvatarUrl.Replace("\\", "/");
                 }
