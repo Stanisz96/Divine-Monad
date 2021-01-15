@@ -74,10 +74,10 @@
         <script>
             $(document).ready(function () {
                 $("#game-market .backpack .item-slot").click(function (e) {
-                    $(".market .img-item").removeClass("active-item");
+                    $("#game-market .market .img-item").removeClass("active-item");
                     if ($(e.target).hasClass("empty-slot")) {
-                        if ($(".img-item").hasClass("active-item")) {
-                            let data = { cId: @Model.Character.ID, from: $(".active-item").attr("id"), to: e.target.id, isEmpty: true };
+                        if ($("#game-market .img-item").hasClass("active-item")) {
+                            let data = { cId: @Model.Character.ID, from: $("#game-market .active-item").attr("id"), to: e.target.id, isEmpty: true };
                             $.ajax({
                                 url: "/Game/SlotsChange",
                                 data: data,
@@ -85,12 +85,12 @@
                                     if (data.valid) {
                                         console.log(data.option + ": " + data.from + " | " + data.to);
 
-                                        let tempSrcFrom = $("#" + data.from).attr("src");
-                                        let tempSrcTo = $("#" + data.to).attr("src");
-                                        $("#" + data.from).attr("src", tempSrcTo);
-                                        $("#" + data.to).attr("src", tempSrcFrom);
-                                        $("#" + data.from).addClass("empty-slot");
-                                        $("#" + data.to).removeClass("empty-slot");
+                                        let tempSrcFrom = $("#game-market #" + data.from).attr("src");
+                                        let tempSrcTo = $("#game-market #" + data.to).attr("src");
+                                        $("#game-market #" + data.from).attr("src", tempSrcTo);
+                                        $("#game-market #" + data.to).attr("src", tempSrcFrom);
+                                        $("#game-market #" + data.from).addClass("empty-slot");
+                                        $("#game-market #" + data.to).removeClass("empty-slot");
                                     }
                                     else {
                                         console.log("NOT VALID!");
@@ -99,13 +99,13 @@
                             });
 
 
-                            $(".img-item").removeClass("active-item");
+                            $("#game-market .img-item").removeClass("active-item");
                         } else {
                             console.log("Clicked slot: empty");
                         }
                     } else {
-                        if ($(".img-item").hasClass("active-item")) {
-                            let data = { cId: @Model.Character.ID, from: $(".active-item").attr("id"), to: e.target.id, isEmpty: false };
+                        if ($("#game-market .img-item").hasClass("active-item")) {
+                            let data = { cId: @Model.Character.ID, from: $("#game-market .active-item").attr("id"), to: e.target.id, isEmpty: false };
                             $.ajax({
                                 url: "/Game/SlotsChange",
                                 data: data,
@@ -113,10 +113,10 @@
                                     if (data.valid) {
                                         console.log(data.option + ": " + data.from + " | " + data.to);
 
-                                        let tempSrcFrom = $("#" + data.from).attr("src");
-                                        let tempSrcTo = $("#" + data.to).attr("src");
-                                        $("#" + data.from).attr("src", tempSrcTo);
-                                        $("#" + data.to).attr("src", tempSrcFrom);
+                                        let tempSrcFrom = $("#game-market #" + data.from).attr("src");
+                                        let tempSrcTo = $("#game-market #" + data.to).attr("src");
+                                        $("#game-market #" + data.from).attr("src", tempSrcTo);
+                                        $("#game-market #" + data.to).attr("src", tempSrcFrom);
                                     }
                                     else {
                                         console.log("NOT VALID!");
@@ -124,7 +124,7 @@
                                 }
                             });
 
-                            $(".img-item").removeClass("active-item");
+                            $("#game-market .img-item").removeClass("active-item");
                         } else {
                             console.log("send slot");
                             let data = { cId: @Model.Character.ID, bpSlotId: e.target.id };
@@ -132,7 +132,7 @@
                                 url: "/Game/ItemInfo",
                                 data: data,
                                 success: function (data) {
-                                    $(".stats").html(data);
+                                    $("#game-market .stats").html(data);
                                 }
                             });
                             $(e.target).addClass("active-item");
@@ -142,7 +142,7 @@
 
 
                 $("#game-market .market .item-slot").click(function (e) {
-                    $(".img-item").removeClass("active-item");
+                    $("#game-market .img-item").removeClass("active-item");
                     if (!$(e.target).hasClass("empty-slot")) {
                         console.log("send ID");
                         let data = { cId: @Model.Character.ID, iId: e.target.id };
@@ -150,7 +150,7 @@
                             url: "/Game/ItemInfo",
                             data: data,
                             success: function (data) {
-                                $(".stats").html(data);
+                                $("#game-market .stats").html(data);
                             }
                         });
                         $(e.target).addClass("active-item");
@@ -158,45 +158,50 @@
                 });
 
 
-                $(".game-plane").click(function (e) {
-                    if (!$(e.target).hasClass("img-item")) {
-                        $(".img-item").removeClass("active-item");
-                    }
-                });
-
                 $("#game-market #sell").click(function (e) {
                     if ($("#game-market .backpack .img-item").hasClass("active-item")) {
-                        let data = { cId: @Model.Character.ID, bpSlotId: $(".active-item").attr("id") };
+                        let data = { cId: @Model.Character.ID, bpSlotId: $("#game-market .active-item").attr("id") };
                         $.ajax({
                             url: "/Game/Trade",
                             data: data,
                             success: function (data) {
                                 if (data.valid) {
                                     let tempSrc = "/images/bg_item.png";
-                                    $("#" + data.bpSlotId).attr("src", tempSrc);
-                                    $("#" + data.bpSlotId).addClass("empty-slot");
+                                    $("#game-market #" + data.bpSlotId).attr("src", tempSrc);
+                                    $("#game-market #" + data.bpSlotId).addClass("empty-slot");
+                                    updateCharacterInfo(data.gold, null, null, null);
                                 }
                             }
                         });
-                        $(".img-item").removeClass("active-item");
+                        $("#game-market .img-item").removeClass("active-item");
                     }
                 });
 
+
+
                 $("#game-market #buy").click(function (e) {
                     if ($("#game-market .market .img-item").hasClass("active-item")) {
-                        let data = { cId: @Model.Character.ID, iId: $(".active-item").attr("id") };
+                        let data = { cId: @Model.Character.ID, iId: $("#game-market .active-item").attr("id") };
                         $.ajax({
                             url: "/Game/Trade",
                             data: data,
                             success: function (data) {
                                 if (data.valid) {
-                                    let tempSrc = $("#" + data.iId).attr("src");
-                                    $("#" + data.bpSlotId).attr("src", tempSrc);
-                                    $("#" + data.bpSlotId).removeClass("empty-slot");
+                                    console.log(data);
+                                    let tempSrc = $("#game-market #" + data.iId).attr("src");
+                                    $("#game-market #" + data.bpSlotId).attr("src", tempSrc);
+                                    $("#game-market #" + data.bpSlotId).removeClass("empty-slot");
+                                    updateCharacterInfo(data.gold, null, null, null);
                                 }
                             }
                         });
-                        $(".img-item").removeClass("active-item");
+                        $("#game-market .img-item").removeClass("active-item");
+                    }
+                });
+
+                $("#game-market").click(function (e) {
+                    if (!$(e.target).hasClass("img-item")) {
+                        $("#game-market .img-item").removeClass("active-item");
                     }
                 });
         });

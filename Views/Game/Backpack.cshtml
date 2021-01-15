@@ -92,8 +92,8 @@
         $(document).ready(function () {
             $("#game-backpack .item-slot").click(function (e) {
                 if ($(e.target).hasClass("empty-slot")) {
-                    if ($(".img-item").hasClass("active-item")) {
-                        let data = { cId: @Model.Character.ID, from: $(".active-item").attr("id"), to: e.target.id, isEmpty: true };
+                    if ($("#game-backpack .img-item").hasClass("active-item")) {
+                        let data = { cId: @Model.Character.ID, from: $("#game-backpack .active-item").attr("id"), to: e.target.id, isEmpty: true };
                         $.ajax({
                             url: "/Game/SlotsChange",
                             data: data,
@@ -101,12 +101,12 @@
                                 if (data.valid) {
                                     console.log(data.option + ": " + data.from + " | " + data.to);
 
-                                    let tempSrcFrom = $("#" + data.from).attr("src");
-                                    let tempSrcTo = $("#" + data.to).attr("src");
-                                    $("#" + data.from).attr("src", tempSrcTo);
-                                    $("#" + data.to).attr("src", tempSrcFrom);
-                                    $("#" + data.from).addClass("empty-slot");
-                                    $("#" + data.to).removeClass("empty-slot");
+                                    let tempSrcFrom = $("#game-backpack #" + data.from).attr("src");
+                                    let tempSrcTo = $("#game-backpack #" + data.to).attr("src");
+                                    $("#game-backpack #" + data.from).attr("src", tempSrcTo);
+                                    $("#game-backpack #" + data.to).attr("src", tempSrcFrom);
+                                    $("#game-backpack #" + data.from).addClass("empty-slot");
+                                    $("#game-backpack #" + data.to).removeClass("empty-slot");
                                 }
                                 else {
                                     console.log("NOT VALID!");
@@ -115,13 +115,13 @@
                         });
 
 
-                        $(".img-item").removeClass("active-item");
+                        $("#game-backpack .img-item").removeClass("active-item");
                     } else {
                         console.log("Clicked slot: empty");
                     }
                 } else {
-                    if ($(".img-item").hasClass("active-item")) {
-                        let data = { cId: @Model.Character.ID, from: $(".active-item").attr("id"), to: e.target.id, isEmpty: false };
+                    if ($("#game-backpack .img-item").hasClass("active-item")) {
+                        let data = { cId: @Model.Character.ID, from: $("#game-backpack .active-item").attr("id"), to: e.target.id, isEmpty: false };
                         $.ajax({
                             url: "/Game/SlotsChange",
                             data: data,
@@ -129,10 +129,10 @@
                                 if (data.valid) {
                                     console.log(data.option + ": " + data.from + " | " + data.to);
 
-                                    let tempSrcFrom = $("#" + data.from).attr("src");
-                                    let tempSrcTo = $("#" + data.to).attr("src");
-                                    $("#" + data.from).attr("src", tempSrcTo);
-                                    $("#" + data.to).attr("src", tempSrcFrom);
+                                    let tempSrcFrom = $("#game-backpack #" + data.from).attr("src");
+                                    let tempSrcTo = $("#game-backpack #" + data.to).attr("src");
+                                    $("#game-backpack #" + data.from).attr("src", tempSrcTo);
+                                    $("#game-backpack #" + data.to).attr("src", tempSrcFrom);
                                 }
                                 else {
                                     console.log("NOT VALID!");
@@ -140,7 +140,7 @@
                             }
                         });
 
-                        $(".img-item").removeClass("active-item");
+                        $("#game-backpack .img-item").removeClass("active-item");
                     } else {
                         let data = { cId: @Model.Character.ID, bpSlotId: e.target.id };
                         $.ajax({
@@ -155,9 +155,9 @@
                 }
             });
 
-            $(".game-plane").click(function (e) {
+            $("#game-backpack").click(function (e) {
                 if (!$(e.target).hasClass("img-item")) {
-                    $(".img-item").removeClass("active-item");
+                    $("#game-backpack .img-item").removeClass("active-item");
                 }
             });
         });

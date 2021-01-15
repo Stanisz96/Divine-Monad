@@ -7,12 +7,13 @@
             $("#" + componentId).ready(function () {
                 var imgN = $("#" + componentId).find("img").length;
                 var imgLoaded = 0
-
+                console.log("Reload: " + componentId);
                 if (imgN == 0) document.cookie = componentId + "=true";
-                if (getCookie(componentId) == "true") updateImageBorders(componentId);
+                updateImageBorders(componentId);
 
                 $("#" + componentId).find("img").on("load", function () {
                     imgLoaded++
+                    console.log(imgLoaded);
                     if (imgLoaded == imgN) updateImageBorders(componentId);
                 })
             });
@@ -45,4 +46,27 @@ function updateImageBorders(component) {
     $(".big-background .bottom-left").css({ "visibility": "visible" })
     $(".big-background .bottom-right").css({ "visibility": "visible" })
     document.cookie = component + "=true";
+};
+
+function updateCharacterInfo(gold, exp, reqExp, level) {
+    if (exp != $("#character-exp").text() && exp != null) {
+        $("#character-exp").fadeOut(300, function () {
+            $(this).text(exp.toString()).fadeIn(300);
+        });
+    }
+    if (gold != $("#character-gold").text() && gold != null) {
+        $("#character-gold").fadeOut(300, function () {
+            $(this).text(gold.toString()).fadeIn(300);
+        })
+    }
+    if (reqExp != $("#character-reqExp").text() && reqExp != null) {
+        $("#character-reqExp").fadeOut(300, function () {
+            $(this).text(reqExp.toString()).fadeIn(300);
+        })
+    }
+    if (level != $("#character-level").text() && level != null) {
+        $("#character-level").fadeOut(300, function () {
+            $(this).text(level.toString()).fadeIn(300);
+        })
+    }
 };

@@ -341,12 +341,12 @@ namespace DivineMonad.Controllers
 
                 character.CBStats.Gold += item.Price;
                 CharacterItems removeCharacterItem = await _context.CharactersItems.Where(i => i.CharacterId == character.ID
-                                                                    && i.ItemId == item.ID).FirstOrDefaultAsync();
+                                                                    && i.ItemId == item.ID && i.BpSlotId == bpSlotId).FirstOrDefaultAsync();
                 _context.CharactersItems.Remove(removeCharacterItem);
                 _context.Characters.Update(character);
                 await _context.SaveChangesAsync();
 
-                return new { valid = true, bpSlotId };
+                return new { valid = true, bpSlotId, gold = character.CBStats.Gold };
             }
             else if (iId != null)
             {
@@ -365,7 +365,7 @@ namespace DivineMonad.Controllers
                     _context.Characters.Update(character);
                     await _context.SaveChangesAsync();
 
-                    return new { valid = true, bpSlotId = newItem.BpSlotId, iId };
+                    return new { valid = true, bpSlotId = newItem.BpSlotId, iId, gold = character.CBStats.Gold };
                 }
                 else return new { valid = false };
             }
