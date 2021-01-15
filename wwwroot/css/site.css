@@ -277,6 +277,59 @@ body {
     font-size: 14px;
 }
 
+.game-content-market {
+    margin: 40px 35px 10px 35px;
+}
+
+.game-content-market .market {
+    background-color: rgba(18, 189, 126, 0.20);
+    padding: 30px 25px 30px 25px;
+}
+
+.game-content-market .market-info {
+    background-color: rgba(18, 189, 126, 0.20);
+    padding-top: 10px;
+}
+
+.game-content-market .stats {   
+}
+
+.game-content-market .trade {
+    height: 18%;
+}
+
+.game-content-market .backpack {
+    background-color: rgba(18, 189, 126, 0.20);
+    padding: 30px 55px 30px 55px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.game-content-market .item-slot {
+    background-color: #083c31;
+    max-width: 80px;
+    height: 80px;
+    text-align: center;
+    padding: 0px;
+    border: 1px solid #26A45D;
+    border-radius: 12px;
+}
+
+.game-content-market .img-item {
+    border-radius: 12px;
+    max-width: 75px;
+    margin-top: 1px;
+    background-color: transparent;
+}
+
+.game-content-market .active-item {
+    background-color: rgb(0, 255, 193);
+}
+
+.game-content-market .item-rarity {
+    margin-top: -8px;
+    font-size: 14px;
+}
 
 /*Horizontal scroll*/
 .horizontal-scroll {

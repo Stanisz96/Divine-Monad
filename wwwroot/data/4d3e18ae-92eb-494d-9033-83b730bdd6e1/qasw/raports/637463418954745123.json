@@ -1,0 +1,374 @@
+{
+  "Player": {
+    "ID": 10005,
+    "Name": "qasw"
+  },
+  "Opponent": {
+    "ID": 3,
+    "Name": "Enchanted Tree"
+  },
+  "Result": "win",
+  "IsPvp": false,
+  "Rounds": [
+    {
+      "Number": 1,
+      "Attacker": {
+        "Name": "Enchanted Tree",
+        "HP": 120,
+        "Crit": false,
+        "Miss": true,
+        "Damage": 8
+      },
+      "Defender": {
+        "Name": "qasw",
+        "HP": 158,
+        "Block": false,
+        "Receive": 0
+      }
+    },
+    {
+      "Number": 1,
+      "Attacker": {
+        "Name": "qasw",
+        "HP": 158,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 17
+      },
+      "Defender": {
+        "Name": "Enchanted Tree",
+        "HP": 103,
+        "Block": false,
+        "Receive": 17
+      }
+    },
+    {
+      "Number": 2,
+      "Attacker": {
+        "Name": "Enchanted Tree",
+        "HP": 103,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 8
+      },
+      "Defender": {
+        "Name": "qasw",
+        "HP": 151,
+        "Block": false,
+        "Receive": 7
+      }
+    },
+    {
+      "Number": 2,
+      "Attacker": {
+        "Name": "Enchanted Tree",
+        "HP": 103,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 9
+      },
+      "Defender": {
+        "Name": "qasw",
+        "HP": 143,
+        "Block": false,
+        "Receive": 8
+      }
+    },
+    {
+      "Number": 3,
+      "Attacker": {
+        "Name": "qasw",
+        "HP": 143,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 13
+      },
+      "Defender": {
+        "Name": "Enchanted Tree",
+        "HP": 90,
+        "Block": false,
+        "Receive": 13
+      }
+    },
+    {
+      "Number": 3,
+      "Attacker": {
+        "Name": "Enchanted Tree",
+        "HP": 90,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 9
+      },
+      "Defender": {
+        "Name": "qasw",
+        "HP": 135,
+        "Block": false,
+        "Receive": 8
+      }
+    },
+    {
+      "Number": 4,
+      "Attacker": {
+        "Name": "qasw",
+        "HP": 135,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 16
+      },
+      "Defender": {
+        "Name": "Enchanted Tree",
+        "HP": 74,
+        "Block": false,
+        "Receive": 16
+      }
+    },
+    {
+      "Number": 4,
+      "Attacker": {
+        "Name": "Enchanted Tree",
+        "HP": 74,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 9
+      },
+      "Defender": {
+        "Name": "qasw",
+        "HP": 127,
+        "Block": false,
+        "Receive": 8
+      }
+    },
+    {
+      "Number": 5,
+      "Attacker": {
+        "Name": "qasw",
+        "HP": 127,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 14
+      },
+      "Defender": {
+        "Name": "Enchanted Tree",
+        "HP": 60,
+        "Block": false,
+        "Receive": 14
+      }
+    },
+    {
+      "Number": 5,
+      "Attacker": {
+        "Name": "Enchanted Tree",
+        "HP": 60,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 10
+      },
+      "Defender": {
+        "Name": "qasw",
+        "HP": 118,
+        "Block": false,
+        "Receive": 9
+      }
+    },
+    {
+      "Number": 6,
+      "Attacker": {
+        "Name": "Enchanted Tree",
+        "HP": 60,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 8
+      },
+      "Defender": {
+        "Name": "qasw",
+        "HP": 111,
+        "Block": false,
+        "Receive": 7
+      }
+    },
+    {
+      "Number": 6,
+      "Attacker": {
+        "Name": "qasw",
+        "HP": 111,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 13
+      },
+      "Defender": {
+        "Name": "Enchanted Tree",
+        "HP": 47,
+        "Block": false,
+        "Receive": 13
+      }
+    },
+    {
+      "Number": 7,
+      "Attacker": {
+        "Name": "Enchanted Tree",
+        "HP": 47,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 10
+      },
+      "Defender": {
+        "Name": "qasw",
+        "HP": 107,
+        "Block": true,
+        "Receive": 4
+      }
+    },
+    {
+      "Number": 7,
+      "Attacker": {
+        "Name": "Enchanted Tree",
+        "HP": 47,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 9
+      },
+      "Defender": {
+        "Name": "qasw",
+        "HP": 99,
+        "Block": false,
+        "Receive": 8
+      }
+    },
+    {
+      "Number": 8,
+      "Attacker": {
+        "Name": "qasw",
+        "HP": 99,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 13
+      },
+      "Defender": {
+        "Name": "Enchanted Tree",
+        "HP": 34,
+        "Block": false,
+        "Receive": 13
+      }
+    },
+    {
+      "Number": 8,
+      "Attacker": {
+        "Name": "Enchanted Tree",
+        "HP": 34,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 8
+      },
+      "Defender": {
+        "Name": "qasw",
+        "HP": 92,
+        "Block": false,
+        "Receive": 7
+      }
+    },
+    {
+      "Number": 9,
+      "Attacker": {
+        "Name": "qasw",
+        "HP": 92,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 17
+      },
+      "Defender": {
+        "Name": "Enchanted Tree",
+        "HP": 17,
+        "Block": false,
+        "Receive": 17
+      }
+    },
+    {
+      "Number": 9,
+      "Attacker": {
+        "Name": "Enchanted Tree",
+        "HP": 17,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 8
+      },
+      "Defender": {
+        "Name": "qasw",
+        "HP": 85,
+        "Block": false,
+        "Receive": 7
+      }
+    },
+    {
+      "Number": 10,
+      "Attacker": {
+        "Name": "qasw",
+        "HP": 85,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 14
+      },
+      "Defender": {
+        "Name": "Enchanted Tree",
+        "HP": 3,
+        "Block": false,
+        "Receive": 14
+      }
+    },
+    {
+      "Number": 10,
+      "Attacker": {
+        "Name": "Enchanted Tree",
+        "HP": 3,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 9
+      },
+      "Defender": {
+        "Name": "qasw",
+        "HP": 77,
+        "Block": false,
+        "Receive": 8
+      }
+    },
+    {
+      "Number": 11,
+      "Attacker": {
+        "Name": "Enchanted Tree",
+        "HP": 3,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 10
+      },
+      "Defender": {
+        "Name": "qasw",
+        "HP": 68,
+        "Block": false,
+        "Receive": 9
+      }
+    },
+    {
+      "Number": 11,
+      "Attacker": {
+        "Name": "qasw",
+        "HP": 68,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 15
+      },
+      "Defender": {
+        "Name": "Enchanted Tree",
+        "HP": -12,
+        "Block": false,
+        "Receive": 15
+      }
+    }
+  ],
+  "QuickFight": true,
+  "Reward": {
+    "Experience": 3,
+    "Gold": 2,
+    "ItemID": -1,
+    "ItemName": null,
+    "ItemRarity": null
+  }
+}

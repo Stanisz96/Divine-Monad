@@ -5,19 +5,40 @@
     Item item;
     CharacterItems cItem;
     string emptySlot = "";
+    int countMarket = 0;
 }
 
-<div class="game-content-backpack">
+<div class="game-content-market">
     <div class="row">
-        <div class="col-12 backpack medium-border">
-            <div class="row">
+        <div class="col-6 market medium-border">
+            <div class="row justify-content-center">
                 @foreach (var mItem in Model.MarketItems)
                 {
                     item = mItem.Item;
+                    countMarket += 1;
                     <div class="col-2 item-slot">
                         <img src="@Url.Content(item.ImageUrl)" class="img-item" alt="item" id="@mItem.ID">
                     </div>
                 }
+                @for (int i = countMarket; i < 9; i++)
+                {
+                    <div class="col-2 item-slot">
+                        <img src="@Url.Content("~/images/bg_item.png")" class="img-item empty-slot" alt="item">
+                    </div>
+                }
+            </div>
+        </div>
+        <div class="col-5 market-info medium-border offset-1">
+            <div class="row" style="height: 82%;">
+                <div class="col-12 stats"></div>
+            </div>
+            <div class="row trade justify-content-center">
+                <div class="m-1">
+                    <button id="sell" type="button" class="btn-std">Sell</button>
+                </div>
+                <div class="m-1">
+                    <button id="buy" type="button" class="btn-std">Buy</button>
+                </div>
             </div>
         </div>
     </div>
@@ -51,5 +72,77 @@
 
     @section Scripts{
         <script>
+            $(document).ready(function () {
+                        $(".backpack .item-slot").click(function (e) {
+                            if ($(e.target).hasClass("empty-slot")) {
+                                if ($(".img-item").hasClass("active-item")) {
+                                    let data = { cId: @Model.Character.ID, from: $(".active-item").attr("id"), to: e.target.id, isEmpty: true };
+                                    $.ajax({
+                                        url: "/Game/SlotsChange",
+                                        data: data,
+                                        success: function (data) {
+                                            if (data.valid) {
+                                                console.log(data.option + ": " + data.from + " | " + data.to);
+
+                                                let tempSrcFrom = $("#" + data.from).attr("src");
+                                                let tempSrcTo = $("#" + data.to).attr("src");
+                                                $("#" + data.from).attr("src", tempSrcTo);
+                                                $("#" + data.to).attr("src", tempSrcFrom);
+                                                $("#" + data.from).addClass("empty-slot");
+                                                $("#" + data.to).removeClass("empty-slot");
+                                            }
+                                            else {
+                                                console.log("NOT VALID!");
+                                            }
+                                        }
+                                    });
+
+
+                                    $(".img-item").removeClass("active-item");
+                                } else {
+                                    console.log("Clicked slot: empty");
+                                }
+                            } else {
+                                if ($(".img-item").hasClass("active-item")) {
+                                    let data = { cId: @Model.Character.ID, from: $(".active-item").attr("id"), to: e.target.id, isEmpty: false };
+                                    $.ajax({
+                                        url: "/Game/SlotsChange",
+                                        data: data,
+                                        success: function (data) {
+                                            if (data.valid) {
+                                                console.log(data.option + ": " + data.from + " | " + data.to);
+
+                                                let tempSrcFrom = $("#" + data.from).attr("src");
+                                                let tempSrcTo = $("#" + data.to).attr("src");
+                                                $("#" + data.from).attr("src", tempSrcTo);
+                                                $("#" + data.to).attr("src", tempSrcFrom);
+                                            }
+                                            else {
+                                                console.log("NOT VALID!");
+                                            }
+                                        }
+                                    });
+
+                                    $(".img-item").removeClass("active-item");
+                                } else {
+                                    let data = { cId: @Model.Character.ID, bpSlotId: e.target.id };
+                                    $.ajax({
+                                        url: "/Game/ItemInfo",
+                                        data: data,
+                                        success: function (data) {
+                                            $(".stats").html(data);
+                                        }
+                                    });
+                                    $(e.target).addClass("active-item");
+                                }
+                            }
+                        });
+
+                        $(".game-plane").click(function (e) {
+                            if (!$(e.target).hasClass("img-item")) {
+                                $(".img-item").removeClass("active-item");
+                            }
+                        });
+                    });
         </script>
     }
