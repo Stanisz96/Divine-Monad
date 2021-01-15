@@ -2,9 +2,11 @@
 using DivineMonad.Models;
 using DivineMonad.Tools;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
@@ -16,11 +18,13 @@ namespace DivineMonad.Controllers
     {
         private readonly ApplicationDbContext _context;
         private readonly IDbContextHelper _contextHelper;
+        private readonly IWebHostEnvironment _hostingEnv;
 
-        public ManageController(ApplicationDbContext context, IDbContextHelper contextHelper)
+        public ManageController(ApplicationDbContext context, IDbContextHelper contextHelper, IWebHostEnvironment hostingEnv)
         {
             _context = context;
             _contextHelper = contextHelper;
+            _hostingEnv = hostingEnv;
         }
 
         public async Task<IActionResult> Index(int cId)
@@ -36,7 +40,7 @@ namespace DivineMonad.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit([Bind("ID,Name,UserId")] Character character)
+        public async Task<IActionResult> Edit([Bind("ID,Name,AvatarImage,UserId")] Character character)
         {
             var updateCharacter = await _contextHelper.GetCharacter(character.ID, User, _context);
             if (ModelState.IsValid)
@@ -44,6 +48,22 @@ namespace DivineMonad.Controllers
                 if (!(updateCharacter is null))
                 {
                     updateCharacter.Name = character.Name;
+                    updateCharacter.AvatarImage = character.AvatarImage;
+                    if (updateCharacter.AvatarImage != null)
+                    {
+                        string userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+                        string a = _hostingEnv.WebRootPath;
+                        string AvatarPath = Path.Combine(a, updateCharacter.AvatarUrl.Replace("/", "\\").Replace("~\\", ""));
+
+                        using (var fileSteam = new FileStream(AvatarPath, FileMode.Create))
+                        {
+                            await updateCharacter.AvatarImage.CopyToAsync(fileSteam);
+                        }
+                    }   
+
+
+
+
 
                     _context.Update(updateCharacter);
 
