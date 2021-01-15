@@ -51,7 +51,6 @@ namespace DivineMonad.Controllers
                     updateCharacter.AvatarImage = character.AvatarImage;
                     if (updateCharacter.AvatarImage != null)
                     {
-                        string userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
                         string a = _hostingEnv.WebRootPath;
                         string AvatarPath = Path.Combine(a, updateCharacter.AvatarUrl.Replace("/", "\\").Replace("~\\", ""));
 
@@ -87,6 +86,14 @@ namespace DivineMonad.Controllers
                 _context.Remove(character.GStats);
                 _context.Remove(character.CBStats);
                 _context.RemoveRange(_context.CharactersItems.Where(i => i.CharacterId == character.ID));
+
+
+                // remove files
+                string userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+                string a = _hostingEnv.WebRootPath;
+                string characterPath = Path.Combine(a, "data\\" + userId + "\\" + character.Name);
+                Directory.Delete(characterPath, true);
+
                 await _context.SaveChangesAsync();
                 return RedirectToAction("Index", "Characters");
             }
