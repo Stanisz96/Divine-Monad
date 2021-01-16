@@ -43,26 +43,30 @@ namespace DivineMonad.Controllers
         public async Task<IActionResult> Edit([Bind("ID,Name,AvatarImage,UserId")] Character character)
         {
             var updateCharacter = await _contextHelper.GetCharacter(character.ID, User, _context);
+            string userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
             if (ModelState.IsValid)
             {
                 if (!(updateCharacter is null))
                 {
+                    string a = _hostingEnv.WebRootPath;
+                    
+                    if (updateCharacter.Name != character.Name)
+                    {
+                        Directory.Move(Path.Combine(a, "data", userId, updateCharacter.Name), Path.Combine(a, "data", userId, character.Name));
+                        updateCharacter.AvatarUrl = updateCharacter.AvatarUrl.Replace(updateCharacter.Name, character.Name);
+                    }
+                    string AvatarPath = Path.Combine(a, updateCharacter.AvatarUrl.Replace("/", "\\").Replace("~\\", ""));
                     updateCharacter.Name = character.Name;
                     updateCharacter.AvatarImage = character.AvatarImage;
+                    
+                    
                     if (updateCharacter.AvatarImage != null)
                     {
-                        string a = _hostingEnv.WebRootPath;
-                        string AvatarPath = Path.Combine(a, updateCharacter.AvatarUrl.Replace("/", "\\").Replace("~\\", ""));
-
                         using (var fileSteam = new FileStream(AvatarPath, FileMode.Create))
                         {
                             await updateCharacter.AvatarImage.CopyToAsync(fileSteam);
                         }
-                    }   
-
-
-
-
+                    }
 
                     _context.Update(updateCharacter);
 

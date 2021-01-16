@@ -23,7 +23,6 @@
   <ItemGroup>
     <Folder Include="Areas\Admin\Data\" />
     <Folder Include="Areas\Admin\Models\" />
-    <Folder Include="wwwroot\data\" />
     <Folder Include="wwwroot\data\4d3e18ae-92eb-494d-9033-83b730bdd6e1\dfdf\raports\" />
     <Folder Include="wwwroot\raports\" />
   </ItemGroup>
