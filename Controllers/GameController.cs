@@ -205,13 +205,22 @@ namespace DivineMonad.Controllers
             string raportsPath = Path.Combine(a, "data\\" + userId.ToString() + "\\" + character.Name + "\\raports");
             DirectoryInfo di = new DirectoryInfo(raportsPath);
             FileInfo[] Files = di.GetFiles("*.json");
-            List<string> raportsNames = new List<string>();
-            foreach (FileInfo file in Files)
-            {
-                raportsNames.Add(file.Name);
-            }
 
-            return PartialView(raportsNames);
+            RaportsViewModel raportsView = new RaportsViewModel();
+            raportsView.RaportsNames = new List<string>();
+            raportsView.MonstersList = new List<Monster>();
+
+            for (int i = 0; i < Files.Length; i++)
+            {
+                string raportName = Files[i].Name;
+                raportsView.RaportsNames.Add(raportName);
+                string[] subRaportName = raportName.Split("_");
+                if( raportsView.Character is null) raportsView.Character = character.ID == Int32.Parse(subRaportName[0]) ? character : null;
+                Monster monster = await _context.Monsters.Where(m => m.ID == Int32.Parse(subRaportName[1])).FirstOrDefaultAsync();
+                if (!raportsView.MonstersList.Contains(monster)) raportsView.MonstersList.Add(monster);
+            }
+            var x = 5;
+            return PartialView(raportsView);
         }
 
         public async Task<object> SlotsChange(int cId, int from, int to, bool isEmpty)
