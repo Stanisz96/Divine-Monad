@@ -70,7 +70,8 @@
 @section Scripts{ 
     <script>
         $(document).ready(function (e) {
-            var quickFight = '@(Model.Raport.QuickFight)' === '@true';
+            let quickFight = (getCookie("quickFight") == "true");
+            console.log(quickFight);
             $("html").animate({ scrollTop: 0 }, 100);
 
             var quickRaport = $("#quick-raport").children();
