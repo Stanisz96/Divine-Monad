@@ -9,6 +9,14 @@
 }
 
 <div class="game-content-raports">
+    <div class="row justify-content-center mb-3">
+        <div class="col-1 pr-0">
+            <div class="btn-svg"></div>
+        </div>
+        <div class="col-3 pl-0">
+            <p>Quick fight</p>
+        </div>
+    </div>
     <div class="row justify-content-center medium-border">
         <div class="col-12 list-group p-0">
             @foreach (string raportName in Model.RaportsNames)
@@ -28,10 +36,20 @@
         </div>
     </div>
 </div>
-@*int cId, int? mId, bool? qf, bool isHistory, string raportName*@
+
 @section Scripts{
     <script>
         $(document).ready(function () {
+            var quickFightCookie = getCookie("quickFight");
+            console.log(quickFightCookie);
+            quickFightCookie = (quickFightCookie == "true");
+            if (quickFightCookie == false) {
+                $("#game-raports .btn-svg").addClass("far fa-square");
+            } else {
+                $("#game-raports .btn-svg").addClass("far fa-check-square");
+            }
+
+
             $("#game-raports button").click(function (e) {
                 console.log(this.id);
                 let raportName = this.id + ".json";
@@ -40,6 +58,20 @@
                 let controller = "Game";
                 let data = { cId: @ViewBag.cId, isHistory: true, raportName };
                 ReloadComponent(componentId, action, controller, data);
+            });
+
+            $("#game-raports .btn-svg").click(function () {
+                if (quickFightCookie == false) {
+                    $("#game-raports .btn-svg").removeClass("fa-square");
+                    $("#game-raports .btn-svg").addClass("fa-check-square");
+                    quickFightCookie = true;
+                    document.cookie = "quickFight=true";
+                } else {
+                    $("#game-raports .btn-svg").removeClass("fa-check-square");
+                    $("#game-raports .btn-svg").addClass("fa-square");
+                    quickFightCookie = false;
+                    document.cookie = "quickFight=false";
+                }
             });
         });
     </script>
