@@ -261,35 +261,10 @@ namespace DivineMonad.Controllers
             }
 
             ViewData["cId"] = cId;
-
+            
+            raportsView.RaportsNames = raportsView.RaportsNames.OrderByDescending(r => Int64.Parse(r.Split("_")[4].Replace(".json",""))).ToList();
+            
             return PartialView(raportsView);
-        }
-
-        public async Task<IActionResult> RaportHistory(int cId, string raportName)
-        {
-            Character character = await _contextHelper.GetCharacter(cId, User, _context);
-            string a = _hostingEnv.WebRootPath;
-            string userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
-            string raportPath = Path.Combine(a, "data\\" + userId.ToString() + "\\" + character.Name + "\\raports" + "\\" + raportName);
-
-            RaportGenerator fightRaport = null;
-
-            using (StreamReader r = new StreamReader(raportPath))
-            {
-                string raportJson = r.ReadToEnd();
-                fightRaport = JsonConvert.DeserializeObject<RaportGenerator>(raportJson);
-            }
-
-            Monster monster = await _context.Monsters.Where(m => m.ID == fightRaport.Opponent.ID).FirstOrDefaultAsync();
-
-            RaportViewModel raportView = new RaportViewModel()
-            {
-                Player = character,
-                Opponent = monster,
-                Raport = fightRaport
-            };
-
-            return PartialView(raportView);
         }
 
         public async Task<object> SlotsChange(int cId, int from, int to, bool isEmpty)
