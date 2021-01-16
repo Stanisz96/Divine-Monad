@@ -196,10 +196,22 @@ namespace DivineMonad.Controllers
             return PartialView(marketView);
         }
 
-        public async Task<IActionResult> News(int cId)
+        public async Task<IActionResult> Raports(int cId)
         {
             Character character = await _contextHelper.GetCharacter(cId, User, _context);
-            return PartialView(character);
+
+            string a = _hostingEnv.WebRootPath;
+            string userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            string raportsPath = Path.Combine(a, "data\\" + userId.ToString() + "\\" + character.Name + "\\raports");
+            DirectoryInfo di = new DirectoryInfo(raportsPath);
+            FileInfo[] Files = di.GetFiles("*.json");
+            List<string> raportsNames = new List<string>();
+            foreach (FileInfo file in Files)
+            {
+                raportsNames.Add(file.Name);
+            }
+
+            return PartialView(raportsNames);
         }
 
         public async Task<object> SlotsChange(int cId, int from, int to, bool isEmpty)
