@@ -362,6 +362,10 @@ body {
 
 }
 
+.game-content-raports .list-group-item:last-child {
+    margin-bottom: -1px;
+}
+
 
 .horizontal-scroll {
     overflow-x: scroll;

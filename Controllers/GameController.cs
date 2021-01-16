@@ -246,6 +246,8 @@ namespace DivineMonad.Controllers
             DirectoryInfo di = new DirectoryInfo(raportsPath);
             FileInfo[] Files = di.GetFiles("*.json");
 
+            if (Files.Length == 0) PartialView(null);
+
             RaportsViewModel raportsView = new RaportsViewModel();
             raportsView.RaportsNames = new List<string>();
             raportsView.MonstersList = new List<Monster>();
