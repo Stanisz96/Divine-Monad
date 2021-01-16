@@ -70,6 +70,7 @@
 @section Scripts{ 
     <script>
         $(document).ready(function (e) {
+            console.log("TEST!");
             var quickFight = '@(Model.Raport.QuickFight)' === '@true';
             $("html").animate({ scrollTop: 0 }, 100);
 
@@ -78,8 +79,9 @@
             let i = 1;
             let tempo = 100;
             if (quickFight) tempo = 10;
-            var interval = setInterval(function () {
+            let interval = setInterval(function () {
                 if (i < hiddenRaport.length) {
+                    console.log("test2");
                     $(hiddenRaport[i]).hide().appendTo(shownRaport).fadeIn(10 * tempo);
                     if (i > 3) {
                         $(".shown").animate({ scrollTop: $("#shown-raport").height() }, 10 * tempo);

@@ -123,6 +123,8 @@
 
             $(".list-group a").click(function () {
                 let componentId = this.attributes.getNamedItem("aria-controls").value;
+                if (componentId == "game-battle") $("#game-raports").empty();
+                if (componentId == "game-raports") $("#game-battle").empty();
                 let action = componentId.split('-')[1];
                 let controller = "Game";
                 let data = { cId: @Model.ID };
