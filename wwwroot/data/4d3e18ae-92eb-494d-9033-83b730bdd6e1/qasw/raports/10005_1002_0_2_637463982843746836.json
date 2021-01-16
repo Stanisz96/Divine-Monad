@@ -1,0 +1,38 @@
+{
+  "Player": {
+    "ID": 10005,
+    "Name": "qasw"
+  },
+  "Opponent": {
+    "ID": 1002,
+    "Name": "Knight"
+  },
+  "Result": "win",
+  "IsPvp": false,
+  "Rounds": [
+    {
+      "Number": 1,
+      "Attacker": {
+        "Name": "qasw",
+        "HP": 837,
+        "Crit": true,
+        "Miss": false,
+        "Damage": 129
+      },
+      "Defender": {
+        "Name": "Knight",
+        "HP": -119,
+        "Block": false,
+        "Receive": 129
+      }
+    }
+  ],
+  "QuickFight": true,
+  "Reward": {
+    "Experience": 3,
+    "Gold": 3,
+    "ItemID": -1,
+    "ItemName": null,
+    "ItemRarity": null
+  }
+}

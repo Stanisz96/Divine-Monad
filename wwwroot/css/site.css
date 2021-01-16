@@ -337,6 +337,10 @@ body {
     margin: 50px;
 }
 
+.game-content-raports .medium-border {
+    border-image-outset: 5px !important;
+    max-height: 560px;
+}
 
 
 .horizontal-scroll {
