@@ -165,8 +165,10 @@ namespace DivineMonad.Controllers
             }
 
             string dateTime = DateTime.Now.Ticks.ToString();
-
-            System.IO.File.WriteAllText(Path.Combine(characterDataPath, dateTime+".json"), fightRaportJson);
+            string resultVal = fightRaport.Result == "lose" ? "0" : fightRaport.Result == "win" ? "2" : "1";
+            string raportName = fightRaport.Player.ID.ToString() + "_" + fightRaport.Opponent.ID.ToString() + "_"
+                + (fightRaport.IsPvp ? 1 : 0).ToString() + "_" + resultVal + "_" + dateTime + ".json";
+            System.IO.File.WriteAllText(Path.Combine(characterDataPath, raportName), fightRaportJson);
 
             return PartialView(fightRaport);
         }
