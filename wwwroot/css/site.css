@@ -225,6 +225,10 @@ body {
     max-height: 150px;
 }
 
+.game-content-raport .hidden {
+    display: none;
+}
+
 .game-content-raport .player {
     max-height: 150px;
 }

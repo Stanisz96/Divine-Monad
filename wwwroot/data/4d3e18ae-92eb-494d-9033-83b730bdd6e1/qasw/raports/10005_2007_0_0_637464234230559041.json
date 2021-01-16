@@ -1,0 +1,150 @@
+{
+  "Player": {
+    "ID": 10005,
+    "Name": "qasw"
+  },
+  "Opponent": {
+    "ID": 2007,
+    "Name": "Ogre"
+  },
+  "Result": "lose",
+  "IsPvp": false,
+  "Rounds": [
+    {
+      "Number": 1,
+      "Attacker": {
+        "Name": "qasw",
+        "HP": 837,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 83
+      },
+      "Defender": {
+        "Name": "Ogre",
+        "HP": 3117,
+        "Block": false,
+        "Receive": 83
+      }
+    },
+    {
+      "Number": 1,
+      "Attacker": {
+        "Name": "Ogre",
+        "HP": 3117,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 245
+      },
+      "Defender": {
+        "Name": "qasw",
+        "HP": 600,
+        "Block": false,
+        "Receive": 237
+      }
+    },
+    {
+      "Number": 2,
+      "Attacker": {
+        "Name": "qasw",
+        "HP": 600,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 84
+      },
+      "Defender": {
+        "Name": "Ogre",
+        "HP": 3033,
+        "Block": false,
+        "Receive": 84
+      }
+    },
+    {
+      "Number": 2,
+      "Attacker": {
+        "Name": "Ogre",
+        "HP": 3033,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 204
+      },
+      "Defender": {
+        "Name": "qasw",
+        "HP": 403,
+        "Block": false,
+        "Receive": 197
+      }
+    },
+    {
+      "Number": 3,
+      "Attacker": {
+        "Name": "qasw",
+        "HP": 403,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 77
+      },
+      "Defender": {
+        "Name": "Ogre",
+        "HP": 2956,
+        "Block": false,
+        "Receive": 77
+      }
+    },
+    {
+      "Number": 3,
+      "Attacker": {
+        "Name": "Ogre",
+        "HP": 2956,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 224
+      },
+      "Defender": {
+        "Name": "qasw",
+        "HP": 186,
+        "Block": false,
+        "Receive": 217
+      }
+    },
+    {
+      "Number": 4,
+      "Attacker": {
+        "Name": "qasw",
+        "HP": 186,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 76
+      },
+      "Defender": {
+        "Name": "Ogre",
+        "HP": 2880,
+        "Block": false,
+        "Receive": 76
+      }
+    },
+    {
+      "Number": 4,
+      "Attacker": {
+        "Name": "Ogre",
+        "HP": 2880,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 238
+      },
+      "Defender": {
+        "Name": "qasw",
+        "HP": -44,
+        "Block": false,
+        "Receive": 230
+      }
+    }
+  ],
+  "QuickFight": true,
+  "Reward": {
+    "Experience": 0,
+    "Gold": 0,
+    "ItemID": 0,
+    "ItemName": null,
+    "ItemRarity": null
+  }
+}

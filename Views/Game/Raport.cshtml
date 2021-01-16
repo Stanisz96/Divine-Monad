@@ -12,9 +12,9 @@
                  class="character-avatar" alt="avatar">
         </div>
     </div>
-    <div class="row quick raport vertical-scroll">
+    <div class="row hidden raport vertical-scroll">
         <div class="col">
-            <div id="quick-raport">
+            <div id="hidden-raport">
                 <p>The fight between @Model.Player.Name and @Model.Opponent.Name has begun.</p>
                 @foreach (var round in Model.Raport.Rounds)
                 {
@@ -52,8 +52,8 @@
             </div>
         </div>
     </div>
-    <div class="row slow raport vertical-scroll">
-        <div class="col" id="slow-raport">
+    <div class="row shown raport vertical-scroll">
+        <div class="col" id="shown-raport">
             <p>The fight between @Model.Player.Name and @Model.Opponent.Name has begun.</p>
         </div>
     </div>
@@ -69,34 +69,27 @@
 
 @section Scripts{ 
     <script>
-        var quickFight = '@(Model.Raport.QuickFight)' === '@true';
         $(document).ready(function (e) {
+            var quickFight = '@(Model.Raport.QuickFight)' === '@true';
             $("html").animate({ scrollTop: 0 }, 100);
 
-            var quickRaport = $("#quick-raport").children();
-            var slowRaport = $("#slow-raport");
-            var i = 1;
-
-            if (quickFight) {
-                $(".slow").css({ display: "none" });
-                $(".quick").animate({ scrollTop: $("#quick-raport").height() }, 1000);
-                updateCharacterInfo();
-            } else {
-                $(".quick").css({ display: "none" });
-
-                var interval = setInterval(function () {
-                    if (i < quickRaport.length) {
-                        $(quickRaport[i]).hide().appendTo(slowRaport).fadeIn(1000);
-                        if (i > 3) {
-                            $(".slow").animate({ scrollTop: $("#slow-raport").height() }, 1000);
-                        }
-                    } else {
-                        updateCharacterInfo(@ViewBag.gold, @ViewBag.exp, @ViewBag.reqExp, @ViewBag.level);
-                        clearInterval(interval)
+            let hiddenRaport = $("#hidden-raport").children();
+            let shownRaport = $("#shown-raport");
+            let i = 1;
+            let tempo = 100;
+            if (quickFight) tempo = 10;
+            var interval = setInterval(function () {
+                if (i < hiddenRaport.length) {
+                    $(hiddenRaport[i]).hide().appendTo(shownRaport).fadeIn(10 * tempo);
+                    if (i > 3) {
+                        $(".shown").animate({ scrollTop: $("#shown-raport").height() }, 10 * tempo);
                     }
-                    i++;
-                }, 1500);
-            }
+                } else {
+                    updateCharacterInfo(@ViewBag.gold, @ViewBag.exp, @ViewBag.reqExp, @ViewBag.level);
+                    clearInterval(interval)
+                }
+                i++;
+            }, 15 * tempo);
         });
     </script>
 }
