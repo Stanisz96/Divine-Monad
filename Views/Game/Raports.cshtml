@@ -9,7 +9,7 @@
 }
 
 <div class="game-content-raports">
-    <div class="row vertical-scroll justify-content-center medium-border">
+    <div class="row justify-content-center medium-border">
         <div class="col-12 list-group p-0">
             @foreach (string raportName in Model.RaportsNames)
             {
@@ -17,10 +17,12 @@
                 result = subRaportName[3] == "0" ? "lose" : subRaportName[3] == "1" ? "draw" : "win";
                 backgroundColor = subRaportName[3] == "0" ? "#ffebeb" : subRaportName[3] == "1" ? "#fffdeb" : "#eeffeb";
                 dt = new DateTime(Int64.Parse(subRaportName[4].Substring(0, subRaportName[4].IndexOf(".json"))));
-                <button type="button" class="row list-group-item list-group-item-action" style="display: flex !important; background-color: @backgroundColor;">
+                <button type="button" class="row list-group-item list-group-item-action"
+                        style="background-color: @backgroundColor;" id="@raportName.Substring(0,raportName.IndexOf(".json"))">
                     <div class="col-6">@Model.Character.Name vs. @Model.MonstersList.Where(m => m.ID == Int32.Parse(subRaportName[1])).FirstOrDefault().Name</div>
                     <div class="col-2 p-0">[ @result ]</div>
                     <div class="col-4 p-0">@dt.ToString()</div>
+                    <div class="overlay"></div>
                 </button>
             }
         </div>
@@ -31,7 +33,7 @@
     <script>
         $(document).ready(function () {
             $("#game-raports button").click(function (e) {
-                console.log($(e.target));
+                console.log(this.id);
 @*                let monsterId = this.id.split('-')[0];
                 let componentId = "game-battle";
                 let action = "Raport";

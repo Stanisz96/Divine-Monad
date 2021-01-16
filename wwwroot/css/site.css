@@ -340,6 +340,26 @@ body {
 .game-content-raports .medium-border {
     border-image-outset: 5px !important;
     max-height: 560px;
+    overflow-y: overlay;
+}
+
+.game-content-raports button {
+    display: flex !important;
+}
+
+.game-content-raports button:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+.game-content-raports button:hover > .overlay {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-color: #000;
+    opacity: 0.1;
+    margin: -12px;
+
 }
 
 
