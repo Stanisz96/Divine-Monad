@@ -12,9 +12,9 @@
                  class="character-avatar" alt="avatar">
         </div>
     </div>
-    <div class="row hidden raport vertical-scroll">
+    <div class="row quick raport vertical-scroll">
         <div class="col">
-            <div id="hidden-raport">
+            <div id="quick-raport">
                 <p>The fight between @Model.Player.Name and @Model.Opponent.Name has begun.</p>
                 @foreach (var round in Model.Raport.Rounds)
                 {
@@ -52,8 +52,8 @@
             </div>
         </div>
     </div>
-    <div class="row shown raport vertical-scroll">
-        <div class="col" id="shown-raport">
+    <div class="row slow raport vertical-scroll">
+        <div class="col" id="slow-raport">
             <p>The fight between @Model.Player.Name and @Model.Opponent.Name has begun.</p>
         </div>
     </div>
@@ -70,28 +70,33 @@
 @section Scripts{ 
     <script>
         $(document).ready(function (e) {
-            console.log("TEST!");
             var quickFight = '@(Model.Raport.QuickFight)' === '@true';
             $("html").animate({ scrollTop: 0 }, 100);
 
-            let hiddenRaport = $("#hidden-raport").children();
-            let shownRaport = $("#shown-raport");
-            let i = 1;
-            let tempo = 100;
-            if (quickFight) tempo = 10;
-            let interval = setInterval(function () {
-                if (i < hiddenRaport.length) {
-                    console.log("test2");
-                    $(hiddenRaport[i]).hide().appendTo(shownRaport).fadeIn(10 * tempo);
-                    if (i > 3) {
-                        $(".shown").animate({ scrollTop: $("#shown-raport").height() }, 10 * tempo);
+            var quickRaport = $("#quick-raport").children();
+            var slowRaport = $("#slow-raport");
+            var i = 1;
+
+            if (quickFight) {
+                $(".slow").css({ display: "none" });
+                $(".quick").animate({ scrollTop: $("#quick-raport").height() }, 1000);
+                updateCharacterInfo();
+            } else {
+                $(".quick").css({ display: "none" });
+
+                var interval = setInterval(function () {
+                    if (i < quickRaport.length) {
+                        $(quickRaport[i]).hide().appendTo(slowRaport).fadeIn(1000);
+                        if (i > 3) {
+                            $(".slow").animate({ scrollTop: $("#slow-raport").height() }, 1000);
+                        }
+                    } else {
+                        updateCharacterInfo(@ViewBag.gold, @ViewBag.exp, @ViewBag.reqExp, @ViewBag.level);
+                        clearInterval(interval)
                     }
-                } else {
-                    updateCharacterInfo(@ViewBag.gold, @ViewBag.exp, @ViewBag.reqExp, @ViewBag.level);
-                    clearInterval(interval)
-                }
-                i++;
-            }, 15 * tempo);
+                    i++;
+                }, 1500);
+            }
         });
     </script>
 }
