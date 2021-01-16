@@ -34,8 +34,8 @@
     <script>
         $(document).ready(function () {
             var quickFightCookie = getCookie("quickFight");
+            console.log(quickFightCookie);
             quickFightCookie = (quickFightCookie == "true");
-
             if (quickFightCookie == false) {
                 $("#game-battle .btn-svg").addClass("far fa-square");
             } else {
