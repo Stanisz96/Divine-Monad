@@ -1,12 +1,13 @@
 ﻿@model IEnumerable<DivineMonad.Models.Monster>
 
-@{ 
+@{
     Layout = "_SubLayout";
 }
 
 <div class="game-content-battle" id="battle">
     <div class="row justify-content-center mb-3">
-        <div class="col-1 pr-0 btn-svg">
+        <div class="col-1 pr-0">
+            <div class="btn-svg"></div>
         </div>
         <div class="col-3 pl-0">
             <p>Quick fight</p>
@@ -29,34 +30,36 @@
     </div>
 </div>
 
-@section Scripts{ 
+@section Scripts{
     <script>
         $(document).ready(function () {
             var quickFightCookie = getCookie("quickFight");
             quickFightCookie = (quickFightCookie == "true");
 
             if (quickFightCookie == false) {
-                $(".btn-svg").html(`<button type="button" class="far fa-square"></button>`);
+                $("#game-battle .btn-svg").addClass("far fa-square");
             } else {
-                $(".btn-svg").html(`<button type="button" class="far fa-check-square"></button>`);
+                $("#game-battle .btn-svg").addClass("far fa-check-square");
             }
 
-            $(".btn-std").click(function () {
+            $("#game-battle .btn-std").click(function () {
                 let monsterId = this.id.split('-')[0];
                 let componentId = "game-battle";
                 let action = "Raport";
                 let controller = "Game";
-                let data = { cId: @ViewBag.cId, mId: monsterId, qf: quickFightCookie };
+                let data = { cId: @ViewBag.cId, mId: monsterId, qf: quickFightCookie, isHistory: false };
                 ReloadComponent(componentId, action, controller, data);
             });
 
-            $(".btn-svg").click(function () {
+            $("#game-battle .btn-svg").click(function () {
                 if (quickFightCookie == false) {
-                    $(".btn-svg").html(`<button type="button" class="far fa-check-square"></button>`);
+                    $("#game-battle .btn-svg").removeClass("fa-square");
+                    $("#game-battle .btn-svg").addClass("fa-check-square");
                     quickFightCookie = true;
                     document.cookie = "quickFight=true";
                 } else {
-                    $(".btn-svg").html(`<button type="button" class="far fa-square"></button>`);
+                    $("#game-battle .btn-svg").removeClass("fa-check-square");
+                    $("#game-battle .btn-svg").addClass("fa-square");
                     quickFightCookie = false;
                     document.cookie = "quickFight=false";
                 }

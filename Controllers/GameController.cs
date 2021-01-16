@@ -97,80 +97,115 @@ namespace DivineMonad.Controllers
             else return RedirectToAction("Index", "Characters");
         }
 
-        public async Task<IActionResult> Raport(int cId, int mId, bool qf)
+        public async Task<IActionResult> Raport(int cId, int? mId, bool? qf, bool isHistory, string raportName)
         {
             Character character = await _contextHelper.GetCharacter(cId, User, _context);
+            RaportViewModel raportView = null;
 
-            var characterItemsEquipped =  await _characterItemsRepo.GetCharactersItemsList(cId, true);
-            List<int> isIds = characterItemsEquipped.Select(i => i.ItemId).ToList();
-
-            IEnumerable<ItemStats> itemStatsList = await _itemsStatsRepo.GetListStatsByIds(isIds);
-
-            AdvanceStats attacker = new AdvanceStats();
-            attacker.IsPlayer = true;
-            attacker.CharacterId = cId;
-            attacker.CharacterName = character.Name;
-            attacker.CalculateWithoutEq(character.CBStats);
-            attacker.CalculateWithEq(itemStatsList);
-
-
-            Monster monster = await _contextHelper.GetMonster(mId, _context);
-
-            AdvanceStats defender = new AdvanceStats();
-            defender.IsPlayer = false;
-            defender.CharacterId = mId;
-            defender.CharacterName = monster.Name;
-            defender.CalculateMonster(monster.MonsterStats);
-
-            var monsterItemsIds = await _context.MonstersLoot.Where(i => i.MonsterId == monster.ID).Select(i => i.ItemId).ToListAsync();
-            var monsterItems = await _itemsRepo.GetItemsList(monsterItemsIds);
-            
-            FightGenerator fight = new FightGenerator(attacker, defender, monster, monsterItems, _rarityRepo);
-            RaportGenerator fightRaport = await fight.GenerateFight();
-            fightRaport.QuickFight = qf;
-
-            IEnumerable<CharacterItems> characterItems = await _context.CharactersItems.Where(i => i.CharacterId == character.ID).ToListAsync();
-
-            CharacterItems newItem = null;
-            (character, newItem) = _contextHelper.AssignRewards(fightRaport, character, _context, _characterHelper, characterItems);
-            try
+            if (isHistory)
             {
-                if (!(newItem is null))
+                string a = _hostingEnv.WebRootPath;
+                string userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+                string raportPath = Path.Combine(a, "data\\" + userId.ToString() + "\\" + character.Name + "\\raports" + "\\" + raportName);
+
+                RaportGenerator fightRaport = null;
+
+                using (StreamReader r = new StreamReader(raportPath))
                 {
-                    _context.Add(newItem);
-                    await _context.SaveChangesAsync();
+                    string raportJson = r.ReadToEnd();
+                    fightRaport = JsonConvert.DeserializeObject<RaportGenerator>(raportJson);
                 }
-                _context.Update(character);
-                await _context.SaveChangesAsync();
 
-                ViewData["gold"] = character.CBStats.Gold;
-                ViewData["level"] = character.CBStats.Level;
-                ViewData["exp"] = character.CBStats.Experience;
-                ViewData["reqExp"] = _characterHelper.RequiredExperience(character.CBStats.Level);
+                Monster monster = await _context.Monsters.Where(m => m.ID == fightRaport.Opponent.ID).FirstOrDefaultAsync();
+
+                raportView = new RaportViewModel()
+                {
+                    Player = character,
+                    Opponent = monster,
+                    Raport = fightRaport
+                };
             }
-            catch (Exception)
+            else
             {
+                var characterItemsEquipped = await _characterItemsRepo.GetCharactersItemsList(cId, true);
+                List<int> isIds = characterItemsEquipped.Select(i => i.ItemId).ToList();
 
-                throw;
+                IEnumerable<ItemStats> itemStatsList = await _itemsStatsRepo.GetListStatsByIds(isIds);
+
+                AdvanceStats attacker = new AdvanceStats();
+                attacker.IsPlayer = true;
+                attacker.CharacterId = cId;
+                attacker.CharacterName = character.Name;
+                attacker.CalculateWithoutEq(character.CBStats);
+                attacker.CalculateWithEq(itemStatsList);
+
+
+                Monster monster = await _contextHelper.GetMonster((int)mId, _context);
+
+                AdvanceStats defender = new AdvanceStats();
+                defender.IsPlayer = false;
+                defender.CharacterId = (int)mId;
+                defender.CharacterName = monster.Name;
+                defender.CalculateMonster(monster.MonsterStats);
+
+                var monsterItemsIds = await _context.MonstersLoot.Where(i => i.MonsterId == monster.ID).Select(i => i.ItemId).ToListAsync();
+                var monsterItems = await _itemsRepo.GetItemsList(monsterItemsIds);
+
+                FightGenerator fight = new FightGenerator(attacker, defender, monster, monsterItems, _rarityRepo);
+                RaportGenerator fightRaport = await fight.GenerateFight();
+                fightRaport.QuickFight = (bool)qf;
+
+                IEnumerable<CharacterItems> characterItems = await _context.CharactersItems.Where(i => i.CharacterId == character.ID).ToListAsync();
+
+                CharacterItems newItem = null;
+                (character, newItem) = _contextHelper.AssignRewards(fightRaport, character, _context, _characterHelper, characterItems);
+                try
+                {
+                    if (!(newItem is null))
+                    {
+                        _context.Add(newItem);
+                        await _context.SaveChangesAsync();
+                    }
+                    _context.Update(character);
+                    await _context.SaveChangesAsync();
+
+                    ViewData["gold"] = character.CBStats.Gold;
+                    ViewData["level"] = character.CBStats.Level;
+                    ViewData["exp"] = character.CBStats.Experience;
+                    ViewData["reqExp"] = _characterHelper.RequiredExperience(character.CBStats.Level);
+                }
+                catch (Exception)
+                {
+
+                    throw;
+                }
+                string fightRaportJson = JsonConvert.SerializeObject(fightRaport, Formatting.Indented);
+
+                string userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+                string a = _hostingEnv.WebRootPath;
+                string characterDataPath = Path.Combine(a, "data\\" + userId.ToString() + "\\" + character.Name + "\\raports");
+
+                if (!Directory.Exists(characterDataPath))
+                {
+                    DirectoryInfo di = Directory.CreateDirectory(characterDataPath);
+                }
+
+                string dateTime = DateTime.Now.Ticks.ToString();
+                string resultVal = fightRaport.Result == "lose" ? "0" : fightRaport.Result == "win" ? "2" : "1";
+                raportName = fightRaport.Player.ID.ToString() + "_" + fightRaport.Opponent.ID.ToString() + "_"
+                    + (fightRaport.IsPvp ? 1 : 0).ToString() + "_" + resultVal + "_" + dateTime + ".json";
+                System.IO.File.WriteAllText(Path.Combine(characterDataPath, raportName), fightRaportJson);
+
+                raportView = new RaportViewModel()
+                {
+                    Player = character,
+                    Opponent = monster,
+                    Raport = fightRaport
+                };
             }
-            string fightRaportJson = JsonConvert.SerializeObject(fightRaport, Formatting.Indented);
+            
 
-            string userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
-            string a = _hostingEnv.WebRootPath;
-            string characterDataPath = Path.Combine(a, "data\\" + userId.ToString() + "\\" + character.Name + "\\raports");
-
-            if (!Directory.Exists(characterDataPath))
-            {
-                DirectoryInfo di = Directory.CreateDirectory(characterDataPath);
-            }
-
-            string dateTime = DateTime.Now.Ticks.ToString();
-            string resultVal = fightRaport.Result == "lose" ? "0" : fightRaport.Result == "win" ? "2" : "1";
-            string raportName = fightRaport.Player.ID.ToString() + "_" + fightRaport.Opponent.ID.ToString() + "_"
-                + (fightRaport.IsPvp ? 1 : 0).ToString() + "_" + resultVal + "_" + dateTime + ".json";
-            System.IO.File.WriteAllText(Path.Combine(characterDataPath, raportName), fightRaportJson);
-
-            return PartialView(fightRaport);
+            return PartialView(raportView);
         }
 
         public async Task<IActionResult> Backpack(int cId)
@@ -221,6 +256,33 @@ namespace DivineMonad.Controllers
             }
             var x = 5;
             return PartialView(raportsView);
+        }
+
+        public async Task<IActionResult> RaportHistory(int cId, string raportName)
+        {
+            Character character = await _contextHelper.GetCharacter(cId, User, _context);
+            string a = _hostingEnv.WebRootPath;
+            string userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            string raportPath = Path.Combine(a, "data\\" + userId.ToString() + "\\" + character.Name + "\\raports" + "\\" + raportName);
+
+            RaportGenerator fightRaport = null;
+
+            using (StreamReader r = new StreamReader(raportPath))
+            {
+                string raportJson = r.ReadToEnd();
+                fightRaport = JsonConvert.DeserializeObject<RaportGenerator>(raportJson);
+            }
+
+            Monster monster = await _context.Monsters.Where(m => m.ID == fightRaport.Opponent.ID).FirstOrDefaultAsync();
+
+            RaportViewModel raportView = new RaportViewModel()
+            {
+                Player = character,
+                Opponent = monster,
+                Raport = fightRaport
+            };
+
+            return PartialView(raportView);
         }
 
         public async Task<object> SlotsChange(int cId, int from, int to, bool isEmpty)

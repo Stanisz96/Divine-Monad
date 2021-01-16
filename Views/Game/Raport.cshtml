@@ -1,4 +1,4 @@
-﻿@model DivineMonad.Engine.Raport.RaportGenerator
+﻿@model DivineMonad.Models.RaportViewModel
 
 @{ 
     Layout = "_SubLayout";
@@ -8,7 +8,7 @@
 <div class="game-content-raport">
     <div class="row opponent mb-4">
         <div class="col">
-            <img src="@Url.Content("~/images/avatars/sir_deevis2.jpg")"
+            <img src="@Url.Content(Model.Opponent.ImageUrl)"
                  class="character-avatar" alt="avatar">
         </div>
     </div>
@@ -16,7 +16,7 @@
         <div class="col">
             <div id="quick-raport">
                 <p>The fight between @Model.Player.Name and @Model.Opponent.Name has begun.</p>
-                @foreach (var round in Model.Rounds)
+                @foreach (var round in Model.Raport.Rounds)
                 {
                     <div id="@n">
                         @round.Attacker.Name <span>inflict a hit for @round.Attacker.Damage damage.</span> <br />
@@ -25,7 +25,7 @@
                     </div>
                     n++;
                 }
-                @if (Model.Result == "draw")
+                @if (Model.Raport.Result == "draw")
                 {
                     <div id="@n" class="mt-1">
                         <p>The fight ended in a draw</p>
@@ -34,17 +34,17 @@
                 else
                 {
                     <div id="@n" class="mt-1">
-                        <p>@Model.Player.Name <span></span> @Model.Result <span> the fight.</span></p>
+                        <p>@Model.Player.Name <span></span> @Model.Raport.Result <span> the fight.</span></p>
                     </div>
-                    if (Model.Result == "win")
+                    if (Model.Raport.Result == "win")
                     {
                         <div id="@(n+1)" class="mt-1">
                             Reward: <br />
-                            Gold: @Model.Reward.Gold G <br />
-                            Exp.: @Model.Reward.Experience exp <br />
-                            @if (!(Model.Reward.ItemName is null))
+                            Gold: @Model.Raport.Reward.Gold G <br />
+                            Exp.: @Model.Raport.Reward.Experience exp <br />
+                            @if (!(Model.Raport.Reward.ItemName is null))
                             {
-                                <span>Item: @Model.Reward.ItemName *@Model.Reward.ItemRarity*</span>
+                                <span>Item: @Model.Raport.Reward.ItemName *@Model.Raport.Reward.ItemRarity*</span>
                             }
                         </div>
                     }
@@ -60,7 +60,7 @@
     <div class="row player mt-4">
         <div class="col">
             <div class="float-right">
-                <img src="@Url.Content("~/images/avatars/sir_deevis2.jpg")"
+                <img src="@Url.Content(Model.Player.AvatarUrl)"
                      class="character-avatar" alt="avatar">
             </div>
         </div>
@@ -69,7 +69,7 @@
 
 @section Scripts{ 
     <script>
-        var quickFight = '@(Model.QuickFight)' === '@true';
+        var quickFight = '@(Model.Raport.QuickFight)' === '@true';
         $(document).ready(function (e) {
             $("html").scrollTop(0);
 

@@ -1,6 +1,6 @@
 ﻿@model DivineMonad.Models.RaportsViewModel
 
-@{ 
+@{
     Layout = "_SubLayout";
     string[] subRaportName;
     string result;
@@ -16,19 +16,29 @@
                 subRaportName = raportName.Split("_");
                 result = subRaportName[3] == "0" ? "lose" : subRaportName[3] == "1" ? "draw" : "win";
                 backgroundColor = subRaportName[3] == "0" ? "#ffebeb" : subRaportName[3] == "1" ? "#fffdeb" : "#eeffeb";
-                dt = new DateTime(Int64.Parse(subRaportName[4].Substring(0,subRaportName[4].IndexOf(".json"))));
+                dt = new DateTime(Int64.Parse(subRaportName[4].Substring(0, subRaportName[4].IndexOf(".json"))));
                 <button type="button" class="row list-group-item list-group-item-action" style="display: flex !important; background-color: @backgroundColor;">
                     <div class="col-6">@Model.Character.Name vs. @Model.MonstersList.Where(m => m.ID == Int32.Parse(subRaportName[1])).FirstOrDefault().Name</div>
                     <div class="col-2 p-0">[ @result ]</div>
-                    <div class="col-4 p-0" >@dt.ToString()</div>
+                    <div class="col-4 p-0">@dt.ToString()</div>
                 </button>
             }
         </div>
     </div>
 </div>
-
-@section Scripts{ 
+@*int cId, int? mId, bool? qf, bool isHistory, string raportName*@
+@section Scripts{
     <script>
-
+        $(document).ready(function () {
+            $("#game-raports button").click(function (e) {
+                console.log($(e.target));
+@*                let monsterId = this.id.split('-')[0];
+                let componentId = "game-battle";
+                let action = "Raport";
+                let controller = "Game";
+                let data = { cId: @ViewBag.cId, mId: monsterId, qf: quickFightCookie, isHistory: false };
+                ReloadComponent(componentId, action, controller, data);*@
+            });
+        });
     </script>
 }
