@@ -81,7 +81,7 @@
             if (quickFight) {
                 $(".slow").css({ display: "none" });
                 $(".quick").animate({ scrollTop: $("#quick-raport").height() }, 1000);
-                updateCharacterInfo();
+                updateCharacterInfo(@ViewBag.gold, @ViewBag.exp, @ViewBag.reqExp, @ViewBag.level);
             } else {
                 $(".quick").css({ display: "none" });
 

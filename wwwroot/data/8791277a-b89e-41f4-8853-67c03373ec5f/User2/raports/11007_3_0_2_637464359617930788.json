@@ -1,0 +1,70 @@
+{
+  "Player": {
+    "ID": 11007,
+    "Name": "User2"
+  },
+  "Opponent": {
+    "ID": 3,
+    "Name": "Enchanted Tree"
+  },
+  "Result": "win",
+  "IsPvp": false,
+  "Rounds": [
+    {
+      "Number": 1,
+      "Attacker": {
+        "Name": "User2",
+        "HP": 837,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 79
+      },
+      "Defender": {
+        "Name": "Enchanted Tree",
+        "HP": 41,
+        "Block": false,
+        "Receive": 79
+      }
+    },
+    {
+      "Number": 1,
+      "Attacker": {
+        "Name": "Enchanted Tree",
+        "HP": 41,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 9
+      },
+      "Defender": {
+        "Name": "User2",
+        "HP": 829,
+        "Block": false,
+        "Receive": 8
+      }
+    },
+    {
+      "Number": 2,
+      "Attacker": {
+        "Name": "User2",
+        "HP": 829,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 85
+      },
+      "Defender": {
+        "Name": "Enchanted Tree",
+        "HP": -44,
+        "Block": false,
+        "Receive": 85
+      }
+    }
+  ],
+  "QuickFight": true,
+  "Reward": {
+    "Experience": 3,
+    "Gold": 2,
+    "ItemID": -1,
+    "ItemName": null,
+    "ItemRarity": null
+  }
+}

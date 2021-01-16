@@ -1,0 +1,86 @@
+{
+  "Player": {
+    "ID": 11007,
+    "Name": "User2"
+  },
+  "Opponent": {
+    "ID": 3,
+    "Name": "Enchanted Tree"
+  },
+  "Result": "win",
+  "IsPvp": false,
+  "Rounds": [
+    {
+      "Number": 1,
+      "Attacker": {
+        "Name": "User2",
+        "HP": 592,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 52
+      },
+      "Defender": {
+        "Name": "Enchanted Tree",
+        "HP": 68,
+        "Block": false,
+        "Receive": 52
+      }
+    },
+    {
+      "Number": 1,
+      "Attacker": {
+        "Name": "Enchanted Tree",
+        "HP": 68,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 10
+      },
+      "Defender": {
+        "Name": "User2",
+        "HP": 583,
+        "Block": false,
+        "Receive": 9
+      }
+    },
+    {
+      "Number": 2,
+      "Attacker": {
+        "Name": "User2",
+        "HP": 583,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 57
+      },
+      "Defender": {
+        "Name": "Enchanted Tree",
+        "HP": 11,
+        "Block": false,
+        "Receive": 57
+      }
+    },
+    {
+      "Number": 2,
+      "Attacker": {
+        "Name": "User2",
+        "HP": 583,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 52
+      },
+      "Defender": {
+        "Name": "Enchanted Tree",
+        "HP": -41,
+        "Block": false,
+        "Receive": 52
+      }
+    }
+  ],
+  "QuickFight": true,
+  "Reward": {
+    "Experience": 3,
+    "Gold": 2,
+    "ItemID": 1,
+    "ItemName": "Peasant armor",
+    "ItemRarity": "normal"
+  }
+}
