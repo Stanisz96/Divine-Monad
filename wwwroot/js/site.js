@@ -29,20 +29,6 @@ function getCookie(name) {
         return sub.split("=")[1];
     }
     return null;
-/*    var prefix = name + "=";
-    var begin = dc.indexOf("; " + prefix);
-    if (begin == -1) {
-        begin = dc.indexOf(prefix);
-        if (begin != 0) return null;
-    }
-    else {
-        begin += 2;
-        var end = document.cookie.indexOf(";", begin);
-        if (end == -1) {
-            end = dc.length;
-        }
-    }*/
-    //return decodeURI(dc.substring(begin + prefix.length, end));
 };
 
 
@@ -76,3 +62,15 @@ function updateCharacterInfo(gold, exp, reqExp, level) {
         })
     }
 };
+
+function readURL(input, imgId) {
+    if (input.files && input.files[0]) {
+        var reader = new FileReader();
+
+        reader.onload = function (e) {
+            $("#"+imgId).attr('src', e.target.result);
+        }
+
+        reader.readAsDataURL(input.files[0]); // convert to base64 string
+    }
+}
