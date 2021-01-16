@@ -3,31 +3,54 @@
 
 
 <div class="row justify-content-center">
-    <div class="col-md-4">
+    <div class="col-6">
         <form asp-action="Edit" enctype="multipart/form-data">
-            <input type="hidden" asp-for="ID" />
-            <div class="form-group">
-                <label asp-for="Name" class="control-label"></label>
-                <input asp-for="Name" type="hidden" class="form-control" />
-                <span asp-validation-for="Name" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="AvatarImage"></label>
-                <input asp-for="AvatarImage" accept="image/*">
-                <span asp-validation-for="AvatarImage"></span>
-            </div>
-            <div class="form-group text-center">
-                <input type="submit" value="Save" class="btn-std" />
-            </div>
+            <ul class="list-group">
+                <li class="list-group-item active">
+                    @Model.Name - Character Manage
+                </li>
+                <li class="list-group-item list-border medium-border">
+                    <input type="hidden" asp-for="ID" />
+                    <label asp-for="Name" class="control-label"></label>
+                    <input asp-for="Name" class="form-control" />
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                </li>
+                <li class="list-group-item list-border medium-border">
+                    <div class="row">
+                        <div class="col-4">
+                            <input asp-for="AvatarImage" id="updatedFile" style="display: none;" accept="image/*">
+                            <input type="button" class="btn-std" value="Choose ..." style="margin: 30px;"
+                                   onclick="document.getElementById('updatedFile').click();" />
+                            <span asp-validation-for="AvatarImage"></span>
+                        </div>
+                        <div class="col-8" style="text-align: center;">
+                            <img id="avatar" src="@Url.Content(Model.AvatarUrl)"
+                                 class="character-avatar" alt="avatar">
+                        </div>
+                    </div>
+                </li>
+                <li class="list-group-item list-border medium-border">
+                    <input type="hidden" asp-for="UserId" />
+                    <div style="text-align: center;">
+                        <input type="submit" value="Save" class="btn-std" />
+                    </div>
+                </li>
+            </ul>
         </form>
-        <form asp-action="Delete" id="delete-form">
-            <input type="hidden" asp-for="ID" />
-            <label class="control-label mt-5">Delete Character</label>
-            <div class="form-group text-center">
-                <input type="button" value="Delete" onclick="delete_submit()" class="btn-std" />
-            </div>
-        </form>
-        <input type="button" value="Return" class="btn-left-arrow" onclick="location.href='@Url.Action("Index", "Characters")'" />
+        <ul class="list-group">
+            <li class="list-group-item list-border medium-border"  style="text-align: center;">
+                <form asp-action="Delete" id="delete-form">
+                    <input type="hidden" asp-for="ID" />
+                    <label class="control-label">Delete Character</label>
+                    <div>
+                        <input type="button" value="Delete" onclick="delete_submit()" class="btn-std" />
+                    </div>
+                </form>
+            </li>
+            <li class="list-group-item list-border-bottom medium-border">
+                <input type="button" value="Return" class="btn-left-arrow" onclick="location.href='@Url.Action("Index", "Characters")'" />
+            </li>
+        </ul>
     </div>
 </div>
 
@@ -41,5 +64,9 @@
                 $("#delete-form").submit();
             }
         }
+
+        $("#updatedFile").change(function () {
+            readURL(this, "avatar");
+        });
     </script>
 }
