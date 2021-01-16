@@ -124,6 +124,11 @@ namespace DivineMonad.Controllers
                     Opponent = monster,
                     Raport = fightRaport
                 };
+
+                ViewData["gold"] = "null";
+                ViewData["level"] = "null";
+                ViewData["exp"] = "null";
+                ViewData["reqExp"] = "null";
             }
             else
             {
@@ -254,7 +259,9 @@ namespace DivineMonad.Controllers
                 Monster monster = await _context.Monsters.Where(m => m.ID == Int32.Parse(subRaportName[1])).FirstOrDefaultAsync();
                 if (!raportsView.MonstersList.Contains(monster)) raportsView.MonstersList.Add(monster);
             }
-            var x = 5;
+
+            ViewData["cId"] = cId;
+
             return PartialView(raportsView);
         }
 

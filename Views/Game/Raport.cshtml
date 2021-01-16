@@ -71,7 +71,7 @@
     <script>
         var quickFight = '@(Model.Raport.QuickFight)' === '@true';
         $(document).ready(function (e) {
-            $("html").scrollTop(0);
+            $("html").animate({ scrollTop: 0 }, 100);
 
             var quickRaport = $("#quick-raport").children();
             var slowRaport = $("#slow-raport");

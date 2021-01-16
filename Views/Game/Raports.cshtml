@@ -34,12 +34,12 @@
         $(document).ready(function () {
             $("#game-raports button").click(function (e) {
                 console.log(this.id);
-@*                let monsterId = this.id.split('-')[0];
-                let componentId = "game-battle";
+                let raportName = this.id + ".json";
+                let componentId = "game-raports";
                 let action = "Raport";
                 let controller = "Game";
-                let data = { cId: @ViewBag.cId, mId: monsterId, qf: quickFightCookie, isHistory: false };
-                ReloadComponent(componentId, action, controller, data);*@
+                let data = { cId: @ViewBag.cId, isHistory: true, raportName };
+                ReloadComponent(componentId, action, controller, data);
             });
         });
     </script>
