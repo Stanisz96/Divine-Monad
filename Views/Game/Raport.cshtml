@@ -27,8 +27,24 @@
                 @foreach (var round in Model.Raport.Rounds)
                 {
                     <div id="@n">
-                        @round.Attacker.Name <span>inflict a hit for @round.Attacker.Damage damage.</span> <br />
-                        <span class="defender">@round.Defender.Name</span> takes <span class="dmg">@round.Defender.Receive</span> damage and is left with <span class="hp">@round.Defender.HP</span> HP.
+                        @round.Attacker.Name <span>inflict a 
+                        @if (round.Attacker.Crit) { 
+                            <span>critical hit</span>
+                        }else
+                        {
+                            <span>hit</span>
+                        }
+                        for @round.Attacker.Damage damage.</span> <br />
+                        <span class="defender">@round.Defender.Name</span>
+                        @if (round.Defender.Block)
+                        {
+                            <span>blocks, </span>
+                        }
+                        @if (round.Attacker.Miss)
+                        {
+                            <span>dodges, </span>
+                        }
+                        takes <span class="dmg">@round.Defender.Receive</span> damage and is left with <span class="hp">@round.Defender.HP</span> HP.
                         <p></p>
                     </div>
                     n++;
