@@ -1,0 +1,294 @@
+{
+  "Player": {
+    "ID": 11005,
+    "Name": "Bason"
+  },
+  "Opponent": {
+    "ID": 1002,
+    "Name": "Knight"
+  },
+  "Result": "win",
+  "IsPvp": false,
+  "Rounds": [
+    {
+      "Number": 1,
+      "Attacker": {
+        "Name": "Bason",
+        "HP": 741,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 91
+      },
+      "Defender": {
+        "Name": "Knight",
+        "HP": 560,
+        "Block": true,
+        "Receive": 40
+      }
+    },
+    {
+      "Number": 1,
+      "Attacker": {
+        "Name": "Knight",
+        "HP": 560,
+        "Crit": false,
+        "Miss": true,
+        "Damage": 38
+      },
+      "Defender": {
+        "Name": "Bason",
+        "HP": 741,
+        "Block": false,
+        "Receive": 0
+      }
+    },
+    {
+      "Number": 2,
+      "Attacker": {
+        "Name": "Bason",
+        "HP": 741,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 106
+      },
+      "Defender": {
+        "Name": "Knight",
+        "HP": 466,
+        "Block": false,
+        "Receive": 94
+      }
+    },
+    {
+      "Number": 2,
+      "Attacker": {
+        "Name": "Knight",
+        "HP": 466,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 44
+      },
+      "Defender": {
+        "Name": "Bason",
+        "HP": 699,
+        "Block": false,
+        "Receive": 42
+      }
+    },
+    {
+      "Number": 3,
+      "Attacker": {
+        "Name": "Bason",
+        "HP": 699,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 76
+      },
+      "Defender": {
+        "Name": "Knight",
+        "HP": 399,
+        "Block": false,
+        "Receive": 67
+      }
+    },
+    {
+      "Number": 3,
+      "Attacker": {
+        "Name": "Bason",
+        "HP": 699,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 91
+      },
+      "Defender": {
+        "Name": "Knight",
+        "HP": 319,
+        "Block": false,
+        "Receive": 80
+      }
+    },
+    {
+      "Number": 4,
+      "Attacker": {
+        "Name": "Knight",
+        "HP": 319,
+        "Crit": false,
+        "Miss": true,
+        "Damage": 44
+      },
+      "Defender": {
+        "Name": "Bason",
+        "HP": 699,
+        "Block": false,
+        "Receive": 0
+      }
+    },
+    {
+      "Number": 4,
+      "Attacker": {
+        "Name": "Bason",
+        "HP": 699,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 81
+      },
+      "Defender": {
+        "Name": "Knight",
+        "HP": 248,
+        "Block": false,
+        "Receive": 71
+      }
+    },
+    {
+      "Number": 5,
+      "Attacker": {
+        "Name": "Knight",
+        "HP": 248,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 41
+      },
+      "Defender": {
+        "Name": "Bason",
+        "HP": 660,
+        "Block": false,
+        "Receive": 39
+      }
+    },
+    {
+      "Number": 5,
+      "Attacker": {
+        "Name": "Bason",
+        "HP": 660,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 80
+      },
+      "Defender": {
+        "Name": "Knight",
+        "HP": 213,
+        "Block": true,
+        "Receive": 35
+      }
+    },
+    {
+      "Number": 6,
+      "Attacker": {
+        "Name": "Knight",
+        "HP": 213,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 40
+      },
+      "Defender": {
+        "Name": "Bason",
+        "HP": 622,
+        "Block": false,
+        "Receive": 38
+      }
+    },
+    {
+      "Number": 6,
+      "Attacker": {
+        "Name": "Bason",
+        "HP": 622,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 87
+      },
+      "Defender": {
+        "Name": "Knight",
+        "HP": 136,
+        "Block": false,
+        "Receive": 77
+      }
+    },
+    {
+      "Number": 7,
+      "Attacker": {
+        "Name": "Knight",
+        "HP": 136,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 37
+      },
+      "Defender": {
+        "Name": "Bason",
+        "HP": 587,
+        "Block": false,
+        "Receive": 35
+      }
+    },
+    {
+      "Number": 7,
+      "Attacker": {
+        "Name": "Bason",
+        "HP": 587,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 80
+      },
+      "Defender": {
+        "Name": "Knight",
+        "HP": 101,
+        "Block": true,
+        "Receive": 35
+      }
+    },
+    {
+      "Number": 8,
+      "Attacker": {
+        "Name": "Bason",
+        "HP": 587,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 80
+      },
+      "Defender": {
+        "Name": "Knight",
+        "HP": 30,
+        "Block": false,
+        "Receive": 71
+      }
+    },
+    {
+      "Number": 8,
+      "Attacker": {
+        "Name": "Knight",
+        "HP": 30,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 40
+      },
+      "Defender": {
+        "Name": "Bason",
+        "HP": 549,
+        "Block": false,
+        "Receive": 38
+      }
+    },
+    {
+      "Number": 9,
+      "Attacker": {
+        "Name": "Bason",
+        "HP": 549,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 100
+      },
+      "Defender": {
+        "Name": "Knight",
+        "HP": -14,
+        "Block": true,
+        "Receive": 44
+      }
+    }
+  ],
+  "QuickFight": true,
+  "Reward": {
+    "Experience": 5,
+    "Gold": 3,
+    "ItemID": -1,
+    "ItemName": null,
+    "ItemRarity": null
+  }
+}

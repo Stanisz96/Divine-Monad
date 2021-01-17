@@ -1,0 +1,230 @@
+{
+  "Player": {
+    "ID": 11005,
+    "Name": "Bason"
+  },
+  "Opponent": {
+    "ID": 2004,
+    "Name": "Leprechaun"
+  },
+  "Result": "lose",
+  "IsPvp": false,
+  "Rounds": [
+    {
+      "Number": 1,
+      "Attacker": {
+        "Name": "Leprechaun",
+        "HP": 2000,
+        "Crit": false,
+        "Miss": true,
+        "Damage": 102
+      },
+      "Defender": {
+        "Name": "Bason",
+        "HP": 741,
+        "Block": false,
+        "Receive": 0
+      }
+    },
+    {
+      "Number": 1,
+      "Attacker": {
+        "Name": "Bason",
+        "HP": 741,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 104
+      },
+      "Defender": {
+        "Name": "Leprechaun",
+        "HP": 1905,
+        "Block": false,
+        "Receive": 95
+      }
+    },
+    {
+      "Number": 2,
+      "Attacker": {
+        "Name": "Leprechaun",
+        "HP": 1905,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 128
+      },
+      "Defender": {
+        "Name": "Bason",
+        "HP": 618,
+        "Block": false,
+        "Receive": 123
+      }
+    },
+    {
+      "Number": 2,
+      "Attacker": {
+        "Name": "Leprechaun",
+        "HP": 1905,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 102
+      },
+      "Defender": {
+        "Name": "Bason",
+        "HP": 520,
+        "Block": false,
+        "Receive": 98
+      }
+    },
+    {
+      "Number": 3,
+      "Attacker": {
+        "Name": "Bason",
+        "HP": 520,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 102
+      },
+      "Defender": {
+        "Name": "Leprechaun",
+        "HP": 1812,
+        "Block": false,
+        "Receive": 93
+      }
+    },
+    {
+      "Number": 3,
+      "Attacker": {
+        "Name": "Leprechaun",
+        "HP": 1812,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 147
+      },
+      "Defender": {
+        "Name": "Bason",
+        "HP": 449,
+        "Block": true,
+        "Receive": 71
+      }
+    },
+    {
+      "Number": 4,
+      "Attacker": {
+        "Name": "Bason",
+        "HP": 449,
+        "Crit": false,
+        "Miss": true,
+        "Damage": 98
+      },
+      "Defender": {
+        "Name": "Leprechaun",
+        "HP": 1812,
+        "Block": false,
+        "Receive": 0
+      }
+    },
+    {
+      "Number": 4,
+      "Attacker": {
+        "Name": "Leprechaun",
+        "HP": 1812,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 116
+      },
+      "Defender": {
+        "Name": "Bason",
+        "HP": 337,
+        "Block": false,
+        "Receive": 112
+      }
+    },
+    {
+      "Number": 5,
+      "Attacker": {
+        "Name": "Bason",
+        "HP": 337,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 84
+      },
+      "Defender": {
+        "Name": "Leprechaun",
+        "HP": 1735,
+        "Block": false,
+        "Receive": 77
+      }
+    },
+    {
+      "Number": 5,
+      "Attacker": {
+        "Name": "Leprechaun",
+        "HP": 1735,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 149
+      },
+      "Defender": {
+        "Name": "Bason",
+        "HP": 193,
+        "Block": false,
+        "Receive": 144
+      }
+    },
+    {
+      "Number": 6,
+      "Attacker": {
+        "Name": "Leprechaun",
+        "HP": 1735,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 148
+      },
+      "Defender": {
+        "Name": "Bason",
+        "HP": 50,
+        "Block": false,
+        "Receive": 143
+      }
+    },
+    {
+      "Number": 6,
+      "Attacker": {
+        "Name": "Bason",
+        "HP": 50,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 85
+      },
+      "Defender": {
+        "Name": "Leprechaun",
+        "HP": 1657,
+        "Block": false,
+        "Receive": 78
+      }
+    },
+    {
+      "Number": 7,
+      "Attacker": {
+        "Name": "Leprechaun",
+        "HP": 1657,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 138
+      },
+      "Defender": {
+        "Name": "Bason",
+        "HP": -83,
+        "Block": false,
+        "Receive": 133
+      }
+    }
+  ],
+  "QuickFight": true,
+  "Reward": {
+    "Experience": 0,
+    "Gold": 0,
+    "ItemID": 0,
+    "ItemName": null,
+    "ItemRarity": null
+  }
+}

@@ -1,0 +1,118 @@
+{
+  "Player": {
+    "ID": 11005,
+    "Name": "Bason"
+  },
+  "Opponent": {
+    "ID": 4,
+    "Name": "Goblin"
+  },
+  "Result": "win",
+  "IsPvp": false,
+  "Rounds": [
+    {
+      "Number": 1,
+      "Attacker": {
+        "Name": "Bason",
+        "HP": 601,
+        "Crit": true,
+        "Miss": false,
+        "Damage": 132
+      },
+      "Defender": {
+        "Name": "Goblin",
+        "HP": 235,
+        "Block": false,
+        "Receive": 125
+      }
+    },
+    {
+      "Number": 1,
+      "Attacker": {
+        "Name": "Goblin",
+        "HP": 235,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 25
+      },
+      "Defender": {
+        "Name": "Bason",
+        "HP": 577,
+        "Block": false,
+        "Receive": 24
+      }
+    },
+    {
+      "Number": 2,
+      "Attacker": {
+        "Name": "Bason",
+        "HP": 577,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 94
+      },
+      "Defender": {
+        "Name": "Goblin",
+        "HP": 146,
+        "Block": false,
+        "Receive": 89
+      }
+    },
+    {
+      "Number": 2,
+      "Attacker": {
+        "Name": "Bason",
+        "HP": 577,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 88
+      },
+      "Defender": {
+        "Name": "Goblin",
+        "HP": 63,
+        "Block": false,
+        "Receive": 83
+      }
+    },
+    {
+      "Number": 3,
+      "Attacker": {
+        "Name": "Goblin",
+        "HP": 63,
+        "Crit": false,
+        "Miss": true,
+        "Damage": 25
+      },
+      "Defender": {
+        "Name": "Bason",
+        "HP": 577,
+        "Block": false,
+        "Receive": 0
+      }
+    },
+    {
+      "Number": 3,
+      "Attacker": {
+        "Name": "Bason",
+        "HP": 577,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 95
+      },
+      "Defender": {
+        "Name": "Goblin",
+        "HP": -27,
+        "Block": false,
+        "Receive": 90
+      }
+    }
+  ],
+  "QuickFight": true,
+  "Reward": {
+    "Experience": 2,
+    "Gold": 2,
+    "ItemID": -1,
+    "ItemName": null,
+    "ItemRarity": null
+  }
+}

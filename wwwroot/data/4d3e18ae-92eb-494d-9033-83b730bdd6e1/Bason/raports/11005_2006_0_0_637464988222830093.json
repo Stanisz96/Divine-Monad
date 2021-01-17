@@ -1,0 +1,118 @@
+{
+  "Player": {
+    "ID": 11005,
+    "Name": "Bason"
+  },
+  "Opponent": {
+    "ID": 2006,
+    "Name": "Nymph"
+  },
+  "Result": "lose",
+  "IsPvp": false,
+  "Rounds": [
+    {
+      "Number": 1,
+      "Attacker": {
+        "Name": "Nymph",
+        "HP": 2800,
+        "Crit": true,
+        "Miss": false,
+        "Damage": 366
+      },
+      "Defender": {
+        "Name": "Bason",
+        "HP": 387,
+        "Block": false,
+        "Receive": 354
+      }
+    },
+    {
+      "Number": 1,
+      "Attacker": {
+        "Name": "Bason",
+        "HP": 387,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 95
+      },
+      "Defender": {
+        "Name": "Nymph",
+        "HP": 2713,
+        "Block": false,
+        "Receive": 87
+      }
+    },
+    {
+      "Number": 2,
+      "Attacker": {
+        "Name": "Nymph",
+        "HP": 2713,
+        "Crit": true,
+        "Miss": true,
+        "Damage": 348
+      },
+      "Defender": {
+        "Name": "Bason",
+        "HP": 387,
+        "Block": false,
+        "Receive": 0
+      }
+    },
+    {
+      "Number": 2,
+      "Attacker": {
+        "Name": "Nymph",
+        "HP": 2713,
+        "Crit": true,
+        "Miss": false,
+        "Damage": 375
+      },
+      "Defender": {
+        "Name": "Bason",
+        "HP": 24,
+        "Block": false,
+        "Receive": 363
+      }
+    },
+    {
+      "Number": 3,
+      "Attacker": {
+        "Name": "Bason",
+        "HP": 24,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 92
+      },
+      "Defender": {
+        "Name": "Nymph",
+        "HP": 2629,
+        "Block": false,
+        "Receive": 84
+      }
+    },
+    {
+      "Number": 3,
+      "Attacker": {
+        "Name": "Nymph",
+        "HP": 2629,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 232
+      },
+      "Defender": {
+        "Name": "Bason",
+        "HP": -200,
+        "Block": false,
+        "Receive": 224
+      }
+    }
+  ],
+  "QuickFight": true,
+  "Reward": {
+    "Experience": 0,
+    "Gold": 0,
+    "ItemID": 0,
+    "ItemName": null,
+    "ItemRarity": null
+  }
+}

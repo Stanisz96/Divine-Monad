@@ -109,6 +109,8 @@ namespace DivineMonad.Engine
             Speed = monsterStats.Speed;
             CritChance = monsterStats.CritChance;
             Accuracy = monsterStats.Accuracy;
+
+            RecalculatePr();
         }
 
         private void RecalculateStats()

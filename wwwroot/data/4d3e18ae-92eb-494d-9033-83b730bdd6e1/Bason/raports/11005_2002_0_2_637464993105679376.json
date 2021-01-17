@@ -1,0 +1,390 @@
+{
+  "Player": {
+    "ID": 11005,
+    "Name": "Bason"
+  },
+  "Opponent": {
+    "ID": 2002,
+    "Name": "Mermaid"
+  },
+  "Result": "win",
+  "IsPvp": false,
+  "Rounds": [
+    {
+      "Number": 1,
+      "Attacker": {
+        "Name": "Bason",
+        "HP": 785,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 99
+      },
+      "Defender": {
+        "Name": "Mermaid",
+        "HP": 828,
+        "Block": false,
+        "Receive": 92
+      }
+    },
+    {
+      "Number": 1,
+      "Attacker": {
+        "Name": "Mermaid",
+        "HP": 828,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 64
+      },
+      "Defender": {
+        "Name": "Bason",
+        "HP": 724,
+        "Block": false,
+        "Receive": 61
+      }
+    },
+    {
+      "Number": 2,
+      "Attacker": {
+        "Name": "Bason",
+        "HP": 724,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 108
+      },
+      "Defender": {
+        "Name": "Mermaid",
+        "HP": 727,
+        "Block": false,
+        "Receive": 101
+      }
+    },
+    {
+      "Number": 2,
+      "Attacker": {
+        "Name": "Mermaid",
+        "HP": 727,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 57
+      },
+      "Defender": {
+        "Name": "Bason",
+        "HP": 669,
+        "Block": false,
+        "Receive": 55
+      }
+    },
+    {
+      "Number": 3,
+      "Attacker": {
+        "Name": "Bason",
+        "HP": 669,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 96
+      },
+      "Defender": {
+        "Name": "Mermaid",
+        "HP": 637,
+        "Block": false,
+        "Receive": 90
+      }
+    },
+    {
+      "Number": 3,
+      "Attacker": {
+        "Name": "Mermaid",
+        "HP": 637,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 59
+      },
+      "Defender": {
+        "Name": "Bason",
+        "HP": 612,
+        "Block": false,
+        "Receive": 57
+      }
+    },
+    {
+      "Number": 4,
+      "Attacker": {
+        "Name": "Bason",
+        "HP": 612,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 112
+      },
+      "Defender": {
+        "Name": "Mermaid",
+        "HP": 532,
+        "Block": false,
+        "Receive": 105
+      }
+    },
+    {
+      "Number": 4,
+      "Attacker": {
+        "Name": "Mermaid",
+        "HP": 532,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 64
+      },
+      "Defender": {
+        "Name": "Bason",
+        "HP": 551,
+        "Block": false,
+        "Receive": 61
+      }
+    },
+    {
+      "Number": 5,
+      "Attacker": {
+        "Name": "Bason",
+        "HP": 551,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 82
+      },
+      "Defender": {
+        "Name": "Mermaid",
+        "HP": 456,
+        "Block": false,
+        "Receive": 76
+      }
+    },
+    {
+      "Number": 5,
+      "Attacker": {
+        "Name": "Mermaid",
+        "HP": 456,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 57
+      },
+      "Defender": {
+        "Name": "Bason",
+        "HP": 496,
+        "Block": false,
+        "Receive": 55
+      }
+    },
+    {
+      "Number": 6,
+      "Attacker": {
+        "Name": "Bason",
+        "HP": 496,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 89
+      },
+      "Defender": {
+        "Name": "Mermaid",
+        "HP": 373,
+        "Block": false,
+        "Receive": 83
+      }
+    },
+    {
+      "Number": 6,
+      "Attacker": {
+        "Name": "Mermaid",
+        "HP": 373,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 69
+      },
+      "Defender": {
+        "Name": "Bason",
+        "HP": 430,
+        "Block": false,
+        "Receive": 66
+      }
+    },
+    {
+      "Number": 7,
+      "Attacker": {
+        "Name": "Bason",
+        "HP": 430,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 84
+      },
+      "Defender": {
+        "Name": "Mermaid",
+        "HP": 334,
+        "Block": true,
+        "Receive": 39
+      }
+    },
+    {
+      "Number": 7,
+      "Attacker": {
+        "Name": "Mermaid",
+        "HP": 334,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 62
+      },
+      "Defender": {
+        "Name": "Bason",
+        "HP": 370,
+        "Block": false,
+        "Receive": 60
+      }
+    },
+    {
+      "Number": 8,
+      "Attacker": {
+        "Name": "Bason",
+        "HP": 370,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 110
+      },
+      "Defender": {
+        "Name": "Mermaid",
+        "HP": 231,
+        "Block": false,
+        "Receive": 103
+      }
+    },
+    {
+      "Number": 8,
+      "Attacker": {
+        "Name": "Mermaid",
+        "HP": 231,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 50
+      },
+      "Defender": {
+        "Name": "Bason",
+        "HP": 346,
+        "Block": true,
+        "Receive": 24
+      }
+    },
+    {
+      "Number": 9,
+      "Attacker": {
+        "Name": "Bason",
+        "HP": 346,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 92
+      },
+      "Defender": {
+        "Name": "Mermaid",
+        "HP": 188,
+        "Block": true,
+        "Receive": 43
+      }
+    },
+    {
+      "Number": 9,
+      "Attacker": {
+        "Name": "Mermaid",
+        "HP": 188,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 56
+      },
+      "Defender": {
+        "Name": "Bason",
+        "HP": 292,
+        "Block": false,
+        "Receive": 54
+      }
+    },
+    {
+      "Number": 10,
+      "Attacker": {
+        "Name": "Bason",
+        "HP": 292,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 100
+      },
+      "Defender": {
+        "Name": "Mermaid",
+        "HP": 95,
+        "Block": false,
+        "Receive": 93
+      }
+    },
+    {
+      "Number": 10,
+      "Attacker": {
+        "Name": "Mermaid",
+        "HP": 95,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 67
+      },
+      "Defender": {
+        "Name": "Bason",
+        "HP": 228,
+        "Block": false,
+        "Receive": 64
+      }
+    },
+    {
+      "Number": 11,
+      "Attacker": {
+        "Name": "Bason",
+        "HP": 228,
+        "Crit": false,
+        "Miss": true,
+        "Damage": 95
+      },
+      "Defender": {
+        "Name": "Mermaid",
+        "HP": 95,
+        "Block": false,
+        "Receive": 0
+      }
+    },
+    {
+      "Number": 11,
+      "Attacker": {
+        "Name": "Mermaid",
+        "HP": 95,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 50
+      },
+      "Defender": {
+        "Name": "Bason",
+        "HP": 180,
+        "Block": false,
+        "Receive": 48
+      }
+    },
+    {
+      "Number": 12,
+      "Attacker": {
+        "Name": "Bason",
+        "HP": 180,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 108
+      },
+      "Defender": {
+        "Name": "Mermaid",
+        "HP": -6,
+        "Block": false,
+        "Receive": 101
+      }
+    }
+  ],
+  "QuickFight": true,
+  "Reward": {
+    "Experience": 8,
+    "Gold": 5,
+    "ItemID": -1,
+    "ItemName": null,
+    "ItemRarity": null
+  }
+}

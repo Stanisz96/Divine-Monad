@@ -1,0 +1,390 @@
+{
+  "Player": {
+    "ID": 11006,
+    "Name": "Test123"
+  },
+  "Opponent": {
+    "ID": 4,
+    "Name": "Goblin"
+  },
+  "Result": "win",
+  "IsPvp": false,
+  "Rounds": [
+    {
+      "Number": 1,
+      "Attacker": {
+        "Name": "Goblin",
+        "HP": 360,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 23
+      },
+      "Defender": {
+        "Name": "Test123",
+        "HP": 654,
+        "Block": false,
+        "Receive": 22
+      }
+    },
+    {
+      "Number": 1,
+      "Attacker": {
+        "Name": "Test123",
+        "HP": 654,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 40
+      },
+      "Defender": {
+        "Name": "Goblin",
+        "HP": 322,
+        "Block": false,
+        "Receive": 38
+      }
+    },
+    {
+      "Number": 2,
+      "Attacker": {
+        "Name": "Goblin",
+        "HP": 322,
+        "Crit": false,
+        "Miss": true,
+        "Damage": 24
+      },
+      "Defender": {
+        "Name": "Test123",
+        "HP": 654,
+        "Block": false,
+        "Receive": 0
+      }
+    },
+    {
+      "Number": 2,
+      "Attacker": {
+        "Name": "Test123",
+        "HP": 654,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 43
+      },
+      "Defender": {
+        "Name": "Goblin",
+        "HP": 282,
+        "Block": false,
+        "Receive": 40
+      }
+    },
+    {
+      "Number": 3,
+      "Attacker": {
+        "Name": "Goblin",
+        "HP": 282,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 23
+      },
+      "Defender": {
+        "Name": "Test123",
+        "HP": 632,
+        "Block": false,
+        "Receive": 22
+      }
+    },
+    {
+      "Number": 3,
+      "Attacker": {
+        "Name": "Goblin",
+        "HP": 282,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 24
+      },
+      "Defender": {
+        "Name": "Test123",
+        "HP": 609,
+        "Block": false,
+        "Receive": 23
+      }
+    },
+    {
+      "Number": 4,
+      "Attacker": {
+        "Name": "Test123",
+        "HP": 609,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 43
+      },
+      "Defender": {
+        "Name": "Goblin",
+        "HP": 242,
+        "Block": false,
+        "Receive": 40
+      }
+    },
+    {
+      "Number": 4,
+      "Attacker": {
+        "Name": "Goblin",
+        "HP": 242,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 25
+      },
+      "Defender": {
+        "Name": "Test123",
+        "HP": 585,
+        "Block": false,
+        "Receive": 24
+      }
+    },
+    {
+      "Number": 5,
+      "Attacker": {
+        "Name": "Test123",
+        "HP": 585,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 41
+      },
+      "Defender": {
+        "Name": "Goblin",
+        "HP": 204,
+        "Block": false,
+        "Receive": 38
+      }
+    },
+    {
+      "Number": 5,
+      "Attacker": {
+        "Name": "Goblin",
+        "HP": 204,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 24
+      },
+      "Defender": {
+        "Name": "Test123",
+        "HP": 562,
+        "Block": false,
+        "Receive": 23
+      }
+    },
+    {
+      "Number": 6,
+      "Attacker": {
+        "Name": "Test123",
+        "HP": 562,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 36
+      },
+      "Defender": {
+        "Name": "Goblin",
+        "HP": 170,
+        "Block": false,
+        "Receive": 34
+      }
+    },
+    {
+      "Number": 6,
+      "Attacker": {
+        "Name": "Goblin",
+        "HP": 170,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 25
+      },
+      "Defender": {
+        "Name": "Test123",
+        "HP": 550,
+        "Block": true,
+        "Receive": 12
+      }
+    },
+    {
+      "Number": 7,
+      "Attacker": {
+        "Name": "Test123",
+        "HP": 550,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 47
+      },
+      "Defender": {
+        "Name": "Goblin",
+        "HP": 126,
+        "Block": false,
+        "Receive": 44
+      }
+    },
+    {
+      "Number": 7,
+      "Attacker": {
+        "Name": "Goblin",
+        "HP": 126,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 23
+      },
+      "Defender": {
+        "Name": "Test123",
+        "HP": 528,
+        "Block": false,
+        "Receive": 22
+      }
+    },
+    {
+      "Number": 8,
+      "Attacker": {
+        "Name": "Goblin",
+        "HP": 126,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 27
+      },
+      "Defender": {
+        "Name": "Test123",
+        "HP": 502,
+        "Block": false,
+        "Receive": 26
+      }
+    },
+    {
+      "Number": 8,
+      "Attacker": {
+        "Name": "Test123",
+        "HP": 502,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 43
+      },
+      "Defender": {
+        "Name": "Goblin",
+        "HP": 86,
+        "Block": false,
+        "Receive": 40
+      }
+    },
+    {
+      "Number": 9,
+      "Attacker": {
+        "Name": "Goblin",
+        "HP": 86,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 22
+      },
+      "Defender": {
+        "Name": "Test123",
+        "HP": 481,
+        "Block": false,
+        "Receive": 21
+      }
+    },
+    {
+      "Number": 9,
+      "Attacker": {
+        "Name": "Test123",
+        "HP": 481,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 46
+      },
+      "Defender": {
+        "Name": "Goblin",
+        "HP": 43,
+        "Block": false,
+        "Receive": 43
+      }
+    },
+    {
+      "Number": 10,
+      "Attacker": {
+        "Name": "Goblin",
+        "HP": 43,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 26
+      },
+      "Defender": {
+        "Name": "Test123",
+        "HP": 456,
+        "Block": false,
+        "Receive": 25
+      }
+    },
+    {
+      "Number": 10,
+      "Attacker": {
+        "Name": "Test123",
+        "HP": 456,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 42
+      },
+      "Defender": {
+        "Name": "Goblin",
+        "HP": 4,
+        "Block": false,
+        "Receive": 39
+      }
+    },
+    {
+      "Number": 11,
+      "Attacker": {
+        "Name": "Goblin",
+        "HP": 4,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 23
+      },
+      "Defender": {
+        "Name": "Test123",
+        "HP": 434,
+        "Block": false,
+        "Receive": 22
+      }
+    },
+    {
+      "Number": 11,
+      "Attacker": {
+        "Name": "Goblin",
+        "HP": 4,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 23
+      },
+      "Defender": {
+        "Name": "Test123",
+        "HP": 412,
+        "Block": false,
+        "Receive": 22
+      }
+    },
+    {
+      "Number": 12,
+      "Attacker": {
+        "Name": "Test123",
+        "HP": 412,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 45
+      },
+      "Defender": {
+        "Name": "Goblin",
+        "HP": -38,
+        "Block": false,
+        "Receive": 42
+      }
+    }
+  ],
+  "QuickFight": true,
+  "Reward": {
+    "Experience": 2,
+    "Gold": 2,
+    "ItemID": -1,
+    "ItemName": null,
+    "ItemRarity": null
+  }
+}

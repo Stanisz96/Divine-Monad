@@ -1,0 +1,182 @@
+{
+  "Player": {
+    "ID": 11005,
+    "Name": "Bason"
+  },
+  "Opponent": {
+    "ID": 2003,
+    "Name": "Werewolf"
+  },
+  "Result": "lose",
+  "IsPvp": false,
+  "Rounds": [
+    {
+      "Number": 1,
+      "Attacker": {
+        "Name": "Werewolf",
+        "HP": 1300,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 134
+      },
+      "Defender": {
+        "Name": "Bason",
+        "HP": 612,
+        "Block": false,
+        "Receive": 129
+      }
+    },
+    {
+      "Number": 1,
+      "Attacker": {
+        "Name": "Bason",
+        "HP": 612,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 86
+      },
+      "Defender": {
+        "Name": "Werewolf",
+        "HP": 1220,
+        "Block": false,
+        "Receive": 80
+      }
+    },
+    {
+      "Number": 2,
+      "Attacker": {
+        "Name": "Werewolf",
+        "HP": 1220,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 127
+      },
+      "Defender": {
+        "Name": "Bason",
+        "HP": 490,
+        "Block": false,
+        "Receive": 122
+      }
+    },
+    {
+      "Number": 2,
+      "Attacker": {
+        "Name": "Bason",
+        "HP": 490,
+        "Crit": false,
+        "Miss": true,
+        "Damage": 98
+      },
+      "Defender": {
+        "Name": "Werewolf",
+        "HP": 1220,
+        "Block": false,
+        "Receive": 0
+      }
+    },
+    {
+      "Number": 3,
+      "Attacker": {
+        "Name": "Werewolf",
+        "HP": 1220,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 139
+      },
+      "Defender": {
+        "Name": "Bason",
+        "HP": 356,
+        "Block": false,
+        "Receive": 134
+      }
+    },
+    {
+      "Number": 3,
+      "Attacker": {
+        "Name": "Bason",
+        "HP": 356,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 104
+      },
+      "Defender": {
+        "Name": "Werewolf",
+        "HP": 1123,
+        "Block": false,
+        "Receive": 97
+      }
+    },
+    {
+      "Number": 4,
+      "Attacker": {
+        "Name": "Werewolf",
+        "HP": 1123,
+        "Crit": true,
+        "Miss": false,
+        "Damage": 181
+      },
+      "Defender": {
+        "Name": "Bason",
+        "HP": 181,
+        "Block": false,
+        "Receive": 175
+      }
+    },
+    {
+      "Number": 4,
+      "Attacker": {
+        "Name": "Bason",
+        "HP": 181,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 77
+      },
+      "Defender": {
+        "Name": "Werewolf",
+        "HP": 1051,
+        "Block": false,
+        "Receive": 72
+      }
+    },
+    {
+      "Number": 5,
+      "Attacker": {
+        "Name": "Werewolf",
+        "HP": 1051,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 132
+      },
+      "Defender": {
+        "Name": "Bason",
+        "HP": 54,
+        "Block": false,
+        "Receive": 127
+      }
+    },
+    {
+      "Number": 5,
+      "Attacker": {
+        "Name": "Werewolf",
+        "HP": 1051,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 131
+      },
+      "Defender": {
+        "Name": "Bason",
+        "HP": -72,
+        "Block": false,
+        "Receive": 126
+      }
+    }
+  ],
+  "QuickFight": true,
+  "Reward": {
+    "Experience": 0,
+    "Gold": 0,
+    "ItemID": 0,
+    "ItemName": null,
+    "ItemRarity": null
+  }
+}

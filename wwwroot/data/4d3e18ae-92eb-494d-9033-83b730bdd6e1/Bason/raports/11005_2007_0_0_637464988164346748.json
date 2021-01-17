@@ -1,0 +1,86 @@
+{
+  "Player": {
+    "ID": 11005,
+    "Name": "Bason"
+  },
+  "Opponent": {
+    "ID": 2007,
+    "Name": "Ogre"
+  },
+  "Result": "lose",
+  "IsPvp": false,
+  "Rounds": [
+    {
+      "Number": 1,
+      "Attacker": {
+        "Name": "Ogre",
+        "HP": 4000,
+        "Crit": true,
+        "Miss": false,
+        "Damage": 378
+      },
+      "Defender": {
+        "Name": "Bason",
+        "HP": 376,
+        "Block": false,
+        "Receive": 365
+      }
+    },
+    {
+      "Number": 1,
+      "Attacker": {
+        "Name": "Bason",
+        "HP": 376,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 106
+      },
+      "Defender": {
+        "Name": "Ogre",
+        "HP": 3907,
+        "Block": false,
+        "Receive": 93
+      }
+    },
+    {
+      "Number": 2,
+      "Attacker": {
+        "Name": "Ogre",
+        "HP": 3907,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 248
+      },
+      "Defender": {
+        "Name": "Bason",
+        "HP": 136,
+        "Block": false,
+        "Receive": 240
+      }
+    },
+    {
+      "Number": 2,
+      "Attacker": {
+        "Name": "Ogre",
+        "HP": 3907,
+        "Crit": true,
+        "Miss": false,
+        "Damage": 477
+      },
+      "Defender": {
+        "Name": "Bason",
+        "HP": -325,
+        "Block": false,
+        "Receive": 461
+      }
+    }
+  ],
+  "QuickFight": true,
+  "Reward": {
+    "Experience": 0,
+    "Gold": 0,
+    "ItemID": 0,
+    "ItemName": null,
+    "ItemRarity": null
+  }
+}
