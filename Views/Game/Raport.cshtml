@@ -7,9 +7,17 @@
 
 <div class="game-content-raport">
     <div class="row opponent mb-4">
-        <div class="col">
+        <div class="col-3">
             <img src="@Url.Content(Model.Opponent.ImageUrl)"
                  class="character-avatar" alt="avatar">
+        </div>
+        <div class="col-6">
+            @Model.Opponent.Name <br />
+            Level @Model.Opponent.Level
+            <div class="progress">
+                <div class="progress-bar w-100" role="progressbar" style="background-color: #ff8585;"
+                     aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+            </div> 
         </div>
     </div>
     <div class="row quick raport vertical-scroll">
@@ -20,7 +28,7 @@
                 {
                     <div id="@n">
                         @round.Attacker.Name <span>inflict a hit for @round.Attacker.Damage damage.</span> <br />
-                        @round.Defender.Name <span>takes @round.Defender.Receive damage and is left with @round.Defender.HP HP.</span>
+                        <span class="defender">@round.Defender.Name</span> takes <span class="dmg">@round.Defender.Receive</span> damage and is left with <span class="hp">@round.Defender.HP</span> HP.
                         <p></p>
                     </div>
                     n++;
@@ -57,8 +65,16 @@
             <p>The fight between @Model.Player.Name and @Model.Opponent.Name has begun.</p>
         </div>
     </div>
-    <div class="row player mt-4">
-        <div class="col">
+    <div class="row player mt-4 justify-content-end">
+        <div class="col-6" style="text-align: end;">
+            @Model.Player.Name <br />
+            Level @Model.Player.CBStats.Level
+            <div class="progress">
+                <div class="progress-bar w-100" role="progressbar" style="margin-left: auto; background-color: #ff8585;"
+                     aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+        </div>
+        <div class="col-3">
             <div class="float-right">
                 <img src="@Url.Content(Model.Player.AvatarUrl)"
                      class="character-avatar" alt="avatar">
@@ -78,15 +94,47 @@
             var slowRaport = $("#slow-raport");
             var i = 1;
 
+            let opponentMaxHp = 0;
+            let opponentHp = 0;
+            let playerMaxHp = 0;
+            let playerHp = 0;
+
+            if ($("#quick-raport").find("#1" + " .defender").text() == "@Model.Opponent.Name") {
+                opponentMaxHp = parseInt($("#quick-raport").find("#1" + " .hp").text(), 10) +
+                    parseInt($("#quick-raport").find("#1" + " .dmg").text());
+                playerMaxHp = parseInt($("#quick-raport").find("#2" + " .hp").text(), 10) +
+                    parseInt($("#quick-raport").find("#2" + " .dmg").text());
+            } else {
+                opponentMaxHp = parseInt($("#quick-raport").find("#2" + " .hp").text(), 10) +
+                    parseInt($("#quick-raport").find("#2" + " .dmg").text());
+                playerMaxHp = parseInt($("#quick-raport").find("#1" + " .hp").text(), 10) +
+                    parseInt($("#quick-raport").find("#1" + " .dmg").text());
+            }
+            playerHp = playerMaxHp;
+            opponentHp = opponentMaxHp;
+
             if (quickFight) {
                 $(".slow").css({ display: "none" });
                 $(".quick").animate({ scrollTop: $("#quick-raport").height() }, 1000);
-                updateCharacterInfo(@ViewBag.gold, @ViewBag.exp, @ViewBag.reqExp, @ViewBag.level);
+
+                var interval = setInterval(function () {
+                    if (i < quickRaport.length) {
+                        [playerHp, opponentHp] = updateHpBars(playerHp, opponentHp, i, playerMaxHp, opponentMaxHp);
+                        $("div.progress-bar").css({ "transition": "width .1s ease" });
+                    } else {
+                        updateCharacterInfo(@ViewBag.gold, @ViewBag.exp, @ViewBag.reqExp, @ViewBag.level);
+                        clearInterval(interval)
+                    }
+                    i++;
+                }, 40);
+
+
             } else {
                 $(".quick").css({ display: "none" });
 
                 var interval = setInterval(function () {
                     if (i < quickRaport.length) {
+                        [playerHp, opponentHp] = updateHpBars(playerHp, opponentHp, i, playerMaxHp, opponentMaxHp);
                         $(quickRaport[i]).hide().appendTo(slowRaport).fadeIn(1000);
                         if (i > 3) {
                             $(".slow").animate({ scrollTop: $("#slow-raport").height() }, 1000);
@@ -99,5 +147,27 @@
                 }, 1500);
             }
         });
+
+        function updateHpBars(pHp, oHp, round, pMaxHp, oMaxHp) {
+            let oDmg, pDmg;
+            var opponent = "@Model.Opponent.Name"
+            if ($("#quick-raport").find("#" + round + " .defender").text() == opponent) {
+                oDmg = parseInt($("#quick-raport").find("#" + round + " .dmg").text(), 10);
+                if (isNaN(oDmg)) oDmg = 0;
+                oHp -= oDmg;
+            } else {
+                pDmg = parseInt($("#quick-raport").find("#" + round + " .dmg").text(), 10);
+                if (isNaN(pDmg)) pDmg = 0;
+                pHp -= pDmg;
+            }
+            if (oHp < 0) oHp = 0;
+            if (pHp < 0) pHp = 0;
+
+            $(".opponent .w-100").attr('style', `width: ${Math.round(oHp / oMaxHp * 100)}% !important; background-color: #ff8585;`);
+            if (oHp == 0) $(".opponent .w-100").attr('style', `background-color: #e9ecef;`);
+            $(".player .w-100").attr('style', `width: ${Math.round(pHp / pMaxHp * 100)}% !important; background-color: #ff8585; margin-left: auto;`);
+
+            return [pHp, oHp];
+        };
     </script>
 }
