@@ -64,16 +64,15 @@ namespace DivineMonad.Controllers
 
             if (!(character is null))
             {
-                var characterItems = _characterItemsRepo.GetCharactersItemsList(cId, true);
-                List<int> isIds = characterItems.Result.Select(i => i.ItemId).ToList();
+                var characterItems = await _characterItemsRepo.GetCharactersItemsList(cId, true);
+                List<int> itemsIds = characterItems.Select(i => i.ItemId).ToList();
 
-                CharacterBaseStats baseStats = _baseStatsRepo.GetStatsById(cId).Result;
-                IEnumerable<ItemStats> itemStatsList = _itemsStatsRepo.GetListStatsByIds(isIds).Result;
-
+                IEnumerable<Item> itemsList = await _itemsRepo.GetItemsList(itemsIds);
+                var itemStatsList = itemsList.Select(i => i.Statistics).ToList();
                 var characterAdvanceStats = new AdvanceStats();
                 characterAdvanceStats.IsPlayer = true;
                 characterAdvanceStats.CharacterId = cId;
-                characterAdvanceStats.CalculateWithoutEq(baseStats);
+                characterAdvanceStats.CalculateWithoutEq(character.CBStats);
                 characterAdvanceStats.CalculateWithEq(itemStatsList);
                 characterAdvanceStats.GameStats = character.GStats;
 
@@ -133,9 +132,10 @@ namespace DivineMonad.Controllers
             else
             {
                 var characterItemsEquipped = await _characterItemsRepo.GetCharactersItemsList(cId, true);
-                List<int> isIds = characterItemsEquipped.Select(i => i.ItemId).ToList();
+                List<int> itemsIds = characterItemsEquipped.Select(i => i.ItemId).ToList();
 
-                IEnumerable<ItemStats> itemStatsList = await _itemsStatsRepo.GetListStatsByIds(isIds);
+                IEnumerable<Item> itemsList = await _itemsRepo.GetItemsList(itemsIds);
+                var itemStatsList = itemsList.Select(i => i.Statistics).ToList();
 
                 AdvanceStats attacker = new AdvanceStats();
                 attacker.IsPlayer = true;

@@ -1,0 +1,486 @@
+{
+  "Player": {
+    "ID": 12004,
+    "Name": "Mamin"
+  },
+  "Opponent": {
+    "ID": 3,
+    "Name": "Enchanted Tree"
+  },
+  "Result": "win",
+  "IsPvp": false,
+  "Rounds": [
+    {
+      "Number": 1,
+      "Attacker": {
+        "Name": "Enchanted Tree",
+        "HP": 160,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 7
+      },
+      "Defender": {
+        "Name": "Mamin",
+        "HP": 152,
+        "Block": false,
+        "Receive": 6
+      }
+    },
+    {
+      "Number": 1,
+      "Attacker": {
+        "Name": "Mamin",
+        "HP": 152,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 17
+      },
+      "Defender": {
+        "Name": "Enchanted Tree",
+        "HP": 144,
+        "Block": false,
+        "Receive": 16
+      }
+    },
+    {
+      "Number": 2,
+      "Attacker": {
+        "Name": "Enchanted Tree",
+        "HP": 144,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 7
+      },
+      "Defender": {
+        "Name": "Mamin",
+        "HP": 146,
+        "Block": false,
+        "Receive": 6
+      }
+    },
+    {
+      "Number": 2,
+      "Attacker": {
+        "Name": "Enchanted Tree",
+        "HP": 144,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 10
+      },
+      "Defender": {
+        "Name": "Mamin",
+        "HP": 137,
+        "Block": false,
+        "Receive": 9
+      }
+    },
+    {
+      "Number": 3,
+      "Attacker": {
+        "Name": "Mamin",
+        "HP": 137,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 13
+      },
+      "Defender": {
+        "Name": "Enchanted Tree",
+        "HP": 132,
+        "Block": false,
+        "Receive": 12
+      }
+    },
+    {
+      "Number": 3,
+      "Attacker": {
+        "Name": "Enchanted Tree",
+        "HP": 132,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 8
+      },
+      "Defender": {
+        "Name": "Mamin",
+        "HP": 130,
+        "Block": false,
+        "Receive": 7
+      }
+    },
+    {
+      "Number": 4,
+      "Attacker": {
+        "Name": "Mamin",
+        "HP": 130,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 16
+      },
+      "Defender": {
+        "Name": "Enchanted Tree",
+        "HP": 117,
+        "Block": false,
+        "Receive": 15
+      }
+    },
+    {
+      "Number": 4,
+      "Attacker": {
+        "Name": "Enchanted Tree",
+        "HP": 117,
+        "Crit": true,
+        "Miss": false,
+        "Damage": 16
+      },
+      "Defender": {
+        "Name": "Mamin",
+        "HP": 115,
+        "Block": false,
+        "Receive": 15
+      }
+    },
+    {
+      "Number": 5,
+      "Attacker": {
+        "Name": "Mamin",
+        "HP": 115,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 14
+      },
+      "Defender": {
+        "Name": "Enchanted Tree",
+        "HP": 104,
+        "Block": false,
+        "Receive": 13
+      }
+    },
+    {
+      "Number": 5,
+      "Attacker": {
+        "Name": "Enchanted Tree",
+        "HP": 104,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 10
+      },
+      "Defender": {
+        "Name": "Mamin",
+        "HP": 106,
+        "Block": false,
+        "Receive": 9
+      }
+    },
+    {
+      "Number": 6,
+      "Attacker": {
+        "Name": "Enchanted Tree",
+        "HP": 104,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 15
+      },
+      "Defender": {
+        "Name": "Mamin",
+        "HP": 92,
+        "Block": false,
+        "Receive": 14
+      }
+    },
+    {
+      "Number": 6,
+      "Attacker": {
+        "Name": "Mamin",
+        "HP": 92,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 13
+      },
+      "Defender": {
+        "Name": "Enchanted Tree",
+        "HP": 92,
+        "Block": false,
+        "Receive": 12
+      }
+    },
+    {
+      "Number": 7,
+      "Attacker": {
+        "Name": "Enchanted Tree",
+        "HP": 92,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 9
+      },
+      "Defender": {
+        "Name": "Mamin",
+        "HP": 84,
+        "Block": false,
+        "Receive": 8
+      }
+    },
+    {
+      "Number": 7,
+      "Attacker": {
+        "Name": "Enchanted Tree",
+        "HP": 92,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 7
+      },
+      "Defender": {
+        "Name": "Mamin",
+        "HP": 78,
+        "Block": false,
+        "Receive": 6
+      }
+    },
+    {
+      "Number": 8,
+      "Attacker": {
+        "Name": "Mamin",
+        "HP": 78,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 16
+      },
+      "Defender": {
+        "Name": "Enchanted Tree",
+        "HP": 77,
+        "Block": false,
+        "Receive": 15
+      }
+    },
+    {
+      "Number": 8,
+      "Attacker": {
+        "Name": "Enchanted Tree",
+        "HP": 77,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 8
+      },
+      "Defender": {
+        "Name": "Mamin",
+        "HP": 71,
+        "Block": false,
+        "Receive": 7
+      }
+    },
+    {
+      "Number": 9,
+      "Attacker": {
+        "Name": "Mamin",
+        "HP": 71,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 16
+      },
+      "Defender": {
+        "Name": "Enchanted Tree",
+        "HP": 62,
+        "Block": false,
+        "Receive": 15
+      }
+    },
+    {
+      "Number": 9,
+      "Attacker": {
+        "Name": "Enchanted Tree",
+        "HP": 62,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 13
+      },
+      "Defender": {
+        "Name": "Mamin",
+        "HP": 59,
+        "Block": false,
+        "Receive": 12
+      }
+    },
+    {
+      "Number": 10,
+      "Attacker": {
+        "Name": "Mamin",
+        "HP": 59,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 17
+      },
+      "Defender": {
+        "Name": "Enchanted Tree",
+        "HP": 46,
+        "Block": false,
+        "Receive": 16
+      }
+    },
+    {
+      "Number": 10,
+      "Attacker": {
+        "Name": "Enchanted Tree",
+        "HP": 46,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 11
+      },
+      "Defender": {
+        "Name": "Mamin",
+        "HP": 49,
+        "Block": false,
+        "Receive": 10
+      }
+    },
+    {
+      "Number": 11,
+      "Attacker": {
+        "Name": "Enchanted Tree",
+        "HP": 46,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 9
+      },
+      "Defender": {
+        "Name": "Mamin",
+        "HP": 41,
+        "Block": false,
+        "Receive": 8
+      }
+    },
+    {
+      "Number": 11,
+      "Attacker": {
+        "Name": "Mamin",
+        "HP": 41,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 16
+      },
+      "Defender": {
+        "Name": "Enchanted Tree",
+        "HP": 31,
+        "Block": false,
+        "Receive": 15
+      }
+    },
+    {
+      "Number": 12,
+      "Attacker": {
+        "Name": "Enchanted Tree",
+        "HP": 31,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 13
+      },
+      "Defender": {
+        "Name": "Mamin",
+        "HP": 29,
+        "Block": false,
+        "Receive": 12
+      }
+    },
+    {
+      "Number": 12,
+      "Attacker": {
+        "Name": "Enchanted Tree",
+        "HP": 31,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 15
+      },
+      "Defender": {
+        "Name": "Mamin",
+        "HP": 15,
+        "Block": false,
+        "Receive": 14
+      }
+    },
+    {
+      "Number": 13,
+      "Attacker": {
+        "Name": "Mamin",
+        "HP": 15,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 14
+      },
+      "Defender": {
+        "Name": "Enchanted Tree",
+        "HP": 18,
+        "Block": false,
+        "Receive": 13
+      }
+    },
+    {
+      "Number": 13,
+      "Attacker": {
+        "Name": "Enchanted Tree",
+        "HP": 18,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 8
+      },
+      "Defender": {
+        "Name": "Mamin",
+        "HP": 8,
+        "Block": false,
+        "Receive": 7
+      }
+    },
+    {
+      "Number": 14,
+      "Attacker": {
+        "Name": "Mamin",
+        "HP": 8,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 15
+      },
+      "Defender": {
+        "Name": "Enchanted Tree",
+        "HP": 4,
+        "Block": false,
+        "Receive": 14
+      }
+    },
+    {
+      "Number": 14,
+      "Attacker": {
+        "Name": "Enchanted Tree",
+        "HP": 4,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 7
+      },
+      "Defender": {
+        "Name": "Mamin",
+        "HP": 2,
+        "Block": false,
+        "Receive": 6
+      }
+    },
+    {
+      "Number": 15,
+      "Attacker": {
+        "Name": "Mamin",
+        "HP": 2,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 14
+      },
+      "Defender": {
+        "Name": "Enchanted Tree",
+        "HP": -9,
+        "Block": false,
+        "Receive": 13
+      }
+    }
+  ],
+  "QuickFight": true,
+  "Reward": {
+    "Experience": 3,
+    "Gold": 2,
+    "ItemID": -1,
+    "ItemName": null,
+    "ItemRarity": null
+  }
+}
