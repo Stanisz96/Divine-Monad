@@ -32,7 +32,7 @@ namespace DivineMonad.Job
             var items = await _context.Items.ToListAsync();
             var rarities = await _context.Rarity.ToListAsync();
 
-            for (int i = 0; i < 10; i++)
+            for (int i = 0; i < 9; i++)
             {
                 gachiaDraw = rand.NextDouble() * 1000;
 

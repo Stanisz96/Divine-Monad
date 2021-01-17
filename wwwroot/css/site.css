@@ -368,7 +368,8 @@ body {
 
 
 .horizontal-scroll {
-    overflow-x: scroll;
+    overflow: scroll;
+    max-height: 500px;
     white-space: nowrap;
     background-color: rgba(242, 255, 251, 0.30);
 }

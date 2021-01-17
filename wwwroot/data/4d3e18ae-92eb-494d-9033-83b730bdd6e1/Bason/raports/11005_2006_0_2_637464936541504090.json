@@ -1,0 +1,38 @@
+{
+  "Player": {
+    "ID": 11005,
+    "Name": "Bason"
+  },
+  "Opponent": {
+    "ID": 2006,
+    "Name": "Nymph"
+  },
+  "Result": "win",
+  "IsPvp": false,
+  "Rounds": [
+    {
+      "Number": 1,
+      "Attacker": {
+        "Name": "Bason",
+        "HP": 158,
+        "Crit": true,
+        "Miss": false,
+        "Damage": 19
+      },
+      "Defender": {
+        "Name": "Nymph",
+        "HP": -19,
+        "Block": false,
+        "Receive": 19
+      }
+    }
+  ],
+  "QuickFight": true,
+  "Reward": {
+    "Experience": 8,
+    "Gold": 8,
+    "ItemID": -1,
+    "ItemName": null,
+    "ItemRarity": null
+  }
+}

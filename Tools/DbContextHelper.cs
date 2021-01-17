@@ -266,12 +266,12 @@ namespace DivineMonad.Tools
         {
             Helmet = 1,
             Gloves = 2,
-            MeleeWeapon1H = 3,
+            OneHanded = 3,
             MeleeWeapon2H = 3,
             Bows = 3,
             Armor = 4,
             Arrows = 5,
-            Shields = 5,
+            Shield = 5,
             Boots = 6
         }
     }
