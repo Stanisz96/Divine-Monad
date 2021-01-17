@@ -12,7 +12,7 @@
 
                 $("#" + componentId).find("img").on("load", function () {
                     imgLoaded++
-                    if (imgLoaded == imgN) updateImageBorders(componentId);
+                    if (imgLoaded == imgN || imgLoaded >= imgN - 1) updateImageBorders(componentId);
                 })
             });
         }
