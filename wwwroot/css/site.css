@@ -698,14 +698,11 @@ body {
     border-radius: 6px;
 }
 
-/*.game-character-info .progress {
-    display: inline-block;
-    margin-top: 10px;
-    width: 100px;
+.policy.medium-border {
+    border: 6px solid;
+    border-image-slice: 9;
+    border-image-width: 6px;
+    border-image-outset: 0px;
+    border-image-repeat: stretch stretch;
+    border-image-source: url(../images/gui/border.png)
 }
-
-.game-character-info .progress-bar {
-    display: contents;
-    background-color: red;
-}
-*/
