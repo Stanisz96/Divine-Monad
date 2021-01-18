@@ -734,3 +734,32 @@ body {
     border-image-repeat: stretch stretch;
     border-image-source: url(../images/gui/border.png)
 }
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    height: 100px;
+    width: 100px;
+    outline: black;
+    background-size: 100%, 100%;
+    background-image: none;
+}
+
+.carousel-control-next-icon:after {
+    content: '>';
+    font-weight: bolder;
+    font-size: 40px;
+    color: #032319;
+}
+
+.carousel-control-prev-icon:after {
+    content: '<';
+    font-weight: bolder;
+    font-size: 40px;
+    color: #032319;
+}
+
+.slide-font {
+    color: black;
+    background: rgba(65, 165, 143, 0.50);
+    font-weight: 900;
+}

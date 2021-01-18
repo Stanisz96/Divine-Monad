@@ -1,0 +1,438 @@
+{
+  "Player": {
+    "ID": 13004,
+    "Name": "Universe"
+  },
+  "Opponent": {
+    "ID": 1002,
+    "Name": "Knight"
+  },
+  "Result": "win",
+  "IsPvp": false,
+  "Rounds": [
+    {
+      "Number": 1,
+      "Attacker": {
+        "Name": "Universe",
+        "HP": 862,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 78
+      },
+      "Defender": {
+        "Name": "Knight",
+        "HP": 566,
+        "Block": true,
+        "Receive": 34
+      }
+    },
+    {
+      "Number": 1,
+      "Attacker": {
+        "Name": "Knight",
+        "HP": 566,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 38
+      },
+      "Defender": {
+        "Name": "Universe",
+        "HP": 826,
+        "Block": false,
+        "Receive": 36
+      }
+    },
+    {
+      "Number": 2,
+      "Attacker": {
+        "Name": "Universe",
+        "HP": 826,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 53
+      },
+      "Defender": {
+        "Name": "Knight",
+        "HP": 519,
+        "Block": false,
+        "Receive": 47
+      }
+    },
+    {
+      "Number": 2,
+      "Attacker": {
+        "Name": "Knight",
+        "HP": 519,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 40
+      },
+      "Defender": {
+        "Name": "Universe",
+        "HP": 788,
+        "Block": false,
+        "Receive": 38
+      }
+    },
+    {
+      "Number": 3,
+      "Attacker": {
+        "Name": "Universe",
+        "HP": 788,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 73
+      },
+      "Defender": {
+        "Name": "Knight",
+        "HP": 455,
+        "Block": false,
+        "Receive": 64
+      }
+    },
+    {
+      "Number": 3,
+      "Attacker": {
+        "Name": "Universe",
+        "HP": 788,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 63
+      },
+      "Defender": {
+        "Name": "Knight",
+        "HP": 400,
+        "Block": false,
+        "Receive": 55
+      }
+    },
+    {
+      "Number": 4,
+      "Attacker": {
+        "Name": "Knight",
+        "HP": 400,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 37
+      },
+      "Defender": {
+        "Name": "Universe",
+        "HP": 753,
+        "Block": false,
+        "Receive": 35
+      }
+    },
+    {
+      "Number": 4,
+      "Attacker": {
+        "Name": "Universe",
+        "HP": 753,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 60
+      },
+      "Defender": {
+        "Name": "Knight",
+        "HP": 347,
+        "Block": false,
+        "Receive": 53
+      }
+    },
+    {
+      "Number": 5,
+      "Attacker": {
+        "Name": "Knight",
+        "HP": 347,
+        "Crit": false,
+        "Miss": true,
+        "Damage": 35
+      },
+      "Defender": {
+        "Name": "Universe",
+        "HP": 753,
+        "Block": false,
+        "Receive": 0
+      }
+    },
+    {
+      "Number": 5,
+      "Attacker": {
+        "Name": "Universe",
+        "HP": 753,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 71
+      },
+      "Defender": {
+        "Name": "Knight",
+        "HP": 284,
+        "Block": false,
+        "Receive": 63
+      }
+    },
+    {
+      "Number": 6,
+      "Attacker": {
+        "Name": "Knight",
+        "HP": 284,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 40
+      },
+      "Defender": {
+        "Name": "Universe",
+        "HP": 715,
+        "Block": false,
+        "Receive": 38
+      }
+    },
+    {
+      "Number": 6,
+      "Attacker": {
+        "Name": "Universe",
+        "HP": 715,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 71
+      },
+      "Defender": {
+        "Name": "Knight",
+        "HP": 221,
+        "Block": false,
+        "Receive": 63
+      }
+    },
+    {
+      "Number": 7,
+      "Attacker": {
+        "Name": "Universe",
+        "HP": 715,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 68
+      },
+      "Defender": {
+        "Name": "Knight",
+        "HP": 191,
+        "Block": true,
+        "Receive": 30
+      }
+    },
+    {
+      "Number": 7,
+      "Attacker": {
+        "Name": "Knight",
+        "HP": 191,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 36
+      },
+      "Defender": {
+        "Name": "Universe",
+        "HP": 681,
+        "Block": false,
+        "Receive": 34
+      }
+    },
+    {
+      "Number": 8,
+      "Attacker": {
+        "Name": "Universe",
+        "HP": 681,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 61
+      },
+      "Defender": {
+        "Name": "Knight",
+        "HP": 164,
+        "Block": true,
+        "Receive": 27
+      }
+    },
+    {
+      "Number": 8,
+      "Attacker": {
+        "Name": "Knight",
+        "HP": 164,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 43
+      },
+      "Defender": {
+        "Name": "Universe",
+        "HP": 640,
+        "Block": false,
+        "Receive": 41
+      }
+    },
+    {
+      "Number": 9,
+      "Attacker": {
+        "Name": "Universe",
+        "HP": 640,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 66
+      },
+      "Defender": {
+        "Name": "Knight",
+        "HP": 135,
+        "Block": true,
+        "Receive": 29
+      }
+    },
+    {
+      "Number": 9,
+      "Attacker": {
+        "Name": "Knight",
+        "HP": 135,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 41
+      },
+      "Defender": {
+        "Name": "Universe",
+        "HP": 601,
+        "Block": false,
+        "Receive": 39
+      }
+    },
+    {
+      "Number": 10,
+      "Attacker": {
+        "Name": "Universe",
+        "HP": 601,
+        "Crit": false,
+        "Miss": true,
+        "Damage": 54
+      },
+      "Defender": {
+        "Name": "Knight",
+        "HP": 135,
+        "Block": false,
+        "Receive": 0
+      }
+    },
+    {
+      "Number": 10,
+      "Attacker": {
+        "Name": "Universe",
+        "HP": 601,
+        "Crit": true,
+        "Miss": false,
+        "Damage": 103
+      },
+      "Defender": {
+        "Name": "Knight",
+        "HP": 44,
+        "Block": false,
+        "Receive": 91
+      }
+    },
+    {
+      "Number": 11,
+      "Attacker": {
+        "Name": "Knight",
+        "HP": 44,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 41
+      },
+      "Defender": {
+        "Name": "Universe",
+        "HP": 562,
+        "Block": false,
+        "Receive": 39
+      }
+    },
+    {
+      "Number": 11,
+      "Attacker": {
+        "Name": "Universe",
+        "HP": 562,
+        "Crit": false,
+        "Miss": true,
+        "Damage": 76
+      },
+      "Defender": {
+        "Name": "Knight",
+        "HP": 44,
+        "Block": false,
+        "Receive": 0
+      }
+    },
+    {
+      "Number": 12,
+      "Attacker": {
+        "Name": "Knight",
+        "HP": 44,
+        "Crit": false,
+        "Miss": true,
+        "Damage": 41
+      },
+      "Defender": {
+        "Name": "Universe",
+        "HP": 562,
+        "Block": false,
+        "Receive": 0
+      }
+    },
+    {
+      "Number": 12,
+      "Attacker": {
+        "Name": "Universe",
+        "HP": 562,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 54
+      },
+      "Defender": {
+        "Name": "Knight",
+        "HP": 21,
+        "Block": true,
+        "Receive": 23
+      }
+    },
+    {
+      "Number": 13,
+      "Attacker": {
+        "Name": "Knight",
+        "HP": 21,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 39
+      },
+      "Defender": {
+        "Name": "Universe",
+        "HP": 525,
+        "Block": false,
+        "Receive": 37
+      }
+    },
+    {
+      "Number": 13,
+      "Attacker": {
+        "Name": "Universe",
+        "HP": 525,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 55
+      },
+      "Defender": {
+        "Name": "Knight",
+        "HP": -3,
+        "Block": true,
+        "Receive": 24
+      }
+    }
+  ],
+  "QuickFight": false,
+  "Reward": {
+    "Experience": 10,
+    "Gold": 3,
+    "ItemID": -1,
+    "ItemName": null,
+    "ItemRarity": null
+  }
+}
