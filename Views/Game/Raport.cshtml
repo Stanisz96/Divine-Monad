@@ -3,6 +3,7 @@
 @{ 
     Layout = "_SubLayout";
     int n = 1;
+    string attackerCls;
 }
 
 <div class="game-content-raport">
@@ -20,13 +21,14 @@
             </div> 
         </div>
     </div>
-    <div class="row quick raport vertical-scroll">
+    <div class="row quick raport small-border">
         <div class="col">
             <div id="quick-raport">
-                <p>The fight between @Model.Player.Name and @Model.Opponent.Name has begun.</p>
+                <p class="start-raport">The fight between @Model.Player.Name and @Model.Opponent.Name has begun.</p>
                 @foreach (var round in Model.Raport.Rounds)
                 {
-                    <div id="@n">
+                    attackerCls = round.Attacker.Name == Model.Opponent.Name ? "opponent-attack" : "player-attack";
+                    <div id="@n" class="@attackerCls">
                         @round.Attacker.Name <span>inflict a 
                         @if (round.Attacker.Crit) { 
                             <span>critical hit</span>
@@ -51,18 +53,18 @@
                 }
                 @if (Model.Raport.Result == "draw")
                 {
-                    <div id="@n" class="mt-1">
+                    <div id="@n" class="mt-4 info">
                         <p>The fight ended in a draw</p>
                     </div>
                 }
                 else
                 {
-                    <div id="@n" class="mt-1">
+                    <div id="@n" class="mt-4 info">
                         <p>@Model.Player.Name <span></span> @Model.Raport.Result <span> the fight.</span></p>
                     </div>
                     if (Model.Raport.Result == "win")
                     {
-                        <div id="@(n+1)" class="mt-1">
+                        <div id="@(n+1)" class="mt-2 mb-3 info">
                             Reward: <br />
                             Gold: @Model.Raport.Reward.Gold G <br />
                             Exp.: @Model.Raport.Reward.Experience exp <br />

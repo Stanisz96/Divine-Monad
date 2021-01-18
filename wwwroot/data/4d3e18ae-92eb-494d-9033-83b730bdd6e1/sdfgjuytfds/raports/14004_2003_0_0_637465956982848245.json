@@ -1,0 +1,310 @@
+{
+  "Player": {
+    "ID": 14004,
+    "Name": "sdfgjuytfds"
+  },
+  "Opponent": {
+    "ID": 2003,
+    "Name": "Werewolf"
+  },
+  "Result": "lose",
+  "IsPvp": false,
+  "Rounds": [
+    {
+      "Number": 1,
+      "Attacker": {
+        "Name": "Werewolf",
+        "HP": 1300,
+        "Crit": false,
+        "Miss": true,
+        "Damage": 130
+      },
+      "Defender": {
+        "Name": "sdfgjuytfds",
+        "HP": 936,
+        "Block": false,
+        "Receive": 0
+      }
+    },
+    {
+      "Number": 1,
+      "Attacker": {
+        "Name": "sdfgjuytfds",
+        "HP": 936,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 102
+      },
+      "Defender": {
+        "Name": "Werewolf",
+        "HP": 1205,
+        "Block": false,
+        "Receive": 95
+      }
+    },
+    {
+      "Number": 2,
+      "Attacker": {
+        "Name": "Werewolf",
+        "HP": 1205,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 132
+      },
+      "Defender": {
+        "Name": "sdfgjuytfds",
+        "HP": 810,
+        "Block": false,
+        "Receive": 126
+      }
+    },
+    {
+      "Number": 2,
+      "Attacker": {
+        "Name": "sdfgjuytfds",
+        "HP": 810,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 89
+      },
+      "Defender": {
+        "Name": "Werewolf",
+        "HP": 1122,
+        "Block": false,
+        "Receive": 83
+      }
+    },
+    {
+      "Number": 3,
+      "Attacker": {
+        "Name": "Werewolf",
+        "HP": 1122,
+        "Crit": false,
+        "Miss": true,
+        "Damage": 120
+      },
+      "Defender": {
+        "Name": "sdfgjuytfds",
+        "HP": 810,
+        "Block": false,
+        "Receive": 0
+      }
+    },
+    {
+      "Number": 3,
+      "Attacker": {
+        "Name": "sdfgjuytfds",
+        "HP": 810,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 95
+      },
+      "Defender": {
+        "Name": "Werewolf",
+        "HP": 1033,
+        "Block": false,
+        "Receive": 89
+      }
+    },
+    {
+      "Number": 4,
+      "Attacker": {
+        "Name": "Werewolf",
+        "HP": 1033,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 124
+      },
+      "Defender": {
+        "Name": "sdfgjuytfds",
+        "HP": 691,
+        "Block": false,
+        "Receive": 119
+      }
+    },
+    {
+      "Number": 4,
+      "Attacker": {
+        "Name": "sdfgjuytfds",
+        "HP": 691,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 80
+      },
+      "Defender": {
+        "Name": "Werewolf",
+        "HP": 958,
+        "Block": false,
+        "Receive": 75
+      }
+    },
+    {
+      "Number": 5,
+      "Attacker": {
+        "Name": "Werewolf",
+        "HP": 958,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 135
+      },
+      "Defender": {
+        "Name": "sdfgjuytfds",
+        "HP": 562,
+        "Block": false,
+        "Receive": 129
+      }
+    },
+    {
+      "Number": 5,
+      "Attacker": {
+        "Name": "Werewolf",
+        "HP": 958,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 128
+      },
+      "Defender": {
+        "Name": "sdfgjuytfds",
+        "HP": 439,
+        "Block": false,
+        "Receive": 123
+      }
+    },
+    {
+      "Number": 6,
+      "Attacker": {
+        "Name": "sdfgjuytfds",
+        "HP": 439,
+        "Crit": true,
+        "Miss": false,
+        "Damage": 153
+      },
+      "Defender": {
+        "Name": "Werewolf",
+        "HP": 815,
+        "Block": false,
+        "Receive": 143
+      }
+    },
+    {
+      "Number": 6,
+      "Attacker": {
+        "Name": "Werewolf",
+        "HP": 815,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 121
+      },
+      "Defender": {
+        "Name": "sdfgjuytfds",
+        "HP": 323,
+        "Block": false,
+        "Receive": 116
+      }
+    },
+    {
+      "Number": 7,
+      "Attacker": {
+        "Name": "sdfgjuytfds",
+        "HP": 323,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 95
+      },
+      "Defender": {
+        "Name": "Werewolf",
+        "HP": 726,
+        "Block": false,
+        "Receive": 89
+      }
+    },
+    {
+      "Number": 7,
+      "Attacker": {
+        "Name": "Werewolf",
+        "HP": 726,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 129
+      },
+      "Defender": {
+        "Name": "sdfgjuytfds",
+        "HP": 200,
+        "Block": false,
+        "Receive": 123
+      }
+    },
+    {
+      "Number": 8,
+      "Attacker": {
+        "Name": "sdfgjuytfds",
+        "HP": 200,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 86
+      },
+      "Defender": {
+        "Name": "Werewolf",
+        "HP": 646,
+        "Block": false,
+        "Receive": 80
+      }
+    },
+    {
+      "Number": 8,
+      "Attacker": {
+        "Name": "Werewolf",
+        "HP": 646,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 124
+      },
+      "Defender": {
+        "Name": "sdfgjuytfds",
+        "HP": 81,
+        "Block": false,
+        "Receive": 119
+      }
+    },
+    {
+      "Number": 9,
+      "Attacker": {
+        "Name": "sdfgjuytfds",
+        "HP": 81,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 89
+      },
+      "Defender": {
+        "Name": "Werewolf",
+        "HP": 563,
+        "Block": false,
+        "Receive": 83
+      }
+    },
+    {
+      "Number": 9,
+      "Attacker": {
+        "Name": "Werewolf",
+        "HP": 563,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 131
+      },
+      "Defender": {
+        "Name": "sdfgjuytfds",
+        "HP": -44,
+        "Block": false,
+        "Receive": 125
+      }
+    }
+  ],
+  "QuickFight": true,
+  "Reward": {
+    "Experience": 0,
+    "Gold": 0,
+    "ItemID": 0,
+    "ItemName": null,
+    "ItemRarity": null
+  }
+}

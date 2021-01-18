@@ -229,6 +229,33 @@ body {
     max-height: 150px;
 }
 
+.game-content-raport .opponent-attack {
+    background-color: rgba(242, 108, 89, 0.15);
+    margin: -10px -15px;
+    padding: 0 15px;
+}
+
+.game-content-raport .player-attack {
+    background-color: rgba(89, 242, 101, 0.15);
+    margin: -10px -15px;
+    padding: 0 15px;
+}
+
+.game-content-raport .small-border {
+    border-image-outset: 3px !important;
+    overflow-y: overlay;
+    background-color: rgba(242, 255, 251, 0.30);
+}
+
+.game-content-raport .start-raport {
+    font-weight: 500;
+    margin: 10px 0 20px 0;
+}
+
+.game-content-raport .info {
+    font-weight: 500;
+}
+
 .game-content-backpack {
     margin: 40px 35px 10px 35px;
 }
