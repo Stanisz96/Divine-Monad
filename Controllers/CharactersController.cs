@@ -69,7 +69,7 @@ namespace DivineMonad.Controllers
                 string a = _hostingEnv.WebRootPath;
 
                 string characterDataPath = Path.Combine(a, "data\\" + userId.ToString() + "\\" + character.Name);
-                string AvatarExtension = Path.GetExtension(character.AvatarImage.FileName);
+               
 
                 if (!Directory.Exists(characterDataPath))
                 {
@@ -77,8 +77,8 @@ namespace DivineMonad.Controllers
                 }
 
                 if (character.AvatarImage != null)
-                { 
-
+                {
+                    string AvatarExtension = Path.GetExtension(character.AvatarImage.FileName);
                     var filePath = Path.Combine(characterDataPath, "avatar"+AvatarExtension);
 
                     using (var fileSteam = new FileStream(filePath, FileMode.Create))
