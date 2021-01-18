@@ -72,7 +72,7 @@ namespace DivineMonad.Tools
 
                     CategoryName itemCategory = (CategoryName)Enum.Parse(typeof(CategoryName), item.Category.Name, true);
 
-                    return (int)itemCategory == to;
+                    return (int)itemCategory == from;
                 }
             }
             catch (Exception)
