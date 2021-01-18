@@ -1,0 +1,438 @@
+{
+  "Player": {
+    "ID": 15004,
+    "Name": "kris"
+  },
+  "Opponent": {
+    "ID": 4,
+    "Name": "Goblin"
+  },
+  "Result": "lose",
+  "IsPvp": false,
+  "Rounds": [
+    {
+      "Number": 1,
+      "Attacker": {
+        "Name": "Goblin",
+        "HP": 360,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 26
+      },
+      "Defender": {
+        "Name": "kris",
+        "HP": 315,
+        "Block": false,
+        "Receive": 25
+      }
+    },
+    {
+      "Number": 1,
+      "Attacker": {
+        "Name": "kris",
+        "HP": 315,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 27
+      },
+      "Defender": {
+        "Name": "Goblin",
+        "HP": 335,
+        "Block": false,
+        "Receive": 25
+      }
+    },
+    {
+      "Number": 2,
+      "Attacker": {
+        "Name": "Goblin",
+        "HP": 335,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 27
+      },
+      "Defender": {
+        "Name": "kris",
+        "HP": 289,
+        "Block": false,
+        "Receive": 26
+      }
+    },
+    {
+      "Number": 2,
+      "Attacker": {
+        "Name": "kris",
+        "HP": 289,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 32
+      },
+      "Defender": {
+        "Name": "Goblin",
+        "HP": 305,
+        "Block": false,
+        "Receive": 30
+      }
+    },
+    {
+      "Number": 3,
+      "Attacker": {
+        "Name": "Goblin",
+        "HP": 305,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 25
+      },
+      "Defender": {
+        "Name": "kris",
+        "HP": 265,
+        "Block": false,
+        "Receive": 24
+      }
+    },
+    {
+      "Number": 3,
+      "Attacker": {
+        "Name": "Goblin",
+        "HP": 305,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 27
+      },
+      "Defender": {
+        "Name": "kris",
+        "HP": 239,
+        "Block": false,
+        "Receive": 26
+      }
+    },
+    {
+      "Number": 4,
+      "Attacker": {
+        "Name": "kris",
+        "HP": 239,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 29
+      },
+      "Defender": {
+        "Name": "Goblin",
+        "HP": 292,
+        "Block": true,
+        "Receive": 13
+      }
+    },
+    {
+      "Number": 4,
+      "Attacker": {
+        "Name": "Goblin",
+        "HP": 292,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 22
+      },
+      "Defender": {
+        "Name": "kris",
+        "HP": 218,
+        "Block": false,
+        "Receive": 21
+      }
+    },
+    {
+      "Number": 5,
+      "Attacker": {
+        "Name": "kris",
+        "HP": 218,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 31
+      },
+      "Defender": {
+        "Name": "Goblin",
+        "HP": 263,
+        "Block": false,
+        "Receive": 29
+      }
+    },
+    {
+      "Number": 5,
+      "Attacker": {
+        "Name": "Goblin",
+        "HP": 263,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 23
+      },
+      "Defender": {
+        "Name": "kris",
+        "HP": 196,
+        "Block": false,
+        "Receive": 22
+      }
+    },
+    {
+      "Number": 6,
+      "Attacker": {
+        "Name": "kris",
+        "HP": 196,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 36
+      },
+      "Defender": {
+        "Name": "Goblin",
+        "HP": 246,
+        "Block": true,
+        "Receive": 17
+      }
+    },
+    {
+      "Number": 6,
+      "Attacker": {
+        "Name": "Goblin",
+        "HP": 246,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 24
+      },
+      "Defender": {
+        "Name": "kris",
+        "HP": 173,
+        "Block": false,
+        "Receive": 23
+      }
+    },
+    {
+      "Number": 7,
+      "Attacker": {
+        "Name": "kris",
+        "HP": 173,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 35
+      },
+      "Defender": {
+        "Name": "Goblin",
+        "HP": 230,
+        "Block": true,
+        "Receive": 16
+      }
+    },
+    {
+      "Number": 7,
+      "Attacker": {
+        "Name": "Goblin",
+        "HP": 230,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 25
+      },
+      "Defender": {
+        "Name": "kris",
+        "HP": 149,
+        "Block": false,
+        "Receive": 24
+      }
+    },
+    {
+      "Number": 8,
+      "Attacker": {
+        "Name": "Goblin",
+        "HP": 230,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 22
+      },
+      "Defender": {
+        "Name": "kris",
+        "HP": 128,
+        "Block": false,
+        "Receive": 21
+      }
+    },
+    {
+      "Number": 8,
+      "Attacker": {
+        "Name": "kris",
+        "HP": 128,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 31
+      },
+      "Defender": {
+        "Name": "Goblin",
+        "HP": 201,
+        "Block": false,
+        "Receive": 29
+      }
+    },
+    {
+      "Number": 9,
+      "Attacker": {
+        "Name": "Goblin",
+        "HP": 201,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 27
+      },
+      "Defender": {
+        "Name": "kris",
+        "HP": 102,
+        "Block": false,
+        "Receive": 26
+      }
+    },
+    {
+      "Number": 9,
+      "Attacker": {
+        "Name": "kris",
+        "HP": 102,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 34
+      },
+      "Defender": {
+        "Name": "Goblin",
+        "HP": 169,
+        "Block": false,
+        "Receive": 32
+      }
+    },
+    {
+      "Number": 10,
+      "Attacker": {
+        "Name": "Goblin",
+        "HP": 169,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 22
+      },
+      "Defender": {
+        "Name": "kris",
+        "HP": 81,
+        "Block": false,
+        "Receive": 21
+      }
+    },
+    {
+      "Number": 10,
+      "Attacker": {
+        "Name": "kris",
+        "HP": 81,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 27
+      },
+      "Defender": {
+        "Name": "Goblin",
+        "HP": 144,
+        "Block": false,
+        "Receive": 25
+      }
+    },
+    {
+      "Number": 11,
+      "Attacker": {
+        "Name": "Goblin",
+        "HP": 144,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 22
+      },
+      "Defender": {
+        "Name": "kris",
+        "HP": 60,
+        "Block": false,
+        "Receive": 21
+      }
+    },
+    {
+      "Number": 11,
+      "Attacker": {
+        "Name": "Goblin",
+        "HP": 144,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 23
+      },
+      "Defender": {
+        "Name": "kris",
+        "HP": 38,
+        "Block": false,
+        "Receive": 22
+      }
+    },
+    {
+      "Number": 12,
+      "Attacker": {
+        "Name": "kris",
+        "HP": 38,
+        "Crit": false,
+        "Miss": true,
+        "Damage": 24
+      },
+      "Defender": {
+        "Name": "Goblin",
+        "HP": 144,
+        "Block": false,
+        "Receive": 0
+      }
+    },
+    {
+      "Number": 12,
+      "Attacker": {
+        "Name": "Goblin",
+        "HP": 144,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 27
+      },
+      "Defender": {
+        "Name": "kris",
+        "HP": 12,
+        "Block": false,
+        "Receive": 26
+      }
+    },
+    {
+      "Number": 13,
+      "Attacker": {
+        "Name": "kris",
+        "HP": 12,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 32
+      },
+      "Defender": {
+        "Name": "Goblin",
+        "HP": 114,
+        "Block": false,
+        "Receive": 30
+      }
+    },
+    {
+      "Number": 13,
+      "Attacker": {
+        "Name": "Goblin",
+        "HP": 114,
+        "Crit": true,
+        "Miss": false,
+        "Damage": 39
+      },
+      "Defender": {
+        "Name": "kris",
+        "HP": -26,
+        "Block": false,
+        "Receive": 38
+      }
+    }
+  ],
+  "QuickFight": true,
+  "Reward": {
+    "Experience": 0,
+    "Gold": 0,
+    "ItemID": 0,
+    "ItemName": null,
+    "ItemRarity": null
+  }
+}

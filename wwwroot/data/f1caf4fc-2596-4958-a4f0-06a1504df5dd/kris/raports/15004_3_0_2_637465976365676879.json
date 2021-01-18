@@ -1,0 +1,150 @@
+{
+  "Player": {
+    "ID": 15004,
+    "Name": "kris"
+  },
+  "Opponent": {
+    "ID": 3,
+    "Name": "Enchanted Tree"
+  },
+  "Result": "win",
+  "IsPvp": false,
+  "Rounds": [
+    {
+      "Number": 1,
+      "Attacker": {
+        "Name": "Enchanted Tree",
+        "HP": 150,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 11
+      },
+      "Defender": {
+        "Name": "kris",
+        "HP": 416,
+        "Block": false,
+        "Receive": 10
+      }
+    },
+    {
+      "Number": 1,
+      "Attacker": {
+        "Name": "kris",
+        "HP": 416,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 34
+      },
+      "Defender": {
+        "Name": "Enchanted Tree",
+        "HP": 118,
+        "Block": false,
+        "Receive": 32
+      }
+    },
+    {
+      "Number": 2,
+      "Attacker": {
+        "Name": "Enchanted Tree",
+        "HP": 118,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 14
+      },
+      "Defender": {
+        "Name": "kris",
+        "HP": 403,
+        "Block": false,
+        "Receive": 13
+      }
+    },
+    {
+      "Number": 2,
+      "Attacker": {
+        "Name": "kris",
+        "HP": 403,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 37
+      },
+      "Defender": {
+        "Name": "Enchanted Tree",
+        "HP": 83,
+        "Block": false,
+        "Receive": 35
+      }
+    },
+    {
+      "Number": 3,
+      "Attacker": {
+        "Name": "Enchanted Tree",
+        "HP": 83,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 9
+      },
+      "Defender": {
+        "Name": "kris",
+        "HP": 395,
+        "Block": false,
+        "Receive": 8
+      }
+    },
+    {
+      "Number": 3,
+      "Attacker": {
+        "Name": "kris",
+        "HP": 395,
+        "Crit": true,
+        "Miss": false,
+        "Damage": 49
+      },
+      "Defender": {
+        "Name": "Enchanted Tree",
+        "HP": 36,
+        "Block": false,
+        "Receive": 47
+      }
+    },
+    {
+      "Number": 4,
+      "Attacker": {
+        "Name": "Enchanted Tree",
+        "HP": 36,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 14
+      },
+      "Defender": {
+        "Name": "kris",
+        "HP": 382,
+        "Block": false,
+        "Receive": 13
+      }
+    },
+    {
+      "Number": 4,
+      "Attacker": {
+        "Name": "kris",
+        "HP": 382,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 42
+      },
+      "Defender": {
+        "Name": "Enchanted Tree",
+        "HP": -4,
+        "Block": false,
+        "Receive": 40
+      }
+    }
+  ],
+  "QuickFight": true,
+  "Reward": {
+    "Experience": 2,
+    "Gold": 2,
+    "ItemID": -1,
+    "ItemName": null,
+    "ItemRarity": null
+  }
+}

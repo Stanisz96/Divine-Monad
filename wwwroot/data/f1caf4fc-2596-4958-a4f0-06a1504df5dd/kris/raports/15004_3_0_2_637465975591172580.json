@@ -1,0 +1,214 @@
+{
+  "Player": {
+    "ID": 15004,
+    "Name": "kris"
+  },
+  "Opponent": {
+    "ID": 3,
+    "Name": "Enchanted Tree"
+  },
+  "Result": "win",
+  "IsPvp": false,
+  "Rounds": [
+    {
+      "Number": 1,
+      "Attacker": {
+        "Name": "Enchanted Tree",
+        "HP": 150,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 7
+      },
+      "Defender": {
+        "Name": "kris",
+        "HP": 334,
+        "Block": false,
+        "Receive": 6
+      }
+    },
+    {
+      "Number": 1,
+      "Attacker": {
+        "Name": "kris",
+        "HP": 334,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 25
+      },
+      "Defender": {
+        "Name": "Enchanted Tree",
+        "HP": 126,
+        "Block": false,
+        "Receive": 24
+      }
+    },
+    {
+      "Number": 2,
+      "Attacker": {
+        "Name": "Enchanted Tree",
+        "HP": 126,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 10
+      },
+      "Defender": {
+        "Name": "kris",
+        "HP": 325,
+        "Block": false,
+        "Receive": 9
+      }
+    },
+    {
+      "Number": 2,
+      "Attacker": {
+        "Name": "kris",
+        "HP": 325,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 28
+      },
+      "Defender": {
+        "Name": "Enchanted Tree",
+        "HP": 99,
+        "Block": false,
+        "Receive": 27
+      }
+    },
+    {
+      "Number": 3,
+      "Attacker": {
+        "Name": "Enchanted Tree",
+        "HP": 99,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 8
+      },
+      "Defender": {
+        "Name": "kris",
+        "HP": 318,
+        "Block": false,
+        "Receive": 7
+      }
+    },
+    {
+      "Number": 3,
+      "Attacker": {
+        "Name": "kris",
+        "HP": 318,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 31
+      },
+      "Defender": {
+        "Name": "Enchanted Tree",
+        "HP": 69,
+        "Block": false,
+        "Receive": 30
+      }
+    },
+    {
+      "Number": 4,
+      "Attacker": {
+        "Name": "Enchanted Tree",
+        "HP": 69,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 7
+      },
+      "Defender": {
+        "Name": "kris",
+        "HP": 312,
+        "Block": false,
+        "Receive": 6
+      }
+    },
+    {
+      "Number": 4,
+      "Attacker": {
+        "Name": "kris",
+        "HP": 312,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 26
+      },
+      "Defender": {
+        "Name": "Enchanted Tree",
+        "HP": 44,
+        "Block": false,
+        "Receive": 25
+      }
+    },
+    {
+      "Number": 5,
+      "Attacker": {
+        "Name": "Enchanted Tree",
+        "HP": 44,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 8
+      },
+      "Defender": {
+        "Name": "kris",
+        "HP": 305,
+        "Block": false,
+        "Receive": 7
+      }
+    },
+    {
+      "Number": 5,
+      "Attacker": {
+        "Name": "kris",
+        "HP": 305,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 30
+      },
+      "Defender": {
+        "Name": "Enchanted Tree",
+        "HP": 15,
+        "Block": false,
+        "Receive": 29
+      }
+    },
+    {
+      "Number": 6,
+      "Attacker": {
+        "Name": "Enchanted Tree",
+        "HP": 15,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 6
+      },
+      "Defender": {
+        "Name": "kris",
+        "HP": 300,
+        "Block": false,
+        "Receive": 5
+      }
+    },
+    {
+      "Number": 6,
+      "Attacker": {
+        "Name": "kris",
+        "HP": 300,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 34
+      },
+      "Defender": {
+        "Name": "Enchanted Tree",
+        "HP": -17,
+        "Block": false,
+        "Receive": 32
+      }
+    }
+  ],
+  "QuickFight": true,
+  "Reward": {
+    "Experience": 2,
+    "Gold": 2,
+    "ItemID": 2,
+    "ItemName": "Peasant boots",
+    "ItemRarity": "normal"
+  }
+}

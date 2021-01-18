@@ -1,0 +1,214 @@
+{
+  "Player": {
+    "ID": 15004,
+    "Name": "kris"
+  },
+  "Opponent": {
+    "ID": 3,
+    "Name": "Enchanted Tree"
+  },
+  "Result": "win",
+  "IsPvp": false,
+  "Rounds": [
+    {
+      "Number": 1,
+      "Attacker": {
+        "Name": "Enchanted Tree",
+        "HP": 150,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 8
+      },
+      "Defender": {
+        "Name": "kris",
+        "HP": 293,
+        "Block": false,
+        "Receive": 7
+      }
+    },
+    {
+      "Number": 1,
+      "Attacker": {
+        "Name": "kris",
+        "HP": 293,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 32
+      },
+      "Defender": {
+        "Name": "Enchanted Tree",
+        "HP": 120,
+        "Block": false,
+        "Receive": 30
+      }
+    },
+    {
+      "Number": 2,
+      "Attacker": {
+        "Name": "Enchanted Tree",
+        "HP": 120,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 7
+      },
+      "Defender": {
+        "Name": "kris",
+        "HP": 287,
+        "Block": false,
+        "Receive": 6
+      }
+    },
+    {
+      "Number": 2,
+      "Attacker": {
+        "Name": "kris",
+        "HP": 287,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 24
+      },
+      "Defender": {
+        "Name": "Enchanted Tree",
+        "HP": 97,
+        "Block": false,
+        "Receive": 23
+      }
+    },
+    {
+      "Number": 3,
+      "Attacker": {
+        "Name": "Enchanted Tree",
+        "HP": 97,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 12
+      },
+      "Defender": {
+        "Name": "kris",
+        "HP": 276,
+        "Block": false,
+        "Receive": 11
+      }
+    },
+    {
+      "Number": 3,
+      "Attacker": {
+        "Name": "kris",
+        "HP": 276,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 35
+      },
+      "Defender": {
+        "Name": "Enchanted Tree",
+        "HP": 64,
+        "Block": false,
+        "Receive": 33
+      }
+    },
+    {
+      "Number": 4,
+      "Attacker": {
+        "Name": "Enchanted Tree",
+        "HP": 64,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 9
+      },
+      "Defender": {
+        "Name": "kris",
+        "HP": 268,
+        "Block": false,
+        "Receive": 8
+      }
+    },
+    {
+      "Number": 4,
+      "Attacker": {
+        "Name": "kris",
+        "HP": 268,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 36
+      },
+      "Defender": {
+        "Name": "Enchanted Tree",
+        "HP": 30,
+        "Block": false,
+        "Receive": 34
+      }
+    },
+    {
+      "Number": 5,
+      "Attacker": {
+        "Name": "Enchanted Tree",
+        "HP": 30,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 7
+      },
+      "Defender": {
+        "Name": "kris",
+        "HP": 262,
+        "Block": false,
+        "Receive": 6
+      }
+    },
+    {
+      "Number": 5,
+      "Attacker": {
+        "Name": "kris",
+        "HP": 262,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 27
+      },
+      "Defender": {
+        "Name": "Enchanted Tree",
+        "HP": 4,
+        "Block": false,
+        "Receive": 26
+      }
+    },
+    {
+      "Number": 6,
+      "Attacker": {
+        "Name": "Enchanted Tree",
+        "HP": 4,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 13
+      },
+      "Defender": {
+        "Name": "kris",
+        "HP": 250,
+        "Block": false,
+        "Receive": 12
+      }
+    },
+    {
+      "Number": 6,
+      "Attacker": {
+        "Name": "kris",
+        "HP": 250,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 36
+      },
+      "Defender": {
+        "Name": "Enchanted Tree",
+        "HP": -30,
+        "Block": false,
+        "Receive": 34
+      }
+    }
+  ],
+  "QuickFight": true,
+  "Reward": {
+    "Experience": 2,
+    "Gold": 2,
+    "ItemID": 1005,
+    "ItemName": "Rusty Sword",
+    "ItemRarity": "normal"
+  }
+}

@@ -1,0 +1,310 @@
+{
+  "Player": {
+    "ID": 15004,
+    "Name": "kris"
+  },
+  "Opponent": {
+    "ID": 1002,
+    "Name": "Knight"
+  },
+  "Result": "lose",
+  "IsPvp": false,
+  "Rounds": [
+    {
+      "Number": 1,
+      "Attacker": {
+        "Name": "Knight",
+        "HP": 600,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 43
+      },
+      "Defender": {
+        "Name": "kris",
+        "HP": 385,
+        "Block": false,
+        "Receive": 41
+      }
+    },
+    {
+      "Number": 1,
+      "Attacker": {
+        "Name": "kris",
+        "HP": 385,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 42
+      },
+      "Defender": {
+        "Name": "Knight",
+        "HP": 563,
+        "Block": false,
+        "Receive": 37
+      }
+    },
+    {
+      "Number": 2,
+      "Attacker": {
+        "Name": "Knight",
+        "HP": 563,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 44
+      },
+      "Defender": {
+        "Name": "kris",
+        "HP": 343,
+        "Block": false,
+        "Receive": 42
+      }
+    },
+    {
+      "Number": 2,
+      "Attacker": {
+        "Name": "Knight",
+        "HP": 563,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 38
+      },
+      "Defender": {
+        "Name": "kris",
+        "HP": 307,
+        "Block": false,
+        "Receive": 36
+      }
+    },
+    {
+      "Number": 3,
+      "Attacker": {
+        "Name": "kris",
+        "HP": 307,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 36
+      },
+      "Defender": {
+        "Name": "Knight",
+        "HP": 548,
+        "Block": true,
+        "Receive": 15
+      }
+    },
+    {
+      "Number": 3,
+      "Attacker": {
+        "Name": "Knight",
+        "HP": 548,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 44
+      },
+      "Defender": {
+        "Name": "kris",
+        "HP": 265,
+        "Block": false,
+        "Receive": 42
+      }
+    },
+    {
+      "Number": 4,
+      "Attacker": {
+        "Name": "kris",
+        "HP": 265,
+        "Crit": false,
+        "Miss": true,
+        "Damage": 39
+      },
+      "Defender": {
+        "Name": "Knight",
+        "HP": 548,
+        "Block": false,
+        "Receive": 0
+      }
+    },
+    {
+      "Number": 4,
+      "Attacker": {
+        "Name": "Knight",
+        "HP": 548,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 44
+      },
+      "Defender": {
+        "Name": "kris",
+        "HP": 223,
+        "Block": false,
+        "Receive": 42
+      }
+    },
+    {
+      "Number": 5,
+      "Attacker": {
+        "Name": "kris",
+        "HP": 223,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 38
+      },
+      "Defender": {
+        "Name": "Knight",
+        "HP": 515,
+        "Block": false,
+        "Receive": 33
+      }
+    },
+    {
+      "Number": 5,
+      "Attacker": {
+        "Name": "Knight",
+        "HP": 515,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 39
+      },
+      "Defender": {
+        "Name": "kris",
+        "HP": 186,
+        "Block": false,
+        "Receive": 37
+      }
+    },
+    {
+      "Number": 6,
+      "Attacker": {
+        "Name": "Knight",
+        "HP": 515,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 37
+      },
+      "Defender": {
+        "Name": "kris",
+        "HP": 150,
+        "Block": false,
+        "Receive": 36
+      }
+    },
+    {
+      "Number": 6,
+      "Attacker": {
+        "Name": "kris",
+        "HP": 150,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 44
+      },
+      "Defender": {
+        "Name": "Knight",
+        "HP": 496,
+        "Block": true,
+        "Receive": 19
+      }
+    },
+    {
+      "Number": 7,
+      "Attacker": {
+        "Name": "Knight",
+        "HP": 496,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 40
+      },
+      "Defender": {
+        "Name": "kris",
+        "HP": 112,
+        "Block": false,
+        "Receive": 38
+      }
+    },
+    {
+      "Number": 7,
+      "Attacker": {
+        "Name": "Knight",
+        "HP": 496,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 44
+      },
+      "Defender": {
+        "Name": "kris",
+        "HP": 70,
+        "Block": false,
+        "Receive": 42
+      }
+    },
+    {
+      "Number": 8,
+      "Attacker": {
+        "Name": "kris",
+        "HP": 70,
+        "Crit": true,
+        "Miss": false,
+        "Damage": 58
+      },
+      "Defender": {
+        "Name": "Knight",
+        "HP": 445,
+        "Block": false,
+        "Receive": 51
+      }
+    },
+    {
+      "Number": 8,
+      "Attacker": {
+        "Name": "Knight",
+        "HP": 445,
+        "Crit": true,
+        "Miss": false,
+        "Damage": 57
+      },
+      "Defender": {
+        "Name": "kris",
+        "HP": 15,
+        "Block": false,
+        "Receive": 55
+      }
+    },
+    {
+      "Number": 9,
+      "Attacker": {
+        "Name": "kris",
+        "HP": 15,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 36
+      },
+      "Defender": {
+        "Name": "Knight",
+        "HP": 414,
+        "Block": false,
+        "Receive": 31
+      }
+    },
+    {
+      "Number": 9,
+      "Attacker": {
+        "Name": "Knight",
+        "HP": 414,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 42
+      },
+      "Defender": {
+        "Name": "kris",
+        "HP": -25,
+        "Block": false,
+        "Receive": 40
+      }
+    }
+  ],
+  "QuickFight": true,
+  "Reward": {
+    "Experience": 0,
+    "Gold": 0,
+    "ItemID": 0,
+    "ItemName": null,
+    "ItemRarity": null
+  }
+}

@@ -1,0 +1,166 @@
+{
+  "Player": {
+    "ID": 15004,
+    "Name": "kris"
+  },
+  "Opponent": {
+    "ID": 2002,
+    "Name": "Mermaid"
+  },
+  "Result": "lose",
+  "IsPvp": false,
+  "Rounds": [
+    {
+      "Number": 1,
+      "Attacker": {
+        "Name": "Mermaid",
+        "HP": 920,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 53
+      },
+      "Defender": {
+        "Name": "kris",
+        "HP": 289,
+        "Block": false,
+        "Receive": 51
+      }
+    },
+    {
+      "Number": 1,
+      "Attacker": {
+        "Name": "kris",
+        "HP": 289,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 26
+      },
+      "Defender": {
+        "Name": "Mermaid",
+        "HP": 896,
+        "Block": false,
+        "Receive": 24
+      }
+    },
+    {
+      "Number": 2,
+      "Attacker": {
+        "Name": "Mermaid",
+        "HP": 896,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 67
+      },
+      "Defender": {
+        "Name": "kris",
+        "HP": 224,
+        "Block": false,
+        "Receive": 65
+      }
+    },
+    {
+      "Number": 2,
+      "Attacker": {
+        "Name": "Mermaid",
+        "HP": 896,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 63
+      },
+      "Defender": {
+        "Name": "kris",
+        "HP": 163,
+        "Block": false,
+        "Receive": 61
+      }
+    },
+    {
+      "Number": 3,
+      "Attacker": {
+        "Name": "kris",
+        "HP": 163,
+        "Crit": true,
+        "Miss": false,
+        "Damage": 46
+      },
+      "Defender": {
+        "Name": "Mermaid",
+        "HP": 853,
+        "Block": false,
+        "Receive": 43
+      }
+    },
+    {
+      "Number": 3,
+      "Attacker": {
+        "Name": "Mermaid",
+        "HP": 853,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 53
+      },
+      "Defender": {
+        "Name": "kris",
+        "HP": 112,
+        "Block": false,
+        "Receive": 51
+      }
+    },
+    {
+      "Number": 4,
+      "Attacker": {
+        "Name": "kris",
+        "HP": 112,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 30
+      },
+      "Defender": {
+        "Name": "Mermaid",
+        "HP": 825,
+        "Block": false,
+        "Receive": 28
+      }
+    },
+    {
+      "Number": 4,
+      "Attacker": {
+        "Name": "Mermaid",
+        "HP": 825,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 52
+      },
+      "Defender": {
+        "Name": "kris",
+        "HP": 62,
+        "Block": false,
+        "Receive": 50
+      }
+    },
+    {
+      "Number": 5,
+      "Attacker": {
+        "Name": "Mermaid",
+        "HP": 825,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 66
+      },
+      "Defender": {
+        "Name": "kris",
+        "HP": -2,
+        "Block": false,
+        "Receive": 64
+      }
+    }
+  ],
+  "QuickFight": true,
+  "Reward": {
+    "Experience": 0,
+    "Gold": 0,
+    "ItemID": 0,
+    "ItemName": null,
+    "ItemRarity": null
+  }
+}

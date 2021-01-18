@@ -29,24 +29,24 @@
                 {
                     attackerCls = round.Attacker.Name == Model.Opponent.Name ? "opponent-attack" : "player-attack";
                     <div id="@n" class="@attackerCls">
-                        @round.Attacker.Name <span>inflict a 
+                        @round.Attacker.Name <span>inflict a </span>
                         @if (round.Attacker.Crit) { 
-                            <span>critical hit</span>
+                            <span class="info">critical hit</span>
                         }else
                         {
                             <span>hit</span>
                         }
-                        for @round.Attacker.Damage damage.</span> <br />
+                        <span>for </span><span class="info">@round.Attacker.Damage</span><span> damage.</span> <br />
                         <span class="defender">@round.Defender.Name</span>
                         @if (round.Defender.Block)
                         {
-                            <span>blocks, </span>
+                            <span class="info">blocks</span><span>, </span> 
                         }
-                        @if (round.Attacker.Miss)
+                        else if (round.Attacker.Miss)
                         {
-                            <span>dodges, </span>
+                            <span class="info">dodges</span><span>, </span> 
                         }
-                        takes <span class="dmg">@round.Defender.Receive</span> damage and is left with <span class="hp">@round.Defender.HP</span> HP.
+                        takes <span class="dmg info">@round.Defender.Receive</span> damage and is left with <span class="hp info">@round.Defender.HP</span> HP.
                         <p></p>
                     </div>
                     n++;
@@ -78,9 +78,11 @@
             </div>
         </div>
     </div>
-    <div class="row slow raport vertical-scroll">
-        <div class="col" id="slow-raport">
-            <p>The fight between @Model.Player.Name and @Model.Opponent.Name has begun.</p>
+    <div class="row slow raport small-border">
+        <div class="col">
+            <div id="slow-raport">
+                <p class="start-raport">The fight between @Model.Player.Name and @Model.Opponent.Name has begun.</p>
+            </div>
         </div>
     </div>
     <div class="row player mt-4 justify-content-end">

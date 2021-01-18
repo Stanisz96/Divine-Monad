@@ -27,6 +27,7 @@ namespace DivineMonad.Areas.Admin.Controllers
         {
             ViewData["Items"] = new SelectList(_context.Items, "StatisticsId", "Name");
             ViewData["ItemsId"] = new SelectList(_context.Items, "StatisticsId", "ID");
+            //var rarities = 
 
             return View(await _context.ItemsStats.ToListAsync());
         }

@@ -1,0 +1,70 @@
+{
+  "Player": {
+    "ID": 15004,
+    "Name": "kris"
+  },
+  "Opponent": {
+    "ID": 2003,
+    "Name": "Werewolf"
+  },
+  "Result": "lose",
+  "IsPvp": false,
+  "Rounds": [
+    {
+      "Number": 1,
+      "Attacker": {
+        "Name": "Werewolf",
+        "HP": 1300,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 132
+      },
+      "Defender": {
+        "Name": "kris",
+        "HP": 28,
+        "Block": false,
+        "Receive": 130
+      }
+    },
+    {
+      "Number": 1,
+      "Attacker": {
+        "Name": "kris",
+        "HP": 28,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 13
+      },
+      "Defender": {
+        "Name": "Werewolf",
+        "HP": 1288,
+        "Block": false,
+        "Receive": 12
+      }
+    },
+    {
+      "Number": 2,
+      "Attacker": {
+        "Name": "Werewolf",
+        "HP": 1288,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 135
+      },
+      "Defender": {
+        "Name": "kris",
+        "HP": -105,
+        "Block": false,
+        "Receive": 133
+      }
+    }
+  ],
+  "QuickFight": true,
+  "Reward": {
+    "Experience": 0,
+    "Gold": 0,
+    "ItemID": 0,
+    "ItemName": null,
+    "ItemRarity": null
+  }
+}

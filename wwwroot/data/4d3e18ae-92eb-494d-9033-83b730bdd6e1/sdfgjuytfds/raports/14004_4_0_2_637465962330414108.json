@@ -1,0 +1,118 @@
+{
+  "Player": {
+    "ID": 14004,
+    "Name": "sdfgjuytfds"
+  },
+  "Opponent": {
+    "ID": 4,
+    "Name": "Goblin"
+  },
+  "Result": "win",
+  "IsPvp": false,
+  "Rounds": [
+    {
+      "Number": 1,
+      "Attacker": {
+        "Name": "sdfgjuytfds",
+        "HP": 936,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 100
+      },
+      "Defender": {
+        "Name": "Goblin",
+        "HP": 265,
+        "Block": false,
+        "Receive": 95
+      }
+    },
+    {
+      "Number": 1,
+      "Attacker": {
+        "Name": "Goblin",
+        "HP": 265,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 25
+      },
+      "Defender": {
+        "Name": "sdfgjuytfds",
+        "HP": 912,
+        "Block": false,
+        "Receive": 24
+      }
+    },
+    {
+      "Number": 2,
+      "Attacker": {
+        "Name": "sdfgjuytfds",
+        "HP": 912,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 106
+      },
+      "Defender": {
+        "Name": "Goblin",
+        "HP": 165,
+        "Block": false,
+        "Receive": 100
+      }
+    },
+    {
+      "Number": 2,
+      "Attacker": {
+        "Name": "sdfgjuytfds",
+        "HP": 912,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 86
+      },
+      "Defender": {
+        "Name": "Goblin",
+        "HP": 84,
+        "Block": false,
+        "Receive": 81
+      }
+    },
+    {
+      "Number": 3,
+      "Attacker": {
+        "Name": "Goblin",
+        "HP": 84,
+        "Crit": true,
+        "Miss": false,
+        "Damage": 40
+      },
+      "Defender": {
+        "Name": "sdfgjuytfds",
+        "HP": 874,
+        "Block": false,
+        "Receive": 38
+      }
+    },
+    {
+      "Number": 3,
+      "Attacker": {
+        "Name": "sdfgjuytfds",
+        "HP": 874,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 104
+      },
+      "Defender": {
+        "Name": "Goblin",
+        "HP": -14,
+        "Block": false,
+        "Receive": 98
+      }
+    }
+  ],
+  "QuickFight": true,
+  "Reward": {
+    "Experience": 5,
+    "Gold": 2,
+    "ItemID": 2,
+    "ItemName": "Peasant boots",
+    "ItemRarity": "normal"
+  }
+}
