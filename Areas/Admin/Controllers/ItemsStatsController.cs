@@ -27,7 +27,8 @@ namespace DivineMonad.Areas.Admin.Controllers
         {
             ViewData["Items"] = new SelectList(_context.Items, "StatisticsId", "Name");
             ViewData["ItemsId"] = new SelectList(_context.Items, "StatisticsId", "ID");
-            //var rarities = 
+            var rarities = await _context.Items.Include(i => i.Rarity).Select(i => new { i.Rarity.Name, i.StatisticsId }).ToListAsync();
+            ViewData["Rarities"] = new SelectList(rarities, "StatisticsId", "Name");
 
             return View(await _context.ItemsStats.ToListAsync());
         }

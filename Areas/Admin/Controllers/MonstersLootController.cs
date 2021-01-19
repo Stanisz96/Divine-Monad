@@ -29,6 +29,8 @@ namespace DivineMonad.Areas.Admin.Controllers
 
             ViewData["Monsters"] = new SelectList(_context.Monsters, "ID", "Name");
             ViewData["Items"] = new SelectList(_context.Items, "ID", "Name");
+            var rarities = await _context.Items.Include(i => i.Rarity).Select(i => new { i.Rarity.Name, i.ID }).ToListAsync();
+            ViewData["Rarities"] = new SelectList(rarities, "ID", "Name");
 
             return View(monstersLootList);
         }

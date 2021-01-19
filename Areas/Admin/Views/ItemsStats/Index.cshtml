@@ -18,6 +18,12 @@
                 where item.Value == id
                 select item.Text).FirstOrDefault();
     }
+    public string FindRarity(string id)
+    {
+        return (from item in ViewData["Rarities"] as SelectList
+                where item.Value == id
+                select item.Text).FirstOrDefault();
+    }
 }
 
 <h1>Items Statistics</h1>
@@ -31,6 +37,9 @@
             <tr>
                 <th>
                     Item Name
+                </th>
+                <th>
+                    Item Rarity
                 </th>
                 <th>
                     @Html.DisplayNameFor(model => model.Stamina)
@@ -85,6 +94,9 @@
                         <a asp-controller="Items" asp-action="Details" asp-route-id="@FindItemId(item.ID.ToString())">
                             @FindItem(item.ID.ToString())
                         </a>
+                    </td>
+                    <td>
+                        @FindRarity(item.ID.ToString())
                     </td>
                     <td>
                         @Html.DisplayFor(modelItem => item.Stamina)
