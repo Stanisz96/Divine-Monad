@@ -53,15 +53,24 @@ namespace DivineMonad.Controllers
                     if (updateCharacter.Name != character.Name)
                     {
                         Directory.Move(Path.Combine(a, "data", userId, updateCharacter.Name), Path.Combine(a, "data", userId, character.Name));
-                        updateCharacter.AvatarUrl = updateCharacter.AvatarUrl.Replace(updateCharacter.Name, character.Name);
+                        if(!updateCharacter.AvatarUrl.Contains("avatar_default"))
+                            updateCharacter.AvatarUrl = updateCharacter.AvatarUrl.Replace(updateCharacter.Name, character.Name);
                     }
                     string AvatarPath = Path.Combine(a, updateCharacter.AvatarUrl.Replace("/", "\\").Replace("~\\", ""));
+                    
                     updateCharacter.Name = character.Name;
                     updateCharacter.AvatarImage = character.AvatarImage;
                     
                     
                     if (updateCharacter.AvatarImage != null)
                     {
+                        if (AvatarPath.Contains("avatar_default"))
+                        {
+                            AvatarPath = AvatarPath.Replace("images\\avatars\\avatar_default.png", "data\\" + userId + "\\" +
+                                updateCharacter.Name + "\\avatar.png");
+                            updateCharacter.AvatarUrl = "~" + AvatarPath.Replace("\\", "/").Split("wwwroot")[1];
+                        }
+
                         using (var fileSteam = new FileStream(AvatarPath, FileMode.Create))
                         {
                             await updateCharacter.AvatarImage.CopyToAsync(fileSteam);
