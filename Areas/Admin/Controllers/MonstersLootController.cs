@@ -54,10 +54,12 @@ namespace DivineMonad.Areas.Admin.Controllers
         }
 
         // GET: Admin/MonstersLoot/Create
-        public IActionResult Create()
+        public async Task<IActionResult> Create()
         {
             ViewData["Monsters"] = new SelectList(_context.Monsters, "ID", "Name");
-            ViewData["Items"] = new SelectList(_context.Items, "ID", "Name");
+            //ViewData["Items"] = new SelectList(_context.Items, "ID", "Name");
+            var items = await _context.Items.Include(i => i.Rarity).Select(i => new { Name = i.Name + " *" + i.Rarity.Name + "* ", i.ID }).ToListAsync();
+            ViewData["Items"] = new SelectList(items, "ID", "Name");
 
             return View();
         }
