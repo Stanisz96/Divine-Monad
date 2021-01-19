@@ -355,7 +355,7 @@ namespace DivineMonad.Controllers
             if (iId != null)
             {
                 item = await _itemsRepo.GetItemById((int)iId);
-                item.Price *= 3;
+                item.Price *= 5;
             }
 
             return PartialView(item);
@@ -421,9 +421,9 @@ namespace DivineMonad.Controllers
             else if (iId != null)
             {
                 item = await _itemsRepo.GetItemById((int)iId);
-                if (character.CBStats.Gold >= 3 * item.Price)
+                if (character.CBStats.Gold >= 5 * item.Price)
                 {
-                    character.CBStats.Gold -= 3 * item.Price;
+                    character.CBStats.Gold -= 5 * item.Price;
                     CharacterItems newItem = new CharacterItems()
                     {
                         BpSlotId = _characterHelper.GetFirstEmptySlot(character, backpack.CharacterItemsList),
