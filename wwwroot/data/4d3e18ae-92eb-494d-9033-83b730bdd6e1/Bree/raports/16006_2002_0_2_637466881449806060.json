@@ -1,0 +1,342 @@
+{
+  "Player": {
+    "ID": 16006,
+    "Name": "Bree"
+  },
+  "Opponent": {
+    "ID": 2002,
+    "Name": "Mermaid"
+  },
+  "Result": "win",
+  "IsPvp": false,
+  "Rounds": [
+    {
+      "Number": 1,
+      "Attacker": {
+        "Name": "Bree",
+        "HP": 654,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 102
+      },
+      "Defender": {
+        "Name": "Mermaid",
+        "HP": 825,
+        "Block": false,
+        "Receive": 95
+      }
+    },
+    {
+      "Number": 1,
+      "Attacker": {
+        "Name": "Mermaid",
+        "HP": 825,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 63
+      },
+      "Defender": {
+        "Name": "Bree",
+        "HP": 594,
+        "Block": false,
+        "Receive": 60
+      }
+    },
+    {
+      "Number": 2,
+      "Attacker": {
+        "Name": "Bree",
+        "HP": 594,
+        "Crit": true,
+        "Miss": false,
+        "Damage": 151
+      },
+      "Defender": {
+        "Name": "Mermaid",
+        "HP": 684,
+        "Block": false,
+        "Receive": 141
+      }
+    },
+    {
+      "Number": 2,
+      "Attacker": {
+        "Name": "Mermaid",
+        "HP": 684,
+        "Crit": false,
+        "Miss": true,
+        "Damage": 55
+      },
+      "Defender": {
+        "Name": "Bree",
+        "HP": 594,
+        "Block": false,
+        "Receive": 0
+      }
+    },
+    {
+      "Number": 3,
+      "Attacker": {
+        "Name": "Bree",
+        "HP": 594,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 96
+      },
+      "Defender": {
+        "Name": "Mermaid",
+        "HP": 594,
+        "Block": false,
+        "Receive": 90
+      }
+    },
+    {
+      "Number": 3,
+      "Attacker": {
+        "Name": "Mermaid",
+        "HP": 594,
+        "Crit": false,
+        "Miss": true,
+        "Damage": 52
+      },
+      "Defender": {
+        "Name": "Bree",
+        "HP": 594,
+        "Block": false,
+        "Receive": 0
+      }
+    },
+    {
+      "Number": 4,
+      "Attacker": {
+        "Name": "Bree",
+        "HP": 594,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 110
+      },
+      "Defender": {
+        "Name": "Mermaid",
+        "HP": 491,
+        "Block": false,
+        "Receive": 103
+      }
+    },
+    {
+      "Number": 4,
+      "Attacker": {
+        "Name": "Mermaid",
+        "HP": 491,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 50
+      },
+      "Defender": {
+        "Name": "Bree",
+        "HP": 546,
+        "Block": false,
+        "Receive": 48
+      }
+    },
+    {
+      "Number": 5,
+      "Attacker": {
+        "Name": "Bree",
+        "HP": 546,
+        "Crit": true,
+        "Miss": true,
+        "Damage": 151
+      },
+      "Defender": {
+        "Name": "Mermaid",
+        "HP": 491,
+        "Block": false,
+        "Receive": 0
+      }
+    },
+    {
+      "Number": 5,
+      "Attacker": {
+        "Name": "Mermaid",
+        "HP": 491,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 66
+      },
+      "Defender": {
+        "Name": "Bree",
+        "HP": 483,
+        "Block": false,
+        "Receive": 63
+      }
+    },
+    {
+      "Number": 6,
+      "Attacker": {
+        "Name": "Bree",
+        "HP": 483,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 104
+      },
+      "Defender": {
+        "Name": "Mermaid",
+        "HP": 394,
+        "Block": false,
+        "Receive": 97
+      }
+    },
+    {
+      "Number": 6,
+      "Attacker": {
+        "Name": "Mermaid",
+        "HP": 394,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 54
+      },
+      "Defender": {
+        "Name": "Bree",
+        "HP": 431,
+        "Block": false,
+        "Receive": 52
+      }
+    },
+    {
+      "Number": 7,
+      "Attacker": {
+        "Name": "Bree",
+        "HP": 431,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 92
+      },
+      "Defender": {
+        "Name": "Mermaid",
+        "HP": 308,
+        "Block": false,
+        "Receive": 86
+      }
+    },
+    {
+      "Number": 7,
+      "Attacker": {
+        "Name": "Mermaid",
+        "HP": 308,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 61
+      },
+      "Defender": {
+        "Name": "Bree",
+        "HP": 373,
+        "Block": false,
+        "Receive": 58
+      }
+    },
+    {
+      "Number": 8,
+      "Attacker": {
+        "Name": "Bree",
+        "HP": 373,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 107
+      },
+      "Defender": {
+        "Name": "Mermaid",
+        "HP": 208,
+        "Block": false,
+        "Receive": 100
+      }
+    },
+    {
+      "Number": 8,
+      "Attacker": {
+        "Name": "Mermaid",
+        "HP": 208,
+        "Crit": false,
+        "Miss": true,
+        "Damage": 64
+      },
+      "Defender": {
+        "Name": "Bree",
+        "HP": 373,
+        "Block": false,
+        "Receive": 0
+      }
+    },
+    {
+      "Number": 9,
+      "Attacker": {
+        "Name": "Bree",
+        "HP": 373,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 91
+      },
+      "Defender": {
+        "Name": "Mermaid",
+        "HP": 123,
+        "Block": false,
+        "Receive": 85
+      }
+    },
+    {
+      "Number": 9,
+      "Attacker": {
+        "Name": "Bree",
+        "HP": 373,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 92
+      },
+      "Defender": {
+        "Name": "Mermaid",
+        "HP": 37,
+        "Block": false,
+        "Receive": 86
+      }
+    },
+    {
+      "Number": 10,
+      "Attacker": {
+        "Name": "Mermaid",
+        "HP": 37,
+        "Crit": true,
+        "Miss": false,
+        "Damage": 82
+      },
+      "Defender": {
+        "Name": "Bree",
+        "HP": 294,
+        "Block": false,
+        "Receive": 79
+      }
+    },
+    {
+      "Number": 10,
+      "Attacker": {
+        "Name": "Bree",
+        "HP": 294,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 94
+      },
+      "Defender": {
+        "Name": "Mermaid",
+        "HP": -51,
+        "Block": false,
+        "Receive": 88
+      }
+    }
+  ],
+  "QuickFight": true,
+  "Reward": {
+    "Experience": 16,
+    "Gold": 5,
+    "ItemID": -1,
+    "ItemName": null,
+    "ItemRarity": null
+  }
+}

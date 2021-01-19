@@ -1,0 +1,230 @@
+{
+  "Player": {
+    "ID": 16006,
+    "Name": "Bree"
+  },
+  "Opponent": {
+    "ID": 2003,
+    "Name": "Werewolf"
+  },
+  "Result": "win",
+  "IsPvp": false,
+  "Rounds": [
+    {
+      "Number": 1,
+      "Attacker": {
+        "Name": "Bree",
+        "HP": 1635,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 168
+      },
+      "Defender": {
+        "Name": "Werewolf",
+        "HP": 1143,
+        "Block": false,
+        "Receive": 157
+      }
+    },
+    {
+      "Number": 1,
+      "Attacker": {
+        "Name": "Werewolf",
+        "HP": 1143,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 122
+      },
+      "Defender": {
+        "Name": "Bree",
+        "HP": 1522,
+        "Block": false,
+        "Receive": 113
+      }
+    },
+    {
+      "Number": 2,
+      "Attacker": {
+        "Name": "Bree",
+        "HP": 1522,
+        "Crit": false,
+        "Miss": true,
+        "Damage": 224
+      },
+      "Defender": {
+        "Name": "Werewolf",
+        "HP": 1143,
+        "Block": false,
+        "Receive": 0
+      }
+    },
+    {
+      "Number": 2,
+      "Attacker": {
+        "Name": "Werewolf",
+        "HP": 1143,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 124
+      },
+      "Defender": {
+        "Name": "Bree",
+        "HP": 1407,
+        "Block": false,
+        "Receive": 115
+      }
+    },
+    {
+      "Number": 3,
+      "Attacker": {
+        "Name": "Bree",
+        "HP": 1407,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 167
+      },
+      "Defender": {
+        "Name": "Werewolf",
+        "HP": 987,
+        "Block": false,
+        "Receive": 156
+      }
+    },
+    {
+      "Number": 3,
+      "Attacker": {
+        "Name": "Bree",
+        "HP": 1407,
+        "Crit": true,
+        "Miss": false,
+        "Damage": 301
+      },
+      "Defender": {
+        "Name": "Werewolf",
+        "HP": 705,
+        "Block": false,
+        "Receive": 282
+      }
+    },
+    {
+      "Number": 4,
+      "Attacker": {
+        "Name": "Werewolf",
+        "HP": 705,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 130
+      },
+      "Defender": {
+        "Name": "Bree",
+        "HP": 1286,
+        "Block": false,
+        "Receive": 121
+      }
+    },
+    {
+      "Number": 4,
+      "Attacker": {
+        "Name": "Bree",
+        "HP": 1286,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 174
+      },
+      "Defender": {
+        "Name": "Werewolf",
+        "HP": 542,
+        "Block": false,
+        "Receive": 163
+      }
+    },
+    {
+      "Number": 5,
+      "Attacker": {
+        "Name": "Werewolf",
+        "HP": 542,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 121
+      },
+      "Defender": {
+        "Name": "Bree",
+        "HP": 1174,
+        "Block": false,
+        "Receive": 112
+      }
+    },
+    {
+      "Number": 5,
+      "Attacker": {
+        "Name": "Bree",
+        "HP": 1174,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 204
+      },
+      "Defender": {
+        "Name": "Werewolf",
+        "HP": 351,
+        "Block": false,
+        "Receive": 191
+      }
+    },
+    {
+      "Number": 6,
+      "Attacker": {
+        "Name": "Werewolf",
+        "HP": 351,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 137
+      },
+      "Defender": {
+        "Name": "Bree",
+        "HP": 1047,
+        "Block": false,
+        "Receive": 127
+      }
+    },
+    {
+      "Number": 6,
+      "Attacker": {
+        "Name": "Bree",
+        "HP": 1047,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 191
+      },
+      "Defender": {
+        "Name": "Werewolf",
+        "HP": 172,
+        "Block": false,
+        "Receive": 179
+      }
+    },
+    {
+      "Number": 7,
+      "Attacker": {
+        "Name": "Bree",
+        "HP": 1047,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 210
+      },
+      "Defender": {
+        "Name": "Werewolf",
+        "HP": -25,
+        "Block": false,
+        "Receive": 197
+      }
+    }
+  ],
+  "QuickFight": true,
+  "Reward": {
+    "Experience": 25,
+    "Gold": 7,
+    "ItemID": 2004,
+    "ItemName": "Scout Jacket",
+    "ItemRarity": "normal"
+  }
+}

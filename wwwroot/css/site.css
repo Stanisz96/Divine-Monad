@@ -267,7 +267,7 @@ body {
 .game-content-backpack .stats {
     background-color: rgba(18, 189, 126, 0.20);
     white-space: nowrap;
-    height: 260px;
+    height: 280px;
     padding-top: 10px;
 }
 
@@ -311,7 +311,7 @@ body {
 
 .game-content-market .market {
     background-color: rgba(18, 189, 126, 0.20);
-    padding: 30px 25px 30px 25px;
+    padding: 40px 25px;
 }
 
 .game-content-market .market-info {
