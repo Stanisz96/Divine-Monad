@@ -69,15 +69,26 @@ namespace DivineMonad.Areas.Admin.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ID,MonsterId,ItemId")] MonsterLoot monsterLoot)
+        public async Task<IActionResult> Create(MonsterLootViewModel monsterLootList)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(monsterLoot);
+                List<MonsterLoot> LootList = new List<MonsterLoot>();
+
+                foreach (var item in monsterLootList.ItemIdList)
+                {
+                    MonsterLoot monsterLoot = new MonsterLoot()
+                    {
+                        ItemId = item,
+                        MonsterId = monsterLootList.MonsterId
+                    };
+                    LootList.Add(monsterLoot);
+                }
+                await _context.MonstersLoot.AddRangeAsync(LootList);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(monsterLoot);
+            return View();
         }
 
         // GET: Admin/MonstersLoot/Edit/5

@@ -1,0 +1,422 @@
+{
+  "Player": {
+    "ID": 16006,
+    "Name": "Bree"
+  },
+  "Opponent": {
+    "ID": 2005,
+    "Name": "Faun"
+  },
+  "Result": "lose",
+  "IsPvp": false,
+  "Rounds": [
+    {
+      "Number": 1,
+      "Attacker": {
+        "Name": "Faun",
+        "HP": 2600,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 166
+      },
+      "Defender": {
+        "Name": "Bree",
+        "HP": 1481,
+        "Block": false,
+        "Receive": 154
+      }
+    },
+    {
+      "Number": 1,
+      "Attacker": {
+        "Name": "Bree",
+        "HP": 1481,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 188
+      },
+      "Defender": {
+        "Name": "Faun",
+        "HP": 2431,
+        "Block": false,
+        "Receive": 169
+      }
+    },
+    {
+      "Number": 2,
+      "Attacker": {
+        "Name": "Faun",
+        "HP": 2431,
+        "Crit": false,
+        "Miss": true,
+        "Damage": 151
+      },
+      "Defender": {
+        "Name": "Bree",
+        "HP": 1481,
+        "Block": false,
+        "Receive": 0
+      }
+    },
+    {
+      "Number": 2,
+      "Attacker": {
+        "Name": "Bree",
+        "HP": 1481,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 202
+      },
+      "Defender": {
+        "Name": "Faun",
+        "HP": 2341,
+        "Block": true,
+        "Receive": 90
+      }
+    },
+    {
+      "Number": 3,
+      "Attacker": {
+        "Name": "Faun",
+        "HP": 2341,
+        "Crit": false,
+        "Miss": true,
+        "Damage": 162
+      },
+      "Defender": {
+        "Name": "Bree",
+        "HP": 1481,
+        "Block": false,
+        "Receive": 0
+      }
+    },
+    {
+      "Number": 3,
+      "Attacker": {
+        "Name": "Bree",
+        "HP": 1481,
+        "Crit": false,
+        "Miss": true,
+        "Damage": 208
+      },
+      "Defender": {
+        "Name": "Faun",
+        "HP": 2341,
+        "Block": false,
+        "Receive": 0
+      }
+    },
+    {
+      "Number": 4,
+      "Attacker": {
+        "Name": "Faun",
+        "HP": 2341,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 162
+      },
+      "Defender": {
+        "Name": "Bree",
+        "HP": 1330,
+        "Block": false,
+        "Receive": 151
+      }
+    },
+    {
+      "Number": 4,
+      "Attacker": {
+        "Name": "Bree",
+        "HP": 1330,
+        "Crit": true,
+        "Miss": false,
+        "Damage": 376
+      },
+      "Defender": {
+        "Name": "Faun",
+        "HP": 2003,
+        "Block": false,
+        "Receive": 338
+      }
+    },
+    {
+      "Number": 5,
+      "Attacker": {
+        "Name": "Faun",
+        "HP": 2003,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 152
+      },
+      "Defender": {
+        "Name": "Bree",
+        "HP": 1189,
+        "Block": false,
+        "Receive": 141
+      }
+    },
+    {
+      "Number": 5,
+      "Attacker": {
+        "Name": "Bree",
+        "HP": 1189,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 245
+      },
+      "Defender": {
+        "Name": "Faun",
+        "HP": 1783,
+        "Block": false,
+        "Receive": 220
+      }
+    },
+    {
+      "Number": 6,
+      "Attacker": {
+        "Name": "Faun",
+        "HP": 1783,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 163
+      },
+      "Defender": {
+        "Name": "Bree",
+        "HP": 1113,
+        "Block": true,
+        "Receive": 76
+      }
+    },
+    {
+      "Number": 6,
+      "Attacker": {
+        "Name": "Bree",
+        "HP": 1113,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 187
+      },
+      "Defender": {
+        "Name": "Faun",
+        "HP": 1699,
+        "Block": true,
+        "Receive": 84
+      }
+    },
+    {
+      "Number": 7,
+      "Attacker": {
+        "Name": "Faun",
+        "HP": 1699,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 176
+      },
+      "Defender": {
+        "Name": "Bree",
+        "HP": 949,
+        "Block": false,
+        "Receive": 164
+      }
+    },
+    {
+      "Number": 7,
+      "Attacker": {
+        "Name": "Bree",
+        "HP": 949,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 233
+      },
+      "Defender": {
+        "Name": "Faun",
+        "HP": 1490,
+        "Block": false,
+        "Receive": 209
+      }
+    },
+    {
+      "Number": 8,
+      "Attacker": {
+        "Name": "Faun",
+        "HP": 1490,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 155
+      },
+      "Defender": {
+        "Name": "Bree",
+        "HP": 805,
+        "Block": false,
+        "Receive": 144
+      }
+    },
+    {
+      "Number": 8,
+      "Attacker": {
+        "Name": "Bree",
+        "HP": 805,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 219
+      },
+      "Defender": {
+        "Name": "Faun",
+        "HP": 1392,
+        "Block": true,
+        "Receive": 98
+      }
+    },
+    {
+      "Number": 9,
+      "Attacker": {
+        "Name": "Faun",
+        "HP": 1392,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 178
+      },
+      "Defender": {
+        "Name": "Bree",
+        "HP": 639,
+        "Block": false,
+        "Receive": 166
+      }
+    },
+    {
+      "Number": 9,
+      "Attacker": {
+        "Name": "Bree",
+        "HP": 639,
+        "Crit": true,
+        "Miss": false,
+        "Damage": 342
+      },
+      "Defender": {
+        "Name": "Faun",
+        "HP": 1085,
+        "Block": false,
+        "Receive": 307
+      }
+    },
+    {
+      "Number": 10,
+      "Attacker": {
+        "Name": "Faun",
+        "HP": 1085,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 170
+      },
+      "Defender": {
+        "Name": "Bree",
+        "HP": 481,
+        "Block": false,
+        "Receive": 158
+      }
+    },
+    {
+      "Number": 10,
+      "Attacker": {
+        "Name": "Bree",
+        "HP": 481,
+        "Crit": true,
+        "Miss": false,
+        "Damage": 363
+      },
+      "Defender": {
+        "Name": "Faun",
+        "HP": 759,
+        "Block": false,
+        "Receive": 326
+      }
+    },
+    {
+      "Number": 11,
+      "Attacker": {
+        "Name": "Faun",
+        "HP": 759,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 174
+      },
+      "Defender": {
+        "Name": "Bree",
+        "HP": 319,
+        "Block": false,
+        "Receive": 162
+      }
+    },
+    {
+      "Number": 11,
+      "Attacker": {
+        "Name": "Bree",
+        "HP": 319,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 220
+      },
+      "Defender": {
+        "Name": "Faun",
+        "HP": 660,
+        "Block": true,
+        "Receive": 99
+      }
+    },
+    {
+      "Number": 12,
+      "Attacker": {
+        "Name": "Faun",
+        "HP": 660,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 151
+      },
+      "Defender": {
+        "Name": "Bree",
+        "HP": 179,
+        "Block": false,
+        "Receive": 140
+      }
+    },
+    {
+      "Number": 12,
+      "Attacker": {
+        "Name": "Bree",
+        "HP": 179,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 207
+      },
+      "Defender": {
+        "Name": "Faun",
+        "HP": 567,
+        "Block": true,
+        "Receive": 93
+      }
+    },
+    {
+      "Number": 13,
+      "Attacker": {
+        "Name": "Faun",
+        "HP": 567,
+        "Crit": true,
+        "Miss": false,
+        "Damage": 250
+      },
+      "Defender": {
+        "Name": "Bree",
+        "HP": -54,
+        "Block": false,
+        "Receive": 233
+      }
+    }
+  ],
+  "QuickFight": true,
+  "Reward": {
+    "Experience": 0,
+    "Gold": 0,
+    "ItemID": 0,
+    "ItemName": null,
+    "ItemRarity": null
+  }
+}

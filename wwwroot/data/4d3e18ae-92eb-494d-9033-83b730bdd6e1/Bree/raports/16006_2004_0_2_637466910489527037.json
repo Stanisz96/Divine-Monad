@@ -1,0 +1,390 @@
+{
+  "Player": {
+    "ID": 16006,
+    "Name": "Bree"
+  },
+  "Opponent": {
+    "ID": 2004,
+    "Name": "Leprechaun"
+  },
+  "Result": "win",
+  "IsPvp": false,
+  "Rounds": [
+    {
+      "Number": 1,
+      "Attacker": {
+        "Name": "Bree",
+        "HP": 1635,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 239
+      },
+      "Defender": {
+        "Name": "Leprechaun",
+        "HP": 1780,
+        "Block": false,
+        "Receive": 220
+      }
+    },
+    {
+      "Number": 1,
+      "Attacker": {
+        "Name": "Leprechaun",
+        "HP": 1780,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 108
+      },
+      "Defender": {
+        "Name": "Bree",
+        "HP": 1535,
+        "Block": false,
+        "Receive": 100
+      }
+    },
+    {
+      "Number": 2,
+      "Attacker": {
+        "Name": "Bree",
+        "HP": 1535,
+        "Crit": true,
+        "Miss": false,
+        "Damage": 301
+      },
+      "Defender": {
+        "Name": "Leprechaun",
+        "HP": 1503,
+        "Block": false,
+        "Receive": 277
+      }
+    },
+    {
+      "Number": 2,
+      "Attacker": {
+        "Name": "Leprechaun",
+        "HP": 1503,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 118
+      },
+      "Defender": {
+        "Name": "Bree",
+        "HP": 1425,
+        "Block": false,
+        "Receive": 110
+      }
+    },
+    {
+      "Number": 3,
+      "Attacker": {
+        "Name": "Bree",
+        "HP": 1425,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 249
+      },
+      "Defender": {
+        "Name": "Leprechaun",
+        "HP": 1274,
+        "Block": false,
+        "Receive": 229
+      }
+    },
+    {
+      "Number": 3,
+      "Attacker": {
+        "Name": "Leprechaun",
+        "HP": 1274,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 101
+      },
+      "Defender": {
+        "Name": "Bree",
+        "HP": 1331,
+        "Block": false,
+        "Receive": 94
+      }
+    },
+    {
+      "Number": 4,
+      "Attacker": {
+        "Name": "Bree",
+        "HP": 1331,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 219
+      },
+      "Defender": {
+        "Name": "Leprechaun",
+        "HP": 1073,
+        "Block": false,
+        "Receive": 201
+      }
+    },
+    {
+      "Number": 4,
+      "Attacker": {
+        "Name": "Bree",
+        "HP": 1331,
+        "Crit": false,
+        "Miss": true,
+        "Damage": 247
+      },
+      "Defender": {
+        "Name": "Leprechaun",
+        "HP": 1073,
+        "Block": true,
+        "Receive": 0
+      }
+    },
+    {
+      "Number": 5,
+      "Attacker": {
+        "Name": "Leprechaun",
+        "HP": 1073,
+        "Crit": true,
+        "Miss": true,
+        "Damage": 165
+      },
+      "Defender": {
+        "Name": "Bree",
+        "HP": 1331,
+        "Block": false,
+        "Receive": 0
+      }
+    },
+    {
+      "Number": 5,
+      "Attacker": {
+        "Name": "Bree",
+        "HP": 1331,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 235
+      },
+      "Defender": {
+        "Name": "Leprechaun",
+        "HP": 857,
+        "Block": false,
+        "Receive": 216
+      }
+    },
+    {
+      "Number": 6,
+      "Attacker": {
+        "Name": "Leprechaun",
+        "HP": 857,
+        "Crit": true,
+        "Miss": false,
+        "Damage": 162
+      },
+      "Defender": {
+        "Name": "Bree",
+        "HP": 1180,
+        "Block": false,
+        "Receive": 151
+      }
+    },
+    {
+      "Number": 6,
+      "Attacker": {
+        "Name": "Bree",
+        "HP": 1180,
+        "Crit": false,
+        "Miss": true,
+        "Damage": 181
+      },
+      "Defender": {
+        "Name": "Leprechaun",
+        "HP": 857,
+        "Block": false,
+        "Receive": 0
+      }
+    },
+    {
+      "Number": 7,
+      "Attacker": {
+        "Name": "Leprechaun",
+        "HP": 857,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 120
+      },
+      "Defender": {
+        "Name": "Bree",
+        "HP": 1125,
+        "Block": true,
+        "Receive": 55
+      }
+    },
+    {
+      "Number": 7,
+      "Attacker": {
+        "Name": "Bree",
+        "HP": 1125,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 227
+      },
+      "Defender": {
+        "Name": "Leprechaun",
+        "HP": 648,
+        "Block": false,
+        "Receive": 209
+      }
+    },
+    {
+      "Number": 8,
+      "Attacker": {
+        "Name": "Leprechaun",
+        "HP": 648,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 129
+      },
+      "Defender": {
+        "Name": "Bree",
+        "HP": 1005,
+        "Block": false,
+        "Receive": 120
+      }
+    },
+    {
+      "Number": 8,
+      "Attacker": {
+        "Name": "Bree",
+        "HP": 1005,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 239
+      },
+      "Defender": {
+        "Name": "Leprechaun",
+        "HP": 428,
+        "Block": false,
+        "Receive": 220
+      }
+    },
+    {
+      "Number": 9,
+      "Attacker": {
+        "Name": "Leprechaun",
+        "HP": 428,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 115
+      },
+      "Defender": {
+        "Name": "Bree",
+        "HP": 898,
+        "Block": false,
+        "Receive": 107
+      }
+    },
+    {
+      "Number": 9,
+      "Attacker": {
+        "Name": "Bree",
+        "HP": 898,
+        "Crit": false,
+        "Miss": true,
+        "Damage": 192
+      },
+      "Defender": {
+        "Name": "Leprechaun",
+        "HP": 428,
+        "Block": false,
+        "Receive": 0
+      }
+    },
+    {
+      "Number": 10,
+      "Attacker": {
+        "Name": "Bree",
+        "HP": 898,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 223
+      },
+      "Defender": {
+        "Name": "Leprechaun",
+        "HP": 223,
+        "Block": false,
+        "Receive": 205
+      }
+    },
+    {
+      "Number": 10,
+      "Attacker": {
+        "Name": "Leprechaun",
+        "HP": 223,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 110
+      },
+      "Defender": {
+        "Name": "Bree",
+        "HP": 796,
+        "Block": false,
+        "Receive": 102
+      }
+    },
+    {
+      "Number": 11,
+      "Attacker": {
+        "Name": "Bree",
+        "HP": 796,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 173
+      },
+      "Defender": {
+        "Name": "Leprechaun",
+        "HP": 64,
+        "Block": false,
+        "Receive": 159
+      }
+    },
+    {
+      "Number": 11,
+      "Attacker": {
+        "Name": "Leprechaun",
+        "HP": 64,
+        "Crit": true,
+        "Miss": false,
+        "Damage": 217
+      },
+      "Defender": {
+        "Name": "Bree",
+        "HP": 695,
+        "Block": true,
+        "Receive": 101
+      }
+    },
+    {
+      "Number": 12,
+      "Attacker": {
+        "Name": "Bree",
+        "HP": 695,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 242
+      },
+      "Defender": {
+        "Name": "Leprechaun",
+        "HP": -158,
+        "Block": false,
+        "Receive": 222
+      }
+    }
+  ],
+  "QuickFight": true,
+  "Reward": {
+    "Experience": 35,
+    "Gold": 12,
+    "ItemID": -1,
+    "ItemName": null,
+    "ItemRarity": null
+  }
+}
