@@ -1,0 +1,326 @@
+{
+  "Player": {
+    "ID": 16006,
+    "Name": "Bree"
+  },
+  "Opponent": {
+    "ID": 3,
+    "Name": "Enchanted Tree"
+  },
+  "Result": "win",
+  "IsPvp": false,
+  "Rounds": [
+    {
+      "Number": 1,
+      "Attacker": {
+        "Name": "Enchanted Tree",
+        "HP": 150,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 6
+      },
+      "Defender": {
+        "Name": "Bree",
+        "HP": 213,
+        "Block": false,
+        "Receive": 5
+      }
+    },
+    {
+      "Number": 1,
+      "Attacker": {
+        "Name": "Bree",
+        "HP": 213,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 19
+      },
+      "Defender": {
+        "Name": "Enchanted Tree",
+        "HP": 132,
+        "Block": false,
+        "Receive": 18
+      }
+    },
+    {
+      "Number": 2,
+      "Attacker": {
+        "Name": "Enchanted Tree",
+        "HP": 132,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 9
+      },
+      "Defender": {
+        "Name": "Bree",
+        "HP": 205,
+        "Block": false,
+        "Receive": 8
+      }
+    },
+    {
+      "Number": 2,
+      "Attacker": {
+        "Name": "Bree",
+        "HP": 205,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 19
+      },
+      "Defender": {
+        "Name": "Enchanted Tree",
+        "HP": 114,
+        "Block": false,
+        "Receive": 18
+      }
+    },
+    {
+      "Number": 3,
+      "Attacker": {
+        "Name": "Enchanted Tree",
+        "HP": 114,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 14
+      },
+      "Defender": {
+        "Name": "Bree",
+        "HP": 192,
+        "Block": false,
+        "Receive": 13
+      }
+    },
+    {
+      "Number": 3,
+      "Attacker": {
+        "Name": "Enchanted Tree",
+        "HP": 114,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 13
+      },
+      "Defender": {
+        "Name": "Bree",
+        "HP": 180,
+        "Block": false,
+        "Receive": 12
+      }
+    },
+    {
+      "Number": 4,
+      "Attacker": {
+        "Name": "Bree",
+        "HP": 180,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 23
+      },
+      "Defender": {
+        "Name": "Enchanted Tree",
+        "HP": 92,
+        "Block": false,
+        "Receive": 22
+      }
+    },
+    {
+      "Number": 4,
+      "Attacker": {
+        "Name": "Enchanted Tree",
+        "HP": 92,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 12
+      },
+      "Defender": {
+        "Name": "Bree",
+        "HP": 169,
+        "Block": false,
+        "Receive": 11
+      }
+    },
+    {
+      "Number": 5,
+      "Attacker": {
+        "Name": "Bree",
+        "HP": 169,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 19
+      },
+      "Defender": {
+        "Name": "Enchanted Tree",
+        "HP": 74,
+        "Block": false,
+        "Receive": 18
+      }
+    },
+    {
+      "Number": 5,
+      "Attacker": {
+        "Name": "Enchanted Tree",
+        "HP": 74,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 8
+      },
+      "Defender": {
+        "Name": "Bree",
+        "HP": 162,
+        "Block": false,
+        "Receive": 7
+      }
+    },
+    {
+      "Number": 6,
+      "Attacker": {
+        "Name": "Bree",
+        "HP": 162,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 20
+      },
+      "Defender": {
+        "Name": "Enchanted Tree",
+        "HP": 55,
+        "Block": false,
+        "Receive": 19
+      }
+    },
+    {
+      "Number": 6,
+      "Attacker": {
+        "Name": "Enchanted Tree",
+        "HP": 55,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 6
+      },
+      "Defender": {
+        "Name": "Bree",
+        "HP": 157,
+        "Block": false,
+        "Receive": 5
+      }
+    },
+    {
+      "Number": 7,
+      "Attacker": {
+        "Name": "Enchanted Tree",
+        "HP": 55,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 8
+      },
+      "Defender": {
+        "Name": "Bree",
+        "HP": 150,
+        "Block": false,
+        "Receive": 7
+      }
+    },
+    {
+      "Number": 7,
+      "Attacker": {
+        "Name": "Bree",
+        "HP": 150,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 19
+      },
+      "Defender": {
+        "Name": "Enchanted Tree",
+        "HP": 37,
+        "Block": false,
+        "Receive": 18
+      }
+    },
+    {
+      "Number": 8,
+      "Attacker": {
+        "Name": "Enchanted Tree",
+        "HP": 37,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 7
+      },
+      "Defender": {
+        "Name": "Bree",
+        "HP": 144,
+        "Block": false,
+        "Receive": 6
+      }
+    },
+    {
+      "Number": 8,
+      "Attacker": {
+        "Name": "Bree",
+        "HP": 144,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 23
+      },
+      "Defender": {
+        "Name": "Enchanted Tree",
+        "HP": 15,
+        "Block": false,
+        "Receive": 22
+      }
+    },
+    {
+      "Number": 9,
+      "Attacker": {
+        "Name": "Enchanted Tree",
+        "HP": 15,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 14
+      },
+      "Defender": {
+        "Name": "Bree",
+        "HP": 131,
+        "Block": false,
+        "Receive": 13
+      }
+    },
+    {
+      "Number": 9,
+      "Attacker": {
+        "Name": "Enchanted Tree",
+        "HP": 15,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 14
+      },
+      "Defender": {
+        "Name": "Bree",
+        "HP": 118,
+        "Block": false,
+        "Receive": 13
+      }
+    },
+    {
+      "Number": 10,
+      "Attacker": {
+        "Name": "Bree",
+        "HP": 118,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 20
+      },
+      "Defender": {
+        "Name": "Enchanted Tree",
+        "HP": -4,
+        "Block": false,
+        "Receive": 19
+      }
+    }
+  ],
+  "QuickFight": true,
+  "Reward": {
+    "Experience": 2,
+    "Gold": 2,
+    "ItemID": 1005,
+    "ItemName": "Rusty Sword",
+    "ItemRarity": "normal"
+  }
+}

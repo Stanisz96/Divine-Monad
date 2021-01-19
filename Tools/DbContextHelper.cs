@@ -62,7 +62,7 @@ namespace DivineMonad.Tools
 
                     CategoryName itemCategory = (CategoryName)Enum.Parse(typeof(CategoryName), item.Category.Name, true);
 
-                    return (int)itemCategory == to;
+                    return ((int)itemCategory == to && item.Level <= character.CBStats.Level);
                 }
                 else
                 {
@@ -72,7 +72,7 @@ namespace DivineMonad.Tools
 
                     CategoryName itemCategory = (CategoryName)Enum.Parse(typeof(CategoryName), item.Category.Name, true);
 
-                    return (int)itemCategory == from;
+                    return ((int)itemCategory == from && item.Level <= character.CBStats.Level);
                 }
             }
             catch (Exception)

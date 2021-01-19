@@ -1,0 +1,486 @@
+{
+  "Player": {
+    "ID": 16006,
+    "Name": "Bree"
+  },
+  "Opponent": {
+    "ID": 4,
+    "Name": "Goblin"
+  },
+  "Result": "lose",
+  "IsPvp": false,
+  "Rounds": [
+    {
+      "Number": 1,
+      "Attacker": {
+        "Name": "Goblin",
+        "HP": 360,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 25
+      },
+      "Defender": {
+        "Name": "Bree",
+        "HP": 400,
+        "Block": false,
+        "Receive": 24
+      }
+    },
+    {
+      "Number": 1,
+      "Attacker": {
+        "Name": "Bree",
+        "HP": 400,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 42
+      },
+      "Defender": {
+        "Name": "Goblin",
+        "HP": 321,
+        "Block": false,
+        "Receive": 39
+      }
+    },
+    {
+      "Number": 2,
+      "Attacker": {
+        "Name": "Goblin",
+        "HP": 321,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 27
+      },
+      "Defender": {
+        "Name": "Bree",
+        "HP": 374,
+        "Block": false,
+        "Receive": 26
+      }
+    },
+    {
+      "Number": 2,
+      "Attacker": {
+        "Name": "Goblin",
+        "HP": 321,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 23
+      },
+      "Defender": {
+        "Name": "Bree",
+        "HP": 352,
+        "Block": false,
+        "Receive": 22
+      }
+    },
+    {
+      "Number": 3,
+      "Attacker": {
+        "Name": "Bree",
+        "HP": 352,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 44
+      },
+      "Defender": {
+        "Name": "Goblin",
+        "HP": 280,
+        "Block": false,
+        "Receive": 41
+      }
+    },
+    {
+      "Number": 3,
+      "Attacker": {
+        "Name": "Goblin",
+        "HP": 280,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 23
+      },
+      "Defender": {
+        "Name": "Bree",
+        "HP": 330,
+        "Block": false,
+        "Receive": 22
+      }
+    },
+    {
+      "Number": 4,
+      "Attacker": {
+        "Name": "Bree",
+        "HP": 330,
+        "Crit": false,
+        "Miss": true,
+        "Damage": 44
+      },
+      "Defender": {
+        "Name": "Goblin",
+        "HP": 280,
+        "Block": false,
+        "Receive": 0
+      }
+    },
+    {
+      "Number": 4,
+      "Attacker": {
+        "Name": "Goblin",
+        "HP": 280,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 27
+      },
+      "Defender": {
+        "Name": "Bree",
+        "HP": 304,
+        "Block": false,
+        "Receive": 26
+      }
+    },
+    {
+      "Number": 5,
+      "Attacker": {
+        "Name": "Goblin",
+        "HP": 280,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 24
+      },
+      "Defender": {
+        "Name": "Bree",
+        "HP": 281,
+        "Block": false,
+        "Receive": 23
+      }
+    },
+    {
+      "Number": 5,
+      "Attacker": {
+        "Name": "Bree",
+        "HP": 281,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 44
+      },
+      "Defender": {
+        "Name": "Goblin",
+        "HP": 260,
+        "Block": true,
+        "Receive": 20
+      }
+    },
+    {
+      "Number": 6,
+      "Attacker": {
+        "Name": "Goblin",
+        "HP": 260,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 24
+      },
+      "Defender": {
+        "Name": "Bree",
+        "HP": 258,
+        "Block": false,
+        "Receive": 23
+      }
+    },
+    {
+      "Number": 6,
+      "Attacker": {
+        "Name": "Bree",
+        "HP": 258,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 46
+      },
+      "Defender": {
+        "Name": "Goblin",
+        "HP": 217,
+        "Block": false,
+        "Receive": 43
+      }
+    },
+    {
+      "Number": 7,
+      "Attacker": {
+        "Name": "Goblin",
+        "HP": 217,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 26
+      },
+      "Defender": {
+        "Name": "Bree",
+        "HP": 233,
+        "Block": false,
+        "Receive": 25
+      }
+    },
+    {
+      "Number": 7,
+      "Attacker": {
+        "Name": "Goblin",
+        "HP": 217,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 26
+      },
+      "Defender": {
+        "Name": "Bree",
+        "HP": 208,
+        "Block": false,
+        "Receive": 25
+      }
+    },
+    {
+      "Number": 8,
+      "Attacker": {
+        "Name": "Bree",
+        "HP": 208,
+        "Crit": false,
+        "Miss": true,
+        "Damage": 51
+      },
+      "Defender": {
+        "Name": "Goblin",
+        "HP": 217,
+        "Block": false,
+        "Receive": 0
+      }
+    },
+    {
+      "Number": 8,
+      "Attacker": {
+        "Name": "Goblin",
+        "HP": 217,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 24
+      },
+      "Defender": {
+        "Name": "Bree",
+        "HP": 185,
+        "Block": false,
+        "Receive": 23
+      }
+    },
+    {
+      "Number": 9,
+      "Attacker": {
+        "Name": "Bree",
+        "HP": 185,
+        "Crit": false,
+        "Miss": true,
+        "Damage": 53
+      },
+      "Defender": {
+        "Name": "Goblin",
+        "HP": 217,
+        "Block": false,
+        "Receive": 0
+      }
+    },
+    {
+      "Number": 9,
+      "Attacker": {
+        "Name": "Goblin",
+        "HP": 217,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 24
+      },
+      "Defender": {
+        "Name": "Bree",
+        "HP": 162,
+        "Block": false,
+        "Receive": 23
+      }
+    },
+    {
+      "Number": 10,
+      "Attacker": {
+        "Name": "Goblin",
+        "HP": 217,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 23
+      },
+      "Defender": {
+        "Name": "Bree",
+        "HP": 140,
+        "Block": false,
+        "Receive": 22
+      }
+    },
+    {
+      "Number": 10,
+      "Attacker": {
+        "Name": "Bree",
+        "HP": 140,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 58
+      },
+      "Defender": {
+        "Name": "Goblin",
+        "HP": 162,
+        "Block": false,
+        "Receive": 55
+      }
+    },
+    {
+      "Number": 11,
+      "Attacker": {
+        "Name": "Goblin",
+        "HP": 162,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 25
+      },
+      "Defender": {
+        "Name": "Bree",
+        "HP": 116,
+        "Block": false,
+        "Receive": 24
+      }
+    },
+    {
+      "Number": 11,
+      "Attacker": {
+        "Name": "Bree",
+        "HP": 116,
+        "Crit": false,
+        "Miss": true,
+        "Damage": 46
+      },
+      "Defender": {
+        "Name": "Goblin",
+        "HP": 162,
+        "Block": false,
+        "Receive": 0
+      }
+    },
+    {
+      "Number": 12,
+      "Attacker": {
+        "Name": "Goblin",
+        "HP": 162,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 27
+      },
+      "Defender": {
+        "Name": "Bree",
+        "HP": 90,
+        "Block": false,
+        "Receive": 26
+      }
+    },
+    {
+      "Number": 12,
+      "Attacker": {
+        "Name": "Goblin",
+        "HP": 162,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 26
+      },
+      "Defender": {
+        "Name": "Bree",
+        "HP": 65,
+        "Block": false,
+        "Receive": 25
+      }
+    },
+    {
+      "Number": 13,
+      "Attacker": {
+        "Name": "Bree",
+        "HP": 65,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 54
+      },
+      "Defender": {
+        "Name": "Goblin",
+        "HP": 111,
+        "Block": false,
+        "Receive": 51
+      }
+    },
+    {
+      "Number": 13,
+      "Attacker": {
+        "Name": "Goblin",
+        "HP": 111,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 23
+      },
+      "Defender": {
+        "Name": "Bree",
+        "HP": 43,
+        "Block": false,
+        "Receive": 22
+      }
+    },
+    {
+      "Number": 14,
+      "Attacker": {
+        "Name": "Bree",
+        "HP": 43,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 45
+      },
+      "Defender": {
+        "Name": "Goblin",
+        "HP": 90,
+        "Block": true,
+        "Receive": 21
+      }
+    },
+    {
+      "Number": 14,
+      "Attacker": {
+        "Name": "Goblin",
+        "HP": 90,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 23
+      },
+      "Defender": {
+        "Name": "Bree",
+        "HP": 21,
+        "Block": false,
+        "Receive": 22
+      }
+    },
+    {
+      "Number": 15,
+      "Attacker": {
+        "Name": "Goblin",
+        "HP": 90,
+        "Crit": false,
+        "Miss": false,
+        "Damage": 22
+      },
+      "Defender": {
+        "Name": "Bree",
+        "HP": 0,
+        "Block": false,
+        "Receive": 21
+      }
+    }
+  ],
+  "QuickFight": true,
+  "Reward": {
+    "Experience": 0,
+    "Gold": 0,
+    "ItemID": 0,
+    "ItemName": null,
+    "ItemRarity": null
+  }
+}
