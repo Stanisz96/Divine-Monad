@@ -32,7 +32,7 @@ namespace DivineMonad.Job
             var items = await _context.Items.ToListAsync();
             var rarities = await _context.Rarity.ToListAsync();
 
-            for (int i = 0; i < 9; i++)
+            for (int i = 0; i < 15; i++)
             {
                 gachiaDraw = rand.NextDouble() * 1000;
 
@@ -47,8 +47,9 @@ namespace DivineMonad.Job
 
                             index = rand.Next(0, count);
                             marketItem.ItemId = items.Where(i => i.Rarity.Name == rarity.Name).ElementAt(index).ID;
-
-                            markets.Add(marketItem);
+                            
+                            if (markets.Count < 9)
+                                markets.Add(marketItem);
                         }
                         break;
                     }
