@@ -34,7 +34,7 @@
                 <div class="col-3 font-weight-bold offset-1 pl-4">
                     @Html.DisplayNameFor(s => s.HitPoints):
                 </div>
-                <div class="col-2">
+                <div class="col-2" id="hitpoints-default">
                     @Html.DisplayFor(s => s.HitPoints)
                 </div>
                 <div class="col-2" id="hitpoints">
@@ -47,7 +47,7 @@
                 <div class="col-3 font-weight-bold offset-1 pl-4">
                     @Html.DisplayNameFor(s => s.Attack):
                 </div>
-                <div class="col-2">
+                <div class="col-2" id="attack-default">
                     @Html.DisplayFor(s => s.Attack)
                 </div>
                 <div class="col-2" id="attack">
@@ -60,7 +60,7 @@
                 <div class="col-3 font-weight-bold offset-1 pl-4">
                     @Html.DisplayNameFor(s => s.Stamina):
                 </div>
-                <div class="col-2">
+                <div class="col-2" id="stamina-default">
                     @Html.DisplayFor(s => s.Stamina)
                 </div>
                 <div class="col-2" id="stamina">
@@ -79,7 +79,7 @@
                 <div class="col-3 font-weight-bold offset-1 pl-4">
                     @Html.DisplayNameFor(s => s.Strength):
                 </div>
-                <div class="col-2">
+                <div class="col-2" id="strength-default">
                     @Html.DisplayFor(s => s.Strength)
                 </div>
                 <div class="col-2" id="strength">
@@ -98,7 +98,7 @@
                 <div class="col-3 font-weight-bold offset-1 pl-4">
                     @Html.DisplayNameFor(s => s.Agility):
                 </div>
-                <div class="col-2">
+                <div class="col-2"  id="agility-default">
                     @Html.DisplayFor(s => s.Agility)
                 </div>
                 <div class="col-2" id="agility">
@@ -117,7 +117,7 @@
                 <div class="col-3 font-weight-bold offset-1 pl-4">
                     @Html.DisplayNameFor(s => s.Dexterity):
                 </div>
-                <div class="col-2">
+                <div class="col-2"  id="dexterity-default">
                     @Html.DisplayFor(s => s.Dexterity)
                 </div>
                 <div class="col-2" id="dexterity">
@@ -136,7 +136,7 @@
                 <div class="col-3 font-weight-bold offset-1 pl-4">
                     @Html.DisplayNameFor(s => s.Luck):
                 </div>
-                <div class="col-2">
+                <div class="col-2" id="luck-default">
                     @Html.DisplayFor(s => s.Luck)
                 </div>
                 <div class="col-2" id="luck">
@@ -303,9 +303,13 @@
                         tempPoints++;
 
                         if (statsName == "stamina") {
-                            $("#hitpoints").text("(+" + Math.round((Math.pow(tempPoints, 1.2) * 10)) + ")");
+                            let hpDefault = Math.round((Math.pow(parseInt($("#stamina-default").text(), 10), 1.2) * 10))
+                            let hp = Math.round((Math.pow(parseInt($("#stamina-default").text(), 10) + tempPoints, 1.2) * 10))
+                            $("#hitpoints").text("(+" + (hp - hpDefault) + ")");
                         } else if (statsName == "strength") {
-                            $("#attack").text("(+" + Math.round((Math.pow(tempPoints, 1.2))) + ")");
+                            let attackDefault = Math.round((Math.pow(parseInt($("#strength-default").text(), 10), 1.2)))
+                            let attack = Math.round((Math.pow(parseInt($("#strength-default").text(), 10) + tempPoints, 1.2)))
+                            $("#attack").text("(+" + (attack - attackDefault) + ")");
                         }
 
                         $("#" + statsName).text("(+" + tempPoints + ")");
@@ -318,9 +322,13 @@
                             tempPoints--;
 
                             if (statsName == "stamina") {
-                                $("#hitpoints").text("(+" + Math.round((Math.pow(tempPoints, 1.2) * 10)) + ")");
+                                let hpDefault = Math.round((Math.pow(parseInt($("#stamina-default").text(), 10), 1.2) * 10))
+                                let hp = Math.round((Math.pow(parseInt($("#stamina-default").text(), 10) + tempPoints, 1.2) * 10))
+                                $("#hitpoints").text("(+" + (hp - hpDefault) + ")");
                             } else if (statsName == "strength") {
-                                $("#attack").text("(+" + Math.round((Math.pow(tempPoints, 1.2))) + ")");
+                                let attackDefault = Math.round((Math.pow(parseInt($("#strength-default").text(), 10), 1.2)))
+                                let attack = Math.round((Math.pow(parseInt($("#strength-default").text(), 10) + tempPoints, 1.2)))
+                                $("#attack").text("(+" + (attack - attackDefault) + ")");
                             }
 
                             $("#" + statsName).text("(+" + tempPoints + ")");
