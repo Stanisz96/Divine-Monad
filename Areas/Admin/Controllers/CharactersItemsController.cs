@@ -20,10 +20,10 @@ namespace DivineMonad.Areas.Admin.Controllers
             _context = context;
         }
 
-        // GET: Admin/CharactersItems
         public async Task<IActionResult> Index()
         {
-            var charactersItemsDbContext = await _context.CharactersItems.ToListAsync();
+            var charactersItemsDbContext = await _context
+                .CharactersItems.ToListAsync();
 
             ViewData["Characters"] = new SelectList(_context.Characters, "ID", "Name");
             ViewData["Items"] = new SelectList(_context.Items, "ID", "Name");
@@ -31,7 +31,6 @@ namespace DivineMonad.Areas.Admin.Controllers
             return View(charactersItemsDbContext);
         }
 
-        // GET: Admin/CharactersItems/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -41,70 +40,65 @@ namespace DivineMonad.Areas.Admin.Controllers
 
             var characterItems = await _context.CharactersItems
                 .FirstOrDefaultAsync(m => m.ID == id);
-            if (characterItems == null)
-            {
-                return NotFound();
-            }
+
+            if (characterItems == null) return NotFound();
 
             return View(characterItems);
         }
 
-        // GET: Admin/CharactersItems/Create
         public IActionResult Create()
         {
-            ViewData["Characters"] = new SelectList(_context.Characters, "ID", "Name");
-            ViewData["Items"] = new SelectList(_context.Items, "ID", "Name");
+            ViewData["Characters"] = 
+                new SelectList(_context.Characters, "ID", "Name");
+            ViewData["Items"] = 
+                new SelectList(_context.Items, "ID", "Name");
 
             return View();
         }
 
-        // POST: Admin/CharactersItems/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
-        // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ID,CharacterId,ItemId,IsEquipped,BpSlotId")] CharacterItems characterItems)
+        public async Task<IActionResult> Create(
+            [Bind("ID,CharacterId,ItemId,IsEquipped,BpSlotId")] 
+                CharacterItems characterItems)
         {
             if (ModelState.IsValid)
             {
                 _context.Add(characterItems);
                 await _context.SaveChangesAsync();
+
                 return RedirectToAction(nameof(Index));
             }
+
             return View(characterItems);
         }
 
-        // GET: Admin/CharactersItems/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
+            if (id == null) return NotFound();
 
-            var characterItems = await _context.CharactersItems.FindAsync(id);
-            if (characterItems == null)
-            {
-                return NotFound();
-            }
 
-            ViewData["Characters"] = new SelectList(_context.Characters, "ID", "Name", characterItems.CharacterId);
-            ViewData["Items"] = new SelectList(_context.Items, "ID", "Name", characterItems.ItemId);
+            var characterItems = await _context
+                .CharactersItems.FindAsync(id);
+
+            if (characterItems == null) return NotFound();
+
+            ViewData["Characters"] = new SelectList(
+                _context.Characters, "ID", "Name", characterItems.CharacterId);
+            ViewData["Items"] = new SelectList(
+                _context.Items, "ID", "Name", characterItems.ItemId);
 
             return View(characterItems);
         }
 
-        // POST: Admin/CharactersItems/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
-        // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("ID,CharacterId,ItemId,IsEquipped,BpSlotId")] CharacterItems characterItems)
+        public async Task<IActionResult> Edit(
+            int id,
+            [Bind("ID,CharacterId,ItemId,IsEquipped,BpSlotId")]
+                CharacterItems characterItems)
         {
-            if (id != characterItems.ID)
-            {
-                return NotFound();
-            }
+            if (id != characterItems.ID) return NotFound();
 
             if (ModelState.IsValid)
             {
@@ -115,52 +109,41 @@ namespace DivineMonad.Areas.Admin.Controllers
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!CharacterItemsExists(characterItems.ID))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
+                    if (!CharacterItemsExists(characterItems.ID)) return NotFound();
+                    else throw;
                 }
+
                 return RedirectToAction(nameof(Index));
             }
+
             return View(characterItems);
         }
 
-        // GET: Admin/CharactersItems/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
+            if (id == null) return NotFound();
 
             var characterItems = await _context.CharactersItems
                 .FirstOrDefaultAsync(m => m.ID == id);
-            if (characterItems == null)
-            {
-                return NotFound();
-            }
+
+            if (characterItems == null) return NotFound();
 
             return View(characterItems);
         }
 
-        // POST: Admin/CharactersItems/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var characterItems = await _context.CharactersItems.FindAsync(id);
+
             _context.CharactersItems.Remove(characterItems);
             await _context.SaveChangesAsync();
+
             return RedirectToAction(nameof(Index));
         }
 
-        private bool CharacterItemsExists(int id)
-        {
-            return _context.CharactersItems.Any(e => e.ID == id);
-        }
+        private bool CharacterItemsExists(int id) =>
+            _context.CharactersItems.Any(e => e.ID == id);
     }
 }

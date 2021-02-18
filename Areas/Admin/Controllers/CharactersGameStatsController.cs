@@ -20,48 +20,42 @@ namespace DivineMonad.Areas.Admin.Controllers
             _context = context;
         }
 
-        // GET: Admin/CharactersGameStats
         public async Task<IActionResult> Index()
         {
-            ViewData["Characters"] = new SelectList(_context.Characters, "GStatsId", "Name");
-            ViewData["CharactersId"] = new SelectList(_context.Characters, "GStatsId", "ID");
+            ViewData["Characters"] = new SelectList(
+                _context.Characters, "GStatsId", "Name");
+            ViewData["CharactersId"] = new SelectList(
+                _context.Characters, "GStatsId", "ID");
 
             return View(await _context.CharactersGameStats.ToListAsync());
         }
 
-        // GET: Admin/CharactersGameStats/Details/5
         public async Task<IActionResult> Details(int? id)
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
+            if (id == null) return NotFound();
 
             var gameStats = await _context.CharactersGameStats
                 .FirstOrDefaultAsync(m => m.ID == id);
-            if (gameStats == null)
-            {
-                return NotFound();
-            }
 
-            ViewData["CharacterName"] = _context.Characters.FirstOrDefault(c => c.GStatsId == id).Name;
-            ViewData["CharacterId"] = _context.Characters.FirstOrDefault(c => c.GStatsId == id).ID;
+            if (gameStats == null) return NotFound();
+
+            ViewData["CharacterName"] = _context.Characters
+                .FirstOrDefault(c => c.GStatsId == id).Name;
+            ViewData["CharacterId"] = _context.Characters
+                .FirstOrDefault(c => c.GStatsId == id).ID;
 
             return View(gameStats);
         }
 
-        // GET: Admin/CharactersGameStats/Create
-        public IActionResult Create()
-        {
-            return View();
-        }
+        public IActionResult Create() => View();
 
-        // POST: Admin/CharactersGameStats/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
-        // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ID,MonsterKills,CollectedGold,DeathsNumber,LostFights,WinFights,DrawFights,LootedNormal,LootedUnique,LootedHeroic,LootedLegendary")] GameStats gameStats)
+        public async Task<IActionResult> Create(
+            [Bind("ID,MonsterKills,CollectedGold,DeathsNumber," +
+            "LostFights,WinFights,DrawFights,LootedNormal," +
+            "LootedUnique,LootedHeroic,LootedLegendary")] 
+                GameStats gameStats)
         {
             if (ModelState.IsValid)
             {
@@ -69,36 +63,32 @@ namespace DivineMonad.Areas.Admin.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
+
             return View(gameStats);
         }
 
-        // GET: Admin/CharactersGameStats/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
+            if (id == null) return NotFound();
 
-            var gameStats = await _context.CharactersGameStats.FindAsync(id);
-            if (gameStats == null)
-            {
-                return NotFound();
-            }
+            var gameStats = await _context
+                .CharactersGameStats.FindAsync(id);
+
+            if (gameStats == null) return NotFound();
+
             return View(gameStats);
         }
 
-        // POST: Admin/CharactersGameStats/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
-        // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("ID,MonsterKills,CollectedGold,DeathsNumber,LostFights,WinFights,DrawFights,LootedNormal,LootedUnique,LootedHeroic,LootedLegendary")] GameStats gameStats)
+        public async Task<IActionResult> Edit(
+            int id,
+            [Bind("ID,MonsterKills,CollectedGold,DeathsNumber," +
+            "LostFights,WinFights,DrawFights,LootedNormal," +
+            "LootedUnique,LootedHeroic,LootedLegendary")] 
+                GameStats gameStats)
         {
-            if (id != gameStats.ID)
-            {
-                return NotFound();
-            }
+            if (id != gameStats.ID) return NotFound();
 
             if (ModelState.IsValid)
             {
@@ -109,52 +99,42 @@ namespace DivineMonad.Areas.Admin.Controllers
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!GameStatsExists(gameStats.ID))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
+                    if (!GameStatsExists(gameStats.ID)) return NotFound();
+                    else throw;
                 }
+
                 return RedirectToAction(nameof(Index));
             }
+
             return View(gameStats);
         }
 
-        // GET: Admin/CharactersGameStats/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
+            if (id == null) return NotFound();
 
             var gameStats = await _context.CharactersGameStats
                 .FirstOrDefaultAsync(m => m.ID == id);
-            if (gameStats == null)
-            {
-                return NotFound();
-            }
+
+            if (gameStats == null) return NotFound();
 
             return View(gameStats);
         }
 
-        // POST: Admin/CharactersGameStats/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var gameStats = await _context.CharactersGameStats.FindAsync(id);
+            var gameStats = await _context
+                .CharactersGameStats.FindAsync(id);
+
             _context.CharactersGameStats.Remove(gameStats);
             await _context.SaveChangesAsync();
+
             return RedirectToAction(nameof(Index));
         }
 
-        private bool GameStatsExists(int id)
-        {
-            return _context.CharactersGameStats.Any(e => e.ID == id);
-        }
+        private bool GameStatsExists(int id) =>
+            _context.CharactersGameStats.Any(e => e.ID == id);
     }
 }

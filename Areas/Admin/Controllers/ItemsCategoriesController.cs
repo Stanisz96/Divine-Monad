@@ -19,79 +19,62 @@ namespace DivineMonad.Areas.Admin.Controllers
             _context = context;
         }
 
-        // GET: Admin/ItemsCategories
-        public async Task<IActionResult> Index()
-        {
-            return View(await _context.ItemCategories.ToListAsync());
-        }
+        public async Task<IActionResult> Index() =>
+            View(await _context.ItemCategories.ToListAsync());
 
-        // GET: Admin/ItemsCategories/Details/5
         public async Task<IActionResult> Details(int? id)
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
+            if (id == null) return NotFound();
 
             var itemCategory = await _context.ItemCategories
                 .FirstOrDefaultAsync(m => m.ID == id);
-            if (itemCategory == null)
-            {
-                return NotFound();
-            }
+
+            if (itemCategory == null) return NotFound();
 
             return View(itemCategory);
         }
 
-        // GET: Admin/ItemsCategories/Create
-        public IActionResult Create()
-        {
-            return View();
-        }
+        public IActionResult Create() => View();
 
-        // POST: Admin/ItemsCategories/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
-        // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ID,Name,Description,Armor,Arrow,Boots,Bow,Gloves,Helmet,Weapon1H,Weapon2H,Shield")] ItemCategory itemCategory)
+        public async Task<IActionResult> Create(
+            [Bind("ID,Name,Description,Armor,Arrow," +
+            "Boots,Bow,Gloves,Helmet,Weapon1H,Weapon2H,Shield")] 
+                ItemCategory itemCategory)
         {
             if (ModelState.IsValid)
             {
                 _context.Add(itemCategory);
                 await _context.SaveChangesAsync();
+
                 return RedirectToAction(nameof(Index));
             }
+
             return View(itemCategory);
         }
 
-        // GET: Admin/ItemsCategories/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
+            if (id == null) return NotFound();
 
-            var itemCategory = await _context.ItemCategories.FindAsync(id);
-            if (itemCategory == null)
-            {
-                return NotFound();
-            }
+            var itemCategory = await _context
+                .ItemCategories.FindAsync(id);
+
+            if (itemCategory == null) return NotFound();
+
             return View(itemCategory);
         }
 
-        // POST: Admin/ItemsCategories/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
-        // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("ID,Name,Description,Armor,Arrow,Boots,Bow,Gloves,Helmet,Weapon1H,Weapon2H,Shield")] ItemCategory itemCategory)
+        public async Task<IActionResult> Edit(
+            int id,
+            [Bind("ID,Name,Description,Armor,Arrow,Boots," +
+            "Bow,Gloves,Helmet,Weapon1H,Weapon2H,Shield")] 
+                ItemCategory itemCategory)
         {
-            if (id != itemCategory.ID)
-            {
-                return NotFound();
-            }
+            if (id != itemCategory.ID) return NotFound();
 
             if (ModelState.IsValid)
             {
@@ -102,52 +85,41 @@ namespace DivineMonad.Areas.Admin.Controllers
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!ItemCategoryExists(itemCategory.ID))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
+                    if (!ItemCategoryExists(itemCategory.ID)) return NotFound();
+                    else throw;
                 }
+
                 return RedirectToAction(nameof(Index));
             }
+
             return View(itemCategory);
         }
 
-        // GET: Admin/ItemsCategories/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
+            if (id == null) return NotFound();
 
             var itemCategory = await _context.ItemCategories
                 .FirstOrDefaultAsync(m => m.ID == id);
-            if (itemCategory == null)
-            {
-                return NotFound();
-            }
+
+            if (itemCategory == null) return NotFound();
 
             return View(itemCategory);
         }
 
-        // POST: Admin/ItemsCategories/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var itemCategory = await _context.ItemCategories.FindAsync(id);
+
             _context.ItemCategories.Remove(itemCategory);
             await _context.SaveChangesAsync();
+
             return RedirectToAction(nameof(Index));
         }
 
-        private bool ItemCategoryExists(int id)
-        {
-            return _context.ItemCategories.Any(e => e.ID == id);
-        }
+        private bool ItemCategoryExists(int id) =>
+            _context.ItemCategories.Any(e => e.ID == id);
     }
 }

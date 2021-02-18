@@ -19,39 +19,24 @@ namespace DivineMonad.Areas.Admin.Controllers
             _context = context;
         }
 
-        // GET: Admin/Markets
-        public async Task<IActionResult> Index()
-        {
-            return View(await _context.Markets.ToListAsync());
-        }
+        public async Task<IActionResult> Index() => 
+            View(await _context.Markets.ToListAsync());
 
-        // GET: Admin/Markets/Details/5
         public async Task<IActionResult> Details(int? id)
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
+            if (id == null) return NotFound();
 
             var market = await _context.Markets
                 .FirstOrDefaultAsync(m => m.ID == id);
-            if (market == null)
-            {
-                return NotFound();
-            }
+
+            if (market == null) return NotFound();
 
             return View(market);
         }
 
-        // GET: Admin/Markets/Create
-        public IActionResult Create()
-        {
-            return View();
-        }
+        public IActionResult Create() => View();
 
-        // POST: Admin/Markets/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
-        // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("ID,LevelMin,LevelMax,ItemId")] Market market)
@@ -60,38 +45,32 @@ namespace DivineMonad.Areas.Admin.Controllers
             {
                 _context.Add(market);
                 await _context.SaveChangesAsync();
+
                 return RedirectToAction(nameof(Index));
             }
+
             return View(market);
         }
 
-        // GET: Admin/Markets/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
+            if (id == null) return NotFound();
 
-            var market = await _context.Markets.FindAsync(id);
-            if (market == null)
-            {
-                return NotFound();
-            }
+            var market = await _context
+                .Markets.FindAsync(id);
+
+            if (market == null) return NotFound();
+
             return View(market);
         }
 
-        // POST: Admin/Markets/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
-        // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("ID,LevelMin,LevelMax,ItemId")] Market market)
+        public async Task<IActionResult> Edit(
+            int id,
+            [Bind("ID,LevelMin,LevelMax,ItemId")] Market market)
         {
-            if (id != market.ID)
-            {
-                return NotFound();
-            }
+            if (id != market.ID) return NotFound();
 
             if (ModelState.IsValid)
             {
@@ -102,52 +81,41 @@ namespace DivineMonad.Areas.Admin.Controllers
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!MarketExists(market.ID))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
+                    if (!MarketExists(market.ID)) return NotFound();
+                    else throw;
                 }
+
                 return RedirectToAction(nameof(Index));
             }
+
             return View(market);
         }
 
-        // GET: Admin/Markets/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
+            if (id == null) return NotFound();
 
             var market = await _context.Markets
                 .FirstOrDefaultAsync(m => m.ID == id);
-            if (market == null)
-            {
-                return NotFound();
-            }
+
+            if (market == null) return NotFound();
 
             return View(market);
         }
 
-        // POST: Admin/Markets/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var market = await _context.Markets.FindAsync(id);
+
             _context.Markets.Remove(market);
             await _context.SaveChangesAsync();
+
             return RedirectToAction(nameof(Index));
         }
 
-        private bool MarketExists(int id)
-        {
-            return _context.Markets.Any(e => e.ID == id);
-        }
+        private bool MarketExists(int id) =>
+            _context.Markets.Any(e => e.ID == id);
     }
 }

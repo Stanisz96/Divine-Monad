@@ -19,39 +19,23 @@ namespace DivineMonad.Areas.Admin.Controllers
             _context = context;
         }
 
-        // GET: Admin/Rarities
-        public async Task<IActionResult> Index()
-        {
-            return View(await _context.Rarity.ToListAsync());
-        }
+        public async Task<IActionResult> Index() =>
+            View(await _context.Rarity.ToListAsync());
 
-        // GET: Admin/Rarities/Details/5
         public async Task<IActionResult> Details(int? id)
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
+            if (id == null) return NotFound();
 
             var rarity = await _context.Rarity
                 .FirstOrDefaultAsync(m => m.ID == id);
-            if (rarity == null)
-            {
-                return NotFound();
-            }
+
+            if (rarity == null) return NotFound();
 
             return View(rarity);
         }
 
-        // GET: Admin/Rarities/Create
-        public IActionResult Create()
-        {
-            return View();
-        }
+        public IActionResult Create() => View();
 
-        // POST: Admin/Rarities/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
-        // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("ID,Name,Chance")] Rarity rarity)
@@ -60,38 +44,32 @@ namespace DivineMonad.Areas.Admin.Controllers
             {
                 _context.Add(rarity);
                 await _context.SaveChangesAsync();
+
                 return RedirectToAction(nameof(Index));
             }
+
             return View(rarity);
         }
 
-        // GET: Admin/Rarities/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
+            if (id == null) return NotFound();
 
-            var rarity = await _context.Rarity.FindAsync(id);
-            if (rarity == null)
-            {
-                return NotFound();
-            }
+            var rarity = await _context
+                .Rarity.FindAsync(id);
+
+            if (rarity == null) return NotFound();
+
             return View(rarity);
         }
 
-        // POST: Admin/Rarities/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
-        // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("ID,Name,Chance")] Rarity rarity)
+        public async Task<IActionResult> Edit(
+            int id,
+            [Bind("ID,Name,Chance")] Rarity rarity)
         {
-            if (id != rarity.ID)
-            {
-                return NotFound();
-            }
+            if (id != rarity.ID) return NotFound();
 
             if (ModelState.IsValid)
             {
@@ -102,52 +80,41 @@ namespace DivineMonad.Areas.Admin.Controllers
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!RarityExists(rarity.ID))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
+                    if (!RarityExists(rarity.ID)) return NotFound();
+                    else throw;
                 }
+
                 return RedirectToAction(nameof(Index));
             }
+
             return View(rarity);
         }
 
-        // GET: Admin/Rarities/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
+            if (id == null) return NotFound();
 
             var rarity = await _context.Rarity
                 .FirstOrDefaultAsync(m => m.ID == id);
-            if (rarity == null)
-            {
-                return NotFound();
-            }
+
+            if (rarity == null) return NotFound();
 
             return View(rarity);
         }
 
-        // POST: Admin/Rarities/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var rarity = await _context.Rarity.FindAsync(id);
+
             _context.Rarity.Remove(rarity);
             await _context.SaveChangesAsync();
+
             return RedirectToAction(nameof(Index));
         }
 
-        private bool RarityExists(int id)
-        {
-            return _context.Rarity.Any(e => e.ID == id);
-        }
+        private bool RarityExists(int id) =>
+            _context.Rarity.Any(e => e.ID == id);
     }
 }

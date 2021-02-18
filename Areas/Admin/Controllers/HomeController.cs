@@ -15,15 +15,8 @@ namespace DivineMonad.Areas.Admin.Controllers
             _itemRepo = itemRepo;
         }
 
-        public IActionResult Index()
-        {
+        public IActionResult Index() => View();
 
-            return View();
-        }
-
-        public IActionResult Test()
-        {
-            return View();
-        }
+        public IActionResult Test() => View();
     }
 }
