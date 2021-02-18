@@ -4,8 +4,6 @@ using DivineMonad.Tools;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Security.Claims;
@@ -49,19 +47,19 @@ namespace DivineMonad.Controllers
                 if (!(updateCharacter is null))
                 {
                     string a = _hostingEnv.WebRootPath;
-                    
+
                     if (updateCharacter.Name != character.Name)
                     {
                         Directory.Move(Path.Combine(a, "data", userId, updateCharacter.Name), Path.Combine(a, "data", userId, character.Name));
-                        if(!updateCharacter.AvatarUrl.Contains("avatar_default"))
+                        if (!updateCharacter.AvatarUrl.Contains("avatar_default"))
                             updateCharacter.AvatarUrl = updateCharacter.AvatarUrl.Replace(updateCharacter.Name, character.Name);
                     }
                     string AvatarPath = Path.Combine(a, updateCharacter.AvatarUrl.Replace("/", "\\").Replace("~\\", ""));
-                    
+
                     updateCharacter.Name = character.Name;
                     updateCharacter.AvatarImage = character.AvatarImage;
-                    
-                    
+
+
                     if (updateCharacter.AvatarImage != null)
                     {
                         if (AvatarPath.Contains("avatar_default"))
@@ -84,7 +82,7 @@ namespace DivineMonad.Controllers
                 }
 
             }
-             return RedirectToAction(nameof(Index));
+            return RedirectToAction(nameof(Index));
         }
 
 
@@ -93,7 +91,7 @@ namespace DivineMonad.Controllers
         public async Task<IActionResult> Delete([FromForm, Bind("ID")] int ID)
         {
             var character = await _contextHelper.GetCharacter(ID, User, _context);
-            if(!(character is null))
+            if (!(character is null))
             {
                 _context.Remove(character);
                 _context.Remove(character.GStats);

@@ -1,16 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text.Encodings.Web;
-using System.Threading.Tasks;
+﻿using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
+using System.ComponentModel.DataAnnotations;
+using System.Threading.Tasks;
 
 namespace DivineMonad.Areas.Identity.Pages.Account
 {
@@ -21,7 +16,7 @@ namespace DivineMonad.Areas.Identity.Pages.Account
         private readonly SignInManager<IdentityUser> _signInManager;
         private readonly ILogger<LoginModel> _logger;
 
-        public LoginModel(SignInManager<IdentityUser> signInManager, 
+        public LoginModel(SignInManager<IdentityUser> signInManager,
             ILogger<LoginModel> logger,
             UserManager<IdentityUser> userManager)
         {
@@ -84,7 +79,7 @@ namespace DivineMonad.Areas.Identity.Pages.Account
                     var user = await _userManager.FindByNameAsync(Input.UserName);
                     // Get the roles for the user
                     var roles = await _userManager.GetRolesAsync(user);
-                    
+
                     returnUrl = roles.Contains("Admin") ? Url.Content("~/Admin/") : Url.Content("~/Characters/");
 
                     return LocalRedirect(returnUrl);

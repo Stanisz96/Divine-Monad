@@ -3,11 +3,8 @@ using DivineMonad.Models;
 using DivineMonad.Tools;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Security.Claims;
@@ -30,7 +27,7 @@ namespace DivineMonad.Controllers
             _hostingEnv = hostingEnv;
         }
 
-        
+
         public async Task<IActionResult> Index()
         {
             var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
@@ -47,7 +44,7 @@ namespace DivineMonad.Controllers
         public IActionResult Create()
         {
             var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
-            if(!(userId is null))
+            if (!(userId is null))
             {
                 Character newCharacter = new Character { UserId = userId };
                 return View(newCharacter);
@@ -69,7 +66,7 @@ namespace DivineMonad.Controllers
                 string a = _hostingEnv.WebRootPath;
 
                 string characterDataPath = Path.Combine(a, "data\\" + userId.ToString() + "\\" + character.Name);
-               
+
 
                 if (!Directory.Exists(characterDataPath))
                 {
@@ -79,7 +76,7 @@ namespace DivineMonad.Controllers
                 if (character.AvatarImage != null)
                 {
                     string AvatarExtension = Path.GetExtension(character.AvatarImage.FileName);
-                    var filePath = Path.Combine(characterDataPath, "avatar"+AvatarExtension);
+                    var filePath = Path.Combine(characterDataPath, "avatar" + AvatarExtension);
 
                     using (var fileSteam = new FileStream(filePath, FileMode.Create))
                     {

@@ -21,7 +21,7 @@
 
         public CharacterBaseStats(string option)
         {
-            if(option.Equals("new"))
+            if (option.Equals("new"))
             {
                 Level = 1;
                 Experience = 0;

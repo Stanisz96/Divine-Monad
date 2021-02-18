@@ -1,7 +1,6 @@
 ﻿using DivineMonad.Data;
 using DivineMonad.Engine.Raport;
 using DivineMonad.Models;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -54,7 +53,7 @@ namespace DivineMonad.Tools
         {
             try
             {
-                if(from > to)
+                if (from > to)
                 {
                     CharacterItems cItem = backpack.CharacterItemsList.FirstOrDefault(i => i.BpSlotId == from);
                     Item item = backpack.ItemsList.FirstOrDefault(i => i.ID == cItem.ItemId);
@@ -126,7 +125,7 @@ namespace DivineMonad.Tools
             CharacterItems cItemFrom = null;
             CharacterItems cItemTo = null;
 
-            if(option.Equals("putOn"))
+            if (option.Equals("putOn"))
             {
                 cItemFrom = backpack.CharacterItemsList.FirstOrDefault(i => i.BpSlotId == from);
                 if (!(cItemFrom is null))
@@ -135,7 +134,7 @@ namespace DivineMonad.Tools
                     cItemFrom.IsEquipped = true;
                 }
             }
-            else if(option.Equals("takeOff"))
+            else if (option.Equals("takeOff"))
             {
                 cItemFrom = backpack.CharacterItemsList.FirstOrDefault(i => i.BpSlotId == from);
                 if (!(cItemFrom is null))

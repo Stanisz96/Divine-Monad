@@ -2,7 +2,6 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 
 namespace DivineMonad.Tools
 {
@@ -18,7 +17,7 @@ namespace DivineMonad.Tools
         {
             for (int n = 7; n < character.CBStats.BpSlots + 7; n++)
             {
-                if(characterItems.FirstOrDefault(i => i.BpSlotId == n) is null)
+                if (characterItems.FirstOrDefault(i => i.BpSlotId == n) is null)
                 {
                     return n;
                 }

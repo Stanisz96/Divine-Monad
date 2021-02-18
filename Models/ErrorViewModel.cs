@@ -1,5 +1,3 @@
-using System;
-
 namespace DivineMonad.Models
 {
     public class ErrorViewModel

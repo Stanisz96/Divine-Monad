@@ -1,10 +1,8 @@
 ﻿using DivineMonad.Data;
 using DivineMonad.Models;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.DependencyInjection;
 using Quartz;
 using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -47,7 +45,7 @@ namespace DivineMonad.Job
 
                             index = rand.Next(0, count);
                             marketItem.ItemId = items.Where(i => i.Rarity.Name == rarity.Name).ElementAt(index).ID;
-                            
+
                             if (markets.Count < 9)
                                 markets.Add(marketItem);
                         }

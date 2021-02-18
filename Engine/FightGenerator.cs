@@ -88,7 +88,7 @@ namespace DivineMonad.Engine
             fightAction -= SetWhoStart;
             fightAction -= SetStartHp;
 
-            while(!IsFightOver)
+            while (!IsFightOver)
             {
                 if (RoundNumber >= 20) IsFightOver = true;
 
@@ -128,7 +128,7 @@ namespace DivineMonad.Engine
         }
 
         private void UpdateBonuses()
-        { 
+        {
 
             if (rand.NextDouble() <= Attacker.CritPr) IsCrit = true;
             else IsCrit = false;
@@ -155,7 +155,7 @@ namespace DivineMonad.Engine
 
         private void UpdateReceiveDamage()
         {
-            if(IsMiss)Receive = 0;
+            if (IsMiss) Receive = 0;
             else
             {
                 Receive = (int)(Damage * (1 - Defender.DmgRed));
@@ -180,13 +180,13 @@ namespace DivineMonad.Engine
             double speedFactor = (double)Attacker.Speed / Defender.Speed;
 
             if (speedFactor > 2) speedFactor = 2;
-            if(speedFactor > 1)
+            if (speedFactor > 1)
             {
                 double extraAttack = ((((double)RoundNumber / speedFactor) - (int)((double)RoundNumber / speedFactor))
                     / Math.Pow(speedFactor, 1.2)) + 0.04;
 
                 if (extraAttack <= 0.25 && IsExtraAttackDone == false) DoExtraAttack = true;
-                else if(extraAttack > 0.25) IsExtraAttackDone = false;
+                else if (extraAttack > 0.25) IsExtraAttackDone = false;
             }
         }
 
@@ -228,7 +228,7 @@ namespace DivineMonad.Engine
 
         private void CheckIfFightOver()
         {
-            if(DefenderHp <= 0) IsFightOver = true;
+            if (DefenderHp <= 0) IsFightOver = true;
         }
         private void SetRaportResults()
         {

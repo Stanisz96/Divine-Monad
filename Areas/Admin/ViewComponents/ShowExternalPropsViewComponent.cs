@@ -1,7 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using DivineMonad.Data;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using DivineMonad.Data;
-using DivineMonad.Models;
 using System.Threading.Tasks;
 
 namespace DivineMonad.Areas.Admin.ViewComponents

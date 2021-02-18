@@ -1,14 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using DivineMonad.Data;
+using DivineMonad.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using DivineMonad.Data;
-using DivineMonad.Models;
-using Microsoft.AspNetCore.Authorization;
-using DivineMonad.Areas.Admin.Tools;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace DivineMonad.Areas.Admin.Controllers
 {
@@ -192,15 +189,15 @@ namespace DivineMonad.Areas.Admin.Controllers
                     return Json($"Character name already exists.");
             }
             else
-            { 
+            {
                 if (_context.Characters.Any(c => c.Name == name))
-                    return Json($"Character name already exists."); 
+                    return Json($"Character name already exists.");
             }
 
             return Json(true);
         }
 
-        
+
         private bool CharacterExists(int id)
         {
             return _context.Characters.Any(e => e.ID == id);

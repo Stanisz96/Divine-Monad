@@ -1,8 +1,5 @@
 ﻿using DivineMonad.Data;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace DivineMonad.Models
 {
@@ -12,7 +9,7 @@ namespace DivineMonad.Models
 
         public CharacterRepo(ApplicationDbContext appDbContext)
         {
-            _appDbContext = appDbContext;   
+            _appDbContext = appDbContext;
         }
 
         public IEnumerable<Character> AllCharacters => _appDbContext.Characters;

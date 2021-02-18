@@ -44,7 +44,7 @@ namespace DivineMonad.Controllers
             _hostingEnv = hostEnv;
         }
 
-        
+
         public async Task<IActionResult> Index([FromForm, Bind("cId")] int cId)
         {
             Character character = await _contextHelper.GetCharacter(cId, User, _context);
@@ -208,7 +208,7 @@ namespace DivineMonad.Controllers
                     Raport = fightRaport
                 };
             }
-            
+
 
             return PartialView(raportView);
         }
@@ -231,7 +231,7 @@ namespace DivineMonad.Controllers
             marketView.CharacterItemsList = await _characterItemsRepo.GetCharactersItemsList(cId, false);
             List<int> itemIds = marketView.CharacterItemsList.Select(i => i.ItemId).ToList();
             marketView.ItemsList = await _itemsRepo.GetItemsList(itemIds);
-            marketView.MarketItems = await _context.Markets.Where(m => m.LevelMin <= marketView.Character.CBStats.Level && 
+            marketView.MarketItems = await _context.Markets.Where(m => m.LevelMin <= marketView.Character.CBStats.Level &&
                                         m.LevelMax >= marketView.Character.CBStats.Level).Include(i => i.Item).ToListAsync();
             return PartialView(marketView);
         }
@@ -257,15 +257,15 @@ namespace DivineMonad.Controllers
                 string raportName = Files[i].Name;
                 raportsView.RaportsNames.Add(raportName);
                 string[] subRaportName = raportName.Split("_");
-                if( raportsView.Character is null) raportsView.Character = character.ID == Int32.Parse(subRaportName[0]) ? character : null;
+                if (raportsView.Character is null) raportsView.Character = character.ID == Int32.Parse(subRaportName[0]) ? character : null;
                 Monster monster = await _context.Monsters.Where(m => m.ID == Int32.Parse(subRaportName[1])).FirstOrDefaultAsync();
                 if (!raportsView.MonstersList.Contains(monster)) raportsView.MonstersList.Add(monster);
             }
 
             ViewData["cId"] = cId;
-            
-            raportsView.RaportsNames = raportsView.RaportsNames.OrderByDescending(r => Int64.Parse(r.Split("_")[4].Replace(".json",""))).ToList();
-            
+
+            raportsView.RaportsNames = raportsView.RaportsNames.OrderByDescending(r => Int64.Parse(r.Split("_")[4].Replace(".json", ""))).ToList();
+
             return PartialView(raportsView);
         }
 
@@ -331,7 +331,7 @@ namespace DivineMonad.Controllers
                 }
                 catch (Exception) { throw; };
             }
-            
+
             return new { from, to, valid, option = updateOption };
         }
 
