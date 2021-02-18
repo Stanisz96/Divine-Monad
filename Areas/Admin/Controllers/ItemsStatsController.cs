@@ -55,8 +55,7 @@ namespace DivineMonad.Areas.Admin.Controllers
             return View(itemStats);
         }
 
-        public IActionResult Create() => 
-            return View();
+        public IActionResult Create() => View();
 
         [HttpPost]
         [ValidateAntiForgeryToken]
