@@ -21,10 +21,12 @@ namespace DivineMonad.Models
         {
             if (onlyEquipped)
                 return await _appDbContext.CharactersItems
-                    .Where(i => (i.CharacterId == cId) && i.IsEquipped).ToListAsync();
+                    .Where(i => (i.CharacterId == cId) && i.IsEquipped)
+                    .ToListAsync();
             else
                 return await _appDbContext.CharactersItems
-                    .Where(i => i.CharacterId == cId).ToListAsync();
+                    .Where(i => i.CharacterId == cId)
+                    .ToListAsync();
         }
     }
 }

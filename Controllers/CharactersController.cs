@@ -20,7 +20,10 @@ namespace DivineMonad.Controllers
         private readonly IDbContextHelper _contextHelper;
         private readonly IWebHostEnvironment _hostingEnv;
 
-        public CharactersController(ApplicationDbContext context, IDbContextHelper contextHelper, IWebHostEnvironment hostingEnv)
+        public CharactersController(
+            ApplicationDbContext context,
+            IDbContextHelper contextHelper,
+            IWebHostEnvironment hostingEnv)
         {
             _context = context;
             _contextHelper = contextHelper;
@@ -32,7 +35,8 @@ namespace DivineMonad.Controllers
         {
             var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
             var userName = User.FindFirstValue(ClaimTypes.Name);
-            var characters = _context.Characters.Where(c => c.UserId == userId).Include(c => c.CBStats);
+            var characters = _context.Characters
+                .Where(c => c.UserId == userId).Include(c => c.CBStats);
 
             ViewData["userId"] = userId;
             ViewData["userName"] = userName;
@@ -44,6 +48,7 @@ namespace DivineMonad.Controllers
         public IActionResult Create()
         {
             var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+
             if (!(userId is null))
             {
                 Character newCharacter = new Character { UserId = userId };
@@ -66,7 +71,6 @@ namespace DivineMonad.Controllers
                 string a = _hostingEnv.WebRootPath;
 
                 string characterDataPath = Path.Combine(a, "data\\" + userId.ToString() + "\\" + character.Name);
-
 
                 if (!Directory.Exists(characterDataPath))
                 {

@@ -23,20 +23,22 @@ namespace DivineMonad.Controllers
         private readonly ApplicationDbContext _context;
         private readonly IDbContextHelper _contextHelper;
         private readonly ICharacterHelper _characterHelper;
-        private readonly ICharacterBaseStatsRepo _baseStatsRepo;
         private readonly ICharacterItemsRepo _characterItemsRepo;
-        private readonly IItemStatsRepo _itemsStatsRepo;
         private readonly IItemRepo _itemsRepo;
         private readonly IRarityRepo _rarityRepo;
         private readonly IWebHostEnvironment _hostingEnv;
 
-        public GameController(ApplicationDbContext context, ICharacterBaseStatsRepo baseStatsRepo, ICharacterItemsRepo characterItemsRepo,
-            IItemStatsRepo itemsStatsRepo, IItemRepo itemsRepo, IRarityRepo rarityRepo, IDbContextHelper contextHelper, ICharacterHelper characterHelper, IWebHostEnvironment hostEnv)
+        public GameController(
+            ApplicationDbContext context,
+            ICharacterItemsRepo characterItemsRepo,
+            IItemRepo itemsRepo,
+            IRarityRepo rarityRepo,
+            IDbContextHelper contextHelper,
+            ICharacterHelper characterHelper,
+            IWebHostEnvironment hostEnv)
         {
             _context = context;
-            _baseStatsRepo = baseStatsRepo;
             _characterItemsRepo = characterItemsRepo;
-            _itemsStatsRepo = itemsStatsRepo;
             _itemsRepo = itemsRepo;
             _rarityRepo = rarityRepo;
             _contextHelper = contextHelper;
@@ -52,7 +54,9 @@ namespace DivineMonad.Controllers
             if (!(character is null))
             {
                 ViewData["menu"] = "character";
-                ViewData["reqExp"] = _characterHelper.RequiredExperience(character.CBStats.Level);
+                ViewData["reqExp"] = _characterHelper
+                    .RequiredExperience(character.CBStats.Level);
+
                 return View(character);
             }
             else return RedirectToAction("Index", "Characters");
@@ -77,7 +81,6 @@ namespace DivineMonad.Controllers
                 characterAdvanceStats.GameStats = character.GStats;
 
                 return PartialView(characterAdvanceStats);
-
             }
             else return RedirectToAction("Index", "Characters");
         }
@@ -105,7 +108,8 @@ namespace DivineMonad.Controllers
             {
                 string a = _hostingEnv.WebRootPath;
                 string userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
-                string raportPath = Path.Combine(a, "data\\" + userId.ToString() + "\\" + character.Name + "\\raports" + "\\" + raportName);
+                string raportPath = Path.Combine(a, "data\\" + userId.ToString() +
+                    "\\" + character.Name + "\\raports" + "\\" + raportName);
 
                 RaportGenerator fightRaport = null;
 
@@ -115,7 +119,9 @@ namespace DivineMonad.Controllers
                     fightRaport = JsonConvert.DeserializeObject<RaportGenerator>(raportJson);
                 }
 
-                Monster monster = await _context.Monsters.Where(m => m.ID == fightRaport.Opponent.ID).FirstOrDefaultAsync();
+                Monster monster = await _context.Monsters
+                    .Where(m => m.ID == fightRaport.Opponent.ID)
+                    .FirstOrDefaultAsync();
 
                 raportView = new RaportViewModel()
                 {
@@ -153,17 +159,36 @@ namespace DivineMonad.Controllers
                 defender.CharacterName = monster.Name;
                 defender.CalculateMonster(monster.MonsterStats);
 
-                var monsterItemsIds = await _context.MonstersLoot.Where(i => i.MonsterId == monster.ID).Select(i => i.ItemId).ToListAsync();
-                var monsterItems = await _itemsRepo.GetItemsList(monsterItemsIds);
+                var monsterItemsIds = await _context.MonstersLoot
+                    .Where(i => i.MonsterId == monster.ID)
+                    .Select(i => i.ItemId)
+                    .ToListAsync();
 
-                FightGenerator fight = new FightGenerator(attacker, defender, monster, monsterItems, _rarityRepo);
+                var monsterItems = await _itemsRepo
+                    .GetItemsList(monsterItemsIds);
+
+                FightGenerator fight = new FightGenerator(
+                    attacker,
+                    defender,
+                    monster,
+                    monsterItems,
+                    _rarityRepo);
+
                 RaportGenerator fightRaport = await fight.GenerateFight();
                 fightRaport.QuickFight = (bool)qf;
 
-                IEnumerable<CharacterItems> characterItems = await _context.CharactersItems.Where(i => i.CharacterId == character.ID).ToListAsync();
+                IEnumerable<CharacterItems> characterItems = await _context.CharactersItems
+                    .Where(i => i.CharacterId == character.ID)
+                    .ToListAsync();
 
                 CharacterItems newItem = null;
-                (character, newItem) = _contextHelper.AssignRewards(fightRaport, character, _context, _characterHelper, characterItems);
+                (character, newItem) = _contextHelper.AssignRewards(
+                    fightRaport,
+                    character,
+                    _context,
+                    _characterHelper,
+                    characterItems);
+
                 try
                 {
                     if (!(newItem is null))
@@ -171,24 +196,24 @@ namespace DivineMonad.Controllers
                         _context.Add(newItem);
                         await _context.SaveChangesAsync();
                     }
+
                     _context.Update(character);
                     await _context.SaveChangesAsync();
 
                     ViewData["gold"] = character.CBStats.Gold;
                     ViewData["level"] = character.CBStats.Level;
                     ViewData["exp"] = character.CBStats.Experience;
-                    ViewData["reqExp"] = _characterHelper.RequiredExperience(character.CBStats.Level);
+                    ViewData["reqExp"] = _characterHelper
+                        .RequiredExperience(character.CBStats.Level);
                 }
-                catch (Exception)
-                {
+                catch (Exception) { throw; };
 
-                    throw;
-                }
                 string fightRaportJson = JsonConvert.SerializeObject(fightRaport, Formatting.Indented);
 
                 string userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
                 string a = _hostingEnv.WebRootPath;
-                string characterDataPath = Path.Combine(a, "data\\" + userId.ToString() + "\\" + character.Name + "\\raports");
+                string characterDataPath = Path.Combine(a, "data\\" + userId.ToString() +
+                    "\\" + character.Name + "\\raports");
 
                 if (!Directory.Exists(characterDataPath))
                 {
@@ -197,8 +222,10 @@ namespace DivineMonad.Controllers
 
                 string dateTime = DateTime.Now.Ticks.ToString();
                 string resultVal = fightRaport.Result == "lose" ? "0" : fightRaport.Result == "win" ? "2" : "1";
+
                 raportName = fightRaport.Player.ID.ToString() + "_" + fightRaport.Opponent.ID.ToString() + "_"
                     + (fightRaport.IsPvp ? 1 : 0).ToString() + "_" + resultVal + "_" + dateTime + ".json";
+
                 System.IO.File.WriteAllText(Path.Combine(characterDataPath, raportName), fightRaportJson);
 
                 raportView = new RaportViewModel()
@@ -209,7 +236,6 @@ namespace DivineMonad.Controllers
                 };
             }
 
-
             return PartialView(raportView);
         }
 
@@ -218,7 +244,9 @@ namespace DivineMonad.Controllers
             Backpack backpack = new Backpack();
             backpack.Character = await _contextHelper.GetCharacter(cId, User, _context);
             backpack.CharacterItemsList = await _characterItemsRepo.GetCharactersItemsList(cId, false);
+
             List<int> itemIds = backpack.CharacterItemsList.Select(i => i.ItemId).ToList();
+
             backpack.ItemsList = await _itemsRepo.GetItemsList(itemIds);
 
             return PartialView(backpack);
@@ -229,10 +257,16 @@ namespace DivineMonad.Controllers
             MarketViewModel marketView = new MarketViewModel();
             marketView.Character = await _contextHelper.GetCharacter(cId, User, _context);
             marketView.CharacterItemsList = await _characterItemsRepo.GetCharactersItemsList(cId, false);
+
             List<int> itemIds = marketView.CharacterItemsList.Select(i => i.ItemId).ToList();
+
             marketView.ItemsList = await _itemsRepo.GetItemsList(itemIds);
-            marketView.MarketItems = await _context.Markets.Where(m => m.LevelMin <= marketView.Character.CBStats.Level &&
-                                        m.LevelMax >= marketView.Character.CBStats.Level).Include(i => i.Item).ToListAsync();
+            marketView.MarketItems = await _context.Markets
+                .Where(m => m.LevelMin <= marketView.Character.CBStats.Level &&
+                    m.LevelMax >= marketView.Character.CBStats.Level)
+                .Include(i => i.Item)
+                .ToListAsync();
+
             return PartialView(marketView);
         }
 
@@ -242,7 +276,9 @@ namespace DivineMonad.Controllers
 
             string a = _hostingEnv.WebRootPath;
             string userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
-            string raportsPath = Path.Combine(a, "data\\" + userId.ToString() + "\\" + character.Name + "\\raports");
+            string raportsPath = Path.Combine(a, "data\\" + userId.ToString() +
+                "\\" + character.Name + "\\raports");
+
             DirectoryInfo di = new DirectoryInfo(raportsPath);
             FileInfo[] Files = di.GetFiles("*.json");
 
@@ -257,14 +293,27 @@ namespace DivineMonad.Controllers
                 string raportName = Files[i].Name;
                 raportsView.RaportsNames.Add(raportName);
                 string[] subRaportName = raportName.Split("_");
-                if (raportsView.Character is null) raportsView.Character = character.ID == Int32.Parse(subRaportName[0]) ? character : null;
-                Monster monster = await _context.Monsters.Where(m => m.ID == Int32.Parse(subRaportName[1])).FirstOrDefaultAsync();
-                if (!raportsView.MonstersList.Contains(monster)) raportsView.MonstersList.Add(monster);
+                if (raportsView.Character is null)
+                {
+                    raportsView.Character =
+                        character.ID == Int32.Parse(subRaportName[0]) ?
+                            character : null;
+                }
+
+                Monster monster = await _context.Monsters
+                    .Where(m => m.ID == Int32.Parse(subRaportName[1]))
+                    .FirstOrDefaultAsync();
+
+                if (!raportsView.MonstersList.Contains(monster))
+                    raportsView.MonstersList.Add(monster);
             }
 
             ViewData["cId"] = cId;
 
-            raportsView.RaportsNames = raportsView.RaportsNames.OrderByDescending(r => Int64.Parse(r.Split("_")[4].Replace(".json", ""))).ToList();
+            raportsView.RaportsNames = raportsView.RaportsNames
+                .OrderByDescending(r =>
+                    Int64.Parse(r.Split("_")[4].Replace(".json", "")))
+                .ToList();
 
             return PartialView(raportsView);
         }
@@ -276,7 +325,9 @@ namespace DivineMonad.Controllers
             Backpack backpack = new Backpack();
             backpack.Character = await _contextHelper.GetCharacter(cId, User, _context);
             backpack.CharacterItemsList = await _characterItemsRepo.GetCharactersItemsList(cId, false);
+
             List<int> itemIds = backpack.CharacterItemsList.Select(i => i.ItemId).ToList();
+
             backpack.ItemsList = await _itemsRepo.GetItemsList(itemIds);
 
             bool isOneItemChanged = true;
@@ -306,7 +357,8 @@ namespace DivineMonad.Controllers
                 else updateOption = "moveAndChange";
             }
 
-            if (updateOption.Equals("putOn") || updateOption.Equals("putOnAndChange") || updateOption.Equals("takeOffAndChange"))
+            if (updateOption.Equals("putOn") || updateOption.Equals("putOnAndChange") ||
+                updateOption.Equals("takeOffAndChange"))
                 valid = _contextHelper.CanPutItOn(from, to, backpack);
             else if (updateOption.Equals("takeOff") || updateOption.Equals("move"))
                 valid = _contextHelper.CanMoveIt(from, to, backpack);
@@ -317,7 +369,12 @@ namespace DivineMonad.Controllers
 
             if (valid)
             {
-                characterItemsList = await _contextHelper.UpdateBpSlotsId(from, to, backpack, _context, updateOption);
+                characterItemsList = await _contextHelper.UpdateBpSlotsId(
+                    from,
+                    to,
+                    backpack,
+                    _context,
+                    updateOption);
                 try
                 {
                     if (isOneItemChanged) _context.Update(characterItemsList[0]);
@@ -327,6 +384,7 @@ namespace DivineMonad.Controllers
                         await _context.SaveChangesAsync();
                         _context.Update(characterItemsList[1]);
                     }
+
                     await _context.SaveChangesAsync();
                 }
                 catch (Exception) { throw; };
@@ -344,9 +402,10 @@ namespace DivineMonad.Controllers
                 Backpack backpack = new Backpack();
                 backpack.Character = await _contextHelper.GetCharacter(cId, User, _context);
                 backpack.CharacterItemsList = await _characterItemsRepo.GetCharactersItemsList(cId, false);
-                List<int> itemIds = backpack.CharacterItemsList.Select(i => i.ItemId).ToList();
-                backpack.ItemsList = await _itemsRepo.GetItemsList(itemIds);
 
+                List<int> itemIds = backpack.CharacterItemsList.Select(i => i.ItemId).ToList();
+
+                backpack.ItemsList = await _itemsRepo.GetItemsList(itemIds);
 
                 item = backpack.ItemsList.FirstOrDefault
                     (i => i.ID == backpack.CharacterItemsList.
@@ -393,30 +452,43 @@ namespace DivineMonad.Controllers
 
         public async Task<object> Trade(int cId, int? bpSlotId, int? iId)
         {
-            Character character = await _contextHelper.GetCharacter(cId, User, _context);
+            Character character = await _contextHelper
+                .GetCharacter(cId, User, _context);
             Item item = null;
             Backpack backpack = new Backpack();
             backpack.Character = character;
-            backpack.CharacterItemsList = await _characterItemsRepo.GetCharactersItemsList(cId, false);
+            backpack.CharacterItemsList = await _characterItemsRepo
+                .GetCharactersItemsList(cId, false);
 
             if (bpSlotId != null)
             {
-                List<int> itemIds = backpack.CharacterItemsList.Select(i => i.ItemId).ToList();
+                List<int> itemIds = backpack.CharacterItemsList
+                    .Select(i => i.ItemId)
+                    .ToList();
+
                 backpack.ItemsList = await _itemsRepo.GetItemsList(itemIds);
 
-
-                item = backpack.ItemsList.FirstOrDefault
-                    (i => i.ID == backpack.CharacterItemsList.
-                    FirstOrDefault(i => i.BpSlotId == bpSlotId).ItemId);
+                item = backpack.ItemsList
+                    .FirstOrDefault(i => i.ID == backpack.CharacterItemsList
+                        .FirstOrDefault(i => i.BpSlotId == bpSlotId).ItemId);
 
                 character.CBStats.Gold += item.Price;
-                CharacterItems removeCharacterItem = await _context.CharactersItems.Where(i => i.CharacterId == character.ID
-                                                                    && i.ItemId == item.ID && i.BpSlotId == bpSlotId).FirstOrDefaultAsync();
+                CharacterItems removeCharacterItem = await _context.CharactersItems
+                    .Where(i => i.CharacterId == character.ID &&
+                        i.ItemId == item.ID && i.BpSlotId == bpSlotId)
+                    .FirstOrDefaultAsync();
+
                 _context.CharactersItems.Remove(removeCharacterItem);
                 _context.Characters.Update(character);
+
                 await _context.SaveChangesAsync();
 
-                return new { valid = true, bpSlotId, gold = character.CBStats.Gold };
+                return new 
+                { 
+                    valid = true,
+                    bpSlotId,
+                    gold = character.CBStats.Gold
+                };
             }
             else if (iId != null)
             {
@@ -426,7 +498,9 @@ namespace DivineMonad.Controllers
                     character.CBStats.Gold -= 5 * item.Price;
                     CharacterItems newItem = new CharacterItems()
                     {
-                        BpSlotId = _characterHelper.GetFirstEmptySlot(character, backpack.CharacterItemsList),
+                        BpSlotId = _characterHelper.GetFirstEmptySlot(
+                            character,
+                            backpack.CharacterItemsList),
                         CharacterId = character.ID,
                         IsEquipped = false,
                         ItemId = item.ID
@@ -435,7 +509,13 @@ namespace DivineMonad.Controllers
                     _context.Characters.Update(character);
                     await _context.SaveChangesAsync();
 
-                    return new { valid = true, bpSlotId = newItem.BpSlotId, iId, gold = character.CBStats.Gold };
+                    return new 
+                    {
+                        valid = true,
+                        bpSlotId = newItem.BpSlotId,
+                        iId,
+                        gold = character.CBStats.Gold
+                    };
                 }
                 else return new { valid = false };
             }

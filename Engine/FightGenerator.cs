@@ -47,13 +47,18 @@ namespace DivineMonad.Engine
 
         }
 
-        public FightGenerator(IAdvanceStats playerStats, IAdvanceStats opponentStats,
-            Monster monster, IEnumerable<Item> items, IRarityRepo rarityRepo)
+        public FightGenerator(IAdvanceStats playerStats,
+            IAdvanceStats opponentStats,
+            Monster monster,
+            IEnumerable<Item> items,
+            IRarityRepo rarityRepo)
         {
             rand = new Random();
-            Raport = new RaportGenerator();
-            Raport.Rounds = new List<Round>();
-            Raport.Reward = new Reward();
+            Raport = new RaportGenerator
+            {
+                Rounds = new List<Round>(),
+                Reward = new Reward()
+            };
             Monster = monster;
             Items = items;
             _rarityRepo = rarityRepo;
@@ -104,8 +109,17 @@ namespace DivineMonad.Engine
         private void SetMainRaportProps()
         {
             Raport.IsPvp = _opponentStats.IsPlayer;
-            Raport.Player = new Player() { ID = _playerStats.CharacterId, Name = _playerStats.CharacterName };
-            Raport.Opponent = new Opponent() { ID = _opponentStats.CharacterId, Name = _opponentStats.CharacterName };
+            Raport.Player = new Player() 
+            {
+                ID = _playerStats.CharacterId,
+                Name = _playerStats.CharacterName
+            };
+
+            Raport.Opponent = new Opponent() 
+            { 
+                ID = _opponentStats.CharacterId,
+                Name = _opponentStats.CharacterName
+            };
 
         }
 
@@ -169,8 +183,21 @@ namespace DivineMonad.Engine
         {
             Raport.Rounds.Add(new Round()
             {
-                Attacker = new Attacker() { Crit = IsCrit, Damage = Damage, HP = AttackerHp, Name = Attacker.CharacterName, Miss = IsMiss },
-                Defender = new Defender() { Block = IsBlock, Receive = Receive, HP = DefenderHp, Name = Defender.CharacterName },
+                Attacker = new Attacker()
+                {
+                    Crit = IsCrit,
+                    Damage = Damage,
+                    HP = AttackerHp,
+                    Name = Attacker.CharacterName,
+                    Miss = IsMiss
+                },
+                Defender = new Defender() 
+                { 
+                    Block = IsBlock,
+                    Receive = Receive,
+                    HP = DefenderHp,
+                    Name = Defender.CharacterName
+                },
                 Number = RoundNumber
             });
         }
@@ -182,10 +209,12 @@ namespace DivineMonad.Engine
             if (speedFactor > 2) speedFactor = 2;
             if (speedFactor > 1)
             {
-                double extraAttack = ((((double)RoundNumber / speedFactor) - (int)((double)RoundNumber / speedFactor))
+                double extraAttack = ((((double)RoundNumber / speedFactor) -
+                    (int)((double)RoundNumber / speedFactor))
                     / Math.Pow(speedFactor, 1.2)) + 0.04;
 
-                if (extraAttack <= 0.25 && IsExtraAttackDone == false) DoExtraAttack = true;
+                if (extraAttack <= 0.25 && IsExtraAttackDone == false) 
+                    DoExtraAttack = true;
                 else if (extraAttack > 0.25) IsExtraAttackDone = false;
             }
         }
@@ -235,7 +264,8 @@ namespace DivineMonad.Engine
             if (DefenderHp > 0) Raport.Result = "draw";
             else
             {
-                if (Defender.CharacterId == _playerStats.CharacterId && Defender.CharacterName == _playerStats.CharacterName)
+                if (Defender.CharacterId == _playerStats.CharacterId &&
+                    Defender.CharacterName == _playerStats.CharacterName)
                     Raport.Result = "lose";
                 else Raport.Result = "win";
             }
@@ -262,7 +292,9 @@ namespace DivineMonad.Engine
                             if (count > 0)
                             {
                                 index = rand.Next(0, count);
-                                ItemLooted = Items.Where(i => i.Rarity.Name == rarity.Name).ElementAt(index);
+                                ItemLooted = Items
+                                    .Where(i => i.Rarity.Name == rarity.Name)
+                                    .ElementAt(index);
                             }
                             break;
                         }

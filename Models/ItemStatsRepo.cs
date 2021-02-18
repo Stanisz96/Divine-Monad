@@ -17,14 +17,13 @@ namespace DivineMonad.Models
 
         public IEnumerable<ItemStats> AllItemsStats => _appDbContext.ItemsStats;
 
-        public async Task<ItemStats> GetStatsById(int statsId)
-        {
-            return await _appDbContext.ItemsStats.FirstOrDefaultAsync(i => i.ID == statsId);
-        }
+        public async Task<ItemStats> GetStatsById(int statsId) => 
+            await _appDbContext.ItemsStats
+                .FirstOrDefaultAsync(i => i.ID == statsId);
 
-        public async Task<IEnumerable<ItemStats>> GetListStatsByIds(List<int> ids)
-        {
-            return await _appDbContext.ItemsStats.Where(s => ids.Contains(s.ID)).ToListAsync();
-        }
+        public async Task<IEnumerable<ItemStats>> GetListStatsByIds(List<int> ids) => 
+            await _appDbContext.ItemsStats
+                .Where(s => ids.Contains(s.ID))
+                .ToListAsync();
     }
 }

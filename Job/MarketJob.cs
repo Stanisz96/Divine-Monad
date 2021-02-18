@@ -44,7 +44,9 @@ namespace DivineMonad.Job
                             Market marketItem = new Market() { LevelMin = 1, LevelMax = 99 };
 
                             index = rand.Next(0, count);
-                            marketItem.ItemId = items.Where(i => i.Rarity.Name == rarity.Name).ElementAt(index).ID;
+                            marketItem.ItemId = items
+                                .Where(i => i.Rarity.Name == rarity.Name)
+                                .ElementAt(index).ID;
 
                             if (markets.Count < 9)
                                 markets.Add(marketItem);

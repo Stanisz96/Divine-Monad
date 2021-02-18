@@ -13,14 +13,20 @@ namespace DivineMonad.Tools
     public class DbContextHelper : IDbContextHelper
     {
 
-        public async Task<Character> GetCharacter(int cId, ClaimsPrincipal user, ApplicationDbContext context)
+        public async Task<Character> GetCharacter(
+            int cId,
+            ClaimsPrincipal user,
+            ApplicationDbContext context)
         {
             string userId = user.FindFirstValue(ClaimTypes.NameIdentifier);
+
             try
             {
-                Character character = await context.Characters.Include(c => c.CBStats)
-                                        .Include(c => c.GStats)
-                                        .FirstOrDefaultAsync(c => c.ID == cId);
+                Character character = await context.Characters
+                    .Include(c => c.CBStats)
+                    .Include(c => c.GStats)
+                    .FirstOrDefaultAsync(c => c.ID == cId);
+
                 if (!(character is null))
                 {
                     if (userId.Equals(character.UserId)) return character;
@@ -28,25 +34,20 @@ namespace DivineMonad.Tools
                 }
                 else return null;
             }
-            catch (Exception)
-            {
-                return null;
-            }
+            catch (Exception) { return null; }
         }
 
         public async Task<Monster> GetMonster(int mId, ApplicationDbContext context)
         {
             try
             {
-                Monster monster = await context.Monsters.Include(c => c.MonsterStats)
-                                        .FirstOrDefaultAsync(c => c.ID == mId);
+                Monster monster = await context.Monsters
+                    .Include(c => c.MonsterStats)
+                    .FirstOrDefaultAsync(c => c.ID == mId);
 
                 return monster;
             }
-            catch (Exception)
-            {
-                return null;
-            }
+            catch (Exception) { return null; }
         }
 
         public bool CanPutItOn(int from, int to, Backpack backpack)
@@ -55,38 +56,45 @@ namespace DivineMonad.Tools
             {
                 if (from > to)
                 {
-                    CharacterItems cItem = backpack.CharacterItemsList.FirstOrDefault(i => i.BpSlotId == from);
-                    Item item = backpack.ItemsList.FirstOrDefault(i => i.ID == cItem.ItemId);
+                    CharacterItems cItem = backpack.CharacterItemsList
+                        .FirstOrDefault(i => i.BpSlotId == from);
+                    Item item = backpack.ItemsList
+                        .FirstOrDefault(i => i.ID == cItem.ItemId);
                     Character character = backpack.Character;
 
-                    CategoryName itemCategory = (CategoryName)Enum.Parse(typeof(CategoryName), item.Category.Name, true);
+                    CategoryName itemCategory = (CategoryName)Enum.Parse(
+                        typeof(CategoryName),
+                        item.Category.Name, true);
 
                     return ((int)itemCategory == to && item.Level <= character.CBStats.Level);
                 }
                 else
                 {
-                    CharacterItems cItem = backpack.CharacterItemsList.FirstOrDefault(i => i.BpSlotId == to);
-                    Item item = backpack.ItemsList.FirstOrDefault(i => i.ID == cItem.ItemId);
+                    CharacterItems cItem = backpack.CharacterItemsList
+                        .FirstOrDefault(i => i.BpSlotId == to);
+                    Item item = backpack.ItemsList
+                        .FirstOrDefault(i => i.ID == cItem.ItemId);
                     Character character = backpack.Character;
 
-                    CategoryName itemCategory = (CategoryName)Enum.Parse(typeof(CategoryName), item.Category.Name, true);
+                    CategoryName itemCategory = (CategoryName)Enum.Parse(
+                        typeof(CategoryName),
+                        item.Category.Name, true);
 
                     return ((int)itemCategory == from && item.Level <= character.CBStats.Level);
                 }
             }
-            catch (Exception)
-            {
-
-                throw;
-            }
+            catch (Exception) { throw; }
         }
 
         public bool CanMoveIt(int from, int to, Backpack backpack)
         {
             try
             {
-                CharacterItems fromItem = backpack.CharacterItemsList.FirstOrDefault(i => i.BpSlotId == from);
-                CharacterItems toItem = backpack.CharacterItemsList.FirstOrDefault(i => i.BpSlotId == to);
+                CharacterItems fromItem = backpack.CharacterItemsList
+                    .FirstOrDefault(i => i.BpSlotId == from);
+                CharacterItems toItem = backpack.CharacterItemsList
+                    .FirstOrDefault(i => i.BpSlotId == to);
+
                 if (fromItem is null) return false;
                 else
                 {
@@ -94,18 +102,18 @@ namespace DivineMonad.Tools
                     else return false;
                 }
             }
-            catch (Exception)
-            {
-                throw;
-            }
+            catch (Exception) { throw; }
         }
 
         public bool CanChangeIt(int from, int to, Backpack backpack)
         {
             try
             {
-                CharacterItems fromItem = backpack.CharacterItemsList.FirstOrDefault(i => i.BpSlotId == from);
-                CharacterItems toItem = backpack.CharacterItemsList.FirstOrDefault(i => i.BpSlotId == to);
+                CharacterItems fromItem = backpack.CharacterItemsList
+                    .FirstOrDefault(i => i.BpSlotId == from);
+                CharacterItems toItem = backpack.CharacterItemsList
+                    .FirstOrDefault(i => i.BpSlotId == to);
+
                 if (fromItem is null) return false;
                 else
                 {
@@ -113,21 +121,25 @@ namespace DivineMonad.Tools
                     else return true;
                 }
             }
-            catch (Exception)
-            {
-                throw;
-            }
+            catch (Exception) { throw; }
         }
 
 
-        public async Task<List<CharacterItems>> UpdateBpSlotsId(int from, int to, Backpack backpack, ApplicationDbContext context, string option)
+        public async Task<List<CharacterItems>> UpdateBpSlotsId(
+            int from,
+            int to,
+            Backpack backpack,
+            ApplicationDbContext context,
+            string option)
         {
             CharacterItems cItemFrom = null;
             CharacterItems cItemTo = null;
 
             if (option.Equals("putOn"))
             {
-                cItemFrom = backpack.CharacterItemsList.FirstOrDefault(i => i.BpSlotId == from);
+                cItemFrom = backpack.CharacterItemsList
+                    .FirstOrDefault(i => i.BpSlotId == from);
+
                 if (!(cItemFrom is null))
                 {
                     cItemFrom.BpSlotId = to;
@@ -136,7 +148,9 @@ namespace DivineMonad.Tools
             }
             else if (option.Equals("takeOff"))
             {
-                cItemFrom = backpack.CharacterItemsList.FirstOrDefault(i => i.BpSlotId == from);
+                cItemFrom = backpack.CharacterItemsList
+                    .FirstOrDefault(i => i.BpSlotId == from);
+
                 if (!(cItemFrom is null))
                 {
                     cItemFrom.BpSlotId = to;
@@ -145,16 +159,19 @@ namespace DivineMonad.Tools
             }
             else if (option.Equals("move"))
             {
-                cItemFrom = backpack.CharacterItemsList.FirstOrDefault(i => i.BpSlotId == from);
+                cItemFrom = backpack.CharacterItemsList
+                    .FirstOrDefault(i => i.BpSlotId == from);
+
                 if (!(cItemFrom is null))
-                {
                     cItemFrom.BpSlotId = to;
-                }
             }
             else if (option.Equals("putOnAndChange"))
             {
-                cItemFrom = backpack.CharacterItemsList.FirstOrDefault(i => i.BpSlotId == from);
-                cItemTo = backpack.CharacterItemsList.FirstOrDefault(i => i.BpSlotId == to);
+                cItemFrom = backpack.CharacterItemsList
+                    .FirstOrDefault(i => i.BpSlotId == from);
+                cItemTo = backpack.CharacterItemsList
+                    .FirstOrDefault(i => i.BpSlotId == to);
+
                 if (!(cItemFrom is null) && !(cItemTo is null))
                 {
                     cItemFrom.BpSlotId = to;
@@ -165,8 +182,11 @@ namespace DivineMonad.Tools
             }
             else if (option.Equals("takeOffAndChange"))
             {
-                cItemFrom = backpack.CharacterItemsList.FirstOrDefault(i => i.BpSlotId == from);
-                cItemTo = backpack.CharacterItemsList.FirstOrDefault(i => i.BpSlotId == to);
+                cItemFrom = backpack.CharacterItemsList
+                    .FirstOrDefault(i => i.BpSlotId == from);
+                cItemTo = backpack.CharacterItemsList
+                    .FirstOrDefault(i => i.BpSlotId == to);
+
                 if (!(cItemFrom is null) && !(cItemTo is null))
                 {
                     cItemFrom.BpSlotId = to;
@@ -177,8 +197,11 @@ namespace DivineMonad.Tools
             }
             else if (option.Equals("moveAndChange"))
             {
-                cItemFrom = backpack.CharacterItemsList.FirstOrDefault(i => i.BpSlotId == from);
-                cItemTo = backpack.CharacterItemsList.FirstOrDefault(i => i.BpSlotId == to);
+                cItemFrom = backpack.CharacterItemsList
+                    .FirstOrDefault(i => i.BpSlotId == from);
+                cItemTo = backpack.CharacterItemsList
+                    .FirstOrDefault(i => i.BpSlotId == to);
+
                 if (!(cItemFrom is null) && !(cItemTo is null))
                 {
                     cItemFrom.BpSlotId = to;
@@ -200,10 +223,7 @@ namespace DivineMonad.Tools
                     await context.SaveChangesAsync();
                 }
             }
-            catch (DbUpdateConcurrencyException)
-            {
-                throw;
-            }
+            catch (DbUpdateConcurrencyException) { throw; }
 
             List<CharacterItems> returnCItems = new List<CharacterItems>{
                 cItemFrom,
@@ -211,14 +231,18 @@ namespace DivineMonad.Tools
             };
 
             return returnCItems;
-
         }
 
-        public (Character, CharacterItems) AssignRewards(RaportGenerator raport, Character character,
-            ApplicationDbContext context, ICharacterHelper characterHelper, IEnumerable<CharacterItems> characterItems)
+        public (Character, CharacterItems) AssignRewards(
+            RaportGenerator raport,
+            Character character,
+            ApplicationDbContext context,
+            ICharacterHelper characterHelper,
+            IEnumerable<CharacterItems> characterItems)
         {
             CharacterItems item = null;
             int surplusExp = 0;
+
             if (raport.Result.Equals("win"))
             {
                 character.GStats.CollectedGold += raport.Reward.Gold;
@@ -227,17 +251,23 @@ namespace DivineMonad.Tools
 
                 character.CBStats.Experience += raport.Reward.Experience;
                 character.CBStats.Gold += raport.Reward.Gold;
-                surplusExp = character.CBStats.Experience - characterHelper.RequiredExperience(character.CBStats.Level);
+                surplusExp = character.CBStats.Experience -
+                    characterHelper.RequiredExperience(character.CBStats.Level);
+
                 if (surplusExp >= 0)
                 {
                     character.CBStats.Level += 1;
                     character.CBStats.StatsPoints += 10;
                     character.CBStats.Experience = surplusExp;
-                    if (character.CBStats.Level % 10 == 0) character.CBStats.BpSlots += 6;
+                    if (character.CBStats.Level % 10 == 0)
+                        character.CBStats.BpSlots += 6;
                 }
+
                 if (raport.Reward.ItemID != -1)
                 {
-                    var newItemSlotId = characterHelper.GetFirstEmptySlot(character, characterItems);
+                    var newItemSlotId = characterHelper
+                        .GetFirstEmptySlot(character, characterItems);
+
                     if (newItemSlotId != -1)
                     {
                         item = new CharacterItems
@@ -249,14 +279,20 @@ namespace DivineMonad.Tools
                         };
                     }
 
-                    if (raport.Reward.ItemRarity.Equals("normal")) character.GStats.LootedNormal += 1;
-                    else if (raport.Reward.ItemRarity.Equals("unique")) character.GStats.LootedUnique += 1;
-                    else if (raport.Reward.ItemRarity.Equals("heroic")) character.GStats.LootedHeroic += 1;
-                    else if (raport.Reward.ItemRarity.Equals("legendary")) character.GStats.LootedLegendary += 1;
+                    if (raport.Reward.ItemRarity.Equals("normal"))
+                        character.GStats.LootedNormal += 1;
+                    else if (raport.Reward.ItemRarity.Equals("unique"))
+                        character.GStats.LootedUnique += 1;
+                    else if (raport.Reward.ItemRarity.Equals("heroic"))
+                        character.GStats.LootedHeroic += 1;
+                    else if (raport.Reward.ItemRarity.Equals("legendary"))
+                        character.GStats.LootedLegendary += 1;
                 }
             }
-            else if (raport.Result.Equals("draw")) character.GStats.DrawFights += 1;
-            else if (raport.Result.Equals("lose")) character.GStats.LostFights += 1;
+            else if (raport.Result.Equals("draw"))
+                character.GStats.DrawFights += 1;
+            else if (raport.Result.Equals("lose"))
+                character.GStats.LostFights += 1;
 
             return (character, item);
         }

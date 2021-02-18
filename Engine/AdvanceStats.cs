@@ -119,11 +119,13 @@ namespace DivineMonad.Engine
             Armor = (int)Math.Round(Math.Pow(Stamina / 2, 1.2), MidpointRounding.ToEven);
             Block = (int)Math.Round(Math.Pow(Strength / 2, 1.2), MidpointRounding.ToEven);
             Dodge = (int)Math.Round((Math.Pow(Agility, 1.2)), MidpointRounding.ToEven);
-            Speed = (int)Math.Round((Math.Pow(Agility, 1.2) / 5) + (int)(Math.Pow(Dexterity, 1.2) / 5), MidpointRounding.ToEven);
+            Speed = (int)Math.Round((Math.Pow(Agility, 1.2) / 5) + (int)(Math.Pow(Dexterity, 1.2) / 5),
+                MidpointRounding.ToEven);
             CritChance = (int)Math.Round(Math.Pow(Luck, 1.2), MidpointRounding.ToEven);
             Accuracy = (int)Math.Round(Math.Pow(Dexterity, 1.2), MidpointRounding.ToEven);
             Attack = (int)Math.Round(Math.Pow(Strength, 1.2), MidpointRounding.ToEven);
-            AttackMin = (int)Math.Round(((0.8 + Math.Sqrt(Accuracy) / 100) * Attack), MidpointRounding.ToEven);
+            AttackMin = (int)Math.Round(((0.8 + Math.Sqrt(Accuracy) / 100) * Attack),
+                MidpointRounding.ToEven);
             AttackMax = (int)Math.Round((1.1 * Attack), MidpointRounding.ToEven);
         }
 

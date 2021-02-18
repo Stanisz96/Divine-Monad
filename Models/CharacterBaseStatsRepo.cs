@@ -14,11 +14,11 @@ namespace DivineMonad.Models
             _context = context;
         }
 
-        public IEnumerable<CharacterBaseStats> AllChatactersBaseStats => _context.CharactersBaseStats;
+        public IEnumerable<CharacterBaseStats> AllChatactersBaseStats =>
+            _context.CharactersBaseStats;
 
-        public async Task<CharacterBaseStats> GetStatsById(int id)
-        {
-            return await _context.CharactersBaseStats.FirstOrDefaultAsync(i => i.ID == id);
-        }
+        public async Task<CharacterBaseStats> GetStatsById(int id) => 
+            await _context.CharactersBaseStats
+                .FirstOrDefaultAsync(i => i.ID == id);
     }
 }
